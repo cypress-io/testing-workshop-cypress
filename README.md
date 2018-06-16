@@ -7,3 +7,7 @@ Example code and tests taken from https://github.com/cypress-io/cypress-example-
 ## Application
 
 Vue.js + Vuex + REST server application we are going to test is in folder `todomvc`
+
+## Slides
+
+[https://gitpitch.com/bahmutov/testing-workshop-cypress](https://gitpitch.com/bahmutov/testing-workshop-cypress)
