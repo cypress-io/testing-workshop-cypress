@@ -18,6 +18,12 @@
   },
   "homepage": "https://github.com/bahmutov/testing-workshop-cypress#readme",
   "devDependencies": {
-    "cypress": "3.0.1"
+    "cypress": "3.0.1",
+    "prettier": "1.13.5",
+    "standard": "11.0.1"
+  },
+  "dependencies": {
+    "json-server": "0.14.0",
+    "json-server-reset": "1.0.0"
   }
 }
