@@ -31,13 +31,19 @@ Let us look at the application.
 
 +++
 
+It is a regular TodoMVC application.
+
 ![TodoMVC](todomvc/img/todomvc.png)
 
 +++
 
+If you have Vue DevTools plugin
+
 ![With Vue DevTools](todomvc/img/vue-devtools.png)
 
 +++
+
+Look at XHR when using the app
 
 ![Network](todomvc/img/network.png)
 
