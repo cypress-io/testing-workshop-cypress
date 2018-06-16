@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "Testing Vue + Vuex + REST TodoMVC using Cypress",
   "scripts": {
-    "start": "../node_modules/.bin/json-server --static . data.json --middlewares ../node_modules/json-server-reset",
+    "start": "json-server --static . data.json --middlewares ./node_modules/json-server-reset",
     "reset:db": "node reset-db.js"
+  },
+  "dependencies": {
+    "json-server": "0.14.0",
+    "json-server-reset": "1.0.0"
   }
 }
