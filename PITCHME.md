@@ -36,3 +36,19 @@ Let us look at the application.
 +++
 
 ![With Vue DevTools](todomvc/img/vue-devtools.png)
+
++++
+
+![Network](todomvc/img/network.png)
+
++++
+
+Look at `index.html`
+
+![DOM](todomvc/img/DOM.png)
+
++++
+
+Look at `app.js`
+
+![Application](todomvc/img/app.png)

@@ -1,10 +1,7 @@
 /* global Vue, Vuex, axios, FileReader, window, Promise */
 /* eslint-disable no-console */
-(function () {
+;(function () {
   Vue.use(Vuex)
-  if (window['bootstrap-vue']) {
-    Vue.use(window['bootstrap-vue'])
-  }
 
   function randomId () {
     return Math.random().toString().substr(2, 10)
@@ -14,11 +11,11 @@
     state: {
       loading: true,
       todos: [],
-      newTodo: '',
+      newTodo: ''
     },
     getters: {
-      newTodo: (state) => state.newTodo,
-      todos: (state) => state.todos,
+      newTodo: state => state.newTodo,
+      todos: state => state.todos
     },
     mutations: {
       SET_LOADING (state, flag) {
@@ -41,12 +38,12 @@
       CLEAR_NEW_TODO (state) {
         state.newTodo = ''
         console.log('clearing new todo')
-      },
+      }
     },
     actions: {
       loadTodos ({ commit }) {
         commit('SET_LOADING', true)
-        axios.get('/todos').then((r) => r.data).then((todos) => {
+        axios.get('/todos').then(r => r.data).then(todos => {
           console.log('got %d todos', todos.length)
           commit('SET_TODOS', todos)
           commit('SET_LOADING', false)
@@ -70,7 +67,7 @@
         const todo = {
           title: state.newTodo,
           completed: false,
-          id: randomId(),
+          id: randomId()
         }
         axios.post('/todos', todo).then(() => {
           commit('ADD_TODO', todo)
@@ -87,26 +84,26 @@
       },
       // example promise-returning action
       addTodoAfterDelay ({ commit }, { milliseconds, title }) {
-        return new Promise((resolve) => {
+        return new Promise(resolve => {
           setTimeout(() => {
             const todo = {
               title,
               completed: false,
-              id: randomId(),
+              id: randomId()
             }
             commit('ADD_TODO', todo)
             resolve()
           }, milliseconds)
         })
-      },
-    },
+      }
+    }
   })
 
   // app Vue instance
   const app = new Vue({
     store,
     data: {
-      file: null,
+      file: null
     },
     el: '.todoapp',
 
@@ -122,7 +119,7 @@
       },
       todos () {
         return this.$store.getters.todos
-      },
+      }
     },
 
     // methods that implement data logic.
@@ -141,7 +138,7 @@
       removeTodo (todo) {
         this.$store.dispatch('removeTodo', todo)
       }
-    },
+    }
   })
 
   window.app = app
