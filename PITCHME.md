@@ -20,10 +20,19 @@
 
 ---
 
-## `01-start`
+## `todomvc`
 
 Let us look at the application.
 
+- `cd todomvc`
 - `npm install`
 - `npm start`
 - `open localhost:3000`
+
++++
+
+![TodoMVC](todomvc/img/todomvc.png)
+
++++
+
+![With Vue DevTools](todomvc/img/vue-devtools.png)
