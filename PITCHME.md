@@ -58,3 +58,41 @@ Look at `index.html`
 Look at `app.js`
 
 ![Application](todomvc/img/app.png)
+
++++
+
+## Questions
+
+- what happens when you add a new Todo item?
+- how does it get to the server?
+- where does the server save it?
+- what happens on start up?
+
+---
+
+## Start testing
+
+- `cd 00-start`
+- install Cypress with `npm i -D cypress`
+- open Cypress with `npm run cy:open`
+
++++
+
+Look at the scaffolded example test files (specs).
+
+Delete them.
+
++++
+
+## First spec
+
+- `cypress/integration/spec.js`
+
++++
+
+```javascript
+/// <reference types="cypress" />
+it('loads', () => {
+  cy.visit('localhost:3000')
+})
+```
