@@ -6,6 +6,13 @@
 
 +++
 
+## Questions
+
+- where is Cypress installed?
+- what should be cached on CI server?
+
++++
+
 Look at the scaffolded example test files (specs).
 
 Delete them.
