@@ -41,6 +41,8 @@ it.only('adds two items', () => {
 - how to make arbitrary XHR request from Cypress?
 - reset the database before each test
 
++++
+
 ## Best practices
 
 - reset state before each test
