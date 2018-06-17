@@ -10,4 +10,10 @@ Vue.js + Vuex + REST server application we are going to test is in folder `todom
 
 ## Slides
 
-[https://gitpitch.com/bahmutov/testing-workshop-cypress](https://gitpitch.com/bahmutov/testing-workshop-cypress)
+[https://gitpitch.com/bahmutov/testing-workshop-cypress](https://gitpitch.com/bahmutov/testing-workshop-cypress) with source in [PITCHME.md](PITCHME.md) presented using [GitPitch](https://gitpitch.com/)
+
+## Content
+
+- [x] introduction
+- [x] TodoMVC application
+- [x] test loading page
