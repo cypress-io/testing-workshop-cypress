@@ -47,3 +47,4 @@ it.only('adds two items', () => {
 
 - reset state before each test
   - in our [Best practices guide](https://on.cypress.io/best-practices)
+- use [`cy.request`](https://on.cypress.io/request), [`cy.exec`](https://on.cypress.io/exec), [`cy.task`](https://on.cypress.io/task)
