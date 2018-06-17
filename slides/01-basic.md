@@ -23,6 +23,8 @@ it('loads', () => {
 
 - what happens when you execute `npm run cy:run` or `npx cypress run`?
 
++++
+
 ## Questions 2/2
 
 - where are the docs for `cy.contains` command?
