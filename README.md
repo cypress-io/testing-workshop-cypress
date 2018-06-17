@@ -21,5 +21,6 @@ Vue.js + Vuex + REST server application we are going to test is in folder `todom
 - [x] adding items test
 - [x] `cypress.json` file
 - [x] selector playground
-- [ ] reset database using `cy.request`
+- [x] reset database using `cy.request`
+- [x] spy and stub XHR requests
 - [ ] setting up E2E tests on CI

@@ -9,6 +9,20 @@
 
 ---
 
+## What we are going to cover
+
+As long as ⏳ permits
+
+- example TodoMVC
+  - web app, data store, REST calls
+- basic page load test
+- Cypress commands
+- selector playground
+- resetting state
+- XHR spying and stubbing
+
+---
+
 ## Repo organization
 
 - `/todomvc` is a web application we are going to test

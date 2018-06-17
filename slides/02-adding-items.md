@@ -30,3 +30,10 @@
 - make a helper function to add todo item
 
 **tip** it is just JavaScript
+
++++
+
+## Pro tips
+
+- resize the viewport in `cypress.json`
+- set up IntelliSense in `cypress.json` using [https://on.cypress.io/intelligent-code-completion](https://on.cypress.io/intelligent-code-completion)

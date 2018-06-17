@@ -17,6 +17,7 @@ It can suggest a weird selector
 
 - read [best-practices.html#Selecting-Elements](https://docs.cypress.io/guides/references/best-practices.html#Selecting-Elements)
 - add test data ids to `todomvc/index.html` DOM markup
+- use new selectors to write `cypress/integration/spec.js`
 
 +++
 
