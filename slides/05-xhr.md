@@ -44,3 +44,33 @@ it('starts with zero items', () => {
 ```
 
 ![Waiting works](05-xhr/img/waiting.png)
+
++++
+
+## Todo
+
+**better** to wait on a specific XHR request
+
+- start Cypress mock server with `cy.server`
+  - should we start mock server _before_ or _after_ `cy.visit`?
+- spy on specific route with `cy.route`
+- save as an alias
+- wait on the XHR alias
+  - then check the DOM
+
++++
+
+## Tips
+
+- [`cy.server`](https://on.cypress.io/server)
+- [`cy.route`]('https://on.cypress.io/route)
+- [Network requests guide](https://on.cypress.io/network-requests)
+
++++
+
+## Todo
+
+- wait for the XHR alias
+- its response body should be an empty array
+
+![Checking response body](05-xhr/img/response-body.png)
