@@ -19,7 +19,8 @@ As long as ⏳ permits
 - Cypress commands
 - selector playground
 - resetting state
-- XHR spying and stubbing
+- XHR spying and stubbing, fixtures
+- setting up CI
 
 ---
 
@@ -80,4 +81,4 @@ Look at `app.js`
 
 +++
 
-![App organization](todomvc/img/app.png)
+![App organization](todomvc/img/vue-vuex-rest.png)
