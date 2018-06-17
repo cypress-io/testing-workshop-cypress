@@ -74,3 +74,23 @@ it('starts with zero items', () => {
 - its response body should be an empty array
 
 ![Checking response body](05-xhr/img/response-body.png)
+
++++
+
+## Stub network call
+
+- instead of just spying on XHR call, let's return some mock data
+
+```javascript
+// returns an empty list
+// when `GET /todos` is requested
+cy.route('GET', '/todos', [])
+```
+
++++
+
+## Questions
+
+- read about [`cy.fixture`](http://on.cypress.io/fixture) command
+- mock `GET /todos` route using data loaded from a fixture
+- mock `GET /todos` using `fixture:empty-list` shortcut

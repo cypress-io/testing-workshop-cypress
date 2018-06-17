@@ -21,3 +21,35 @@ it('starts with zero items', () => {
   // then check the DOM
   cy.get('li.todo').should('have.length', 0)
 })
+
+it('starts with zero items (stubbed response)', () => {
+  // start Cypress network server
+  // spy on route `GET /todos`
+  // THEN visit the page
+  cy.server()
+  cy.route('GET', '/todos', []).as('todos')
+  cy.visit('/')
+  cy
+    .wait('@todos') // wait for `GET /todos` response
+    // inspect the server's response
+    .its('response.body')
+    .should('have.length', 0)
+  // then check the DOM
+  cy.get('li.todo').should('have.length', 0)
+})
+
+it('starts with zero items (fixture)', () => {
+  // start Cypress network server
+  // spy on route `GET /todos`
+  // THEN visit the page
+  cy.server()
+  cy.route('GET', '/todos', 'fixture:empty-list').as('todos')
+  cy.visit('/')
+  cy
+    .wait('@todos') // wait for `GET /todos` response
+    // inspect the server's response
+    .its('response.body')
+    .should('have.length', 0)
+  // then check the DOM
+  cy.get('li.todo').should('have.length', 0)
+})
