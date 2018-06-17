@@ -21,7 +21,7 @@
 
 - move the url into `cypress.json`
 
-**tip** look at [http://on.cypress.io/configuration](http://on.cypress.io/configuration)
+**tip** look at [https://on.cypress.io/configuration](https://on.cypress.io/configuration)
 
 +++
 

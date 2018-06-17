@@ -63,3 +63,7 @@ Look at `app.js`
 - how does it get to the server?
 - where does the server save it?
 - what happens on start up?
+
++++
+
+![App organization](todomvc/img/app.png)

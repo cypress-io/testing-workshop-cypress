@@ -6,3 +6,4 @@ Repo: [bahmutov/testing-workshop-cypress](https://github.com/bahmutov/testing-wo
 ---?include=slides/00-start.md
 ---?include=slides/01-basic.md
 ---?include=slides/02-adding-items.md
+---?include=slides/03-selector-playground.md

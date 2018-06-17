@@ -17,7 +17,9 @@ Vue.js + Vuex + REST server application we are going to test is in folder `todom
 - [x] introduction
 - [x] TodoMVC application
 - [x] loading page
-- [ ] adding items test
-- [ ] `cypress.json` file
-- [ ] `cypress open` vs `cypress run`
+- [x] `cypress open` vs `cypress run`
+- [x] adding items test
+- [x] `cypress.json` file
+- [x] selector playground
+- [ ] reset database using `cy.request`
 - [ ] setting up E2E tests on CI
