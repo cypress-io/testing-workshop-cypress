@@ -12,18 +12,12 @@ jobs:
     steps:
       - checkout
 
-      # Download and cache dependencies
+      # Download and cache dependencies for the app and for tests
       - restore_cache:
           keys:
-          - todomvc-dependencies-{{ checksum "todomvc/package.json" }}
+          - dependencies-{{ checksum "todomvc/package.json" }}-{{ checksum "07-ci/package.json" }}
           # fallback to using the latest cache if no exact match is found
-          - todomvc-dependencies-
-
-      - restore_cache:
-          keys:
-          - test-dependencies-{{ checksum "07-ci/package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - test-dependencies-
+          - dependencies-
 
       # Install NPM dependencies quickly
       - run:
@@ -40,12 +34,6 @@ jobs:
           paths:
             # all NPM modules
             - ~/.npm
-          key: todomvc-dependencies-{{ checksum "todomvc/package.json" }}
-
-      - save_cache:
-          paths:
-            # all NPM modules
-            - ~/.npm
-            # Cypress binary
+            # Cypress binary (or yarn dependencies)
             - ~/.cache
-          key: test-dependencies-{{ checksum "07-ci/package.json" }}
+          key: dependencies-{{ checksum "todomvc/package.json" }}-{{ checksum "07-ci/package.json" }}
