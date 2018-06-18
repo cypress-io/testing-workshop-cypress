@@ -53,3 +53,25 @@ it('starts with zero items (fixture)', () => {
   // then check the DOM
   cy.get('li.todo').should('have.length', 0)
 })
+
+it('posts new item to the server', () => {
+  cy.server()
+  cy.route('POST', '/todos').as('new-item')
+  cy.visit('/')
+  cy.get('.new-todo').type('test api{enter}')
+  cy.wait('@new-item').its('request.body').should('have.contain', {
+    title: 'test api',
+    completed: false
+  })
+})
+
+it('posts new item to the server response', () => {
+  cy.server()
+  cy.route('POST', '/todos').as('new-item')
+  cy.visit('/')
+  cy.get('.new-todo').type('test api{enter}')
+  cy.wait('@new-item').its('response.body').should('have.contain', {
+    title: 'test api',
+    completed: false
+  })
+})

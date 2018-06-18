@@ -6,8 +6,9 @@
   - type some text
   - type special "Enter" key
   - check that has been added to the list
+  - delete the new item
 
-**tip** use `cy.get` and `cy.type` commands
+**tip** use `cy.get`, `cy.type`, `cy.contains`, `cy.click`
 
 +++
 

@@ -94,3 +94,22 @@ cy.route('GET', '/todos', [])
 - read about [`cy.fixture`](http://on.cypress.io/fixture) command
 - mock `GET /todos` route using data loaded from a fixture
 - mock `GET /todos` using `fixture:empty-list` shortcut
+- write a test that confirms that the app shows correctly completed and unfinished items
+
+## Spying on adding an item XHR
+
+When you add an item through the DOM, the app makes `POST` XHR call.
+
+![Post new item](05-xhr/img/post-item.png)
+
+## Todo 1/2
+
+- write a test that confirms that new item is posted to the server
+
+![Post new item](05-xhr/img/post-item.png)
+
+## Todo 2/2
+
+- write a test that confirms that RESPONSE when a new item is posted to the server
+
+![Post new item response](05-xhr/img/post-item-response.png)
