@@ -30,6 +30,17 @@ jobs:
           command: npm ci
           working_directory: 07-ci
 
+      - run:
+          name: Start TodoMVC server
+          command: npm start
+          working_directory: todomvc
+          background: true
+
+      - run:
+          name: Run Cypress tests
+          command: npm test
+          working_directory: 07-ci
+
       - save_cache:
           paths:
             # all NPM modules
