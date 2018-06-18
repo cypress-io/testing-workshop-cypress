@@ -96,17 +96,23 @@ cy.route('GET', '/todos', [])
 - mock `GET /todos` using `fixture:empty-list` shortcut
 - write a test that confirms that the app shows correctly completed and unfinished items
 
++++
+
 ## Spying on adding an item XHR
 
 When you add an item through the DOM, the app makes `POST` XHR call.
 
 ![Post new item](05-xhr/img/post-item.png)
 
++++
+
 ## Todo 1/2
 
 - write a test that confirms that new item is posted to the server
 
 ![Post new item](05-xhr/img/post-item.png)
+
++++
 
 ## Todo 2/2
 

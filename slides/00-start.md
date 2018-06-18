@@ -48,6 +48,19 @@ Your best friend is [https://docs.cypress.io/](https://docs.cypress.io/)
 
 +++
 
+## Questions (find each doc)
+
+- Cypress main features and how it works docs
+- core concepts
+- command API
+- examples
+  - recipes
+  - tutorial videos
+  - example applications
+  - blogs
+
++++
+
 ## IntelliSense
 
 ![IntelliSense in VSCode](https://docs.cypress.io/img/snippets/intellisense-setup.a748a413.mp4)
