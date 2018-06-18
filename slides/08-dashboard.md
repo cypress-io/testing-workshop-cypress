@@ -8,7 +8,7 @@
 
 ## Cypress dashboard
 
-![Cypress dashboard](img/dashboard)
+![Cypress dashboard](img/dashboard.gif)
 
 +++
 
