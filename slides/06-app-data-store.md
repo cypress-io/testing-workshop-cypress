@@ -24,6 +24,18 @@
 
 +++
 
+## Iframed contexts
+
+![Contexts](06-app-data-store/img/contexts.png)
+
++++
+
+## Application under test
+
+![Application under test](06-app-data-store/img/app-in-window.png)
+
++++
+
 ## Stub application's random generator
 
 - get the application's context using `cy.window`
