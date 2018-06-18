@@ -11,3 +11,4 @@ Slides: [https://gitpitch.com/bahmutov/testing-workshop-cypress](https://gitpitc
 ---?include=slides/03-selector-playground.md
 ---?include=slides/04-reset-state.md
 ---?include=slides/05-xhr.md
+---?include=slides/06-app-data-store.md

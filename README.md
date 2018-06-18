@@ -23,6 +23,6 @@ Vue.js + Vuex + REST server application we are going to test is in folder `todom
 - [x] selector playground
 - [x] reset database using `cy.request`
 - [x] spy and stub XHR requests, fixtures
-- [ ] stubbing JavaScript function
-- [ ] observing application's data store
+- [x] stubbing JavaScript function
+- [x] observing application's data store
 - [ ] setting up E2E tests on CI
