@@ -19,11 +19,28 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - todomvc-dependencies-
 
+      - restore_cache:
+          keys:
+          - test-dependencies-{{ checksum "07-ci/package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - test-dependencies-
+
       # Install NPM dependencies quickly
       - run:
           name: Install TodoMVC dependencies
           command: npm ci
           working_directory: todomvc
+
+      - run:
+          name: Install Cypress dependencies
+          command: npm ci
+          working_directory: 07-ci
+
+      - save_cache:
+          paths:
+            # all NPM modules
+            - ~/.npm
+          key: todomvc-dependencies-{{ checksum "todomvc/package.json" }}
 
       - save_cache:
           paths:
@@ -31,4 +48,4 @@ jobs:
             - ~/.npm
             # Cypress binary
             - ~/.cache
-          key: todomvc-dependencies-{{ checksum "todomvc/package.json" }}
+          key: test-dependencies-{{ checksum "07-ci/package.json" }}
