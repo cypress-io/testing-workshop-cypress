@@ -58,6 +58,7 @@ Your best friend is [https://docs.cypress.io/](https://docs.cypress.io/)
   - tutorial videos
   - example applications
   - blogs
+- Cypress changelog
 
 +++
 
