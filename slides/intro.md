@@ -20,7 +20,7 @@ As long as ⏳ permits
 - selector playground
 - resetting state
 - XHR spying and stubbing, fixtures
-- setting up CI
+- setting up CI and Cypress dashboard
 
 ---
 
