@@ -26,4 +26,5 @@ Vue.js + Vuex + REST server application we are going to test is in folder `todom
 - [x] stubbing JavaScript function
 - [x] observing application's data store
 - [x] setting up E2E tests on CI
-- [ ] setting up Cypress dashboard
+- [x] setting up Cypress dashboard
+- [ ] the end

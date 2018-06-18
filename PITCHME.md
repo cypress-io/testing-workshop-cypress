@@ -21,3 +21,5 @@ Slides: [https://gitpitch.com/bahmutov/testing-workshop-cypress](https://gitpitc
 ---?include=slides/06-app-data-store.md
 
 ---?include=slides/07-ci.md
+
+---?include=slides/end.md
