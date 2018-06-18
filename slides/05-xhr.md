@@ -119,3 +119,9 @@ When you add an item through the DOM, the app makes `POST` XHR call.
 - write a test that confirms that RESPONSE when a new item is posted to the server
 
 ![Post new item response](05-xhr/img/post-item-response.png)
+
++++
+
+## Bonus
+
+Network requests guide at [https://on.cypress.io/network-requests](https://on.cypress.io/network-requests)

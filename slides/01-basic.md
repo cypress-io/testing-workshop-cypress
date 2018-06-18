@@ -31,3 +31,10 @@ it('loads', () => {
 - why is the command failing?
   - **hint**: use DevTools
 - can you fix this?
+
++++
+
+## Bonus
+
+- video recording [https://on.cypress.io/configuration#Videos](https://on.cypress.io/configuration#Videos)
+- `cy.screenshot` command

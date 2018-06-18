@@ -38,3 +38,50 @@
 
 - resize the viewport in `cypress.json`
 - set up IntelliSense in `cypress.json` using [https://on.cypress.io/intelligent-code-completion](https://on.cypress.io/intelligent-code-completion)
+
++++
+
+## Bonus
+
+Unit tests vs end-to-end tests
+
+### Unit tests
+
+```javascript
+import add from './add'
+test('add', () => {
+  expect(add(2, 3)).toBe(5)
+})
+```
+
+- arrange - action - assertion
+
++++
+
+### End-to-end tests
+
+```javascript
+it('adds two and deletes first', () => {
+  enterTodo('first item')
+  enterTodo('second item')
+
+  getTodoItems()
+    .contains('first item')
+    .parent()
+    .find('.destroy')
+    // because it only becomes visible on hover
+    .click({ force: true })
+
+  cy.contains('first item').should('not.exist')
+  cy.contains('second item').should('exist')
+  getTodoItems().should('have.length', 1)
+})
+```
+
+- **tip** check out `cy.pause` command
+
++++
+
+### Bonus
+
+- Core concepts [https://on.cypress.io/writing-and-organizing-tests](https://on.cypress.io/writing-and-organizing-tests)

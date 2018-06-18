@@ -36,16 +36,16 @@
 ## Confirm spy's behavior
 
 - write a test that adds 2 items
-- name spy with an alias `cy.spy(...).as('name')
+- name spy with an alias `cy.spy(...).as('name')`
 - get the spy using the alias and confirm it was called twice
 
 +++
 
 ## Application data store
 
-- inspect in DevTools `window.app` variable
+- inspect in DevTools 'window.app' variable
 - can you find the items in the data store as they are added?
-  - **hint** you might need `JSON.parse(JSON.stringify(...))` to get a "simple" object
+  - **hint** you might need 'JSON.parse(JSON.stringify(...))' to get a "simple" object
 
 +++
 
