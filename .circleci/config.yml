@@ -2,6 +2,8 @@
 # for config.yml syntax see https://circleci.com/docs/2.0/configuration-reference/
 version: 2
 jobs:
+  # starts the app in the background
+  # then runs the tests in a separate command
   build:
     docker:
       # find Docker image at https://github.com/cypress-io/cypress-docker-images
@@ -36,9 +38,46 @@ jobs:
           working_directory: todomvc
           background: true
 
+      - save_cache:
+          paths:
+            # all NPM modules
+            - ~/.npm
+            # Cypress binary (or yarn dependencies)
+            - ~/.cache
+          key: dependencies-{{ checksum "todomvc/package.json" }}-{{ checksum "07-ci/package.json" }}
+
       - run:
           name: Run Cypress tests
           command: npm test
+          working_directory: 07-ci
+
+  # starts the app and runs tests using start-server-and-test
+  single-command:
+    docker:
+      # find Docker image at https://github.com/cypress-io/cypress-docker-images
+      - image: cypress/base:8
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies for the app and for tests
+      - restore_cache:
+          keys:
+          - dependencies-{{ checksum "todomvc/package.json" }}-{{ checksum "07-ci/package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - dependencies-
+
+      # Install NPM dependencies quickly
+      - run:
+          name: Install TodoMVC dependencies
+          command: npm ci
+          working_directory: todomvc
+
+      - run:
+          name: Install Cypress dependencies
+          command: npm ci
           working_directory: 07-ci
 
       - save_cache:
@@ -48,3 +87,15 @@ jobs:
             # Cypress binary (or yarn dependencies)
             - ~/.cache
           key: dependencies-{{ checksum "todomvc/package.json" }}-{{ checksum "07-ci/package.json" }}
+
+      - run:
+          name: Start and test
+          command: npm run ci
+          working_directory: 07-ci
+
+workflows:
+  version: 2
+  tests:
+    jobs:
+      - build
+      - single-command
