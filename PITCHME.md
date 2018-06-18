@@ -22,4 +22,6 @@ Slides: [https://gitpitch.com/bahmutov/testing-workshop-cypress](https://gitpitc
 
 ---?include=slides/07-ci.md
 
+---?include=slides/08-dashboard.md
+
 ---?include=slides/end.md
