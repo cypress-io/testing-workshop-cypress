@@ -32,6 +32,8 @@ it('loads', () => {
   - **hint**: use DevTools
 - can you fix this?
 
++++
+
 ## Questions 3/3
 
 - do you see the command retrying (blue spinner)?
@@ -43,3 +45,9 @@ it('loads', () => {
 
 - video recording [https://on.cypress.io/configuration#Videos](https://on.cypress.io/configuration#Videos)
 - `cy.screenshot` command
+
++++
+
+## What kind of tests?
+
+- discussion: what would you test in the TodoMVC app?
