@@ -53,6 +53,7 @@ Your best friend is [https://docs.cypress.io/](https://docs.cypress.io/)
 - Cypress main features and how it works docs
 - core concepts
 - command API
+  - how many commands are there?
 - examples
   - recipes
   - tutorial videos

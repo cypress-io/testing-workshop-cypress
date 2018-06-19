@@ -19,18 +19,23 @@ it('loads', () => {
 
 +++
 
-## Questions 1/2
+## Questions 1/3
 
 - what happens when you execute `npm run cy:run` or `npx cypress run`?
 
 +++
 
-## Questions 2/2
+## Questions 2/3
 
 - where are the docs for `cy.contains` command?
 - why is the command failing?
   - **hint**: use DevTools
 - can you fix this?
+
+## Questions 3/3
+
+- do you see the command retrying (blue spinner)?
+- use `timeout` option to force the command to try for longer
 
 +++
 

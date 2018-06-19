@@ -13,6 +13,7 @@
 
 - random data in tests makes it very hard
 - UUIDs, dates, etc
+- Cypress includes XHR and method stubbing using [http://sinonjs.org/](http://sinonjs.org/)
 - [https://on.cypress.io/stubs-spies-and-clocks](https://on.cypress.io/stubs-spies-and-clocks)
 
 +++
