@@ -16,7 +16,6 @@ As long as ⏳ permits
 - example TodoMVC
   - web app, data store, REST calls
 - basic page load test
-- Cypress commands
 - selector playground
 - resetting state
 - XHR spying and stubbing, fixtures
