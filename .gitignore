@@ -1,2 +1,3 @@
 node_modules/
-07-ci/cypress/videos
+*/cypress/videos
+*/cypress/screenshots

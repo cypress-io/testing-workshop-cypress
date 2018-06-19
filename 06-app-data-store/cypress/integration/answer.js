@@ -38,7 +38,7 @@ it('creates an item with id 1', () => {
 it('calls spy twice', () => {
   addItem('something')
   addItem('else')
-  cy.get('@random').should('have.been.be.calledTwice')
+  cy.get('@random').should('have.been.calledTwice')
 })
 
 it('puts todos in the store', () => {
