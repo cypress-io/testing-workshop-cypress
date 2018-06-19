@@ -1,1 +1,3 @@
-{}
+{
+  "ignoreTestFiles": "answer.js"
+}
