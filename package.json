@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bahmutov/testing-workshop-cypress.git"
+    "url": "git+https://github.com/cypress-io/testing-workshop-cypress.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/bahmutov/testing-workshop-cypress/issues"
+    "url": "https://github.com/cypress-io/testing-workshop-cypress/issues"
   },
-  "homepage": "https://github.com/bahmutov/testing-workshop-cypress#readme",
+  "homepage": "https://github.com/cypress-io/testing-workshop-cypress#readme",
   "devDependencies": {
     "prettier": "1.13.5",
     "standard": "11.0.1"

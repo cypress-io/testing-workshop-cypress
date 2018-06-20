@@ -10,9 +10,9 @@ Vue.js + Vuex + REST server application we are going to test is in folder `todom
 
 ## Slides
 
-[https://gitpitch.com/bahmutov/testing-workshop-cypress][presentation] with the starting file in [PITCHME.md](PITCHME.md) presented using [GitPitch](https://gitpitch.com/). The pitch file includes files from the [slides](slides) folder. Students should open the [presentation slides][presentation] and follow along.
+[https://gitpitch.com/cypress-io/testing-workshop-cypress][presentation] with the starting file in [PITCHME.md](PITCHME.md) presented using [GitPitch](https://gitpitch.com/). The pitch file includes files from the [slides](slides) folder. Students should open the [presentation slides][presentation] and follow along.
 
-[presentation]: https://gitpitch.com/bahmutov/testing-workshop-cypress
+[presentation]: https://gitpitch.com/cypress-io/testing-workshop-cypress
 
 ## Content
 

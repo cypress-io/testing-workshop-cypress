@@ -1,8 +1,8 @@
 # End-to-end testing with [Cypress.io](https://cypress.io)
 
-Repo: [bahmutov/testing-workshop-cypress](https://github.com/bahmutov/testing-workshop-cypress)
+Repo: [cypress-io/testing-workshop-cypress](https://github.com/cypress-io/testing-workshop-cypress)
 
-Slides: [https://gitpitch.com/bahmutov/testing-workshop-cypress](https://gitpitch.com/bahmutov/testing-workshop-cypress)
+Slides: [https://gitpitch.com/cypress-io/testing-workshop-cypress](https://gitpitch.com/cypress-io/testing-workshop-cypress)
 
 ---?include=slides/intro.md
 
