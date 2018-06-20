@@ -4,6 +4,9 @@
 - install Cypress with `npm i -D cypress`
 - open Cypress with `npm run cy:open`
 
+Note:
+This section shows how Cypress scaffolds its files and folders. Then the students can
+
 +++
 
 ## Questions
@@ -21,7 +24,28 @@ Delete them.
 
 ## First spec
 
+Create a new file
+
 - `cypress/integration/spec.js`
+
++++
+
+Type into the `spec.js`
+
+```javascript
+it('loads', () => {
+  cy.visit('localhost:3000')
+})
+```
+
++++
+
+Click on "spec.js" in Cypress GUI
+
+## Questions
+
+- what does Cypress do?
+- what happens when the server is down?
 
 +++
 
@@ -32,11 +56,10 @@ it('loads', () => {
 })
 ```
 
-## Questions
-
-- what does Cypress do?
-- what happens when the server is down?
 - why do we need `reference types ...` line?
+
+Note:
+By having "reference" line we tell editors that support it (VSCode, WebStorm) to use TypeScript definitions included in Cypress to provide intelligent code completion. Hovering over any `cy` command brings helpful tooltips.
 
 +++
 
@@ -60,6 +83,9 @@ Your best friend is [https://docs.cypress.io/](https://docs.cypress.io/)
   - example applications
   - blogs
 - Cypress changelog
+
+Note:
+Students should know where to find information later on. Main resources is the api page [https://on.cypress.io/api](https://on.cypress.io/api)
 
 +++
 
