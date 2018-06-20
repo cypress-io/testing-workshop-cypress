@@ -26,7 +26,10 @@ As long as ⏳ permits
 ## Repo organization
 
 - `/todomvc` is a web application we are going to test
-- `00-start`, `01-...` individual steps
+- `00-start`, `01-basic`, `02-adding-items`, `04-...` folders have individual steps
+
+Note:
+We are going to keep the app running, while switching from folder to folder for each part.
 
 ---
 

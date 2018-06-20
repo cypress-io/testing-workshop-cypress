@@ -34,4 +34,6 @@ Vue.js + Vuex + REST server application we are going to test is in folder `todom
 
 During a testing workshop in Boston I have covered this material in 3 hours (with 25 minute lunch break). Everyone worked or coded for the most part, except for CI and the Cypress dashboard sections, which I simply showed via slides and actual sites.
 
-During the workshop, keep `todomvc` app running in one shell, while each section `00-start`, `01-basic`, etc. has its own Cypress and specs. Usually a spec has several tests with placeholder comments. The workshop attendees are expected to make the tests pass using the knowledge from slides and hints (and Cypress documentation).
+During the workshop, keep `todomvc` app running in one shell, while each section `00-start`, `01-basic`, etc. has its own Cypress and specs. Usually a spec has several tests with placeholder comments. The workshop attendees are expected to make the tests pass using the knowledge from slides and hints (and Cypress documentation). Note that most folders have prepared `spec.js` file and `answer.js` file. The `answer.js` file is ignored by Cypress using a setting in `cypress.json`.
+
+The slides can be shown directly via the [presentation link][presentation] above. The Markdown files in [slides](slides) folder also has a little bit of speaker notes.

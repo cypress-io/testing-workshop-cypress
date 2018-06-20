@@ -16,6 +16,9 @@
 
 - visit the page before each test
 
+Note:
+Avoid duplicate `cy.visit('localhost:3000')` command at the start of each test.
+
 +++
 
 ## Refactor code 2/3
@@ -31,6 +34,9 @@
 - make a helper function to add todo item
 
 **tip** it is just JavaScript
+
+Note:
+Move `addItem` function into a separate file and import from the spec file. It is just JavaScript, and Cypress bundles each spec file, so utilities can have `cy...` commands too!
 
 +++
 
@@ -79,6 +85,9 @@ it('adds two and deletes first', () => {
 ```
 
 - **tip** check out `cy.pause` command
+
+Note:
+Revisit the discussion about what kind of tests one should write. E2E tests can cover a lot of features in a single test, and that is a recommended practice. If a test fails, it is easy to debug it, and see how the application looks during each step.
 
 +++
 
