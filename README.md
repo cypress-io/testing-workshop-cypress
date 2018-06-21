@@ -1,8 +1,6 @@
 # testing-workshop-cypress
 
-https://testeverything.app/
-
-Example code and tests taken from https://github.com/cypress-io/cypress-example-recipes
+> A 3-4 hour testing workshop complete with application, exercise tests and speaker slides
 
 ## Application
 
