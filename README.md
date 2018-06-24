@@ -2,6 +2,12 @@
 
 > A 3-4 hour testing workshop complete with application, exercise tests and speaker slides
 
+## Requirements
+
+- any computer: Mac, Windows, Linux
+- Node 6+
+- git
+
 ## Application
 
 Vue.js + Vuex + REST server application we are going to test is in folder `todomvc`. This application and its full testing was described in [this blog post](https://www.cypress.io/blog/2017/11/28/testing-vue-web-application-with-vuex-data-store-and-rest-backend/)
