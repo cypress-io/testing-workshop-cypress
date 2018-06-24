@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+// @ts-check
 it('loads', () => {
   cy.visit('localhost:3000')
   // this assertion fails on purpose

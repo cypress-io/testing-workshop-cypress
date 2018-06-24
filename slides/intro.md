@@ -7,7 +7,7 @@
 - gleb (at) cypress.io
 - [@bahmutov](https://twitter.com/bahmutov)
 
----
++++
 
 ## What we are going to cover
 
@@ -21,24 +21,36 @@ As long as ⏳ permits
 - XHR spying and stubbing, fixtures
 - setting up CI and Cypress dashboard
 
----
-
++++
 ## Repo organization
 
 - `/todomvc` is a web application we are going to test
-- `00-start`, `01-basic`, `02-adding-items`, `04-...` folders have individual steps
+- all tests are in `cypress/integration` folder
+  - there are subfolders for exercise `01-basic`, `02-adding-items`, `04-...`
 
 Note:
-We are going to keep the app running, while switching from folder to folder for each part.
+We are going to keep the app running, while switching from spec to spec for each part.
 
----
++++
+## Requirements
+
+You will need:
+
+- `git` to clone this repo
+- Node v6+ to install dependencies
+
+```text
+git clone <repo url>
+cd testing-workshop-cypress
+npm install
+```
++++
 
 ## `todomvc`
 
 Let us look at the application.
 
 - `cd todomvc`
-- `npm install`
 - `npm start`
 - `open localhost:3000`
 

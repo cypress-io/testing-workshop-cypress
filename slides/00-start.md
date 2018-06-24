@@ -1,18 +1,10 @@
 ## Start testing
 
 - `cd 00-start`
-- install Cypress with `npm i -D cypress`
 - open Cypress with `npm run cy:open`
 
 Note:
-This section shows how Cypress scaffolds its files and folders. Then the students can
-
-+++
-
-## Questions
-
-- where is Cypress installed?
-- what should be cached on CI server?
+This section shows how Cypress scaffolds its files and folders. Then the students can ignore this folder.
 
 +++
 
@@ -60,6 +52,23 @@ it('loads', () => {
 
 Note:
 By having "reference" line we tell editors that support it (VSCode, WebStorm) to use TypeScript definitions included in Cypress to provide intelligent code completion. Hovering over any `cy` command brings helpful tooltips.
+
++++
+
+Using `ts-check`
+
+```javascript
+/// <reference types="cypress" />
+// @ts-check
+it('loads', () => {
+  cy.visit('localhost:3000')
+})
+```
+
+- what happens if you add `ts-check` line and misspell `cy.visit`?
+
+Note:
+The check works really well in VSCode editor. I am not sure how well other editors support Cypress type checks right out of the box.
 
 +++
 
