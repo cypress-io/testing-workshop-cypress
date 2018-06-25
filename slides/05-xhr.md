@@ -1,6 +1,7 @@
 ## Spying / stubbing network calls
 
-- use `05-xhr`
+- keep `todomvc` app running
+- open `05-xhr/spec.js`
 - **note** stubbing `window.fetch` is NOT implemented yet, but will be [issue #687](https://github.com/cypress-io/cypress/issues/687)
 
 +++

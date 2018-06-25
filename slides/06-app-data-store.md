@@ -1,6 +1,7 @@
 ## Application data store
 
-- use `06-app-data-store`
+- keep `todomvc` app running
+- open `06-app-data-store/spec.js`
 - test that Vuex data store is working correctly
 
 +++
