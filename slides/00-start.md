@@ -57,6 +57,12 @@ By having "reference" line we tell editors that support it (VSCode, WebStorm) to
 
 +++
 
+## IntelliSense
+
+![IntelliSense in VSCode](https://docs.cypress.io/img/snippets/intellisense-setup.a748a413.mp4)
+
++++
+
 Using `ts-check`
 
 ```javascript
@@ -97,9 +103,3 @@ Your best friend is [https://docs.cypress.io/](https://docs.cypress.io/)
 
 Note:
 Students should know where to find information later on. Main resources is the api page [https://on.cypress.io/api](https://on.cypress.io/api)
-
-+++
-
-## IntelliSense
-
-![IntelliSense in VSCode](https://docs.cypress.io/img/snippets/intellisense-setup.a748a413.mp4)
