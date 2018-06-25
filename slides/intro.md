@@ -22,16 +22,24 @@ As long as ⏳ permits
 - setting up CI and Cypress dashboard
 
 +++
+
 ## Repo organization
 
 - `/todomvc` is a web application we are going to test
 - all tests are in `cypress/integration` folder
-  - there are subfolders for exercise `01-basic`, `02-adding-items`, `04-...`
+  - there are subfolders for exercises
+    - `01-basic`
+    - `02-adding-items`
+    - `03-selector-playground`
+    - `04-reset-state`
+    - etc
+- keep application `todomvc` running!
 
 Note:
 We are going to keep the app running, while switching from spec to spec for each part.
 
 +++
+
 ## Requirements
 
 You will need:
@@ -44,6 +52,7 @@ git clone <repo url>
 cd testing-workshop-cypress
 npm install
 ```
+
 +++
 
 ## `todomvc`
@@ -53,6 +62,8 @@ Let us look at the application.
 - `cd todomvc`
 - `npm start`
 - `open localhost:3000`
+
+**important** keep application running through the entire workshop!
 
 +++
 

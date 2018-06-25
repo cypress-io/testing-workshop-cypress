@@ -1,7 +1,8 @@
 ## Basic test
 
-- work in the folder `01-basic`
-- open `cypress/integration/spec.js`
+- keep `todomvc` app running
+- open Cypress from the root folder with `npm run cy:open`
+- click on `01-basic/spec.js`
 
 ```js
 /// <reference types="cypress" />

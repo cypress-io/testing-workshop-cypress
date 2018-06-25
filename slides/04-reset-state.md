@@ -1,6 +1,7 @@
 ## Reset state
 
-- use `04-reset-state`
+- keep `todomvc` app running
+- open `04-reset-state/spec.js`
 - if you reload the test it starts failing 😕
 
 +++

@@ -4,7 +4,7 @@
 - open Cypress with `npm run cy:open`
 
 Note:
-This section shows how Cypress scaffolds its files and folders. Then the students can ignore this folder.
+This section shows how Cypress scaffolds its files and folders. Then the students can ignore this folder. This is only done once to show the scaffolding.
 
 +++
 
@@ -38,6 +38,8 @@ Click on "spec.js" in Cypress GUI
 
 - what does Cypress do?
 - what happens when the server is down?
+  - stop the application server running in folder `todomvc`
+  - reload the tests
 
 +++
 

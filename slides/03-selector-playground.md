@@ -1,7 +1,7 @@
 ## Selector playground
 
-- use `03-selector-playground`
-- open Cypress
+- keep `todomvc` app running
+- open `03-selector-playground/spec.js`
 
 ![Selector playground](img/selector-playground.png)
 

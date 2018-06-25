@@ -1,4 +1,6 @@
 /// <reference types="cypress" />
+// application should be running at port 3000
+// and the "localhost:3000" is set as "baseUrl" in "cypress.json"
 beforeEach(() => {
   cy.request('POST', '/reset', {
     todos: []

@@ -1,7 +1,7 @@
 ## Adding items test
 
-- work in the folder `02-adding-items`
-- open `cypress/integration/spec.js`
+- keep `todomvc` app running
+- open `02-adding-items/spec.js`
 - get the input field
   - type some text
   - type special "Enter" key
