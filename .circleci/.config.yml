@@ -2,8 +2,9 @@
 # for config.yml syntax see https://circleci.com/docs/2.0/configuration-reference/
 version: 2
 jobs:
-  # starts the app in the background
-  # then runs the tests in a separate command
+  # example test job with 2 commands
+  # 1. starts the app in the background
+  # 2. runs the tests in a separate command
   build:
     docker:
       # find Docker image at https://github.com/cypress-io/cypress-docker-images
@@ -17,20 +18,15 @@ jobs:
       # Download and cache dependencies for the app and for tests
       - restore_cache:
           keys:
-          - dependencies-{{ checksum "todomvc/package.json" }}-{{ checksum "07-ci/package.json" }}
+          - dependencies-{{ checksum "package.json" }}
           # fallback to using the latest cache if no exact match is found
           - dependencies-
 
-      # Install NPM dependencies quickly
+      # Install NPM dependencies quickly using "npm ci"
+      # https://on.cypress.io/continuous-integration
       - run:
-          name: Install TodoMVC dependencies
+          name: Install dependencies
           command: npm ci
-          working_directory: todomvc
-
-      - run:
-          name: Install Cypress dependencies
-          command: npm ci
-          working_directory: 07-ci
 
       - run:
           name: Start TodoMVC server
@@ -44,14 +40,14 @@ jobs:
             - ~/.npm
             # Cypress binary (or yarn dependencies)
             - ~/.cache
-          key: dependencies-{{ checksum "todomvc/package.json" }}-{{ checksum "07-ci/package.json" }}
+          key: dependencies-{{ checksum "package.json" }}
 
       - run:
           name: Run Cypress tests
           command: npm test
-          working_directory: 07-ci
 
-  # starts the app and runs tests using start-server-and-test
+  # alternative:
+  #   starts the app and runs tests using a single start-server-and-test command
   single-command:
     docker:
       # find Docker image at https://github.com/cypress-io/cypress-docker-images
@@ -65,20 +61,14 @@ jobs:
       # Download and cache dependencies for the app and for tests
       - restore_cache:
           keys:
-          - dependencies-{{ checksum "todomvc/package.json" }}-{{ checksum "07-ci/package.json" }}
+          - dependencies-{{ checksum "package.json" }}
           # fallback to using the latest cache if no exact match is found
           - dependencies-
 
       # Install NPM dependencies quickly
       - run:
-          name: Install TodoMVC dependencies
+          name: Install dependencies
           command: npm ci
-          working_directory: todomvc
-
-      - run:
-          name: Install Cypress dependencies
-          command: npm ci
-          working_directory: 07-ci
 
       - save_cache:
           paths:
@@ -86,12 +76,11 @@ jobs:
             - ~/.npm
             # Cypress binary (or yarn dependencies)
             - ~/.cache
-          key: dependencies-{{ checksum "todomvc/package.json" }}-{{ checksum "07-ci/package.json" }}
+          key: dependencies-{{ checksum "package.json" }}
 
       - run:
           name: Start and test
           command: npm run ci
-          working_directory: 07-ci
 
 workflows:
   version: 2
