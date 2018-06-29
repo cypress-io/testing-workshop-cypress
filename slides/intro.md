@@ -23,6 +23,13 @@ As long as ⏳ permits
 
 +++
 
+## Time 🕰
+
+- total workshop duration 3 hours
+- short breaks after 1 hour and 2 hours
+
++++
+
 ## Repo organization
 
 - `/todomvc` is a web application we are going to test
