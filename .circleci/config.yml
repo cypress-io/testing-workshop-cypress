@@ -5,7 +5,7 @@ jobs:
   # example test job with 2 commands
   # 1. starts the app in the background
   # 2. runs the tests in a separate command
-  build:
+  two-commands:
     docker:
       # find Docker image at https://github.com/cypress-io/cypress-docker-images
       - image: cypress/base:8
@@ -24,6 +24,7 @@ jobs:
 
       # Install NPM dependencies quickly using "npm ci"
       # https://on.cypress.io/continuous-integration
+      # https://docs.npmjs.com/cli/ci
       - run:
           name: Install dependencies
           command: npm ci
@@ -86,5 +87,5 @@ workflows:
   version: 2
   tests:
     jobs:
-      - build
+      - two-commands
       - single-command
