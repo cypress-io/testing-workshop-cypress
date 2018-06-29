@@ -8,7 +8,7 @@
 
 ## Situation
 
-- there is no resetting the state before each test
+- there is **no resetting** the state before each test
 - the test passes but _something is wrong_
 
 ```javascript

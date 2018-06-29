@@ -11,9 +11,12 @@ it('loads', () => {
  * Adds a todo item
  * @param {string} text
  */
-const addItem = text => {}
+const addItem = text => {
+  // write Cy commands here to add the new item
+}
 it('adds two items', () => {
   addItem('first item')
   addItem('second item')
+  // fill the selector
   cy.get('...').should('have.length', 2)
 })

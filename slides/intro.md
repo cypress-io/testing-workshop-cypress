@@ -92,13 +92,13 @@ Look at XHR when using the app
 
 +++
 
-Look at `index.html`
+Look at `todomvc/index.html`
 
 ![DOM](todomvc/img/DOM.png)
 
 +++
 
-Look at `app.js`
+Look at `todomvc/app.js`
 
 ![Application](todomvc/img/app.png)
 

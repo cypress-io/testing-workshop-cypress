@@ -41,6 +41,7 @@ it.only('adds two items', () => {
   - try to reset it from command line
 - how to make arbitrary XHR request from Cypress?
 - reset the database before each test
+  - before or after `cy.visit`?
 
 +++
 
