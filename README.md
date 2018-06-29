@@ -1,4 +1,4 @@
-# testing-workshop-cypress
+# testing-workshop-cypress [![renovate-app badge][renovate-badge]][renovate-app]
 
 > A 3-4 hour testing workshop complete with application, exercise tests and speaker slides for [Cypress.io](https://www.cypress.io/)
 
@@ -50,3 +50,6 @@ npm run cy:open
 ...and see the list of created example specs.
 
 The slides can be shown directly via the [presentation link][presentation] above. The Markdown files in [slides](slides) folder also has a little bit of speaker notes.
+
+[renovate-badge]: https://img.shields.io/badge/renovate-app-blue.svg
+[renovate-app]: https://renovateapp.com/
