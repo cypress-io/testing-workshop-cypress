@@ -18,7 +18,7 @@ it('starts with zero items', () => {
 })
 ```
 
-![Should have failed](05-xhr/img/test-passes-but-this-is-wrong.png)
+![Should have failed](img/test-passes-but-this-is-wrong.png)
 
 +++
 
@@ -44,7 +44,7 @@ it('starts with zero items', () => {
 })
 ```
 
-![Waiting works](05-xhr/img/waiting.png)
+![Waiting works](img/waiting.png)
 
 +++
 
@@ -74,7 +74,7 @@ it('starts with zero items', () => {
 - wait for the XHR alias
 - its response body should be an empty array
 
-![Checking response body](05-xhr/img/response-body.png)
+![Checking response body](img/response-body.png)
 
 +++
 
@@ -103,7 +103,7 @@ cy.route('GET', '/todos', [])
 
 When you add an item through the DOM, the app makes `POST` XHR call.
 
-![Post new item](05-xhr/img/post-item.png)
+![Post new item](img/post-item.png)
 
 +++
 
@@ -111,7 +111,7 @@ When you add an item through the DOM, the app makes `POST` XHR call.
 
 - write a test that confirms that new item is posted to the server
 
-![Post new item](05-xhr/img/post-item.png)
+![Post new item](img/post-item.png)
 
 +++
 
@@ -119,7 +119,7 @@ When you add an item through the DOM, the app makes `POST` XHR call.
 
 - write a test that confirms that RESPONSE when a new item is posted to the server
 
-![Post new item response](05-xhr/img/post-item-response.png)
+![Post new item response](img/post-item-response.png)
 
 +++
 

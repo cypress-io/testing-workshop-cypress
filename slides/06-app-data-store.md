@@ -6,7 +6,7 @@
 
 +++
 
-![Random id](06-app-data-store/img/new-todo.png)
+![Random id](img/new-todo.png)
 
 +++
 
@@ -28,13 +28,13 @@
 
 ## Iframed contexts
 
-![Contexts](06-app-data-store/img/contexts.png)
+![Contexts](img/contexts.png)
 
 +++
 
 ## Application under test
 
-![Application under test](06-app-data-store/img/app-in-window.png)
+![Application under test](img/app-in-window.png)
 
 +++
 
