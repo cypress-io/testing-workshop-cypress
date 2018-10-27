@@ -8,15 +8,13 @@
 /// <reference types="cypress" />
 it('loads', () => {
   cy.visit('localhost:3000')
-  cy.contains('Part of TodoMVC')
+  cy.contains('h1', 'Todos App')
 })
 ```
 
 +++
 
-`cy.contains('Part of TodoMVC')` is not working 😟
-
-![Fails to find text](img/fails-to-find-text.png)
+`cy.contains('h1', 'Todos App')` is not working 😟
 
 Note:
 This is a good moment to show how Cypress stores DOM snapshots and shows them for each step.
@@ -25,12 +23,6 @@ This is a good moment to show how Cypress stores DOM snapshots and shows them fo
 
 ## Questions 1/3
 
-- what happens when you execute `npm run cy:run` or `npx cypress run`?
-
-+++
-
-## Questions 2/3
-
 - where are the docs for `cy.contains` command?
 - why is the command failing?
   - **hint**: use DevTools
@@ -38,10 +30,25 @@ This is a good moment to show how Cypress stores DOM snapshots and shows them fo
 
 +++
 
-## Questions 3/3
+## Questions 2/3
 
 - do you see the command retrying (blue spinner)?
 - use `timeout` option to force the command to try for longer
+
++++
+
+## Cypress has 2 commands
+
+- `cypress open`
+- `cypress run`
+
++++
+
+## How to?
+
+- run just this spec `cypress/integration/01-basic/spec.js` in headless mode?
+
+Hint: `npx cypress run --help`
 
 +++
 

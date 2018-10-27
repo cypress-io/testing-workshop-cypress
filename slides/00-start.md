@@ -88,18 +88,33 @@ Your best friend is [https://docs.cypress.io/](https://docs.cypress.io/)
 
 +++
 
-## Questions (find each doc)
+## Find at docs.cypress.io
 
 - Cypress main features and how it works docs
 - core concepts
 - command API
   - how many commands are there?
+
++++
+
+## Pro tip
+
+```
+https://on.cypress.io/<command>
+```
+
+goes right to the documentation for that command.
+
++++
+
+## Find at docs.cypress.io
+
 - examples
   - recipes
   - tutorial videos
   - example applications
   - blogs
-- Cypress changelog
+- Cypress changelog and roadmap
 
 Note:
 Students should know where to find information later on. Main resources is the api page [https://on.cypress.io/api](https://on.cypress.io/api)
