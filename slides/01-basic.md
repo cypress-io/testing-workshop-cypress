@@ -59,6 +59,17 @@ Hint: `npx cypress run --help`
 
 +++
 
+## Fix the test
+
+- can you fix the test?
+- how would you select an element:
+  - by text
+  - by id
+  - by class
+  - by attributes
+
++++
+
 ## What kind of tests?
 
 - discussion: what would you test in the TodoMVC app?
