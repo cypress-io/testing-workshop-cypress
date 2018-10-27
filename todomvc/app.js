@@ -43,11 +43,19 @@
     actions: {
       loadTodos ({ commit }) {
         commit('SET_LOADING', true)
-        axios.get('/todos').then(r => r.data).then(todos => {
-          console.log('got %d todos', todos.length)
-          commit('SET_TODOS', todos)
-          commit('SET_LOADING', false)
-        })
+        axios
+          .get('/todos')
+          .then(r => r.data)
+          .then(todos => {
+            console.log('got %d todos', todos.length)
+            commit('SET_TODOS', todos)
+            commit('SET_LOADING', false)
+          })
+          .catch(e => {
+            console.error('could not load todos')
+            console.error(e.message)
+            console.error(e.response.data)
+          })
       },
 
       /**

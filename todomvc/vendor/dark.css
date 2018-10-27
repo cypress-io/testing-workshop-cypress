@@ -1,0 +1,12 @@
+/* a simple todo app dark theme */
+body,
+.todoapp {
+  color: #ddd;
+  background-color: #222;
+}
+.todoapp h1 {
+  color: #ddd;
+}
+.info {
+  text-shadow: none;
+}

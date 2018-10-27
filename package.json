@@ -9,7 +9,9 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "start": "cd todomvc; npm start -- --quiet",
-    "ci": "start-test 3000"
+    "ci": "start-test 3000",
+    "postinstall": "cd todomvc; npm install",
+    "reset": "cd todomvc; npm run reset"
   },
   "repository": {
     "type": "git",

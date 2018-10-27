@@ -4,7 +4,17 @@
 <head>
   <meta charset="utf-8">
   <title>Vue.js • TodoMVC</title>
-  <link rel="stylesheet" href="https://unpkg.com/todomvc-app-css@2.0.4/index.css">
+  <link rel="stylesheet" href="vendor/index.css">
+  <!-- <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="vendor/dark.css"> -->
+  <script>
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      const link = document.createElement("link")
+      link.type = "text/css";
+      link.rel = "stylesheet";
+      link.href = 'vendor/dark.css';
+      document.head.appendChild(link)
+    }
+  </script>
   <style>
     [v-cloak] {
       display: none;
@@ -15,7 +25,7 @@
 <body>
   <section class="todoapp">
     <header class="header">
-      <h1>todos</h1>
+      <h1 data-cy="app-title">todos</h1>
       <input class="new-todo" autofocus autocomplete="off" placeholder="What needs to be done?" :value="newTodo" @input="setNewTodo"
         @keyup.enter="addTodo">
     </header>
@@ -40,10 +50,10 @@
     </p>
   </footer>
 
-  <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
-  <script src="https://unpkg.com/vue@2.5.5/dist/vue.js"></script>
-  <script src="https://unpkg.com/vuex@3.0.1/dist/vuex.js"></script>
-  <script src="https://unpkg.com/axios@0.17.1/dist/axios.min.js"></script>
+  <script src="vendor/polyfill.min.js"></script>
+  <script src="vendor/vue.js"></script>
+  <script src="vendor/vuex.js"></script>
+  <script src="vendor/axios.min.js"></script>
   <script src="app.js"></script>
 </body>
 
