@@ -1,6 +1,5 @@
 /// <reference types="Cypress" />
 /* eslint-env mocha */
-/* global cy, File */
 import {
   enterTodo,
   getNewTodoInput,

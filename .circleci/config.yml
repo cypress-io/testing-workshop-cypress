@@ -8,7 +8,7 @@ jobs:
   two-commands:
     docker:
       # find Docker image at https://github.com/cypress-io/cypress-docker-images
-      - image: cypress/base:8
+      - image: cypress/base:10
 
     working_directory: ~/repo
 
@@ -52,7 +52,7 @@ jobs:
   single-command:
     docker:
       # find Docker image at https://github.com/cypress-io/cypress-docker-images
-      - image: cypress/base:8
+      - image: cypress/base:10
 
     working_directory: ~/repo
 
@@ -78,6 +78,10 @@ jobs:
             # Cypress binary (or yarn dependencies)
             - ~/.cache
           key: dependencies-{{ checksum "package.json" }}
+
+      - run:
+          name: Lint code
+          command: npm run lint
 
       - run:
           name: Start and test

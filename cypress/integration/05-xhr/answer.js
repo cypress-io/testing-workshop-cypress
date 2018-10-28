@@ -76,7 +76,7 @@ it('posts new item to the server response', () => {
   })
 })
 
-it.only('loads several items from a fixture', () => {
+it('loads several items from a fixture', () => {
   // start Cypress network server
   // stub route `GET /todos` with data from a fixture file
   // THEN visit the page
