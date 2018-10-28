@@ -67,3 +67,26 @@ it('loads several items from a fixture', () => {
   // then check the DOM: some items should be marked completed
   // we can do this in a variety of ways
 })
+
+it('handles 404 when loading todos', () => {
+  // when the app tries to load items
+  // set it up to fail with 404 to GET /todos
+  // after delay of 2 seconds
+  // cy.server()
+  // cy.route({
+  //   url,
+  //   response,
+  //   status,
+  //   delay
+  // })
+  cy.visit('/', {
+    // spy on console.error because we expect app would
+    // print the error message there
+    onBeforeLoad: win => {
+      // spy
+    }
+  })
+  // observe external effect from the app - console.error(...)
+  // cy.get('@console-error')
+  //   .should(...)
+})

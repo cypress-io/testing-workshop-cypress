@@ -97,3 +97,26 @@ it('loads several items from a fixture', () => {
     .find('.toggle')
     .should('be.checked')
 })
+
+it('handles 404 when loading todos', () => {
+  // when the app tries to load items
+  // set it up to fail
+  cy.server()
+  cy.route({
+    url: '/todos',
+    response: 'test does not allow it',
+    status: 404,
+    delay: 2000
+  })
+  cy.visit('/', {
+    // spy on console.error because we expect app would
+    // print the error message there
+    onBeforeLoad: win => {
+      cy.spy(win.console, 'error').as('console-error')
+    }
+  })
+  // observe external effect from the app - console.error(...)
+  cy
+    .get('@console-error')
+    .should('have.been.calledWithExactly', 'test does not allow it')
+})
