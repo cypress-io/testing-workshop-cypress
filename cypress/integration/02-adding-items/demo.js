@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 beforeEach(() => {
   cy.request('POST', '/reset', {
     todos: []
@@ -12,5 +13,7 @@ it('adds items', function () {
     .type('todo B{enter}')
     .type('todo C{enter}')
     .type('todo D{enter}')
-  cy.get('.todo-list li').should('have.length', 2)
+  cy
+    .get('.todo-list li') // command
+    .should('have.length', 4) // assertion
 })
