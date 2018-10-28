@@ -27,7 +27,7 @@ jobs:
       # https://docs.npmjs.com/cli/ci
       - run:
           name: Install dependencies
-          command: npm ci
+          command: npm ci; cd todomvc; npm ci
 
       - run:
           name: Start TodoMVC server
@@ -69,7 +69,7 @@ jobs:
       # Install NPM dependencies quickly
       - run:
           name: Install dependencies
-          command: npm ci
+          command: npm ci; cd todomvc; npm ci
 
       - save_cache:
           paths:
