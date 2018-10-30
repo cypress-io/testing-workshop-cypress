@@ -52,9 +52,13 @@ it('starts with zero items', () => {
 
 +++
 
-## Todo
+**better** to wait on a specific XHR request. Network is just observable public effect, just like DOM.
 
-**better** to wait on a specific XHR request. In test "starts with zero items" from `05-xhr/spec.js`
++++
+
+### Todo
+
+In `05-xhr/spec.js` test "starts with zero items"
 
 @ul
 
@@ -62,7 +66,7 @@ it('starts with zero items', () => {
   - should we start mock server _before_ or _after_ `cy.visit`?
 - spy on specific route with `cy.route`
 - save as an alias
-- wait on the XHR alias
+- wait for this XHR alias
   - then check the DOM
 
 @ulend
