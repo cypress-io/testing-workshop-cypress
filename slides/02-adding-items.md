@@ -1,14 +1,41 @@
 ## Adding items test
 
 - keep `todomvc` app running
-- open `02-adding-items/spec.js`
-- get the input field
-  - type some text
-  - type special "Enter" key
-  - check that has been added to the list
-  - delete the new item
+- open `02-adding-items/spec.js` in your text editor and Cypress
+
++++
+
+```js
+it.only('starts with zero items', () => {
+  // check if the list is empty initially
+  //  find the selector for the individual TODO items
+  //  in the list
+  //  use cy.get(...) and it should have length of 0
+})
+```
+
+**tip** use `cy.get`, `should('have.length', ...)`
+
+[https://on.cypress.io/get](https://on.cypress.io/get)
+
++++
+
+```js
+it('adds two items', () => {
+  // repeat twice
+  //    get the input field
+  //    type text and "enter"
+  //    assert that the new Todo item
+  //    has been added added to the list
+})
+```
 
 **tip** use `cy.get`, `cy.type`, `cy.contains`, `cy.click`
+
+Note:
+Draw distinction between commands and assertions, show how commands can be chained,
+each continues to work with the subject of the previous command. Assertions do
+not change the subject.
 
 +++
 
@@ -67,20 +94,20 @@ test('add', () => {
 ### End-to-end tests
 
 ```javascript
-it('adds two and deletes first', () => {
-  enterTodo('first item')
-  enterTodo('second item')
-
-  getTodoItems()
-    .contains('first item')
-    .parent()
-    .find('.destroy')
-    // because it only becomes visible on hover
-    .click({ force: true })
-
-  cy.contains('first item').should('not.exist')
-  cy.contains('second item').should('exist')
-  getTodoItems().should('have.length', 1)
+const addItem = text => {
+  cy.get('.new-todo').type(`${text}{enter}`)
+}
+it('can mark items as completed', () => {
+  const ITEM_SELECTOR = 'li.todo'
+  addItem('simple')
+  addItem('difficult')
+  cy.contains(ITEM_SELECTOR, 'simple').should('exist')
+    .find('input[type="checkbox"]').check()
+  // have to force click because the button does not appear unless we hover
+  cy.contains(ITEM_SELECTOR, 'simple').find('.destroy').click({ force: true })
+  cy.contains(ITEM_SELECTOR, 'simple').should('not.exist')
+  cy.get(ITEM_SELECTOR).should('have.length', 1)
+  cy.contains(ITEM_SELECTOR, 'difficult').should('be.visible')
 })
 ```
 

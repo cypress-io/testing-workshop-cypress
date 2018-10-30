@@ -8,7 +8,7 @@ beforeEach(() => {
   cy.visit('/')
 })
 it('loads', () => {
-  cy.contains('a', 'TodoMVC')
+  cy.contains('h1', 'todos')
 })
 /**
  * Adds a todo item

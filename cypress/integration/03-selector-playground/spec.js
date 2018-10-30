@@ -5,10 +5,10 @@ beforeEach(() => {
   cy.visit('/')
 })
 it('loads', () => {
-  cy.contains('a', 'TodoMVC')
+  cy.contains('h1', 'todos')
 })
 // optional test data attribute selector helper
-const tid = (id) => `[data-cy="${id}"]`
+const tid = id => `[data-cy="${id}"]`
 /**
  * Adds a todo item
  * @param {string} text

@@ -4,7 +4,7 @@ beforeEach(() => {
 })
 
 it('loads', () => {
-  cy.contains('a', 'TodoMVC')
+  cy.contains('h1', 'todos')
 })
 
 it('starts with zero items', () => {
