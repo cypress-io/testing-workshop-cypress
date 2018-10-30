@@ -100,12 +100,32 @@ cy.route('GET', '/todos', [])
 
 +++
 
-### Todo for spec "05-xhr/spec.js" "fixtures" suite
+```javascript
+it('starts with zero items (fixture)', () => {
+  // start Cypress network server
+  // stub `GET /todos` with fixture "empty-list"
 
-- read about [`cy.fixture`](http://on.cypress.io/fixture) command
-- mock `GET /todos` route using data loaded from a fixture
-- mock `GET /todos` using `fixture:empty-list` shortcut
-- write a test that confirms that the app shows correctly completed and unfinished items
+  // visit the page
+  cy.visit('/')
+
+  // then check the DOM
+  cy.get('li.todo').should('have.length', 0)
+})
+```
+**tip:** use [`cy.fixture`](http://on.cypress.io/fixture) command
+
++++
+
+```javascript
+it('loads several items from a fixture', () => {
+  // start Cypress network server
+  // stub route `GET /todos` with data from a fixture file "two-items.json"
+  // THEN visit the page
+  cy.visit('/')
+  // then check the DOM: some items should be marked completed
+  // we can do this in a variety of ways
+})
+```
 
 +++
 

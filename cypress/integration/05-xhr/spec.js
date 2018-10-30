@@ -47,6 +47,15 @@ it('starts with zero items (fixture)', () => {
   cy.get('li.todo').should('have.length', 0)
 })
 
+it('loads several items from a fixture', () => {
+  // start Cypress network server
+  // stub route `GET /todos` with data from a fixture file "two-items.json"
+  // THEN visit the page
+  cy.visit('/')
+  // then check the DOM: some items should be marked completed
+  // we can do this in a variety of ways
+})
+
 it('posts new item to the server', () => {
   // start Cypress network server
   // spy on "POST /todos", save as alias
@@ -57,15 +66,6 @@ it('posts new item to the server', () => {
   // and make sure it contains
   // {title: 'test api', completed: false}
   // hint: use cy.wait(...).its(...).should('have.contain', ...)
-})
-
-it('loads several items from a fixture', () => {
-  // start Cypress network server
-  // stub route `GET /todos` with data from a fixture file "two-items.json"
-  // THEN visit the page
-  cy.visit('/')
-  // then check the DOM: some items should be marked completed
-  // we can do this in a variety of ways
 })
 
 it('handles 404 when loading todos', () => {
