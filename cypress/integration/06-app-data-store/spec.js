@@ -16,6 +16,15 @@ beforeEach(() => {
 const addItem = text => {
   cy.get('.new-todo').type(`${text}{enter}`)
 }
+
+it('adds items to store', () => {
+  addItem('something')
+  addItem('something else')
+  // get application's window
+  // then get app, $store, state, todos
+  // it should have 2 items
+})
+
 it('creates an item with id 1', () => {
   cy.server()
   cy.route('POST', '/todos').as('new-item')

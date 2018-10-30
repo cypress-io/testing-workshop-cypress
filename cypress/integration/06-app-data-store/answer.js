@@ -24,6 +24,13 @@ beforeEach(function stubRandomId () {
 const addItem = text => {
   cy.get('.new-todo').type(`${text}{enter}`)
 }
+
+it('adds items to store', () => {
+  addItem('something')
+  addItem('something else')
+  cy.window().its('app.$store.state.todos').should('have.length', 2)
+})
+
 it('creates an item with id 1', () => {
   cy.server()
   cy.route('POST', '/todos').as('new-item')

@@ -1,6 +1,6 @@
 {
   "viewportWith": 400,
   "viewportHeight": 800,
-  "ignoreTestFiles": "answers.js",
+  "ignoreTestFiles": "answer.js",
   "baseUrl": "http://localhost:3000"
 }
