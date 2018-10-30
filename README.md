@@ -2,23 +2,38 @@
 
 > A 3-4 hour testing workshop complete with application, exercise tests and speaker slides for [Cypress.io](https://www.cypress.io/)
 
-## Requirements
+## Requirements ⚙️
 
 - Any computer: Mac, Windows, Linux
 - [Node 6+](https://nodejs.org/)
 - [git](https://git-scm.com)
 
-## Application
+In order to get the code and install dependencies
+
+```bash
+git clone git@github.com:cypress-io/testing-workshop-cypress.git
+cd testing-workshop-cypress
+npm install
+```
+
+If necessary, install dependencies inside TodoMVC folder
+
+```bash
+cd todomvc
+npm install
+```
+
+## Application 💾
 
 [Vue.js](https://vuejs.org/) + [Vuex](https://vuex.vuejs.org/) + REST server application that we are going to test is in the folder `todomvc`. This application and its full testing is described in [this blog post](https://www.cypress.io/blog/2017/11/28/testing-vue-web-application-with-vuex-data-store-and-rest-backend/). The application should run fine without network access.
 
-## Slides
+## Slides 🖥
 
 [https://gitpitch.com/cypress-io/testing-workshop-cypress][presentation] with the starting file in [PITCHME.md](PITCHME.md) presented using [GitPitch](https://gitpitch.com/). The pitch file includes files from the [slides](slides) folder. Students should open the [presentation slides][presentation] and follow along.
 
 [presentation]: https://gitpitch.com/cypress-io/testing-workshop-cypress
 
-## Content
+## Content 🗂
 
 | topics                                 | folder                                                                                   | slides                                                        |
 | -------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
@@ -34,7 +49,7 @@
 | Setting up Cypress Dashboard           | [cypress/integration/07-ci](cypress/integration/07-ci)                                   | [08-dashboard.md](slides/08-dashboard.md)                     |
 | The end                                | -                                                                                        | [end.md](slides/end.md)                                       |
 
-## For speakers
+## For speakers 🎙
 
 During a testing workshop in Boston, [Gleb Bahmutov](https://github.com/bahmutov) covered this material in 3 hours (with a 25 minute lunch break). Everyone worked or coded for the most part, except for CI and the Cypress Dashboard sections, where the usage was shown via slides and actual sites.
 
@@ -50,6 +65,12 @@ npm run cy:open
 ...and see the list of created example specs.
 
 The slides can be shown directly via the [presentation link][presentation] above. The Markdown files in [slides](slides) folder also has a little bit of speaker notes.
+
+## Additional information 🗃
+
+- https://www.cypress.io/
+- https://docs.cypress.io/
+- https://docs.cypress.io/api/api/table-of-contents.html
 
 [ci-badge]: https://circleci.com/gh/cypress-io/testing-workshop-cypress.svg?style=svg
 [ci-url]: https://circleci.com/gh/cypress-io/testing-workshop-cypress
