@@ -7,10 +7,10 @@ it('loads', () => {
 
 it('starts with zero items', () => {
   // check if the list is empty initially
-  //  find the selector for the individual TODO items
-  //  in the list
-  //  use cy.get(...) and it should have length of 0
-  //  https://on.cypress.io/get
+  //   find the selector for the individual TODO items
+  //   in the list
+  //   use cy.get(...) and it should have length of 0
+  //   https://on.cypress.io/get
 })
 
 it('adds two items', () => {

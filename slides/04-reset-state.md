@@ -39,9 +39,23 @@ it.only('adds two items', () => {
 - how to reset the database?
   - **tip** we are using [json-server-reset](https://github.com/bahmutov/json-server-reset#readme) middleware
   - try to reset it from command line
-- how to make arbitrary XHR request from Cypress?
+
+```
+$ http POST :3000/reset todos:=[]
+```
+
+Note:
+I am using httpie to easily send the empty list to reset the database.
+
++++
+
+- how to make an arbitrary cross-domain XHR request from Cypress?
 - reset the database before each test
+  - modify `04-reset-state/spec.js` to make XHR call to reset the database
   - before or after `cy.visit`?
+
+Note:
+Students should modify `cypress/integration/04-reset-state/spec.js` and make the request to reset the database before each test using `cy.request`.
 
 +++
 

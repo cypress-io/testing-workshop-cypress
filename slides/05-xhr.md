@@ -24,6 +24,8 @@ it('starts with zero items', () => {
 
 ## Problem
 
+@ul
+
 - page loads
 - web application makes XHR call `GET /todos`
   - meanwhile it shows an empty list of todos
@@ -31,6 +33,8 @@ it('starts with zero items', () => {
 - `GET /todos` returns with 2 items
   - they are added to the DOM
   - but the test has already finished
+
+@ulend
 
 +++
 
@@ -50,7 +54,9 @@ it('starts with zero items', () => {
 
 ## Todo
 
-**better** to wait on a specific XHR request
+**better** to wait on a specific XHR request. In test "starts with zero items" from `05-xhr/spec.js`
+
+@ul
 
 - start Cypress mock server with `cy.server`
   - should we start mock server _before_ or _after_ `cy.visit`?
@@ -59,19 +65,17 @@ it('starts with zero items', () => {
 - wait on the XHR alias
   - then check the DOM
 
-+++
+@ulend
 
-## Tips
-
-- [`cy.server`](https://on.cypress.io/server)
-- [`cy.route`]('https://on.cypress.io/route)
-- [Network requests guide](https://on.cypress.io/network-requests)
+**tips:** [`cy.server`](https://on.cypress.io/server), [`cy.route`]('https://on.cypress.io/route), [Network requests guide](https://on.cypress.io/network-requests)
 
 +++
 
 ## Todo
 
-- wait for the XHR alias
+add to test "starts with zero items":
+
+- wait for the XHR alias like before
 - its response body should be an empty array
 
 ![Checking response body](img/response-body.png)
@@ -79,6 +83,8 @@ it('starts with zero items', () => {
 +++
 
 ## Stub network call
+
+Update test "starts with zero items (stubbed response)"
 
 - instead of just spying on XHR call, let's return some mock data
 
@@ -90,7 +96,7 @@ cy.route('GET', '/todos', [])
 
 +++
 
-## Questions
+### Todo for spec "05-xhr/spec.js" "fixtures" suite
 
 - read about [`cy.fixture`](http://on.cypress.io/fixture) command
 - mock `GET /todos` route using data loaded from a fixture
@@ -99,27 +105,36 @@ cy.route('GET', '/todos', [])
 
 +++
 
-## Spying on adding an item XHR
+### Spying on adding an item XHR
 
 When you add an item through the DOM, the app makes `POST` XHR call.
 
 ![Post new item](img/post-item.png)
 
+Note:
+It is important to be able to use DevTools network tab to inspect the XHR and its request and response.
+
 +++
 
-## Todo 1/2
+**Todo 1/2**
 
-- write a test that confirms that new item is posted to the server
+- write a test "posts new item to the server" that confirms that new item is posted to the server
 
 ![Post new item](img/post-item.png)
 
+Note:
+see instructions in the `05-xhr/spec.js` for the test
+
 +++
 
-## Todo 2/2
+**Todo 2/2**
 
-- write a test that confirms that RESPONSE when a new item is posted to the server
+- write a test "posts new item to the server response" that confirms that RESPONSE when a new item is posted to the server
 
 ![Post new item response](img/post-item-response.png)
+
+Note:
+see instructions in the `05-xhr/spec.js` for the test
 
 +++
 

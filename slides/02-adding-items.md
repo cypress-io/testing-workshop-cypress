@@ -7,10 +7,10 @@
 
 ```js
 it.only('starts with zero items', () => {
-  // check if the list is empty initially
-  //  find the selector for the individual TODO items
-  //  in the list
-  //  use cy.get(...) and it should have length of 0
+  // check if the list is empty initially:
+  //   find the selector for the individual TODO items
+  //   in the list
+  //   use cy.get(...) and it should have length of 0
 })
 ```
 
