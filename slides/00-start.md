@@ -7,7 +7,26 @@ Create a new folder
 - `cd example`
 - `npm init --yes`
 - `npm install -D cypress`
-- open Cypress with `npx cypress open` or `$(npm bin)/cypress open` or `./node_modules/.bin/cypress open`
+
++++
+
+```
+npx cypress open
+$(npm bin)/cypress open
+./node_modules/.bin/cypress open
+```
+
++++
+
+![First time you open Cypress](img/cypress-scaffold.png)
+
++++
+
+- "cypress.json" - all Cypress settings
+- "cypress/integration" - test files (specs)
+- "cypress/fixtures" - mock data
+- "cypress/plugins" - extending Cypress
+- "cypress/support" - shared commands, utilities
 
 Note:
 This section shows how Cypress scaffolds its files and folders. Then the students can ignore this folder. This is only done once to show the scaffolding.

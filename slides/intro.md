@@ -1,9 +1,6 @@
 # Gleb Bahmutov, PhD
 
-## VP of Engineering, Cypress
-
-## contact
-
+- VP of Engineering, Cypress
 - gleb (at) cypress.io
 - [@bahmutov](https://twitter.com/bahmutov)
 
@@ -14,12 +11,12 @@
 As long as ⏳ permits
 
 - example TodoMVC
-  - web app, data store, REST calls
+  * web app, data store, REST calls
 - basic page load test
 - selector playground
 - resetting state
 - XHR spying and stubbing, fixtures
-- setting up CI and Cypress dashboard
+- maybe CI and Cypress dashboard
 
 +++
 
@@ -27,6 +24,25 @@ As long as ⏳ permits
 
 - total workshop duration 3 hours
 - short breaks after 1 hour and 2 hours
+
++++
+
+Please: if you have experience with Cypress.io, help others during the workshop 🙏
+
++++
+
+## Requirements
+
+You will need:
+
+- `git` to clone this repo
+- Node v6+ to install dependencies
+
+```text
+git clone <repo url>
+cd testing-workshop-cypress
+npm install
+```
 
 +++
 
@@ -44,21 +60,6 @@ As long as ⏳ permits
 
 Note:
 We are going to keep the app running, while switching from spec to spec for each part.
-
-+++
-
-## Requirements
-
-You will need:
-
-- `git` to clone this repo
-- Node v6+ to install dependencies
-
-```text
-git clone <repo url>
-cd testing-workshop-cypress
-npm install
-```
 
 +++
 
