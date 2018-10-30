@@ -1,7 +1,13 @@
-## Start testing
+## New projects
 
-- `cd 00-start`
-- open Cypress with `npm run cy:open`
+Create a new folder
+
+- `cd /tmp`
+- `mkdir example`
+- `cd example`
+- `npm init --yes`
+- `npm install -D cypress`
+- open Cypress with `npx cypress open` or `$(npm bin)/cypress open` or `./node_modules/.bin/cypress open`
 
 Note:
 This section shows how Cypress scaffolds its files and folders. Then the students can ignore this folder. This is only done once to show the scaffolding.
@@ -10,7 +16,9 @@ This section shows how Cypress scaffolds its files and folders. Then the student
 
 Look at the scaffolded example test files (specs).
 
-Delete them.
+Run specs for topics that look interesting
+
+Hint: you can find latest examples in [https://github.com/cypress-io/cypress-example-kitchensink](https://github.com/cypress-io/cypress-example-kitchensink)
 
 +++
 
@@ -32,7 +40,10 @@ it('loads', () => {
 
 +++
 
-Click on "spec.js" in Cypress GUI
+- make sure you have started TodoMVC in another terminal with `npm start`
+- click on "spec.js" in Cypress GUI
+
++++
 
 ## Questions
 
