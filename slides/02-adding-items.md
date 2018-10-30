@@ -91,6 +91,13 @@ Revisit the discussion about what kind of tests one should write. E2E tests can 
 
 +++
 
+### Unit vs E2E
+
+- if you are describing how code works: unit test
+- if you are describing how code is used by the user: end-to-end test
+
++++
+
 ### Bonus
 
 - Core concepts [https://on.cypress.io/writing-and-organizing-tests](https://on.cypress.io/writing-and-organizing-tests)
