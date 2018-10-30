@@ -8,7 +8,7 @@
 
 ## Cypress dashboard
 
-![Cypress dashboard](img/dashboard.gif)
+![Cypress dashboard](img/dashboard-runs.png)
 
 +++
 
@@ -42,3 +42,9 @@
 - pass record key as an environment variable
 - make a test to fail on purpose
 - look at the test failure on the dashboard
+
++++
+
+## Big Bonus
+
+- run tests on N machines in 1/N time with [https://on.cypress.io/parallelization](https://on.cypress.io/parallelization)
