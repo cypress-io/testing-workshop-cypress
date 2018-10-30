@@ -164,4 +164,4 @@ see instructions in the `05-xhr/spec.js` for the test
 
 ## Bonus
 
-Network requests guide at [https://on.cypress.io/network-requests](https://on.cypress.io/network-requests)
+Network requests guide at [https://on.cypress.io/network-requests](https://on.cypress.io/network-requests). Question: which requests do you spy on, which do you stub?
