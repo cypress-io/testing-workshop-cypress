@@ -23,6 +23,43 @@ cd todomvc
 npm install
 ```
 
+### Quick check ✅
+
+You can test the installation by starting TodoMVC in the first terminal window
+
+```shell
+cd todomvc
+npm start
+```
+
+and you should see in the terminal
+
+```text
+> json-server --static . data.json --middlewares ./node_modules/json-server-reset
+
+
+  \{^_^}/ hi!
+
+  Loading data.json
+  Loading ./node_modules/json-server-reset
+  Done
+
+  Resources
+  http://localhost:3000/todos
+
+  Home
+  http://localhost:3000
+```
+
+and from the second terminal you should be able to open Cypress with
+
+```bash
+$ npm run cy:open
+
+> testing-workshop-cypress@1.0.0 cy:open /git/testing-workshop-cypress
+> cypress open
+```
+
 ## Application 💾
 
 [Vue.js](https://vuejs.org/) + [Vuex](https://vuex.vuejs.org/) + REST server application that we are going to test is in the folder `todomvc`. This application and its full testing is described in [this blog post](https://www.cypress.io/blog/2017/11/28/testing-vue-web-application-with-vuex-data-store-and-rest-backend/). The application should run fine without network access.
