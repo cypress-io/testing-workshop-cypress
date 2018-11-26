@@ -41,7 +41,7 @@
     "prettier": "1.14.3",
     "prettier-standard": "8.0.1",
     "standard": "11.0.1",
-    "start-server-and-test": "1.7.5"
+    "start-server-and-test": "1.7.11"
   },
   "engines": {
     "node": ">=6"
