@@ -12,7 +12,7 @@ Slides: [https://gitpitch.com/cypress-io/testing-workshop-cypress](https://gitpi
 
 ---?include=slides/02-adding-items/PITCHME.md
 
----?include=slides/03-selector-playground.md
+---?include=slides/03-selector-playground/PITCHME.md
 
 ---?include=slides/04-reset-state.md
 
