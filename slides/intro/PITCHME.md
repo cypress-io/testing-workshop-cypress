@@ -77,31 +77,31 @@ Let us look at the application.
 
 It is a regular TodoMVC application.
 
-![TodoMVC](todomvc/img/todomvc.png)
+![TodoMVC](./img/todomvc.png)
 
 +++
 
 If you have Vue DevTools plugin
 
-![With Vue DevTools](todomvc/img/vue-devtools.png)
+![With Vue DevTools](./img/vue-devtools.png)
 
 +++
 
 Look at XHR when using the app
 
-![Network](todomvc/img/network.png)
+![Network](./img/network.png)
 
 +++
 
 Look at `todomvc/index.html`
 
-![DOM](todomvc/img/DOM.png)
+![DOM](./img/DOM.png)
 
 +++
 
 Look at `todomvc/app.js`
 
-![Application](todomvc/img/app.png)
+![Application](./img/app.png)
 
 +++
 
@@ -117,7 +117,7 @@ The students should open DevTools and look at XHR requests that go between the w
 
 +++
 
-![App organization](todomvc/img/vue-vuex-rest.png)
+![App organization](./img/vue-vuex-rest.png)
 
 Note:
 This app has been coded and described in this blog post [https://www.cypress.io/blog/2017/11/28/testing-vue-web-application-with-vuex-data-store-and-rest-backend/](https://www.cypress.io/blog/2017/11/28/testing-vue-web-application-with-vuex-data-store-and-rest-backend/)

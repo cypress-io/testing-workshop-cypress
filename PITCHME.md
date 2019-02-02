@@ -4,7 +4,7 @@ Repo: [cypress-io/testing-workshop-cypress](https://github.com/cypress-io/testin
 
 Slides: [https://gitpitch.com/cypress-io/testing-workshop-cypress](https://gitpitch.com/cypress-io/testing-workshop-cypress)
 
----?include=slides/intro.md
+---?include=slides/intro/PITCHME.md
 
 ---?include=slides/00-start.md
 
