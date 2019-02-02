@@ -32,7 +32,7 @@ it('adds items to store', () => {
 
 +++
 
-![Random id](/img/new-todo.png)
+![Random id](/slides/06-app-data-store/img/new-todo.png)
 
 +++
 
@@ -54,13 +54,13 @@ it('adds items to store', () => {
 
 ## Iframed contexts
 
-![Contexts](/img/contexts.png)
+![Contexts](/slides/06-app-data-store/img/contexts.png)
 
 +++
 
 ## Application under test
 
-![Application under test](/img/app-in-window.png)
+![Application under test](/slides/06-app-data-store/img/app-in-window.png)
 
 +++
 
