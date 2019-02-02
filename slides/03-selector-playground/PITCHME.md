@@ -3,13 +3,13 @@
 - keep `todomvc` app running
 - open `03-selector-playground/spec.js`
 
-![Selector playground](/img/selector-playground.png)
+![Selector playground](/slides/03-selector-playground/img/selector-playground.png)
 
 +++
 
 It can suggest a weird selector
 
-![Default suggestion](/img/default-suggestion.png)
+![Default suggestion](/slides/03-selector-playground/img/default-suggestion.png)
 
 +++
 
@@ -21,4 +21,4 @@ It can suggest a weird selector
 
 +++
 
-![Selectors](/img/selectors.png)
+![Selectors](/slides/03-selector-playground/img/selectors.png)
