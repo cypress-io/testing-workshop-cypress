@@ -77,7 +77,7 @@ Let us look at the application.
 
 It is a regular TodoMVC application.
 
-![TodoMVC](./img/todomvc.png)
+![TodoMVC](/slides/intro/img/todomvc.png)
 
 +++
 
