@@ -18,7 +18,7 @@ it('starts with zero items', () => {
 })
 ```
 
-![Should have failed](/img/test-passes-but-this-is-wrong.png)
+![Should have failed](/slides/05-xhr/img/test-passes-but-this-is-wrong.png)
 
 +++
 
@@ -48,7 +48,7 @@ it('starts with zero items', () => {
 })
 ```
 
-![Waiting works](/img/waiting.png)
+![Waiting works](/slides/05-xhr/img/waiting.png)
 
 +++
 
@@ -82,7 +82,7 @@ add to test "starts with zero items":
 - wait for the XHR alias like before
 - its response body should be an empty array
 
-![Checking response body](/img/response-body.png)
+![Checking response body](/slides/05-xhr/img/response-body.png)
 
 +++
 
@@ -133,7 +133,7 @@ it('loads several items from a fixture', () => {
 
 When you add an item through the DOM, the app makes `POST` XHR call.
 
-![Post new item](/img/post-item.png)
+![Post new item](/slides/05-xhr/img/post-item.png)
 
 Note:
 It is important to be able to use DevTools network tab to inspect the XHR and its request and response.
@@ -144,7 +144,7 @@ It is important to be able to use DevTools network tab to inspect the XHR and it
 
 - write a test "posts new item to the server" that confirms that new item is posted to the server
 
-![Post new item](/img/post-item.png)
+![Post new item](/slides/05-xhr/img/post-item.png)
 
 Note:
 see instructions in the `05-xhr/spec.js` for the test
@@ -155,7 +155,7 @@ see instructions in the `05-xhr/spec.js` for the test
 
 - write a test "posts new item to the server response" that confirms that RESPONSE when a new item is posted to the server
 
-![Post new item response](/img/post-item-response.png)
+![Post new item response](/slides/05-xhr/img/post-item-response.png)
 
 Note:
 see instructions in the `05-xhr/spec.js` for the test
