@@ -83,25 +83,25 @@ It is a regular TodoMVC application.
 
 If you have Vue DevTools plugin
 
-![With Vue DevTools](img/vue-devtools.png)
+![With Vue DevTools](/slides/intro/img/vue-devtools.png)
 
 +++
 
 Look at XHR when using the app
 
-![Network](img/network.png)
+![Network](/slides/intro/img/network.png)
 
 +++
 
 Look at `todomvc/index.html`
 
-![DOM](img/DOM.png)
+![DOM](/slides/intro/img/DOM.png)
 
 +++
 
 Look at `todomvc/app.js`
 
-![Application](img/app.png)
+![Application](/slides/intro/img/app.png)
 
 +++
 
@@ -117,7 +117,7 @@ The students should open DevTools and look at XHR requests that go between the w
 
 +++
 
-![App organization](img/vue-vuex-rest.png)
+![App organization](/slides/intro/img/vue-vuex-rest.png)
 
 Note:
 This app has been coded and described in this blog post [https://www.cypress.io/blog/2017/11/28/testing-vue-web-application-with-vuex-data-store-and-rest-backend/](https://www.cypress.io/blog/2017/11/28/testing-vue-web-application-with-vuex-data-store-and-rest-backend/)
