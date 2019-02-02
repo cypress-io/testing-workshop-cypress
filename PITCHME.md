@@ -6,7 +6,7 @@ Slides: [https://gitpitch.com/cypress-io/testing-workshop-cypress](https://gitpi
 
 ---?include=slides/intro/PITCHME.md
 
----?include=slides/00-start.md
+---?include=slides/00-start/PITCHME.md
 
 ---?include=slides/01-basic.md
 

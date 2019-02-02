@@ -18,7 +18,7 @@ $(npm bin)/cypress open
 
 +++
 
-![First time you open Cypress](img/cypress-scaffold.png)
+![First time you open Cypress](/img/cypress-scaffold.png)
 
 +++
 
@@ -114,7 +114,7 @@ The check works really well in VSCode editor. I am not sure how well other edito
 
 Your best friend is [https://docs.cypress.io/](https://docs.cypress.io/)
 
-![Doc search](todomvc/img/docs-search.png)
+![Doc search](/todomvc/img/docs-search.png)
 
 +++
 
