@@ -16,7 +16,7 @@ Slides: [https://gitpitch.com/cypress-io/testing-workshop-cypress](https://gitpi
 
 ---?include=slides/04-reset-state/PITCHME.md
 
----?include=slides/05-xhr.md
+---?include=slides/05-xhr/PITCHME.md
 
 ---?include=slides/06-app-data-store.md
 
