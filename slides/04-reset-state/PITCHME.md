@@ -6,15 +6,15 @@
 
 +++
 
-![First test run](/img/passing-test.png)
+![First test run](/slides/04-reset-state/img/passing-test.png)
 
 +++
 
-![Second test run](/img/failing-test.png)
+![Second test run](/slides/04-reset-state/img/failing-test.png)
 
 +++
 
-![Inspect first XHR call](/img/inspect-first-get-todos.png)
+![Inspect first XHR call](/slides/04-reset-state/img/inspect-first-get-todos.png)
 
 +++
 
