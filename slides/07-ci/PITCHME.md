@@ -22,7 +22,7 @@
 - fork this repo [cypress-io/testing-workshop-cypress](https://github.com/cypress-io/testing-workshop-cypress)
 - add project to CircleCI
 
-![Add project](img/add-project.png)
+![Add project](/img/add-project.png)
 
 +++
 
