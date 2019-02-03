@@ -18,7 +18,7 @@ $(npm bin)/cypress open
 
 +++
 
-![First time you open Cypress](/img/cypress-scaffold.png)
+![First time you open Cypress](/slides/00-start/img/cypress-scaffold.png)
 
 +++
 
