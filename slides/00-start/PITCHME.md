@@ -85,6 +85,12 @@ it('loads', () => {
 
 +++
 
+## Switch browser
+
+![Switch browser](/slides/00-start/img/switch-browser.png)
+
++++
+
 ```javascript
 /// <reference types="cypress" />
 it('loads', () => {
