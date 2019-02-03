@@ -67,7 +67,7 @@ Move `addItem` function into a separate file and import from the spec file. It i
 
 +++
 
-## Pro tips
+## 💡 Pro tips
 
 - resize the viewport in `cypress.json`
 - set up IntelliSense in `cypress.json` using [https://on.cypress.io/intelligent-code-completion](https://on.cypress.io/intelligent-code-completion)

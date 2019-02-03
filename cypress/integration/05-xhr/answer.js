@@ -13,8 +13,7 @@ it('starts with zero items', () => {
   cy.server()
   cy.route('GET', '/todos').as('todos')
   cy.visit('/')
-  cy
-    .wait('@todos') // wait for `GET /todos` response
+  cy.wait('@todos') // wait for `GET /todos` response
     // inspect the server's response
     .its('response.body')
     .should('have.length', 0)
@@ -29,8 +28,7 @@ it('starts with zero items (stubbed response)', () => {
   cy.server()
   cy.route('GET', '/todos', []).as('todos')
   cy.visit('/')
-  cy
-    .wait('@todos') // wait for `GET /todos` response
+  cy.wait('@todos') // wait for `GET /todos` response
     // inspect the server's response
     .its('response.body')
     .should('have.length', 0)
@@ -45,8 +43,7 @@ it('starts with zero items (fixture)', () => {
   cy.server()
   cy.route('GET', '/todos', 'fixture:empty-list').as('todos')
   cy.visit('/')
-  cy
-    .wait('@todos') // wait for `GET /todos` response
+  cy.wait('@todos') // wait for `GET /todos` response
     // inspect the server's response
     .its('response.body')
     .should('have.length', 0)
@@ -59,10 +56,12 @@ it('posts new item to the server', () => {
   cy.route('POST', '/todos').as('new-item')
   cy.visit('/')
   cy.get('.new-todo').type('test api{enter}')
-  cy.wait('@new-item').its('request.body').should('have.contain', {
-    title: 'test api',
-    completed: false
-  })
+  cy.wait('@new-item')
+    .its('request.body')
+    .should('have.contain', {
+      title: 'test api',
+      completed: false
+    })
 })
 
 it('posts new item to the server response', () => {
@@ -70,10 +69,12 @@ it('posts new item to the server response', () => {
   cy.route('POST', '/todos').as('new-item')
   cy.visit('/')
   cy.get('.new-todo').type('test api{enter}')
-  cy.wait('@new-item').its('response.body').should('have.contain', {
-    title: 'test api',
-    completed: false
-  })
+  cy.wait('@new-item')
+    .its('response.body')
+    .should('have.contain', {
+      title: 'test api',
+      completed: false
+    })
 })
 
 it('loads several items from a fixture', () => {
@@ -87,13 +88,11 @@ it('loads several items from a fixture', () => {
   // we can do this in a variety of ways
   cy.get('li.todo').should('have.length', 2)
   cy.get('li.todo.completed').should('have.length', 1)
-  cy
-    .contains('.todo', 'first item from fixture')
+  cy.contains('.todo', 'first item from fixture')
     .should('not.have.class', 'completed')
     .find('.toggle')
     .should('not.be.checked')
-  cy
-    .contains('.todo.completed', 'second item from fixture')
+  cy.contains('.todo.completed', 'second item from fixture')
     .find('.toggle')
     .should('be.checked')
 })
@@ -116,7 +115,8 @@ it('handles 404 when loading todos', () => {
     }
   })
   // observe external effect from the app - console.error(...)
-  cy
-    .get('@console-error')
-    .should('have.been.calledWithExactly', 'test does not allow it')
+  cy.get('@console-error').should(
+    'have.been.calledWithExactly',
+    'test does not allow it'
+  )
 })

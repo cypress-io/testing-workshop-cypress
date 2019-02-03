@@ -41,6 +41,16 @@ Hint: you can find latest examples in [https://github.com/cypress-io/cypress-exa
 
 +++
 
+## 💡 Pro tip
+
+
+```
+npx @bahmutov/cly init
+# quickly scaffolds Cypress folders
+```
+
++++
+
 ## First spec
 
 Create a new file
@@ -89,7 +99,13 @@ By having "reference" line we tell editors that support it (VSCode, WebStorm) to
 
 ## IntelliSense
 
-![IntelliSense in VSCode](https://docs.cypress.io/img/snippets/intellisense-setup.a748a413.mp4)
+![IntelliSense in VSCode](/slides/00-start/img/cy-get-intellisense.jpeg)
+
++++
+
+Every Cypress command and every assertion
+
+![Should IntelliSense](/slides/00-start/img/should-intellisense.jpeg)
 
 +++
 
@@ -127,7 +143,7 @@ Your best friend is [https://docs.cypress.io/](https://docs.cypress.io/)
 
 +++
 
-## Pro tip
+## 💡 Pro tip
 
 ```
 https://on.cypress.io/<command>
