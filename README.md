@@ -66,25 +66,25 @@ $ npm run cy:open
 
 ## Slides 🖥
 
-[https://gitpitch.com/cypress-io/testing-workshop-cypress][presentation] with the starting file in [PITCHME.md](PITCHME.md) presented using [GitPitch](https://gitpitch.com/). The pitch file includes files from the [slides](slides) folder. Students should open the [presentation slides][presentation] and follow along.
+[https://gitpitch.com/cypress-io/testing-workshop-cypress][presentation] with the starting file in [PITCHME.md](PITCHME.md) presented using [GitPitch](https://gitpitch.com/). The pitch file includes files from the [slides](slides) folder. Students should open the [presentation slides][presentation] and follow along. You can also show each section separately by clicking on the "slides" link in the table below. The full presentation includes all these presentations.
 
 [presentation]: https://gitpitch.com/cypress-io/testing-workshop-cypress
 
 ## Content 🗂
 
-| topics                                 | folder                                                                                   | slides                                                        |
-| -------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| Introduction, TodoMVC application      | [todomvc](todomvc)                                                                       | [intro.md](slides/intro.md)                                   |
-| Loading page                           | [00-start](00-start)                                                                     | [00-start.md](slides/00-start.md)                             |
-| `cypress open` vs `cypress run`        | [cypress/integration/01-basic](cypress/integration/01-basic)                             | [01-basic.md](slides/01-basic.md)                             |
-| Adding items test, `cypress.json` file | [cypress/integration/02-adding-items](cypress/integration/02-adding-items)               | [02-adding-items.md](slides/02-adding-items.md)               |
-| Selector Playground                    | [cypress/integration/03-selector-playground](cypress/integration/03-selector-playground) | [03-selector-playground.md](slides/03-selector-playground.md) |
-| Reset database using `cy.request`      | [cypress/integration/04-reset-state](cypress/integration/04-reset-state)                 | [04-reset-state.md](slides/04-reset-state.md)                 |
-| Spy and stub XHR requests, fixtures    | [cypress/integration/05-xhr](cypress/integration/05-xhr)                                 | [05-xhr.md](slides/05-xhr.md)                                 |
-| Access application code and data       | [cypress/integration/06-app-data-store](cypress/integration/06-app-data-store)           | [06-app-data-store.md](slides/06-app-data-store.md)           |
-| Setting up E2E tests on CI             | [cypress/integration/07-ci](cypress/integration/07-ci)                                   | [07-ci.md](slides/07-ci.md)                                   |
-| Setting up Cypress Dashboard           | [cypress/integration/07-ci](cypress/integration/07-ci)                                   | [08-dashboard.md](slides/08-dashboard.md)                     |
-| The end                                | -                                                                                        | [end.md](slides/end.md)                                       |
+| topics                                 | folder                                                                                   | contens                                                       | slides |
+| -------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------ |
+| Introduction, TodoMVC application      | [todomvc](todomvc)                                                                       | [intro.md](slides/intro/PITCHME.md)                                   | [intro](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/intro)
+| Loading page                           | [00-start](00-start)                                                                     | [00-start.md](slides/00-start/PITCHME.md)                             | [00-start](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/00-start)
+| `cypress open` vs `cypress run`        | [cypress/integration/01-basic](cypress/integration/01-basic)                             | [01-basic.md](slides/01-basic/PITCHME.md)                             | [01-basic](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/01-basic)
+| Adding items test, `cypress.json` file | [cypress/integration/02-adding-items](cypress/integration/02-adding-items)               | [02-adding-items.md](slides/02-adding-items/PITCHME.md)               | [02-adding-items](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/02-adding-items)
+| Selector Playground                    | [cypress/integration/03-selector-playground](cypress/integration/03-selector-playground) | [03-selector-playground.md](slides/03-selector-playground/PITCHME.md) | [03-selector-playground](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/03-selector-playground)
+| Reset database using `cy.request`      | [cypress/integration/04-reset-state](cypress/integration/04-reset-state)                 | [04-reset-state.md](slides/04-reset-state/PITCHME.md)                 | [04-reset-state](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/04-reset-state)
+| Spy and stub XHR requests, fixtures    | [cypress/integration/05-xhr](cypress/integration/05-xhr)                                 | [05-xhr.md](slides/05-xhr/PITCHME.md)                                 | [05-xhr](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/05-xhr)
+| Access application code and data       | [cypress/integration/06-app-data-store](cypress/integration/06-app-data-store)           | [06-app-data-store.md](slides/06-app-data-store/PITCHME.md)           | [06-app-data-store](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/06-app-data-store)
+| Setting up E2E tests on CI             | [cypress/integration/07-ci](cypress/integration/07-ci)                                   | [07-ci.md](slides/07-ci/PITCHME.md)                                   | [07-ci](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/07-ci)
+| Setting up Cypress Dashboard           | [cypress/integration/07-ci](cypress/integration/07-ci)                                   | [08-dashboard.md](slides/08-dashboard/PITCHME.md)                     | [08-dashboard](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/08-dashboard)
+| The end                                | -                                                                                        | [end.md](slides/end/PITCHME.md)                                       | [end](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/end)
 
 ## For speakers 🎙
 
