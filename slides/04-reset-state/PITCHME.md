@@ -1,4 +1,4 @@
-## Reset state
+## Part 4: Reset state data
 
 - keep `todomvc` app running
 - open `04-reset-state/spec.js`

@@ -1,4 +1,4 @@
-## Selector playground
+## Part 3: Selector playground
 
 - keep `todomvc` app running
 - open `03-selector-playground/spec.js`

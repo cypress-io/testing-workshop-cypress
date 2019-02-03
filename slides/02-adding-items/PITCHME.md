@@ -1,4 +1,4 @@
-## Adding items test
+## Part 2: Adding items tests
 
 - keep `todomvc` app running
 - open `02-adding-items/spec.js` in your text editor and Cypress

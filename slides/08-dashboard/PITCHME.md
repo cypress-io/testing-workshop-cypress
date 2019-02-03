@@ -1,4 +1,4 @@
-## Dashboard
+## Part 8: The Dashboard
 
 - CI is nice, but
   - artifacts are all over the place

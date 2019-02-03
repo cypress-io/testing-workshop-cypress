@@ -1,4 +1,4 @@
-## Spying / stubbing network calls
+## Part 5: Control network calls
 
 - keep `todomvc` app running
 - open `05-xhr/spec.js`

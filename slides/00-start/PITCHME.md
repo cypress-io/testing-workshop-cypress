@@ -1,4 +1,4 @@
-## New projects
+## Starting new projects
 
 Create a new folder
 

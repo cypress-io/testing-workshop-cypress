@@ -1,4 +1,4 @@
-## Basic test
+## Part 1: Basic tests
 
 - keep `todomvc` app running
 - open Cypress from the root folder with `npm run cy:open`

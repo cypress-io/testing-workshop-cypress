@@ -1,23 +1,23 @@
-## Workshop lessons
+## 🔖 Workshop lessons
 
 - Write E2E tests to mimic user's actions
 - Set the initial state before each test
 
 +++
 
-## Workshop lessons
+## 🔖 Workshop lessons
 
 - Spy / stub API calls and application code
 
 +++
 
-## Workshop lessons
+## 🔖 Workshop lessons
 
 - Anything you can do from DevTools console, you can do from your Cypress tests
 
 +++
 
-## The End
+## The End 🎉
 
 Thank you for learning E2E testing with [Cypress.io](https://www.cypress.io)
 

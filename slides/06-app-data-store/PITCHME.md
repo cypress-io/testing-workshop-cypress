@@ -1,4 +1,4 @@
-## Application data store
+## Part 6: Application data store
 
 - keep `todomvc` app running
 - open `06-app-data-store/spec.js`

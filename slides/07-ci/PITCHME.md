@@ -1,4 +1,4 @@
-## Continuous integration
+## Part 7: Continuous integration
 
 - sign up for free account on CircleCI
 - use specs from folder `cypress/integration/07-ci`
