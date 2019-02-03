@@ -45,6 +45,7 @@
 
 +++
 
-## Big Bonus
+## Big bonus: Parallelization
 
 - run tests on N machines in 1/N time with [https://on.cypress.io/parallelization](https://on.cypress.io/parallelization)
+- 📺 [Cypress parallelization webinar](https://youtu.be/FfqD1ExUGlw)

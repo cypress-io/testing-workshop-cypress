@@ -180,6 +180,7 @@ Never struggle with CI config 👍
 
 - [github.com/cypress-io/circleci-orb](https://github.com/cypress-io/circleci-orb)
 - [circleci.com/orbs/registry/orb/cypress-io/cypress](https://circleci.com/orbs/registry/orb/cypress-io/cypress)
+- 📺 [CircleCI + Cypress webinar](https://youtu.be/J-xbNtKgXfY)
 
 +++
 
