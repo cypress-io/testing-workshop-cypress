@@ -49,6 +49,8 @@ npx @bahmutov/cly init
 # quickly scaffolds Cypress folders
 ```
 
+Repo [@bahmutov/cly](https://github.com/bahmutov/cly)
+
 +++
 
 ## First spec
