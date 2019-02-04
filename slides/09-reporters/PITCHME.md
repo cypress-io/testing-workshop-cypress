@@ -45,7 +45,6 @@ Are all test results in the saved output file?
 
 ![Report numbers](/slides/09-reporters/img/junit-output.png)
 
-
 +++
 
 ## Todo: report per spec
@@ -62,7 +61,7 @@ Are all test results in the saved output file?
 
 Note:
 Option `reporterOptions.toConsole = true` mirrors JUnit reports to `STDOUT`.
-Filename with `[hash]` will save individual report per spec. Remember to clean the output folder before running the tests.
+Filename with `[hash]` will save individual report per spec. Remember to clean the output folder before running the tests like `rm cypress/results/* || true && npm test`.
 
 +++
 
@@ -85,3 +84,43 @@ npm i -D mocha mocha-multi-reporters mocha-junit-reporter
   }
 }
 ```
+
++++
+
+## Mochawesome
+
+Let's generate [Mochawesome](https://github.com/adamgruber/mochawesome) individual JSON reports, merge them and then generate combined HTML report.
+
+```sh
+npm i -D mocha mochawesome mochawesome-merge mochawesome-report-generator
+```
+
+```json
+{
+  "reporter": "mochawesome",
+  "reporterOptions": {
+    "reportDir": "cypress/results",
+    "overwrite": false,
+    "html": false,
+    "json": true
+  }
+}
+```
+
+Note:
+This should produce files in `cypress/results` like `mochawesome.json`, `mochawesome_001.json`, `mochawesome_002.json`. Then we need to merge them into a single JSON.
+
+## Merge and generate HTML report
+
+```sh
+$(npm bin)/mochawesome-merge --reportDir cypress/results > mochawesome.json
+$(npm bin)/marge mochawesome.json
+```
+
+Note:
+`$(npm bin)/marge` is the bin alias of `mochawesome-report-generator` package. This should save beautiful report `mochawesome-report/mochawesome.html`.
+
++++
+
+![Mochawesome report](/slides/09-reporters/img/report.png)
+

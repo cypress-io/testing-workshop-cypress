@@ -3,11 +3,11 @@
   "viewportHeight": 800,
   "ignoreTestFiles": "answer.js",
   "baseUrl": "http://localhost:3000",
-  "reporter": "mocha-multi-reporters",
+  "reporter": "mochawesome",
   "reporterOptions": {
-    "reporterEnabled": "spec, mocha-junit-reporter",
-    "mochaJunitReporterReporterOptions": {
-      "mochaFile": "cypress/results/output-[hash].xml"
-    }
+    "reportDir": "cypress/results",
+    "overwrite": false,
+    "html": false,
+    "json": true
   }
 }
