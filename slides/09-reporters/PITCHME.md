@@ -92,7 +92,8 @@ npm i -D mocha mocha-multi-reporters mocha-junit-reporter
 Let's generate [Mochawesome](https://github.com/adamgruber/mochawesome) individual JSON reports, merge them and then generate combined HTML report.
 
 ```sh
-npm i -D mocha mochawesome mochawesome-merge mochawesome-report-generator
+npm i -D mocha mochawesome \
+  mochawesome-merge mochawesome-report-generator
 ```
 
 ```json
@@ -109,6 +110,8 @@ npm i -D mocha mochawesome mochawesome-merge mochawesome-report-generator
 
 Note:
 This should produce files in `cypress/results` like `mochawesome.json`, `mochawesome_001.json`, `mochawesome_002.json`. Then we need to merge them into a single JSON.
+
++++
 
 ## Merge and generate HTML report
 
