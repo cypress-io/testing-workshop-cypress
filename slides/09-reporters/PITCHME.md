@@ -120,6 +120,8 @@ $(npm bin)/mochawesome-merge --reportDir cypress/results > mochawesome.json
 $(npm bin)/marge mochawesome.json
 ```
 
+Uses [https://github.com/adamgruber/mochawesome-report-generator](https://github.com/adamgruber/mochawesome-report-generator) - aka `marge`
+
 Note:
 `$(npm bin)/marge` is the bin alias of `mochawesome-report-generator` package. This should save beautiful report `mochawesome-report/mochawesome.html`.
 
