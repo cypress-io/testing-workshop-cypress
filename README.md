@@ -84,6 +84,7 @@ $ npm run cy:open
 | Access application code and data       | [cypress/integration/06-app-data-store](cypress/integration/06-app-data-store)           | [06-app-data-store.md](slides/06-app-data-store/PITCHME.md)           | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/06-app-data-store)
 | Setting up E2E tests on CI             | [cypress/integration/07-ci](cypress/integration/07-ci)                                   | [07-ci.md](slides/07-ci/PITCHME.md)                                   | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/07-ci)
 | Setting up Cypress Dashboard           | [cypress/integration/07-ci](cypress/integration/07-ci)                                   | [08-dashboard.md](slides/08-dashboard/PITCHME.md)                     | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/08-dashboard)
+| Test reporters             | - | [09-reporters.md](slides/09-reporters/PITCHME.md)                     | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/09-reporters)
 | The end                                | -                                                                                        | [end.md](slides/end/PITCHME.md)                                       | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/end)
 
 ## For speakers 🎙
