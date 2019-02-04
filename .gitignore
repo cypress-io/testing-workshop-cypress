@@ -3,3 +3,4 @@ node_modules/
 */cypress/screenshots
 cypress/videos
 cypress/screenshots
+cypress/results
