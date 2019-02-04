@@ -15,6 +15,7 @@
     "format": "prettier-standard 'cypress/**/*.js'",
     "lint": "standard 'cypress/**/*.js'"
   },
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cypress-io/testing-workshop-cypress.git"
