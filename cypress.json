@@ -2,12 +2,5 @@
   "viewportWith": 400,
   "viewportHeight": 800,
   "ignoreTestFiles": "answer.js",
-  "baseUrl": "http://localhost:3000",
-  "reporter": "mochawesome",
-  "reporterOptions": {
-    "reportDir": "cypress/results",
-    "overwrite": false,
-    "html": false,
-    "json": true
-  }
+  "baseUrl": "http://localhost:3000"
 }
