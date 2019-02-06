@@ -50,7 +50,7 @@ In the user settings, global or workspace set
   "json.schemas": [
     {
       "fileMatch": ["cypress.json"],
-      "url": "https://raw.githubusercontent.com/cypress-io/cypress/develop/cli/schema/cypress.schema.json"
+      "url": "https://on.cypress.io/cypress.schema.json"
     }
   ]
 }
@@ -70,7 +70,7 @@ Add `$schema` property to `cypress.json`
   "viewportHeight": 800,
   "ignoreTestFiles": "answer.js",
   "baseUrl": "http://localhost:3000",
-  "$schema": "https://raw.githubusercontent.com/cypress-io/cypress/develop/cli/schema/cypress.schema.json"
+  "$schema": "https://on.cypress.io/cypress.schema.json"
 }
 ```
 
@@ -90,6 +90,25 @@ npx cypress open \
 Note:
 Try running `cypress/integration/02-adding-items/demo.js` spec.
 Commonly used with `cypress run` command (specific spec, longer timeouts)
+
++++
+
+## package scripts
+
+**Warning ⚠️** if you start Cypress via NPM package scripts, use `--` to add CLI arguments.
+
+```json
+{
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
+  }
+}
+```
+
+```shell
+npm run cy:run -- --config baseUrl=http://todomvc.com/examples/dojo/
+```
 
 +++
 
@@ -119,3 +138,4 @@ npx cypress run --record --recordKey abc...
 CYPRESS_RECORD_KEY=abc...
 npx cypress run --record
 ```
+
