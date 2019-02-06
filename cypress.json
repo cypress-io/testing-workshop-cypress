@@ -3,5 +3,6 @@
   "viewportHeight": 800,
   "ignoreTestFiles": "answer.js",
   "baseUrl": "http://localhost:3000",
+  "env": {},
   "$schema": "https://on.cypress.io/cypress.schema.json"
 }

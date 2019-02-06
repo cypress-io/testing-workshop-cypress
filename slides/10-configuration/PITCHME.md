@@ -205,6 +205,149 @@ Use at your own risk, because the order of mutations and the final config in eac
 
 *That are not `CYPRESS_`* - username, passwords, etc.
 
+Guide [https://on.cypress.io/environment-variables](https://on.cypress.io/environment-variables)
+
++++
+
+## Environment variables
+
+### `cypress.json` "env"
+
+```json
+{
+  "baseUrl": "http://localhost:3000",
+  "env": {
+    "todoTitle": "env todo"
+  }
+}
+```
+```js
+it('has env item', function () {
+  expect(Cypress.env('todoTitle'))
+    .to.equal('env todo')
+})
+```
+
++++
+
+## Environment variables
+
+### `cypress.env.json`
+
+```json
+{
+  "eyes": "brown",
+  "t-shirt": "large"
+}
+```
+
+Environment variables will be merged.
+
++++
+
+## Using env variables
+
+```js
+Cypress.env() // returns entire merged object
+Cypress.env(name) // returns single value
+```
+
+See [https://on.cypress.io/env](https://on.cypress.io/env)
+
++++
+
+## Todo: get deep property
+
+Given `cypress.env.json`
+
+```json
+{
+  "person": {
+    "name": "Joe"
+  }
+}
+```
+
+Assert from the test that name is indeed `Joe`.
+
+Note:
+Use `Cypress._.get` or `cy.wrap(Cypress.env()).its('person.name')`
+
++++
+
+## Environment variables
+
+### command-line arguments
+
+```sh
+npx cypress open --env todoTitle="env todo",life=42
+```
+
++++
+
+![env variables from CLI](/slides/10-configuration/img/env-from-cli.png)
+
++++
+
+## Environment variables
+
+### environment variables 🙂
+
+```sh
+CYPRESS_todoTitle="env todo" CYPRESS_name=CyBot \
+  npx cypress open
+```
+
+Unknown `CYPRESS_` variables will be added to `env` object.
+
++++
+
+![env variables from env](/slides/10-configuration/img/env-from-env.png)
+
++++
+
+## Environment variables
+
+### plugin
+
+```js
+module.exports = (on, config) => {
+  config.env.fooBar = 'baz'
+  return config
+}
+```
+
++++
+
+## Environment variables
+
+🛑 Cannot change variables at run-time
+
+```js
+it('has env', () => {
+  expect(Cypress.env('life')).to.equal(42)
+  Cypress.config('env', {
+    life: 1
+  })
+  // nope, remains the same
+  expect(Cypress.env('life')).to.equal(42)
+})
+```
+
 +++
 
 ## Todo: per-environment config
+
+Problem: let's create config settings per environment and load them using CLI argument.
+
+```sh
+npx cypress open --env staging
+npx cypress open --env prod
+```
+
+Which should load options from `configs/staging.json` or from `configs/prod.json`.
+
+Note:
+What options would you set in each JSON file?
+Would they be merged with other settings in `cypress.json`?
+Answer at https://on.cypress.io/configuration-api
