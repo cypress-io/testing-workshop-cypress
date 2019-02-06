@@ -345,7 +345,7 @@ npx cypress open --env staging
 npx cypress open --env prod
 ```
 
-Which should load options from `configs/staging.json` or from `configs/prod.json`.
+Should load options from `configs/staging.json` or from `configs/prod.json`.
 
 Note:
 What options would you set in each JSON file?
