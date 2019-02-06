@@ -201,6 +201,14 @@ Use at your own risk, because the order of mutations and the final config in eac
 
 +++
 
+## Todo
+
+Run a single spec in headless mode against:
+- `localhost`
+- `http://todomvc.com/examples/dojo/`
+
++++
+
 ## Environment variables
 
 *That are not `CYPRESS_`* - username, passwords, etc.
@@ -286,6 +294,16 @@ npx cypress open --env todoTitle="env todo",life=42
 +++
 
 ![env variables from CLI](/slides/10-configuration/img/env-from-cli.png)
+
++++
+
+## Todo
+
+Pass an object via command-line argument and see it in the configuration
+
+```sh
+npx cypress open --env ???
+```
 
 +++
 
