@@ -11,6 +11,7 @@ if (isLocalHost()) {
 }
 
 beforeEach(function visitSite () {
+  cy.log('Visiting', Cypress.config('baseUrl'))
   cy.visit('/')
 })
 

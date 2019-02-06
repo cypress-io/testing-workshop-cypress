@@ -139,3 +139,54 @@ CYPRESS_RECORD_KEY=abc...
 npx cypress run --record
 ```
 
++++
+
+## plugin code
+
+In `cypress/plugins/index.js`
+
+```js
+module.exports = (on, config) => {
+  config.baseUrl = 'http://todomvc.com/examples/dojo/'
+  // change more options ...
+  return config
+}
+```
+
+Docs: [https://on.cypress.io/configuration-api](https://on.cypress.io/configuration-api)
+
++++
+
+## plugin code
+
+You can return a resolved config as a promise.
+
+```js
+module.exports = (on, config) => {
+  return new Promise((resolve, reject) => {
+    // load config from file or network
+    resolve(loadedConfig)
+  })
+}
+```
+
++++
+
+## Run-time configuration
+
+You can change current setting _per spec_ using [Cypress.config](https://on.cypress.io/config) call.
+
+```js
+Cypress.config('baseUrl', 'http://todomvc.com/examples/dojo/')
+beforeEach(function visitSite () {
+  cy.log('Visiting', Cypress.config('baseUrl'))
+  cy.visit('/')
+})
+```
+
+Note:
+Use at your own risk, because the order of mutations and the final config in each test can be confusing.
+
++++
+
+## Todo: per-environment config

@@ -42,7 +42,6 @@ const hasRecordAsync = (title, ms) => {
 
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
   // "cy.task" can be used from specs to "jump" into Node environment
   // and doing anything you might want. For example, checking "data.json" file!
   on('task', {
@@ -55,4 +54,9 @@ module.exports = (on, config) => {
       return hasRecordAsync(title, ms)
     }
   })
+
+  // `config` is the resolved Cypress config
+  // see https://on.cypress.io/configuration-api
+  config.modifyObstructiveCode = false
+  return Promise.resolve(config)
 }

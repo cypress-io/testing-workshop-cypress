@@ -55,6 +55,7 @@
   },
   "standard": {
     "globals": [
+      "Cypress",
       "cy",
       "it",
       "describe",
