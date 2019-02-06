@@ -57,6 +57,7 @@ module.exports = (on, config) => {
 
   // `config` is the resolved Cypress config
   // see https://on.cypress.io/configuration-api
+  config.fixturesFolder = 'cypress/fixtures'
   config.modifyObstructiveCode = false
   return Promise.resolve(config)
 }

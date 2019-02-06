@@ -189,4 +189,22 @@ Use at your own risk, because the order of mutations and the final config in eac
 
 +++
 
+## Resolved configuration
+
+![resolved configuration](/slides/10-configuration/img/configuration.png)
+
++++
+
+## Configuration precedence
+
+`cypress.json` < environment variable < CLI parameter < plugin < run-time
+
++++
+
+## Environment variables
+
+*That are not `CYPRESS_`* - username, passwords, etc.
+
++++
+
 ## Todo: per-environment config
