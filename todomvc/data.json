@@ -1,9 +1,3 @@
 {
-  "todos": [
-    {
-      "title": "create a task",
-      "completed": false,
-      "id": "5058567643"
-    }
-  ]
+  "todos": []
 }

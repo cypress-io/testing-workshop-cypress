@@ -1,19 +1,25 @@
 /// <reference types="cypress" />
-beforeEach(() => {
-  cy.request('POST', '/reset', {
-    todos: []
+const isLocalHost = () => Cypress.config('baseUrl').includes('localhost')
+
+if (isLocalHost()) {
+  // we can reset data only when running locally
+  beforeEach(function resetData () {
+    cy.request('POST', '/reset', {
+      todos: []
+    })
   })
-  cy.visit('localhost:3000')
+}
+
+beforeEach(function visitSite () {
+  cy.visit('/')
 })
 
 it('adds items', function () {
-  cy
-    .get('.new-todo')
+  cy.get('.new-todo')
     .type('todo A{enter}')
     .type('todo B{enter}')
     .type('todo C{enter}')
     .type('todo D{enter}')
-  cy
-    .get('.todo-list li') // command
+  cy.get('.todo-list li') // command
     .should('have.length', 4) // assertion
 })
