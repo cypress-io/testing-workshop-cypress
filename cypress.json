@@ -1,6 +1,7 @@
 {
-  "viewportWith": 400,
+  "viewportWidth": 600,
   "viewportHeight": 800,
   "ignoreTestFiles": "answer.js",
-  "baseUrl": "http://localhost:3000"
+  "baseUrl": "http://localhost:3000",
+  "$schema": "https://raw.githubusercontent.com/cypress-io/cypress/develop/cli/schema/cypress.schema.json"
 }
