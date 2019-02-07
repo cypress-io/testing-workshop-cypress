@@ -91,19 +91,11 @@ Which style do you prefer?
 
 +++
 
-@snap[north-west]
-BDD
-@snapend
-
-@snap[west half-image]
+## BDD
 ![BDD log](/slides/11-retry-ability/img/bdd.png)
-@snapend
 
-@snap[north-east]
-TDD
-@snapend
++++
 
-@snap[east half-image]
+## TDD
 ![TDD log](/slides/11-retry-ability/img/tdd.png)
-@snapend
 
