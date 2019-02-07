@@ -93,10 +93,17 @@ Which style do you prefer?
 
 @snap[north-west]
 BDD
+@snapend
+
+@snap[west half-image]
 ![BDD log](/slides/11-retry-ability/img/bdd.png)
 @snapend
 
-@snap[south-east]
+@snap[north-east]
 TDD
+@snapend
+
+@snap[east half-image]
 ![TDD log](/slides/11-retry-ability/img/tdd.png)
 @snapend
+

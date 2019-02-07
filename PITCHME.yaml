@@ -1,1 +1,2 @@
 theme: moon
+theme-override: slides/style.css
