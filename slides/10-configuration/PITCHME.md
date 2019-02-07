@@ -219,7 +219,7 @@ Run a single spec in headless mode against:
 
 ## Environment variables
 
-*That are not `CYPRESS_`* - username, passwords, etc.
+*That are not Cypress configuration* - username, passwords, etc.
 
 Guide [https://on.cypress.io/environment-variables](https://on.cypress.io/environment-variables)
 
@@ -347,7 +347,25 @@ module.exports = (on, config) => {
 
 ## Environment variables
 
-🛑 Cannot change variables at run-time
+### run-time
+
+```js
+it('has env', () => {
+  Cypress.env('life', 1)
+  expect(Cypress.env('life')).to.equal(1)
+  // change multiple values
+  Cypress.env({
+    life: 1,
+    state: 'busy'
+  })
+})
+```
+
++++
+
+## Environment variables
+
+🛑 Cannot change env variables at run-time using `Cypress.config('env', ...)`
 
 ```js
 it('has env', () => {
@@ -359,6 +377,8 @@ it('has env', () => {
   expect(Cypress.env('life')).to.equal(42)
 })
 ```
+
+✅ Always use `Cypress.env(name, value)` to change.
 
 +++
 
@@ -388,5 +408,5 @@ Answer at https://on.cypress.io/configuration-api
 | command line | command line |
 | environment | environment |
 | plugin | plugin |
-| run-time | |
+| run-time | run-time |
 | | `cypress.env.json` |
