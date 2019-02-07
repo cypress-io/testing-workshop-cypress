@@ -1,7 +1,7 @@
 {
   "viewportWidth": 600,
   "viewportHeight": 800,
-  "ignoreTestFiles": "answer.js",
+  "ignoreTestFiles": "answers.js",
   "baseUrl": "http://localhost:3000",
   "env": {},
   "$schema": "https://on.cypress.io/cypress.schema.json"
