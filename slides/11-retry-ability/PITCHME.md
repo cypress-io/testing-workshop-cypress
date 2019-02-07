@@ -114,8 +114,6 @@ cy.get('.docs-header').find('div')
   })
 ```
 
-Also see [https://example.cypress.io/commands/assertions](https://example.cypress.io/commands/assertions)
-
 +++
 
 ## Todo: write complex assertion
@@ -128,4 +126,79 @@ it('every item starts with todo', function () {
     // and that each one starts with "todo-"
   })
 })
+```
+
++++
+
+## Common use cases
+
+- dynamic data, like scoped class names
+- text between two cells is unknown but should be the same
+- displayed value should be the same as API has returned
+
+[https://example.cypress.io/commands/assertions](https://example.cypress.io/commands/assertions)
+
++++
+
+## @fa[lightbulb](Retry-ability)
+
+> Key concept in Cypress, yet should go unnoticed mostly.
+
+Note:
+Add link to retry-ability page when finished https://github.com/cypress-io/cypress-documentation/pull/1314
++++
+
+### Commands and assertions
+
+```javascript
+it('creates 2 items', function () {
+  cy.visit('/')                       // command
+  cy.focused()                        // command
+    .should('have.class', 'new-todo') // assertion
+  cy.get('.new-todo')                 // command
+    .type('todo A{enter}')            // command
+    .type('todo B{enter}')            // command
+  cy.get('.todo-list li')             // command
+    .should('have.length', 2)         // assertion
+})
+```
+
++++
+
+### Look at the last command + assertion
+
+```javascript
+cy.get('.todo-list li')     // command
+  .should('have.length', 2) // assertion
+```
+
+Command `cy.get()` will be retried _until_ the assertion `should('have.length', 2)` passes.
+
+Note:
+If not shown, this is a good moment to slow down the app and show how the assertion still works, especially when slowing down progressively - 1 item, slow down by 1 second, 2 items - slow down by 2 seconds.
+
++++
+
+Command `cy.contains` will be retried _until 3 assertions_ that follow it all pass.
+
+```js
+cy.contains('ul', 'todo A')                   // command
+  .should('be.visible')                       // assertion
+  .and('have.class', 'todo-list')             // assertion
+  .and('have.css', 'list-style-type', 'none') // assertion
+```
+
++++
+
+Command `cy.get` will be retried _until 5 assertions_ that follow it all pass.
+
+```js
+cy.get('.todo label')                 // command
+  .should($labels => {
+    expect($labels).to.have.length(4) // assertion
+
+    $labels.each((k, el) => {         // 4 assertions
+      expect(el.textContent).to.match(/^todo /)
+    })
+  })
 ```

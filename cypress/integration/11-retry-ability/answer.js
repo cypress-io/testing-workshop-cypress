@@ -31,7 +31,7 @@ it('shows UL - TDD', function () {
     .type('todo B{enter}')
     .type('todo C{enter}')
     .type('todo D{enter}')
-  cy.contains('ul', 'todo A').then($ul => {
+  cy.contains('ul', 'todo A').should($ul => {
     // use TDD assertions
     // $ul is visible
     // $ul has class "todo-list"
@@ -58,4 +58,12 @@ it('every item starts with todo', function () {
       expect(el.textContent).to.match(/^todo /)
     })
   })
+})
+
+it('has 2 items', () => {
+  cy.get('.new-todo') // command
+    .type('todo A{enter}') // command
+    .type('todo B{enter}') // command
+  cy.get('.todo-list li') // command
+    .should('have.length', 2) // assertion
 })
