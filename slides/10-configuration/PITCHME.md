@@ -1,5 +1,13 @@
 ## Part 10: Configuration
 
+- `baseUrl`
+- `env`
+- `reporter`
+- `video`
+- and many, many more
+
++++
+
 Cypress options can be set via:
 - `cypress.json`
 - command line arguments
@@ -369,3 +377,16 @@ Note:
 What options would you set in each JSON file?
 Would they be merged with other settings in `cypress.json`?
 Answer at https://on.cypress.io/configuration-api
+
++++
+
+## Summary
+
+| `config` | `env` |
+| -------- | ----- |
+| `cypress.json` | `cypress.json` |
+| command line | command line |
+| environment | environment |
+| plugin | plugin |
+| run-time | |
+| | `cypress.env.json` |
