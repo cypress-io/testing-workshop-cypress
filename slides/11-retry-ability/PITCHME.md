@@ -130,7 +130,7 @@ it('every item starts with todo', function () {
 
 +++
 
-## Common use cases
+## `should(cb)` common use cases
 
 - dynamic data, like scoped class names
 - text between two cells is unknown but should be the same
@@ -140,9 +140,9 @@ it('every item starts with todo', function () {
 
 +++
 
-## @fa[lightbulb](Retry-ability)
+## @fa[key](Retry-ability)
 
-> Key concept in Cypress, yet should go unnoticed mostly.
+> Key concept in Cypress, yet should go mostly unnoticed.
 
 Note:
 Add link to retry-ability page when finished https://github.com/cypress-io/cypress-documentation/pull/1314
