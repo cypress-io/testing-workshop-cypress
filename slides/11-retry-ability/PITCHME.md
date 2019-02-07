@@ -99,3 +99,33 @@ Which style do you prefer?
 ## TDD
 ![TDD log](/slides/11-retry-ability/img/tdd.png)
 
++++
+
+## What if you need more complex assertions?
+
+Write you own [should(cb)](http://on.cypress.io/should#Function) assertion
+
+```js
+cy.get('.docs-header').find('div')
+  .should(($div) => {
+    expect($div).to.have.length(1)
+    const className = $div[0].className
+    expect(className).to.match(/heading-/)
+  })
+```
+
+Also see [https://example.cypress.io/commands/assertions](https://example.cypress.io/commands/assertions)
+
++++
+
+## Todo: write complex assertion
+
+```js
+it('every item starts with todo', function () {
+  // ...
+  cy.get('.todo label').should($labels => {
+    // confirm that there are 4 labels
+    // and that each one starts with "todo-"
+  })
+})
+```

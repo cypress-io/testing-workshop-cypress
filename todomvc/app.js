@@ -4,7 +4,9 @@
   Vue.use(Vuex)
 
   function randomId () {
-    return Math.random().toString().substr(2, 10)
+    return Math.random()
+      .toString()
+      .substr(2, 10)
   }
 
   const store = new Vuex.Store({

@@ -42,3 +42,20 @@ it('shows UL - TDD', function () {
     assert.equal($ul.css('list-style-type'), 'none')
   })
 })
+
+it('every item starts with todo', function () {
+  cy.get('.new-todo')
+    .type('todo A{enter}')
+    .type('todo B{enter}')
+    .type('todo C{enter}')
+    .type('todo D{enter}')
+  cy.get('.todo label').should($labels => {
+    // confirm that there are 4 labels
+    // and that each one starts with "todo-"
+    expect($labels).to.have.length(4)
+
+    $labels.each((k, el) => {
+      expect(el.textContent).to.match(/^todo /)
+    })
+  })
+})
