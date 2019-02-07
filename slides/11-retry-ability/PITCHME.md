@@ -43,6 +43,18 @@ expect($el).to.have.prop('disabled', false)
 
 +++
 
+## There is IntelliSense
+
+![BDD IntelliSense](/slides/11-retry-ability/img/assertion-intellisense.png)
+
++++
+
+⚠️ straight Chai IntelliSense is not so good
+
+![Chai assertion IntelliSense](/slides/11-retry-ability/img/chai-intellisense.png)
+
++++
+
 If you must, there are TDD assertions like
 
 ```
@@ -84,7 +96,7 @@ BDD
 @snapend
 
 @snap[west sidebar]
-![BDD log](/slides/11-retry-ability/bdd.png)
+![BDD log](/slides/11-retry-ability/img/bdd.png)
 @snapend
 
 @snap[north-east]
@@ -92,6 +104,6 @@ TDD
 @snapend
 
 @snap[east sidebar]
-![TDD log](/slides/11-retry-ability/tdd.png)
+![TDD log](/slides/11-retry-ability/img/tdd.png)
 @snapend
 
