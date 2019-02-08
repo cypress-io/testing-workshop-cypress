@@ -343,12 +343,13 @@ For me it was 46ms. Flaky test like this works fine locally, yet sometimes fails
 
 ```js
 cy.get('.new-todo').type('todo B{enter}')
-cy.get('.todo-list li')         // queries immediately, finds 1 <li>
-  .find('label')                // retried, retried, retried with 1 <li>
-  .should('contain', 'todo B')  // never succeeds with only 1st <li>
+cy.get('.todo-list li') // queries immediately, finds 1 <li>
+  .find('label') // retried, retried, retried with 1 <li>
+  // never succeeds with only 1st <li>
+  .should('contain', 'todo B')
 ```
 
-How do we fix the flaky?
+How do we fix the flaky test?
 
 +++
 
@@ -375,7 +376,7 @@ The test should pass now, even with longer delay, because `cy.get` is retried.
 ## merge queries for `cy.its`
 
 ```javascript
-// 🛑 not recommended
+// dangerous ⚠️
 // only the last "its" will be retried
 cy.window()
   .its('app')             // runs once
@@ -413,7 +414,7 @@ cy.get('.todo-list li')         // command
 
 +++
 
-## 📝Take away
+## 📝 Take away
 
 Most commands have built-in sensible waits:
 
@@ -421,7 +422,7 @@ Most commands have built-in sensible waits:
 
 +++
 
-## 📝Take away
+## 📝 Take away
 
 Many commands also retry themselves until the assertions that follow pass
 
@@ -432,7 +433,7 @@ cy.get('li')
 
 +++
 
-## 📝Take away
+## 📝 Take away
 
 > ⚠️Only the last command is retried ⚠️
 
