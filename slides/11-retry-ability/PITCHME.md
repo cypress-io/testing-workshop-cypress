@@ -202,3 +202,24 @@ cy.get('.todo label')                 // command
     })
   })
 ```
+
++++
+
+## Retry-ability
+
+Only some commands are retried: `cy.get`, `cy.find`, `its`. They don't change the application's state.
+
+NOT retried: `cy.click`, `cy.task`, etc.
+
+![Assertions section](/slides/11-retry-ability/img/retry.png)
+
++++
+
+## Automatic Waiting
+
+![Waiting](/slides/11-retry-ability/img/waiting.png)
+
+Built-in assertion in most commands, even if they do not retry assertions that follow. `cy.click` cannot click a button if there is no button, or if it's disabled!
+
+Note:
+Just like a human user ...
