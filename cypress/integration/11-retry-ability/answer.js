@@ -75,7 +75,8 @@ it('has the right label', () => {
     .should('contain', 'todo A') // assertion
 })
 
-it.only('has two labels', () => {
+// flaky test - can pass or not depending on the app's speed
+it('has two labels', () => {
   cy.get('.new-todo').type('todo A{enter}')
   cy.get('.todo-list li') // command
     .find('label') // command
@@ -83,6 +84,30 @@ it.only('has two labels', () => {
 
   cy.get('.new-todo').type('todo B{enter}')
   cy.get('.todo-list li') // command
+    .find('label') // command
+    .should('contain', 'todo B') // assertion
+})
+
+it('solution 1: merges queries', () => {
+  cy.get('.new-todo').type('todo A{enter}')
+  cy.get('.todo-list li label') // command
+    .should('contain', 'todo A') // assertion
+
+  cy.get('.new-todo').type('todo B{enter}')
+  cy.get('.todo-list li label') // command
+    .should('contain', 'todo B') // assertion
+})
+
+it('solution 2: alternate commands and assertions', () => {
+  cy.get('.new-todo').type('todo A{enter}')
+  cy.get('.todo-list li') // command
+    .should('have.length', 1) // assertion
+    .find('label') // command
+    .should('contain', 'todo A') // assertion
+
+  cy.get('.new-todo').type('todo B{enter}')
+  cy.get('.todo-list li') // command
+    .should('have.length', 2) // assertion
     .find('label') // command
     .should('contain', 'todo B') // assertion
 })

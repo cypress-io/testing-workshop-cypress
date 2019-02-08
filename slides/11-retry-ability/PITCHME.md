@@ -262,6 +262,8 @@ See [Timeouts](https://on.cypress.io/introduction-to-cypress#Timeouts)
 
 ![one label](/slides/11-retry-ability/img/one-label.png)
 
+⌨️ test "has the right label"
+
 +++
 
 ```js
@@ -278,3 +280,161 @@ it('has the right label', () => {
 ### Todo: write test that checks two labels
 
 ![two labels](/slides/11-retry-ability/img/two-labels.png)
+
+⌨️ test "has two labels"
+
++++
+
+```js
+it('has two labels', () => {
+  cy.get('.new-todo').type('todo A{enter}')
+  cy.get('.todo-list li') // command
+    .find('label') // command
+    .should('contain', 'todo A') // assertion
+
+  cy.get('.new-todo').type('todo B{enter}')
+  cy.get('.todo-list li') // command
+    .find('label') // command
+    .should('contain', 'todo B') // assertion
+})
+```
+
++++
+
+## Add delay to the app
+
+```js
+// todomvc/app.js
+addTodo ({ commit, state }) {
+  // ...
+  axios.post('/todos', todo).then(() => {
+    setTimeout(() => { // add delay
+      commit('ADD_TODO', todo)
+    }, 100)           // of 100ms
+  })
+},
+```
+
+> Is the test passing now?
+
++++
+
+## Todo: debug the failing test
+
+- inspect the failing command "FIND"
+- inspect previous command "GET"
+- what do you think is happening?
+
+Note:
+`FIND` command is never going to succeed, because it is already locked to search in the _first_ `<li>` element only. So when the second correct `<li>` element appears, `FIND` still only searches in the first one - because Cypress does not go back to retry `cy.get`.
+
++++
+
+## Todo: remove or shorten the artificial delay to make the test flaky
+
+> Use the binary search algorithm to find delay that turns the test into flaky test - sometimes the test passes, sometimes it fails.
+
+Note:
+For me it was 46ms. Flaky test like this works fine locally, yet sometimes fails in production where network delays are longer.
+
++++
+
+> ⚠️Only the last command is retried ⚠️
+
+```js
+cy.get('.new-todo').type('todo B{enter}')
+cy.get('.todo-list li')         // queries immediately, finds 1 <li>
+  .find('label')                // retried, retried, retried with 1 <li>
+  .should('contain', 'todo B')  // never succeeds with only 1st <li>
+```
+
+How do we fix the flaky?
+
++++
+
+## Solution 1: merge queries
+
+```js
+// dangerous ⚠️
+cy.get('.todo-list li')
+  .find('label')
+  .should(...)
+
+// recommended ✅
+cy.get('.todo-list li label')
+  .should(...)
+```
+
+⌨️ try this in test "solution 1: merges queries"
+
+Note:
+The test should pass now, even with longer delay, because `cy.get` is retried.
+
++++
+
+## merge queries for `cy.its`
+
+```javascript
+// 🛑 not recommended
+// only the last "its" will be retried
+cy.window()
+  .its('app')             // runs once
+  .its('model')           // runs once
+  .its('todos')           // retried
+  .should('have.length', 2)
+
+// ✅ recommended
+cy.window()
+  .its('app.model.todos') // retried
+  .should('have.length', 2)
+```
+
+From [Set flag to start tests](https://glebbahmutov.com/blog/set-flag-to-start-tests/)
+
++++
+
+## Solution 2: alternate commands and assertions
+
+```js
+cy.get('.new-todo').type('todo A{enter}')
+cy.get('.todo-list li')         // command
+  .should('have.length', 1)     // assertion
+  .find('label')                // command
+  .should('contain', 'todo A')  // assertion
+
+cy.get('.new-todo').type('todo B{enter}')
+cy.get('.todo-list li')         // command
+  .should('have.length', 2)     // assertion
+  .find('label')                // command
+  .should('contain', 'todo B')  // assertion
+```
+
+⌨️ try this in test "solution 2: alternate commands and assertions"
+
++++
+
+## 📝Take away
+
+Most commands have built-in sensible waits:
+
+> Element should exist and be visible before clicking
+
++++
+
+## 📝Take away
+
+Many commands also retry themselves until the assertions that follow pass
+
+```js
+cy.get('li')
+  .should('have.length', 2)
+```
+
++++
+
+## 📝Take away
+
+> ⚠️Only the last command is retried ⚠️
+
+1. Merge queries into one command
+2. Alternate commands and assertions

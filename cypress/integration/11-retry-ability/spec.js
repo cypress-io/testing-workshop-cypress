@@ -47,3 +47,32 @@ it('every item starts with todo', function () {
     // and that each one starts with "todo-"
   })
 })
+
+it('has the right label', () => {
+  cy.get('.new-todo').type('todo A{enter}')
+  // ?
+})
+
+it('has two labels', () => {
+  cy.get('.new-todo').type('todo A{enter}')
+  // ?
+
+  cy.get('.new-todo').type('todo B{enter}')
+  // ?
+})
+
+it('solution 1: merges queries', () => {
+  cy.get('.new-todo').type('todo A{enter}')
+  // ?
+
+  cy.get('.new-todo').type('todo B{enter}')
+  // ?
+})
+
+it('solution 2: alternate commands and assertions', () => {
+  cy.get('.new-todo').type('todo A{enter}')
+  // ?
+
+  cy.get('.new-todo').type('todo B{enter}')
+  // ?
+})
