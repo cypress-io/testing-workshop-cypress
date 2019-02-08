@@ -59,7 +59,9 @@
       "cy",
       "it",
       "describe",
-      "beforeEach"
+      "beforeEach",
+      "assert",
+      "expect"
     ]
   }
 }

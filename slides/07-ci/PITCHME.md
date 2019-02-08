@@ -184,7 +184,7 @@ Never struggle with CI config 👍
 
 +++
 
-## Take aways
+## Take away
 
 - use `npm ci` command instead of `npm install`
 - cache `~/.npm` and `~/.cache` folders
