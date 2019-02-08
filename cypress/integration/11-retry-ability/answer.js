@@ -67,3 +67,22 @@ it('has 2 items', () => {
   cy.get('.todo-list li') // command
     .should('have.length', 2) // assertion
 })
+
+it('has the right label', () => {
+  cy.get('.new-todo').type('todo A{enter}')
+  cy.get('.todo-list li') // command
+    .find('label') // command
+    .should('contain', 'todo A') // assertion
+})
+
+it.only('has two labels', () => {
+  cy.get('.new-todo').type('todo A{enter}')
+  cy.get('.todo-list li') // command
+    .find('label') // command
+    .should('contain', 'todo A') // assertion
+
+  cy.get('.new-todo').type('todo B{enter}')
+  cy.get('.todo-list li') // command
+    .find('label') // command
+    .should('contain', 'todo B') // assertion
+})

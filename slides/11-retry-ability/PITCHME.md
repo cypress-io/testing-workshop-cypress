@@ -1,4 +1,4 @@
-## @fa[graduation-cap](Part 11: Retry-ability)
+## 📚 Part 11: Retry-ability
 
 And a deeper dive into assertions
 
@@ -140,7 +140,7 @@ it('every item starts with todo', function () {
 
 +++
 
-## @fa[key](Retry-ability)
+## 🔑 Retry-ability
 
 > Key concept in Cypress, yet should go mostly unnoticed.
 
@@ -222,4 +222,59 @@ NOT retried: `cy.click`, `cy.task`, etc.
 Built-in assertion in most commands, even if they do not retry assertions that follow. `cy.click` cannot click a button if there is no button, or if it's disabled!
 
 Note:
-Just like a human user ...
+Just like a human user, Cypress tries to do sensible thing. Very rarely though you need to retry a command that is NOT retried by Cypress, in that case you can perform it yourself, see [When Can the Test Click?](https://www.cypress.io/blog/2019/01/22/when-can-the-test-click/)
+
++++
+
+## Timeouts
+
+By default, command retries for up to 4 seconds. You can change config setting `defaultCommandTimeout` globally.
+
+```sh
+cypress run --config defaultCommandTimeout=10000
+```
+
+⚠️ changing global command timeout is not recommended.
+
++++
+
+## Timeouts
+
+Change timeout for a particular command
+
+```js
+// we've modified the timeout which affects
+// default + added assertions
+cy.get('.mobile-nav', { timeout: 10000 })
+  .should('be.visible')
+  .and('contain', 'Home')
+```
+
+See [Timeouts](https://on.cypress.io/introduction-to-cypress#Timeouts)
+
++++
+
+> ⚠️Only the last command is retried ⚠️
+
++++
+
+### Todo: write test that checks the label
+
+![one label](/slides/11-retry-ability/img/one-label.png)
+
++++
+
+```js
+it('has the right label', () => {
+  cy.get('.new-todo').type('todo A{enter}')
+  cy.get('.todo-list li')         // command
+    .find('label')                // command
+    .should('contain', 'todo A')  // assertion
+})
+```
+
++++
+
+### Todo: write test that checks two labels
+
+![two labels](/slides/11-retry-ability/img/two-labels.png)
