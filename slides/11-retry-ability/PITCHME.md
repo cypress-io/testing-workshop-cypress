@@ -254,7 +254,7 @@ See [Timeouts](https://on.cypress.io/introduction-to-cypress#Timeouts)
 
 +++
 
-> ⚠️Only the last command is retried ⚠️
+> ⚠️ Only the last command is retried ⚠️
 
 +++
 
@@ -339,7 +339,7 @@ For me it was 46ms. Flaky test like this works fine locally, yet sometimes fails
 
 +++
 
-> ⚠️Only the last command is retried ⚠️
+> ⚠️ Only the last command is retried ⚠️
 
 ```js
 cy.get('.new-todo').type('todo B{enter}')
@@ -435,7 +435,7 @@ cy.get('li')
 
 ## 📝 Take away
 
-> ⚠️Only the last command is retried ⚠️
+> ⚠️ Only the last command is retried ⚠️
 
 1. Merge queries into one command
 2. Alternate commands and assertions
