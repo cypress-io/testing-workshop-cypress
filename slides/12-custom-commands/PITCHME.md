@@ -62,8 +62,8 @@ A better solution, because only the spec file that needs these hooks can load th
 
 ```js
 // cypress/support/hooks.js
-export function resetData () {}
-export function visitSite () {}
+export function resetData () { ... }
+export function visitSite () { ... }
 ```
 
 ⌨️ and update `spec.js`
@@ -88,6 +88,9 @@ it('loads the app', () => {
 })
 ```
 
+Note:
+Some functions can return `cy` instance, some don't, whatever is convenient. I also find small functions that return complex selectors very useful to keep selectors from duplication.
+
 +++
 
 Pro: functions are easy to document with JSDoc
@@ -108,3 +111,82 @@ And MS IntelliSense can understand types from JSDoc and check those!
 [https://github.com/Microsoft/TypeScript/wiki/JSDoc-support-in-JavaScript](https://github.com/Microsoft/TypeScript/wiki/JSDoc-support-in-JavaScript)
 
 More details in: [https://slides.com/bahmutov/ts-without-ts](https://slides.com/bahmutov/ts-without-ts)
+
++++
+
+## Custom commands
+
+- share code in entire project without individual imports
+- complex logic with custom logging into Command Log
+  * login sequence
+  * many application actions
+
+📝 [on.cypress.io/custom-commands](https://on.cypress.io/custom-commands)
+
++++
+
+Let's create a command to create a todo
+
+```js
+// instead of this
+cy.get('.new-todo')
+  .type('todo 0{enter}')
+// use this
+cy.createTodo('todo 0')
+```
+
++++
+
+## Todo: write and use "createTodo"
+
+```js
+Cypress.Commands.add('createTodo', todo => {
+  cy.get('.new-todo').type(`${todo}{enter}`)
+})
+it('creates a todo', () => {
+  cy.createTodo('my first todo')
+})
+```
+
++++
+
+## ⬆️ Make it better
+
+- have IntelliSense working for `createTodo`
+- have nicer Command Log
+
++++
+
+## Todo: add `createTodo` to `cy` object
+
+How: [https://github.com/cypress-io/cypress-example-todomvc#cypress-intellisense](https://github.com/cypress-io/cypress-example-todomvc#cypress-intellisense)
+
++++
+
+⌨️ in file `cypress/integration/12-custom-commands/custom-commands.d.ts`
+
+```ts
+/// <reference types="cypress" />
+declare namespace Cypress {
+  interface Chainable<Subject> {
+    /**
+     * Creates one Todo using UI
+     * @example
+     * cy.createTodo('new item')
+     */
+    createTodo(todo: string): Chainable<any>
+  }
+}
+```
+
++++
+
+Load the new definition file in `cypress/integration/12-custom-commands/spec.js`
+
+```js
+/// <reference path="./custom-commands.d.ts" />
+```
+
++++
+
+![Custom command IntelliSense](/slides/12-custom-commands/img/create-todo-intellisense.jpeg)

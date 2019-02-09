@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference path="./custom-commands.d.ts" />
 import { resetData, visitSite } from '../../support/hooks'
 
 beforeEach(resetData)
@@ -17,4 +18,11 @@ it('enters 10 todos', function () {
     .type('todo 8{enter}')
     .type('todo 9{enter}')
   cy.get('.todo').should('have.length', 10)
+})
+
+Cypress.Commands.add('createTodo', todo => {
+  cy.get('.new-todo').type(`${todo}{enter}`)
+})
+it('creates a todo', () => {
+  cy.createTodo('my first todo')
 })
