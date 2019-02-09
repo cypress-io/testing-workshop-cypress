@@ -1,4 +1,12 @@
-## Part 5: Control network calls
+## ☀️ Part 5: Control network calls
+
+### 📚 You will learn
+
+- how to spy / stub network calls
+- how to wait for the network calls from tests
+- how to use network calls in assertions
+
++++
 
 - keep `todomvc` app running
 - open `05-xhr/spec.js`

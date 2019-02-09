@@ -1,4 +1,15 @@
-## Part 7: Continuous integration
+## ☀️ Part 7: Continuous integration
+
+### 📚 You will learn
+
+- Cypress Docker images for dependencies
+- Installing and caching Cypress itself
+- How to start server and run Cypress tests
+- CircleCI Orb example
+
++++
+
+## Todo if possible
 
 - sign up for free account on CircleCI
 - use specs from folder `cypress/integration/07-ci`
