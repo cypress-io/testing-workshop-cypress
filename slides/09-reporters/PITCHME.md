@@ -1,4 +1,12 @@
-## Part 9: Reporters
+## ☀️ Part 9: Reporters
+
+### 📚 You will learn
+
+- built-in reporters
+- generating multiple reports
+- combining separate reports
+
++++
 
 - Mocha's [built-in reporters](https://mochajs.org/#reporters) come with Cypress
 - [https://on.cypress.io/reporters](https://on.cypress.io/reporters)

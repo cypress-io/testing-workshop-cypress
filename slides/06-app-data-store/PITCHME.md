@@ -1,4 +1,12 @@
-## Part 6: Application data store
+## ☀️ Part 6: Application data store
+
+### 📚 You will learn
+
+- how to access the running application from test code
+- how to stub a method in the application
+- how to drive application by dispatching actions
+
++++
 
 - keep `todomvc` app running
 - open `06-app-data-store/spec.js`

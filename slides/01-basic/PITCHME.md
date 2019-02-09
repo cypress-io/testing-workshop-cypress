@@ -1,4 +1,12 @@
-## Part 1: Basic tests
+## ☀️ Part 1: Basic tests
+
+### 📚 You will learn
+
+- `cy.contains` and command retries
+- two ways to run Cypress
+- screenshots and video recording
+
++++
 
 - keep `todomvc` app running
 - open Cypress from the root folder with `npm run cy:open`

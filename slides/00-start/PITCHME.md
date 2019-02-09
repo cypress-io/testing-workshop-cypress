@@ -1,4 +1,15 @@
-## Starting new projects
+## ☀️ Starting new projects
+
+### 📚 You will learn
+
+- Cypress folder structure
+- Writing first test
+- Setting up intelligent code completion
+- Cypress documentation
+
++++
+
+## Todo: make a new project and add Cypress
 
 Create a new folder
 

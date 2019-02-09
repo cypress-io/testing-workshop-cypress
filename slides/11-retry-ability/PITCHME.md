@@ -1,6 +1,12 @@
-## 📚 Part 11: Retry-ability
+## ☀️ Part 11: Retry-ability
 
-And a deeper dive into assertions
+### 📚 You will learn
+
+- deep dive into assertions
+- built-in command waits
+- retry-ability 🔑
+
++++
 
 - keep `todomvc` app running
 - open `11-retry-ability/spec.js`

@@ -1,4 +1,11 @@
-## Part 2: Adding items tests
+## ☀️ Part 2: Adding items tests
+
+### 📚 You will learn
+
+- common commands for working with elements
+- organizing test code using Mocha hooks
+
++++
 
 - keep `todomvc` app running
 - open `02-adding-items/spec.js` in your text editor and Cypress

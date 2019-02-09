@@ -1,4 +1,11 @@
-## Part 3: Selector playground
+## ☀️ Part 3: Selector playground
+
+### 📚 You will learn
+
+- Cypress Selector Playground tool
+- best practices for selecting elements
+
++++
 
 - keep `todomvc` app running
 - open `03-selector-playground/spec.js`

@@ -1,4 +1,11 @@
-## Part 4: Reset state data
+## ☀️ Part 4: Reset state data
+
+### 📚 You will learn
+
+- how one test can affect another test by leaving its data behind
+- when and how to reset state during testing
+
++++
 
 - keep `todomvc` app running
 - open `04-reset-state/spec.js`
