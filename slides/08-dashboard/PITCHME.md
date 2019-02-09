@@ -1,4 +1,12 @@
-## Part 8: The Dashboard
+## ☀️ Part 8: The Dashboard
+
+### 📚 You will learn
+
+- Purpose for Cypress Dashboard
+- How to send test results to Cypress Dashboard
+- Test parallelization using Cypress Dashboard
+
++++
 
 - CI is nice, but
   - artifacts are all over the place
@@ -49,3 +57,7 @@
 
 - run tests on N machines in 1/N time with [https://on.cypress.io/parallelization](https://on.cypress.io/parallelization)
 - 📺 [Cypress parallelization webinar](https://youtu.be/FfqD1ExUGlw)
+
+```sh
+npx cypress run --record --parallel
+```

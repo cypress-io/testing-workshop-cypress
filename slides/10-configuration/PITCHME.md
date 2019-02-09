@@ -1,4 +1,13 @@
-## Part 10: Configuration
+## ☀️ Part 10: Configuration
+
+### 📚 You will learn
+
+- how to control Cypress parameters
+- how to pass environment variables to tests
+
++++
+
+## Configuration settings
 
 - `baseUrl`
 - `env`

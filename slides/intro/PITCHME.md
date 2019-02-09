@@ -16,7 +16,10 @@ As long as ⏳ permits
 - selector playground
 - resetting state
 - XHR spying and stubbing, fixtures
-- maybe CI and Cypress dashboard
+- CI and Cypress dashboard
+- test reporters
+- configuration and environment variables
+- retry-ability
 
 +++
 
