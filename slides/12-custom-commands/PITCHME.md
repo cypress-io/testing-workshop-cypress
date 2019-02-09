@@ -62,8 +62,8 @@ A better solution, because only the spec file that needs these hooks can load th
 
 ```js
 // cypress/support/hooks.js
-export function resetData ...
-export function visitSite ...
+export function resetData () {}
+export function visitSite () {}
 ```
 
 ⌨️ and update `spec.js`
@@ -99,3 +99,12 @@ Pro: functions are easy to document with JSDoc
 And then IntelliSense works immediately
 
 ![IntelliSense](/slides/12-custom-commands/img/intellisense.jpeg)
+
+
++++
+
+And MS IntelliSense can understand types from JSDoc and check those!
+
+[https://github.com/Microsoft/TypeScript/wiki/JSDoc-support-in-JavaScript](https://github.com/Microsoft/TypeScript/wiki/JSDoc-support-in-JavaScript)
+
+More details in: [https://slides.com/bahmutov/ts-without-ts](https://slides.com/bahmutov/ts-without-ts)

@@ -1,8 +1,12 @@
 /// <reference types="cypress" />
-import { resetData, visitSite } from '../../support/hooks'
-
-beforeEach(resetData)
-beforeEach(visitSite)
+beforeEach(function resetData () {
+  cy.request('POST', '/reset', {
+    todos: []
+  })
+})
+beforeEach(function visitSite () {
+  cy.visit('/')
+})
 
 it('enters 10 todos', function () {
   cy.get('.new-todo')
