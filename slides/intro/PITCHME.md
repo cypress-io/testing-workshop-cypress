@@ -10,20 +10,23 @@
 
 As long as ⏳ permits
 
-@ul
-
 - example TodoMVC
   * web app, data store, REST calls
 - basic page load test
 - selector playground
 - resetting state
 - XHR spying and stubbing, fixtures
+
++++
+
+## What we are going to cover 2/2
+
+As long as ⏳ permits
+
 - CI and Cypress dashboard
 - test reporters
 - configuration and environment variables
 - retry-ability
-
-@ulend
 
 +++
 
