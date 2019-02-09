@@ -6,9 +6,11 @@
 
 +++
 
-## What we are going to cover
+## What we are going to cover 1/2
 
 As long as ⏳ permits
+
+@ul
 
 - example TodoMVC
   * web app, data store, REST calls
@@ -20,6 +22,8 @@ As long as ⏳ permits
 - test reporters
 - configuration and environment variables
 - retry-ability
+
+@ulend
 
 +++
 
