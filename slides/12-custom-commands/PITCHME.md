@@ -190,3 +190,8 @@ Load the new definition file in `cypress/integration/12-custom-commands/spec.js`
 +++
 
 ![Custom command IntelliSense](/slides/12-custom-commands/img/create-todo-intellisense.jpeg)
+
+More JSDoc examples: [https://slides.com/bahmutov/ts-without-ts](https://slides.com/bahmutov/ts-without-ts)
+
+Note:
+Editors other than VSCode might require work.
