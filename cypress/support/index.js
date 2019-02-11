@@ -24,4 +24,4 @@ import './commands'
 // require('cypress-dark/src/halloween')
 
 // require('cypress-pipe')
-require('cypress-plugin-snapshots/commands')
+// require('cypress-plugin-snapshots/commands')

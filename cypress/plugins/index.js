@@ -13,9 +13,6 @@
 
 /* eslint-disable no-console */
 /* global Promise */
-
-const snapshotsPlugin = require('cypress-plugin-snapshots/plugin')
-
 const fs = require('fs')
 const path = require('path')
 
@@ -42,30 +39,31 @@ const hasRecordAsync = (title, ms) => {
   })
 }
 
-// module.exports = (on, config) => {
-//   // `on` is used to hook into various events Cypress emits
-//   // "cy.task" can be used from specs to "jump" into Node environment
-//   // and doing anything you might want. For example, checking "data.json" file!
-//   on('task', {
-//     hasSavedRecord (title, ms = 3000) {
-//       console.log(
-//         'looking for title "%s" in the database (time limit %dms)',
-//         title,
-//         ms
-//       )
-//       return hasRecordAsync(title, ms)
-//     }
-//   })
-
-//   // `config` is the resolved Cypress config
-//   // see https://on.cypress.io/configuration-api
-//   config.fixturesFolder = 'cypress/fixtures'
-//   config.modifyObstructiveCode = false
-//   return Promise.resolve(config)
-// }
-
-// init cypress-plugin-snapshots
 module.exports = (on, config) => {
-  snapshotsPlugin.initPlugin(on, config)
-  return config
+  // `on` is used to hook into various events Cypress emits
+  // "cy.task" can be used from specs to "jump" into Node environment
+  // and doing anything you might want. For example, checking "data.json" file!
+  on('task', {
+    hasSavedRecord (title, ms = 3000) {
+      console.log(
+        'looking for title "%s" in the database (time limit %dms)',
+        title,
+        ms
+      )
+      return hasRecordAsync(title, ms)
+    }
+  })
+
+  // `config` is the resolved Cypress config
+  // see https://on.cypress.io/configuration-api
+  config.fixturesFolder = 'cypress/fixtures'
+  config.modifyObstructiveCode = false
+  return Promise.resolve(config)
 }
+
+// init for cypress-plugin-snapshots
+// const snapshotsPlugin = require('cypress-plugin-snapshots/plugin')
+// module.exports = (on, config) => {
+//   snapshotsPlugin.initPlugin(on, config)
+//   return config
+// }

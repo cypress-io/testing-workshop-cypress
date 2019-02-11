@@ -46,6 +46,7 @@ Is this a good solution?
 And load from the spec file:
 
 ```js
+// automatically runs "beforeEach" hooks
 import '../../support/hooks'
 
 it('enters 10 todos', function () {
@@ -114,7 +115,7 @@ More details in: [https://slides.com/bahmutov/ts-without-ts](https://slides.com/
 
 +++
 
-## Custom commands
+## Use cases for custom commands
 
 - share code in entire project without individual imports
 - complex logic with custom logging into Command Log
@@ -125,7 +126,7 @@ More details in: [https://slides.com/bahmutov/ts-without-ts](https://slides.com/
 
 +++
 
-Let's create a command to create a todo
+Let's write a custom command to create a todo
 
 ```js
 // instead of this
