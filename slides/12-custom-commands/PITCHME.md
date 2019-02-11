@@ -239,9 +239,9 @@ Cypress.Commands.add('createTodo', todo => {
 ```js
 cy.get('.new-todo', { log: false })
   .type(`${todo}{enter}`, { log: false })
-  .then($li => {
+  .then($el => {
     cmd
-      .set({ $el: $li })
+      .set({ $el })
       .snapshot()
       .end()
   })
@@ -251,7 +251,115 @@ cy.get('.new-todo', { log: false })
 
 +++
 
+## 3rd party custom commands
+
+- [cypress-xpath](https://github.com/cypress-io/cypress-xpath)
+- [cypress-plugin-snapshots](https://github.com/meinaart/cypress-plugin-snapshots)
+- [cypress-pipe](https://github.com/NicholasBoll/cypress-pipe)
+
+[on.cypress.io/plugins#custom-commands](https://on.cypress.io/plugins#custom-commands)
+
++++
+
+## Try `cypress-xpath`
+
+```sh
+# already done in this repo
+npm install -D cypress-xpath
+```
+
+in `cypress/support/index.js`
+
+```js
+require('cypress-xpath')
+```
+
++++
+
+With `cypress-xpath`
+
+```js
+it('finds list items', () => {
+  cy.xpath('//ul[@class="todo-list"]//li')
+    .should('have.length', 3)
+})
+```
+
++++
+
 ## Custom command with retries
+
+How does `xpath` command retry the assertions that follow it?
+
+```js
+cy.xpath('...') // command
+  .should('have.length', 3) // assertions
+```
+
++++
+
+```js
+// use cy.verifyUpcomingAssertions
+const resolveValue = () => {
+  return Cypress.Promise.try(getValue).then(value => {
+    return cy.verifyUpcomingAssertions(value, options, {
+      onRetry: resolveValue,
+    })
+  })
+}
+```
+
++++
+
+## Try `cypress-pipe`
+
+Easily retry your own functions
+
+```sh
+npm home cypress-pipe
+```
+
++++
+
+### Todo: retry getting object's property
+
+```js
+const o = {}
+setTimeout(() => {
+  o.foo = 'bar'
+}, 1000)
+```
+
+- until it becomes defined
+- and is equal to
+
+⌨️ test "passes when object gets new property"
+
++++
+
+### Try `cypress-plugin-snapshots`
+
+⚠️ install requires 3 parts: command, plugin, env config object
+
+```js
+it('creates todos', () => {
+  // add a few todos
+  cy.window()
+    .its('app.todos')
+    .toMatchSnapshot()
+})
+```
+
++++
+
+![toMatchSnapshot](/slides/12-custom-commands/img/to-match-snapshot.png)
+
++++
+
+## Todo: use data snapshot
+
+- ignore "id" field, because it is dynamic
+- update snapshot if you add todo
 
 +++
 
@@ -261,5 +369,3 @@ cy.get('.new-todo', { log: false })
 - Making reusable function is often faster than writing a custom command
 - Know Cypress API to avoid writing what's already available
 @ulend
-
-

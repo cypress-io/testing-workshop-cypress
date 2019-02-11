@@ -3,7 +3,9 @@
   "viewportHeight": 800,
   "ignoreTestFiles": [
     "answer.js",
-    "*.d.ts"
+    "*.d.ts",
+    "**/__snapshots__/*",
+    "**/__image_snapshots__/*"
   ],
   "baseUrl": "http://localhost:3000",
   "env": {},

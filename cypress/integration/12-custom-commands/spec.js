@@ -25,3 +25,25 @@ it('enters 10 todos', function () {
 })
 
 // it('creates a todo')
+
+it.skip('passes when object gets new property', () => {
+  const o = {}
+  setTimeout(() => {
+    o.foo = 'bar'
+  }, 1000)
+  // TODO write "get" that returns the given property
+  // from an object.
+  cy.wrap(o).pipe(get('foo'))
+  // add assertions
+})
+
+it.only('creates todos', () => {
+  cy.get('.new-todo')
+    .type('todo 0{enter}')
+    .type('todo 1{enter}')
+    .type('todo 2{enter}')
+  cy.get('.todo').should('have.length', 3)
+  cy.window()
+    .its('app.todos')
+    .toMatchSnapshot()
+})

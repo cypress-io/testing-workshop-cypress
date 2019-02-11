@@ -43,9 +43,33 @@ Cypress.Commands.add('createTodo', todo => {
     }
   })
 
-  cy.get('.new-todo', { log: false }).type(`${todo}{enter}`, { log: false })
+  cy.get('.new-todo', { log: false })
+    .type(`${todo}{enter}`, { log: false })
+    .then($el => {
+      cmd
+        .set({ $el })
+        .snapshot()
+        .end()
+    })
 })
 
 it('creates a todo', () => {
   cy.createTodo('my first todo')
+})
+
+it('passes when object gets new property', () => {
+  const o = {}
+  setTimeout(() => {
+    o.foo = 'bar'
+  }, 1000)
+  const get = name =>
+    function getProp (from) {
+      console.log('getting', from)
+      return from[name]
+    }
+
+  cy.wrap(o)
+    .pipe(get('foo'))
+    .should('not.be.undefined')
+    .and('equal', 'bar')
 })
