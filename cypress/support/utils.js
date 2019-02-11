@@ -71,6 +71,13 @@ export const makeTodo = (text = 'todo') => {
 
 export const getNewTodoInput = () => getTodoApp().find('.new-todo')
 
+/**
+ * Adds new todo to the app.
+ *
+ * @param text {string} Text to enter
+ * @example
+ *  enterTodo('my todo')
+ */
 export const enterTodo = (text = 'example todo') => {
   console.log('entering todo', text)
 

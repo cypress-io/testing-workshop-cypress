@@ -24,7 +24,9 @@ describe('UI', () => {
     })
 
     it('starts with zero items', () => {
-      cy.get('.todo-list').find('li').should('have.length', 0)
+      cy.get('.todo-list')
+        .find('li')
+        .should('have.length', 0)
     })
 
     it('adds two items', () => {
@@ -77,8 +79,7 @@ describe('UI', () => {
       const title = 'create a task'
       enterTodo(title)
       // https://on.cypress.io/task
-      cy
-        .task('hasSavedRecord', title, { timeout: 10000 })
+      cy.task('hasSavedRecord', title, { timeout: 10000 })
         .should('contain', {
           title,
           completed: false

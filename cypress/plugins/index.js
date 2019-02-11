@@ -13,7 +13,6 @@
 
 /* eslint-disable no-console */
 /* global Promise */
-
 const fs = require('fs')
 const path = require('path')
 
@@ -61,3 +60,10 @@ module.exports = (on, config) => {
   config.modifyObstructiveCode = false
   return Promise.resolve(config)
 }
+
+// init for cypress-plugin-snapshots
+// const snapshotsPlugin = require('cypress-plugin-snapshots/plugin')
+// module.exports = (on, config) => {
+//   snapshotsPlugin.initPlugin(on, config)
+//   return config
+// }
