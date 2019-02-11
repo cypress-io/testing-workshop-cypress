@@ -195,3 +195,67 @@ More JSDoc examples: [https://slides.com/bahmutov/ts-without-ts](https://slides.
 
 Note:
 Editors other than VSCode might require work.
+
++++
+
+## Better Command Log
+
+```js
+Cypress.Commands.add('createTodo', todo => {
+  cy.get('.new-todo', { log: false })
+    .type(`${todo}{enter}`, { log: false })
+  cy.log('createTodo', todo)
+})
+```
+
++++
+
+## Even better Command Log
+
+```js
+Cypress.Commands.add('createTodo', todo => {
+  const cmd = Cypress.log({
+    name: 'create todo',
+    message: todo,
+    consoleProps () {
+      return {
+        'Create Todo': todo
+      }
+    }
+  })
+  cy.get('.new-todo', { log: false })
+    .type(`${todo}{enter}`, { log: false })
+})
+```
+
++++
+
+### Mark command completed
+
+```js
+cy.get('.new-todo', { log: false })
+  .type(`${todo}{enter}`, { log: false })
+  .then($li => {
+    cmd
+      .set({ $el: $li })
+      .snapshot()
+      .end()
+  })
+```
+
+**Pro-tip:** you can have multiple command snapshots.
+
++++
+
+## Custom command with retries
+
++++
+
+## Best practices
+
+@ul
+- Making reusable function is often faster than writing a custom command
+- Know Cypress API to avoid writing what's already available
+@ulend
+
+

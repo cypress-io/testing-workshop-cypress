@@ -20,9 +20,32 @@ it('enters 10 todos', function () {
   cy.get('.todo').should('have.length', 10)
 })
 
+// simple custom command
 Cypress.Commands.add('createTodo', todo => {
   cy.get('.new-todo').type(`${todo}{enter}`)
 })
+
+// with better command log
+Cypress.Commands.add('createTodo', todo => {
+  cy.get('.new-todo', { log: false }).type(`${todo}{enter}`, { log: false })
+  cy.log('createTodo', todo)
+})
+
+// with full command log
+Cypress.Commands.add('createTodo', todo => {
+  const cmd = Cypress.log({
+    name: 'create todo',
+    message: todo,
+    consoleProps () {
+      return {
+        'Create Todo': todo
+      }
+    }
+  })
+
+  cy.get('.new-todo', { log: false }).type(`${todo}{enter}`, { log: false })
+})
+
 it('creates a todo', () => {
   cy.createTodo('my first todo')
 })
