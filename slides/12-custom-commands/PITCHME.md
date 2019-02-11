@@ -230,6 +230,10 @@ Cypress.Commands.add('createTodo', todo => {
 
 +++
 
+![createTodo log](/slides/12-custom-commands/img/create-todo-log.png)
+
++++
+
 ### Mark command completed
 
 ```js
