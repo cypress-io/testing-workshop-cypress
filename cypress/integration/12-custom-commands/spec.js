@@ -25,26 +25,3 @@ it('enters 10 todos', function () {
 })
 
 // it('creates a todo')
-Cypress.Commands.add('createTodo', todo => {
-  const cmd = Cypress.log({
-    name: 'create todo',
-    message: todo,
-    consoleProps () {
-      return {
-        'Create Todo': todo
-      }
-    }
-  })
-
-  cy.get('.new-todo', { log: false })
-    .type(`${todo}{enter}`, { log: false })
-    .then($li => {
-      cmd
-        .set({ $el: $li })
-        .snapshot()
-        .end()
-    })
-})
-it.only('creates a todo', () => {
-  cy.createTodo('my first todo')
-})
