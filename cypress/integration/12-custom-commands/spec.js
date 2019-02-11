@@ -33,7 +33,7 @@ it.skip('passes when object gets new property', () => {
   }, 1000)
   // TODO write "get" that returns the given property
   // from an object.
-  cy.wrap(o).pipe(get('foo'))
+  // cy.wrap(o).pipe(get('foo'))
   // add assertions
 })
 
