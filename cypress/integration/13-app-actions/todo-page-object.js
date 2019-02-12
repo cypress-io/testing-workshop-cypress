@@ -1,5 +1,8 @@
 /// <reference types="cypress" />
 
+/**
+ * Example TodoMVC page object
+ */
 export class TodoPage {
   static TODO_ITEM_ONE = 'buy some cheese'
   static TODO_ITEM_TWO = 'feed the cat'
@@ -7,14 +10,6 @@ export class TodoPage {
 
   visit () {
     cy.visit('/')
-    return this
-  }
-
-  reset () {
-    cy.request('POST', '/reset', {
-      todos: []
-    })
-    return this
   }
 
   createTodos () {
@@ -26,8 +21,6 @@ export class TodoPage {
     cy.log('TodoPage: created todos')
 
     cy.get('.todo-list li', { log: false }).as('todos')
-
-    return this
   }
 
   createTodo (todo) {
@@ -55,6 +48,16 @@ export class TodoPage {
     }
 
     return cy.get('.todo-list li')
+  }
+
+  filter (label) {
+    cy.get('.filters')
+      .contains(label)
+      .click()
+  }
+
+  clearCompleted () {
+    cy.get('.clear-completed').click()
   }
 }
 

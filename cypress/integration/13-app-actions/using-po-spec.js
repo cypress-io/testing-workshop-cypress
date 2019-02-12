@@ -1,7 +1,7 @@
 // import todo page object from "todo-page-object.js"
 describe('TodoMVC with Page Object', () => {
   beforeEach(() => {
-    // reset data and visit the page
+    // visit the page
   })
 
   it('creates 3 todos', () => {
