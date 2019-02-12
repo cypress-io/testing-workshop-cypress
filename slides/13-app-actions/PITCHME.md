@@ -30,7 +30,22 @@
 - find Page Object in `13-app-actions/todo-page-object.js`
 - open `13-app-actions/using-po-spec.js`
 
-### Todo: write tests by calling page object methods
++++
+
+## Todo: write create todos test
+
+use the page object methods
+
+```js
+beforeEach(() => {
+  // reset data and visit the page
+})
+
+it('creates 3 todos', () => {
+  // create default todos
+  // and check that there are 3 of them
+})
+```
 
 +++
 
@@ -56,3 +71,9 @@ context('toggles items', () => {
 
 Note:
 Our goal is to use todo page instance to create todos, then toggle one of them (again using the page object), then confirm class names like `todoPage.todos(0).should('not.have.class', 'completed')`.
+
++++
+
+> What methods do you have in the Page Object?
+
+Compare to the methods in `app.js`
