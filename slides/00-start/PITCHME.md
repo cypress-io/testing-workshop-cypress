@@ -179,7 +179,16 @@ goes right to the documentation for that command.
   - tutorial videos
   - example applications
   - blogs
+  - FAQ
 - Cypress changelog and roadmap
 
 Note:
 Students should know where to find information later on. Main resources is the api page [https://on.cypress.io/api](https://on.cypress.io/api)
+
++++
+
+## Bonus
+
+![VSCode icons](/slides/00-start/img/vscode-icons.png)
+
+Use extension [vscode-icons](https://github.com/vscode-icons/vscode-icons)
