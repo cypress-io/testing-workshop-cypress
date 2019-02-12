@@ -265,3 +265,6 @@ Only the tests for marking items as completed should fail, because the rest goes
 - App actions are a client of the application's model
 - App actions take shortcuts for faster tests
 @ulend
+
+Note:
+The extra layer of code in Page Objects is built on top of the DOM and events, which are not machine-linted. This layer also does not benefit the user, and just slows down the tests.
