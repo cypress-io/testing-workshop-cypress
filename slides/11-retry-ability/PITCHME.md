@@ -221,6 +221,24 @@ NOT retried: `cy.click`, `cy.task`, etc.
 
 +++
 
+## `then(cb)` vs `should(cb)`
+
+- `should(cb)` retries
+- `then(cb)` does not retry
+
+### Todo: demonstrate this
+
++++
+
+## return value from `should(cb)`
+
+Question: can you return value from `should(cb)`?
+
+Note:
+`Should(cb)` does not return a value, it just passes along the value yielded by the command. If you need a value, first call `should(cb)` and then `then(cb)` to return it.
+
++++
+
 ## Automatic Waiting
 
 ![Waiting](/slides/11-retry-ability/img/waiting.png)
