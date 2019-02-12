@@ -148,8 +148,8 @@ Application code
 ## Code overhead
 
 @ul
-> What methods do you have in the Page Object?
-> What methods do you see in `todomvc-react/js/todoModel.js`?
+- What methods do you have in the Page Object?
+- What methods do you see in `todomvc-react/js/todoModel.js`?
 @ulend
 
 +++
@@ -173,6 +173,8 @@ and toggle an item
 +++
 
 > 💡 Cypress can do anything you can do from the DevTools console
+
++++
 
 ## Todo: start a new file `spec.js`
 
@@ -243,7 +245,13 @@ You still cover all page features, you just don't cover them multiple times.
 
 ### In `todomvc-react/js/todoItem.jsx`
 
-Comment out line `onChange={this.props.onToggle}` in the render function. Which tests have failed?
+Comment out line in the render function
+
+```js
+onChange={this.props.onToggle}
+```
+
+Which tests have failed?
 
 Note:
 Only the tests for marking items as completed should fail, because the rest goes through the model to toggle an item.
