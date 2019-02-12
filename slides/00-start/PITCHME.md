@@ -187,6 +187,10 @@ Students should know where to find information later on. Main resources is the a
 
 +++
 
+@snap[west]
 ![VSCode icons](/slides/00-start/img/vscode-icons.png)
+@snapend
 
+@snap[east]
 Bonus: extension [vscode-icons](https://github.com/vscode-icons/vscode-icons)
+@snapend
