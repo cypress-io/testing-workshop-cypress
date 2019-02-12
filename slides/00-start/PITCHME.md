@@ -187,8 +187,6 @@ Students should know where to find information later on. Main resources is the a
 
 +++
 
-## Bonus
-
 ![VSCode icons](/slides/00-start/img/vscode-icons.png)
 
-Use extension [vscode-icons](https://github.com/vscode-icons/vscode-icons)
+Bonus: extension [vscode-icons](https://github.com/vscode-icons/vscode-icons)
