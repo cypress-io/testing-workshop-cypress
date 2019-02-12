@@ -320,6 +320,8 @@ Easily retry your own functions
 npm home cypress-pipe
 ```
 
+Advanced example: [https://www.cypress.io/blog/2019/01/22/when-can-the-test-click/](https://www.cypress.io/blog/2019/01/22/when-can-the-test-click/)
+
 +++
 
 ### Todo: retry getting object's property
@@ -361,6 +363,15 @@ it('creates todos', () => {
 
 - ignore "id" field, because it is dynamic
 - update snapshot if you add todo
+
++++
+
+## Advanced concepts
+
+- parent vs child command
+- overwriting `cy` command
+
+[on.cypress.io/custom-commands](https://on.cypress.io/custom-commands), [https://www.cypress.io/blog/2018/12/20/element-coverage/](https://www.cypress.io/blog/2018/12/20/element-coverage/)
 
 +++
 
