@@ -256,7 +256,9 @@ Which tests have failed?
 Note:
 Only the tests for marking items as completed should fail, because the rest goes through the model to toggle an item.
 
-## App actions vs Page Objects
++++
+
+## 🏁 App actions vs Page Objects
 
 @ul
 - Page Objects write an extra layer of code
