@@ -15,15 +15,20 @@
 
 +++
 
-## The situation
+## How do we organize our tests?
 
 @ul
 - 👍 Cypress allows you to write a lot of E2E tests
 - 👎 Cypress allows you to write a LOT of E2E tests
 @ulend
 
-How do we organize this test code?
-
 +++
 
+## Let us write a Page Object
+
+- keep `todomvc` app running
+- find Page Object in `13-app-actions/todo-page-object.js`
+- open `13-app-actions/using-po-spec.js`
+
+### Todo: write tests by calling page object methods
 
