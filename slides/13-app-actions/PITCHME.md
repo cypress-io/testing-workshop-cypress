@@ -32,3 +32,27 @@
 
 ### Todo: write tests by calling page object methods
 
++++
+
+## Todo: write toggle test
+
+```js
+// cypress/integration/13-app-actions/using-po-spec.js
+context('toggles items', () => {
+  beforeEach(() => {
+    // what should you do before each test?
+  })
+
+  it('completes second item', () => {
+    // toggle 1 item
+    // check class names for all 3 items
+  })
+})
+```
+
++++
+
+![Toggle test](/slides/13-app-actions/img/toggle.png)
+
+Note:
+Our goal is to use todo page instance to create todos, then toggle one of them (again using the page object), then confirm class names like `todoPage.todos(0).should('not.have.class', 'completed')`.
