@@ -229,7 +229,7 @@ Most of the Page Object method calls in this spec are to create initial data or 
 
 +++
 
-## App actions
+## App actions rules
 
 @ul
 - when testing feature X - the test goes through UI for feature X
@@ -255,3 +255,11 @@ Which tests have failed?
 
 Note:
 Only the tests for marking items as completed should fail, because the rest goes through the model to toggle an item.
+
+## App actions vs Page Objects
+
+@ul
+- Page Objects write an extra layer of code
+- App actions are a client of the application's model
+- App actions take shortcuts for faster tests
+@ulend
