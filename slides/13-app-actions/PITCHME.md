@@ -237,3 +237,13 @@ Most of the Page Object method calls in this spec are to create initial data or 
 Note:
 You still cover all page features, you just don't cover them multiple times.
 
++++
+
+## Focused errors
+
+### In `todomvc-react/js/todoItem.jsx`
+
+Comment out line `onChange={this.props.onToggle}` in the render function. Which tests have failed?
+
+Note:
+Only the tests for marking items as completed should fail, because the rest goes through the model to toggle an item.
