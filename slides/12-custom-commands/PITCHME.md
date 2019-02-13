@@ -199,6 +199,13 @@ Editors other than VSCode might require work.
 
 +++
 
+⚠️ tell Cypress to ignore ".d.ts" files using `ignoreTestFiles` in cypress.json or save ".d.ts" files outside the integration folder.
+
+Note:
+Otherwise Cypress will try load ".d.ts" file as spec and without TypeScript loader will fail.
+
++++
+
 ## Better Command Log
 
 ```js
