@@ -10,6 +10,18 @@
 - keep `todomvc` app running
 - open `03-selector-playground/spec.js`
 
++++
+
+> How do we select element in `cy.get(...)`?
+
+- Browser's DevTools can suggest selector
+
++++
+
+![Chrome suggests selector](/slides/03-selector-playground/img/chrome-copy-js-path.png)
+
++++
+
 ![Selector playground](/slides/03-selector-playground/img/selector-playground.png)
 
 +++
@@ -29,3 +41,14 @@ It can suggest a weird selector
 +++
 
 ![Selectors](/slides/03-selector-playground/img/selectors.png)
+
++++
+
+## Cypress is just JavaScript
+
+```js
+import {selectors} from './common-selectors'
+it('finds element', () => {
+  cy.get(selectors.todoInput).type(`...`)
+})
+```
