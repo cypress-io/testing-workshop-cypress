@@ -40,11 +40,19 @@ Selector playground can suggest much better selectors.
 
 +++
 
-## Questions
+Read [best-practices.html#Selecting-Elements](https://docs.cypress.io/guides/references/best-practices.html#Selecting-Elements)
 
-- read [best-practices.html#Selecting-Elements](https://docs.cypress.io/guides/references/best-practices.html#Selecting-Elements)
+![Best practice](/slides/03-selector-playground/img/best-practice.png)
+
++++
+
+## Todo
+
 - add test data ids to `todomvc/index.html` DOM markup
 - use new selectors to write `03-selector-playground/spec.js`
+
+Note:
+The updated test should look something like the next image
 
 +++
 
