@@ -259,6 +259,25 @@ cy.get('.new-todo', { log: false })
 
 +++
 
+### Show result in the console
+
+```js
+// result will get value when command ends
+let result
+const cmd = Cypress.log({
+  consoleProps () {
+    return { result }
+  }
+})
+// custom logic then:
+.then(value => {
+  result = value
+  cmd.end()
+})
+```
+
++++
+
 ## 3rd party custom commands
 
 - [cypress-xpath](https://github.com/cypress-io/cypress-xpath)
