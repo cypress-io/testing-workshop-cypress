@@ -65,7 +65,8 @@ The updated test should look something like the next image
 ```js
 import {selectors, tid} from './common-selectors'
 it('finds element', () => {
-  cy.get(selectors.todoInput).type(`...`)
+  cy.get(selectors.todoInput).type('something{enter}')
+
   // "tid" forms "data-test-id" attribute selector
   // like "[data-test-id='item']"
   cy.get(tid('item')).should('have.length', 1)
