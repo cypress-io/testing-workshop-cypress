@@ -22,11 +22,19 @@
 
 +++
 
+Open "Selector Playground"
+
+![Selector playground button](/slides/03-selector-playground/img/selector-button.png)
+
++++
+
+Selector playground can suggest much better selectors.
+
 ![Selector playground](/slides/03-selector-playground/img/selector-playground.png)
 
 +++
 
-It can suggest a weird selector
+⚠️ It can suggest a weird selector
 
 ![Default suggestion](/slides/03-selector-playground/img/default-suggestion.png)
 
@@ -36,7 +44,7 @@ It can suggest a weird selector
 
 - read [best-practices.html#Selecting-Elements](https://docs.cypress.io/guides/references/best-practices.html#Selecting-Elements)
 - add test data ids to `todomvc/index.html` DOM markup
-- use new selectors to write `cypress/integration/spec.js`
+- use new selectors to write `03-selector-playground/spec.js`
 
 +++
 
@@ -47,8 +55,11 @@ It can suggest a weird selector
 ## Cypress is just JavaScript
 
 ```js
-import {selectors} from './common-selectors'
+import {selectors, tid} from './common-selectors'
 it('finds element', () => {
   cy.get(selectors.todoInput).type(`...`)
+  // "tid" forms "data-test-id" attribute selector
+  // like "[data-test-id='item']"
+  cy.get(tid('item')).should('have.length', 1)
 })
 ```
