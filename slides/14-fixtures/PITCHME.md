@@ -17,7 +17,7 @@
 ⌨️ test "sets list of todos on the server"
 
 - load fixture file "cypress/integration/two-items.json"
-- post the list to "/reset" as `{ data: list }`
+- post the list to "/reset" as `{ todos: list }`
 
 Tip: we are going to need [`cy.fixture`](https://on.cypress.io/fixture)
 
@@ -161,3 +161,107 @@ it('works if we change the order', function () {
 
 Note:
 Using `cy.then` to schedule another callback will solve the problem.
+
++++
+
+## Fixtures in different encoding
+
+Todo: in file `cypress/support/index.js` uncomment
+
+```js
+require('cypress-dark/src/halloween')
+```
+
+Run at least one failing test
+
++++
+
+![Halloween theme](/slides/13-app-actions/img/halloween.png)
+
+How did the test load and play MP3?
+
++++
+
+In `node_modules/cypress-dark/halloween.js`
+
+```js
+const witchLaughs = () => {
+  const filename = join(getSourceFolder(), 'halloween-laugh.mp3')
+  cy.readFile(filename, 'base64', { log: false }).then(mp3 => {
+    const uri = 'data:audio/mp3;base64,' + mp3
+    const audio = new Audio(uri)
+    audio.play()
+  })
+}
+```
+
++++
+
+You can do the same with MP3 files in your fixtures folder
+
+```js
+cy.fixture('audio/sound.mp3', 'base64').then((mp3) => {
+  const uri = 'data:audio/mp3;base64,' + mp3
+  const audio = new Audio(uri)
+
+  audio.play()
+})
+```
+
++++
+
+## Other formats
+
+```js
+cy.fixture('images/logo.png').then((logo) => {
+  // logo will be encoded as base64
+  // and should look something like this:
+  // aIJKnwxydrB10NVWqhlmmC+ZiWs7otHotSAAAOw==...
+})
+cy.fixture('images/logo.png', 'binary').then((logo) => {
+  // logo will be encoded as binary
+  // and should look something like this:
+  // 000000000000000000000000000000000000000000...
+})
+```
+
++++
+
+## `readFile` and `writeFile`
+
+`cy.readFile` will retry until file exists and assertions that follow it pass
+
+```js
+// note: path is relative to the project's root
+cy.readFile('some/nested/path/story.txt')
+  .should('eq', 'Once upon a time...')
+```
+
+[on/readfile](https://on.cypress.io/readfile) and [on/writefile](https://on.cypress.io/writefile)
+
++++
+
+## Todo `readFile` after POST
+
+```js
+it('reads items loaded from fixture', () => {
+  cy.fixture('two-items').then(todos => {
+    // post items
+    // read file 'todomvc/data.json',
+    // should be equal to the loaded fixture
+    // note: JSON is parsed automatically!
+  })
+})
+```
+
++++
+## Todo `readFile` entered through UI
+
+```js
+it('saves todo', () => {
+  // reset data on the server
+  // visit the page
+  // type new todo
+  // read file - it should have the item you have entered
+})
+```

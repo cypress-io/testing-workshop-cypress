@@ -81,3 +81,27 @@ it('works if we change the order', function () {
       cy.request('POST', '/reset', { todos: this.list })
     })
 })
+
+context('reading todos.json', () => {
+  it('loads empty list', () => {
+    cy.request('POST', '/reset', { todos: [] })
+    cy.readFile('todomvc/data.json').should('deep.equal', { todos: [] })
+  })
+
+  it('reads items loaded from fixture', () => {
+    cy.fixture('two-items').then(todos => {
+      cy.request('POST', '/reset', { todos })
+      cy.readFile('todomvc/data.json').should('deep.equal', { todos })
+    })
+  })
+
+  it('saves todo', () => {
+    cy.request('POST', '/reset', { todos: [] })
+    cy.visit('/')
+    cy.get('.new-todo').type('for test{enter}')
+    cy.readFile('todomvc/data.json').should(data => {
+      expect(data.todos).to.have.length(1)
+      expect(data.todos[0].title).to.equal('for test')
+    })
+  })
+})

@@ -18,7 +18,9 @@ context('closure variable', () => {
   })
 
   it('has two items', () => {
-    expect(list).to.have.length(2)
+    if (list) {
+      expect(list).to.have.length(2)
+    }
   })
 
   it('sets list from context', () => {
@@ -76,4 +78,20 @@ it('works if we change the order', function () {
       // check that "this.list" has 2 items
       // use it to post to the server
     })
+})
+
+it('reads items loaded from fixture', () => {
+  cy.fixture('two-items').then(todos => {
+    // post items
+    // read file 'todomvc/data.json',
+    // should be equal to the loaded fixture
+    // note: JSON is parsed automatically!
+  })
+})
+
+it('saves todo', () => {
+  // reset data on the server
+  // visit the page
+  // type new todo
+  // read file - it should have the item you have entered
 })
