@@ -17,6 +17,10 @@ context('closure variable', () => {
     // then store the loaded items in variable "list"
   })
 
+  it('has two items', () => {
+    expect(list).to.have.length(2)
+  })
+
   it('sets list from context', () => {
     // post items to the server
   })
