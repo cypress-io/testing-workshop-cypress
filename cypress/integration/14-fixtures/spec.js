@@ -8,6 +8,20 @@ it('sets list of todos on the server', () => {
   // bonus: check that the list has 2 items
 })
 
+context('closure variable', () => {
+  // store loaded list in this closure variable
+  let list
+
+  beforeEach(() => {
+    cy.fixture('two-items')
+    // then store the loaded items in variable "list"
+  })
+
+  it('sets list from context', () => {
+    // post items to the server
+  })
+})
+
 context('this.list', () => {
   // it is important to use "function () {}"
   // as a callback to "beforeEach", so we have
@@ -20,8 +34,11 @@ context('this.list', () => {
   // again, it is important to use "function () {}" callback
   // to make sure "this" points at the test context
   it('sets list from context', function () {
-    // check that "this.list" has 2 items
     // POST the items to the server using "/reset"
+  })
+
+  it('has valid list with 2 items', function () {
+    // check that "this.list" has 2 items
   })
 })
 
