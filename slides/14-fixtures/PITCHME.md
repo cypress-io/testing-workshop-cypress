@@ -42,7 +42,7 @@ it('sets list from context', () => {
 
 ## Store data in test context
 
-In Mocha, hooks like `before`, `beforeEach`, `it` can store data in "this" object, if the callbacks use "function () {}" form.
+In Mocha, hooks like `before`, `beforeEach`, `it` can store data in "this" object, if the callbacks use "function () { ... }" form.
 
 ```js
 beforeEach(function () {
@@ -89,7 +89,7 @@ Each test wipes away the previous context object. Thus "this.list" becomes undef
 
 +++
 
-## Login once
+## Log in once
 
 ```js
 let token
@@ -121,8 +121,12 @@ beforeEach(function () {
   // cy.fixture(<filename>).as(<alias name>)
   cy.fixture('two-items').as('list')
 })
-// inside test use "this.list
+it('works', function () {
+  // inside test use "this.list
+})
 ```
+
++++
 
 ## Remember the queue of commands
 
