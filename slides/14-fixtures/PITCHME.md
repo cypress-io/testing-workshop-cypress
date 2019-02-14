@@ -176,7 +176,7 @@ Run at least one failing test
 
 +++
 
-![Halloween theme](/slides/13-app-actions/img/halloween.png)
+![Halloween theme](/slides/14-fixtures/img/halloween.png)
 
 How did the test load and play MP3?
 
