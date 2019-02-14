@@ -1,0 +1,58 @@
+/// <reference types="cypress" />
+it('sets list of todos on the server', () => {
+  // load fixture "two-items.json" from the fixtures folder
+  cy.fixture('two-items')
+  // then use it to make POST request to the "/reset" endpoint
+  // just like we did to reset the server state
+
+  // bonus: check that the list has 2 items
+})
+
+context('this.list', () => {
+  // it is important to use "function () {}"
+  // as a callback to "beforeEach", so we have
+  // "this" pointing at the test context
+  beforeEach(function () {
+    cy.fixture('two-items')
+    // then assign value to "this.list"
+  })
+
+  // again, it is important to use "function () {}" callback
+  // to make sure "this" points at the test context
+  it('sets list from context', function () {
+    // check that "this.list" has 2 items
+    // POST the items to the server using "/reset"
+  })
+})
+
+context('@list', () => {
+  // again, it is important to use "function () {}"
+  // as a callback to "beforeEach" to set the right "this"
+  beforeEach(function () {
+    // use shortcut "as('list')" will save the value into "this.list"
+    // cy.fixture(<filename>).as(<alias name>)
+    cy.fixture('two-items')
+  })
+
+  // again, it is important to use "function () {}" callback
+  // to make sure "this" points at the test context
+  it('sets list from context', function () {
+    // use "this.list" like before to send the list to the server
+  })
+})
+
+// show that immediately using "this.list" does not work
+it('does not work', function () {
+  // load fixture and set it as "list"
+  // then try checking "this.list" immediately
+})
+
+it('works if we change the order', function () {
+  cy.fixture('two-items')
+    .as('list')
+    .then(() => {
+      // by now the fixture has been saved into "this.list"
+      // check that "this.list" has 2 items
+      // use it to post to the server
+    })
+})
