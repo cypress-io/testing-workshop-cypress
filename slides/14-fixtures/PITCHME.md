@@ -276,7 +276,6 @@ There are two iframes: one for the app, one for the specs.
 +++
 ![two iframes](/slides/14-fixtures/img/two-iframes.png)
 
-Note:
 One iframes has the application, second iframe has spec code for isolation
 
 +++
@@ -294,26 +293,33 @@ In order for spec iframe (coming from localhost) to access the app iframe (comin
 +++
 ![start step 1](/slides/14-fixtures/img/start-1.png)
 
+Note:
 Cypress starts the browser in proxy mode. Every request your application makes to its domain goes through Cypress
 
 +++
 ![start step 2](/slides/14-fixtures/img/start-2.png)
 
+Note:
 Before Cypress forwards the request to the external domain, it creates and injects a self-signed certificate for that domain - and then forwards the request.
 
 +++
 ![start step 3](/slides/14-fixtures/img/start-3.png)
 
+Note:
 When the external server responds with the page, Cypress injects the little script I have shown to set the document's domain to `localhost`
 
 +++
 ![start step 4](/slides/14-fixtures/img/start-4.png)
 
+Specs can access the app iframe.
+
+Note:
 After that Cypress can access everything inside the application iframe, except for inner iframes coming from other domains.
 
 +++
 ![start step 5](/slides/14-fixtures/img/start-5.png)
 
+Note:
 And Cypress can observe and stub network calls coming from the application because it still acts as a proxy.
 
 +++
