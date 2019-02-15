@@ -8,7 +8,7 @@
 +++
 
 - start TodoMVC application using `npm start`
-- open `14-fixtures/spec.js`
+- open `14-fixtures/fixture-spec.js`
 
 +++
 
@@ -334,3 +334,106 @@ And Cypress can observe and stub network calls coming from the application becau
 ![cy.task](/slides/14-fixtures/img/cy-task.png)
 
 Run code in Node using [`cy.task`](https://on.cypress.io/task)
+
++++
+## Explore tasks
+
+- keep running TodoMVC application using `npm start`
+- open `14-fixtures/task-spec.js`
+- open `cypress/plugins/index.js` with task code
+
++++
+## Todo: write a "hello world" task
+
+- caller will pass the name from the test
+- task will respond with `hello ${name}`
+- test should confirm the result
+⌨️ test "runs hello world"
+
+**Tip:** you can call "on('task')" multiple times, the task names will be merged.
+
++++
+```js
+it('runs hello world', () => {
+  cy.task('hello', 'world').should('equal', 'hello, world')
+})
+```
+```js
+// in plugins file
+on('task', {
+  hello: name => `hello, ${name}`
+})
+```
+**note:** Cypress does not watch plugins file.
+
++++
+## Bonus
+
+Print `process.version` from the task
+
++++
+## Todo: write asynchronous task
+
+Change task "runs hello world" to return a Promise.
+
++++
+```js
+on('task', {
+  hello: name => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(`hello, ${name}`)
+      }, 1000)
+    })
+  }
+})
+```
+**note:** there is no handy `Cypress.Promise` Bluebird in Node
+
++++
+## Retries in tasks
+
+- Look at existing task `hasSavedRecord` and trace what it does
+- Write a test that calls task `hasSavedRecord`
+- Delay application to demonstrate that task retries
+
++++
+## Retries libraries
+
+You can do retries yourself, or bring a library like
+
+- [promise-retry](https://github.com/IndigoUnited/node-promise-retry#readme)
+- [bigtestjs/convergence](https://github.com/bigtestjs/convergence)
+- [wait-for-expect](https://github.com/TheBrainFamily/wait-for-expect)
+
++++
+## Dynamic tasks
+
+Make a task that makes new tasks
+
+```js
+it('makes task and runs it', () => {
+  function hello (name) {
+    return 'hello, ' + name
+  }
+  cy.task('eval', hello.toString())
+  cy.task('hello', 'eval').should('equal', 'hello, eval')
+})
+```
+
++++
+```js
+on('task', {
+  eval (newTaskFn) {
+    const name = newTaskFn.match(/^function (\w+)/)[1]
+    const newTask = /* js */ `
+      on('task', {
+        ${name}: ${newTaskFn}
+      })
+    `
+    eval(newTask)
+    return null
+  }
+})
+```
+**tip:** use "Comment tagged templates" to syntax highlight using `/* js */`
