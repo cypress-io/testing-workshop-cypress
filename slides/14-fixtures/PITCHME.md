@@ -348,7 +348,6 @@ Run code in Node using [`cy.task`](https://on.cypress.io/task)
 - caller will pass the name from the test
 - task will respond with `hello ${name}`
 - test should confirm the result
-⌨️ test "runs hello world"
 
 **Tip:** you can call "on('task')" multiple times, the task names will be merged.
 
@@ -393,9 +392,11 @@ on('task', {
 +++
 ## Retries in tasks
 
+@ul
 - Look at existing task `hasSavedRecord` and trace what it does
 - Write a test that calls task `hasSavedRecord`
 - Delay application to demonstrate that task retries
+@ulend
 
 +++
 ## Retries libraries
@@ -437,3 +438,18 @@ on('task', {
 })
 ```
 **tip:** use "Comment tagged templates" to syntax highlight using `/* js */`
+
++++
+## 🏁 Fixtures
+
+When loading fixtures remember JavaScript + Mocha lifecycle and `this` context
+
++++
+## 🏁 Architecture
+
+There are 2 iframes in the browser controlled by Cypress. Specs have full access to the application.
+
++++
+## 🏁 Architecture
+
+Node context is _strongly_ separated from the browser context. Use `cy.task` to cross the border.
