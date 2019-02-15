@@ -92,6 +92,9 @@ it('reads items loaded from fixture', () => {
 it('saves todo', () => {
   // reset data on the server
   // visit the page
-  // type new todo
+  // type new todo via GUI
   // read file - it should have the item you have entered
+  // hint: to demonstrate retries,
+  // write should(cb) assertion
+  // and add a delay to the application
 })

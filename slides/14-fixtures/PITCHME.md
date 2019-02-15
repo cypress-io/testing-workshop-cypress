@@ -261,7 +261,70 @@ it('reads items loaded from fixture', () => {
 it('saves todo', () => {
   // reset data on the server
   // visit the page
-  // type new todo
+  // type new todo via GUI
   // read file - it should have the item you have entered
 })
 ```
+
++++
+## Cypress architecture: browser
+
+There are two iframes: one for the app, one for the specs.
+
+[on.cypress.io/key-differences](https://on.cypress.io/key-differences)
+
++++
+![two iframes](/slides/14-fixtures/img/two-iframes.png)
+
+Note:
+One iframes has the application, second iframe has spec code for isolation
+
++++
+![iframes HTML](/slides/14-fixtures/img/iframes.png)
+
+Note:
+You can find the iframe HTML elements side by side. The one with the specs has zero dimensions. The Cypress Command Log is in the top window around the iframes.
+
++++
+![set domain](/slides/14-fixtures/img/set-domain.png)
+
+Note:
+In order for spec iframe (coming from localhost) to access the app iframe (coming from any domain), we inject a little JavaScript snippet shown here at the very start, which sets the document domain to be `localhost`. This gives Cypress access to the application's DOM and `window` and everything.
+
++++
+![start step 1](/slides/14-fixtures/img/start-1.png)
+
+Cypress starts the browser in proxy mode. Every request your application makes to its domain goes through Cypress
+
++++
+![start step 2](/slides/14-fixtures/img/start-2.png)
+
+Before Cypress forwards the request to the external domain, it creates and injects a self-signed certificate for that domain - and then forwards the request.
+
++++
+![start step 3](/slides/14-fixtures/img/start-3.png)
+
+When the external server responds with the page, Cypress injects the little script I have shown to set the document's domain to `localhost`
+
++++
+![start step 4](/slides/14-fixtures/img/start-4.png)
+
+After that Cypress can access everything inside the application iframe, except for inner iframes coming from other domains.
+
++++
+![start step 5](/slides/14-fixtures/img/start-5.png)
+
+And Cypress can observe and stub network calls coming from the application because it still acts as a proxy.
+
++++
+## Cypress architecture: Node
+
+- tests run in the browser
+- what if you need OS actions during test?
+  * access file system
+  * access database
+
++++
+![cy.task](/slides/14-fixtures/img/cy-task.png)
+
+Run code in Node using [`cy.task`](https://on.cypress.io/task)
