@@ -439,6 +439,9 @@ on('task', {
 ```
 **tip:** use "Comment tagged templates" to syntax highlight using `/* js */`
 
+Note:
+While this is possible, you still are sending just a string to the backend, so you linter cannot tell you if the code you are sending makes sense or not.
+
 +++
 ## 🏁 Fixtures
 
@@ -453,3 +456,6 @@ There are 2 iframes in the browser controlled by Cypress. Specs have full access
 ## 🏁 Architecture
 
 Node context is _strongly_ separated from the browser context. Use `cy.task` to cross the border.
+
+- initializing data before the test
+- checking external services during test
