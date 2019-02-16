@@ -310,11 +310,14 @@ Cypress.on('uncaught:exception', (e, runnable) => {
 ### 🔪 Isolate the problem
 
 @ul
+- look at the video recording and screenshots
 - split large spec files into smaller ones
 - split long tests into shorter ones
-- look at the video recording and screenshots
 - run using `--browser chrome`
 @ulend
+
+Note:
+We are working on upgrading the Electron version shipped with Cypress.
 
 +++
 ## 👎 There is no command log in the terminal output
@@ -358,6 +361,10 @@ expected result is on the next slide
 
 +++
 ## 🏁 Debugging is hard
+
+- race conditions in your application
+- bugs in Cypress
+- weird browser and server behavior
 
 +++
 ## 🏁 Use DevTools
