@@ -6,3 +6,4 @@ cypress/screenshots
 cypress/results
 mochawesome-report/
 mochawesome.json
+cypress/logs

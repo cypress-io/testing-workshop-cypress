@@ -25,3 +25,4 @@ import './commands'
 
 // require('cypress-pipe')
 // require('cypress-plugin-snapshots/commands')
+// require('cypress-failed-log')
