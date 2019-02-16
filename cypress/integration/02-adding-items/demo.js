@@ -22,6 +22,5 @@ it('adds items', function () {
     .type('todo C{enter}')
     .type('todo D{enter}')
   cy.get('.todo-list li') // command
-    .debug()
     .should('have.length', 4) // assertion
 })

@@ -256,3 +256,53 @@ cy.get('.todo-list li') // command
 +++
 
 **note:** `debugger` and `cy.debug` only work in `cypress open` when DevTools is open.
+
++++
+## If you app throws an error
+
+⌨️ Add in "todomvc/app.js"
+
+```js
+// throw error when loading todos
+loadTodos ({ commit }) {
+  commit('SET_LOADING', true)
+
+  setTimeout(() => {
+    throw new Error('Random problem')
+  }, 50)
+```
+
++++
+![Random problem](/slides/15-debugging/img/random-problem.png)
+
+Cypress catches exception from the application
+
++++
+
+### Todo: let's ignore the "Random problem"
+
+Before visiting the page, set error handler
+
+```js
+cy.on('uncaught:exception', (e, runnable) => {
+  console.log('error', e)
+  console.log('runnable', runnable)
+  // return true if you WANT test to fail
+})
+```
+
++++
+## Todo: set up global error handler
+
+in "cypress/support/index.js"
+
+```js
+Cypress.on('uncaught:exception', (e, runnable) => {
+  console.log('error', e)
+  console.log('runnable', runnable)
+  // return true if you WANT test to fail
+})
+```
+
++++
+## How to debug "cypress run" failures
