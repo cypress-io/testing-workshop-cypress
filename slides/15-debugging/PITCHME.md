@@ -1,4 +1,4 @@
-## ☀️ Part 14: Debugging
+## ☀️ Part 15: Debugging
 
 ### 📚 You will learn
 
@@ -20,6 +20,10 @@ Open an issue 🎉
 - expected results
 - video / screenshots
 - Cypress internal messages
+
++++
+
+Typically `cypress open` works and `cypress run` does not work
 
 +++
 
@@ -47,7 +51,9 @@ DEBUG=cypress:cli npx ...
 
 +++
 
-![Debugging CLI](/slides/14-fixtures/img/debug-cli.png)
+![Debugging CLI](/slides/15-debugging/img/debug-cli.png)
+
+A few debug messages from CLI module
 
 +++
 
