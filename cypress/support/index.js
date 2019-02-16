@@ -25,9 +25,4 @@ import './commands'
 
 // require('cypress-pipe')
 // require('cypress-plugin-snapshots/commands')
-
-Cypress.on('uncaught:exception', (e, runnable) => {
-  console.log('error', e)
-  console.log('runnable', runnable)
-  return !e.message.startsWith('Random problem')
-})
+// require('cypress-failed-log')
