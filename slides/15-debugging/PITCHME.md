@@ -29,6 +29,8 @@ Typically `cypress open` works and `cypress run` does not work
 
 ## Run Cypress with `DEBUG`
 
+Stop the application server and run Cypress only.
+
 ```sh
 DEBUG=cypress* \
   npx cypress run \
@@ -80,3 +82,21 @@ DEBUG=cypress:server:config ...
 ```
 
 This allows you to isolate the problem a little better
+
++++
+
+## Debug logs in the browser
+
+If the problem is seen during `cypress open` you can print debug logs too. Open browser DevTools
+
+```js
+localStorage.debug = 'cypress*'
+```
+
+Reload the browser "Cmd + R"
+
++++
+
+![Debugging browser](/slides/15-debugging/img/debug-driver.jpg)
+
+There is only "cypress:driver" package that runs in the browser
