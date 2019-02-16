@@ -437,7 +437,41 @@ cy.get('.todo-list li')         // command
 ⌨️ try this in test "solution 2: alternate commands and assertions"
 
 +++
+## Cypress Retries: Triple Header
 
+### 1. DOM queries
+
+```js
+cy.get('li')
+  .should('have.length', 2)
+```
+
++++
+## Cypress Retries: Triple Header
+
+### 2. Network
+
+```js
+// spy / stub network calls
+cy.route(...).as('new-item')
+cy.wait('@new-item')
+  .its('response.body')
+  .should('have.length', 2)
+```
+
++++
+## Cypress Retries: Triple Header
+
+### 3. Application
+
+```js
+// access and spy / stub application code
+cy.spy(...).as('some-method')
+cy.get('@some-method')
+  .should('have.been.calledOnce)
+```
+
++++
 ## 📝 Take away
 
 Most commands have built-in sensible waits:
@@ -454,6 +488,8 @@ Many commands also retry themselves until the assertions that follow pass
 cy.get('li')
   .should('have.length', 2)
 ```
+
+DOM 🎉 Network 🎉 Application methods 🎉
 
 +++
 
