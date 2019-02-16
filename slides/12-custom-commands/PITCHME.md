@@ -400,6 +400,29 @@ it('creates todos', () => {
 [on.cypress.io/custom-commands](https://on.cypress.io/custom-commands), [https://www.cypress.io/blog/2018/12/20/element-coverage/](https://www.cypress.io/blog/2018/12/20/element-coverage/)
 
 +++
+## Example: overwrite `cy.type`
+
+```js
+Cypress.Commands.overwrite('type',
+  (type, $el, text, options) => {
+
+  // just adds element selector to the
+  // list of seen elements
+  rememberSelector($el)
+
+  return type($el, text, options)
+})
+```
+
+[https://www.cypress.io/blog/2018/12/20/element-coverage/](https://www.cypress.io/blog/2018/12/20/element-coverage/)
+
++++
+
+![Video](https://www.cypress.io/blog/2018/12/20/element-coverage/tested-elements.a2124117.mp4)
+
+Video of element coverage, [https://slides.com/bahmutov/test-coverage-update](https://slides.com/bahmutov/test-coverage-update)
+
++++
 
 ## Best practices
 
