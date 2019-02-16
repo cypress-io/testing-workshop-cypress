@@ -307,7 +307,7 @@ Cypress.on('uncaught:exception', (e, runnable) => {
 +++
 ## How to debug "cypress run" failures
 
-1. Isolate the problem
+### 🔪 Isolate the problem
 
 @ul
 - split large spec files into smaller ones
@@ -317,7 +317,7 @@ Cypress.on('uncaught:exception', (e, runnable) => {
 @ulend
 
 +++
-## There is no command log in the terminal output
+## 👎 There is no command log in the terminal output
 
 Cypress tests run in the browser.
 
@@ -328,7 +328,10 @@ We are working to send all browser events during the test to the terminal [#448]
 
 > Saves the Cypress test command log as a JSON file if a test fails
 
-### Todo
+Userspace plugin [bahmutov/cypress-failed-log](https://github.com/bahmutov/cypress-failed-log)
+
++++
+## Todo
 
 - `cypress-failed-log` is already installed in this repo
 - follow instructions in `cypress-failed-log` README and turn it on
@@ -351,4 +354,19 @@ expected result is on the next slide
 
 `cypress-failed-log` output.
 
-**note:** there is also a JSON file
+**note:** there is also a JSON file with the log
+
++++
+## 🏁 Debugging is hard
+
++++
+## 🏁 Use DevTools
+
+`debugger` and `cy.debug()`
+
++++
+## 🏁 Isolate the problem
+
+- smaller specs and tests
+- failed log
+- `DEBUG=...` verbose logs
