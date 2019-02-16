@@ -16,12 +16,12 @@ beforeEach(function visitSite () {
 })
 
 it('adds items', function () {
-  cy.pause()
   cy.get('.new-todo')
     .type('todo A{enter}')
     .type('todo B{enter}')
     .type('todo C{enter}')
     .type('todo D{enter}')
   cy.get('.todo-list li') // command
+    .debug()
     .should('have.length', 4) // assertion
 })

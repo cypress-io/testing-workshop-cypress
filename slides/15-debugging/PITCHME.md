@@ -91,6 +91,8 @@ If the problem is seen during `cypress open` you can print debug logs too. Open 
 
 ```js
 localStorage.debug = 'cypress*'
+// to disable debug messages
+delete localStorage.debug
 ```
 
 Reload the browser "Cmd + R"
@@ -132,7 +134,7 @@ Runs single command _right now_. Might change in the future.
 
 ## Common problems
 
-### Missing `--`
+### 👎 Missing `--`
 
 Forgetting to use `--` when calling `npm run cy:run` with arguments
 
@@ -144,6 +146,8 @@ NPM "swallows" `--record` argument
 
 +++
 
+## ✅ Solution
+
 Separate NPM and Cypress arguments with `--`
 
 ```sh
@@ -153,11 +157,102 @@ npm run cy:run -- --record --spec ...
 **note:** in the future, we will try to do the right thing even if you forget to separate with `--`, see [#3470](https://github.com/cypress-io/cypress/issues/3470)
 
 +++
+## ✅ Solution
 
-### Cypress GUI slows down on longer tests
+Use [npx](https://github.com/zkat/npx) that comes with modern Node versions
+
+```sh
+npx cypress run --record --spec ...
+```
+
++++
+## ✅ Solution
+
+Use [yarn run](https://yarnpkg.com/lang/en/docs/cli/run/)
+
+```sh
+yarn run cy:run --record --spec ...
+```
+
++++
+
+### 👎 Cypress GUI slows down on longer tests
 
 Usually caused by large DOM snapshots for time-traveling debugger
 
 - run individual specs, do not use "Run all"
 - split longer tests
 - use config [numTestsKeptInMemory](https://on.cypress.io/configuration#Global)
+
++++
+## Use DevTools debugger
+
+Just put `debugger` keyword in your callbacks
+
+```js
+it('adds items', function () {
+  cy.get('.new-todo')
+    .type('todo A{enter}')
+    .type('todo B{enter}')
+    .type('todo C{enter}')
+    .type('todo D{enter}')
+  // NO
+  debugger
+  cy.get('.todo-list li') // command
+    .should('have.length', 4) // assertion
+})
+```
+
++++
+
+```js
+it('adds items', function () {
+  cy.get('.new-todo')
+    .type('todo A{enter}')
+    .type('todo B{enter}')
+    .type('todo C{enter}')
+    .type('todo D{enter}')
+    .then(() => {
+      // YES
+      debugger
+    })
+  cy.get('.todo-list li') // command
+    .should('have.length', 4) // assertion
+})
+```
+
++++
+## Todo: debug from callback function
+
+Add custom expectation function after `c.get('.todo-list li')` to see elements it returns
+
++++
+
+```js
+cy.get('.todo-list li') // command
+    .should($li => {
+      console.log($li)
+      debugger
+    })
+    .should('have.length', 4)
+```
+
++++
+
+## Todo
+
+Try [cy.debug](https://on.cypress.io/debug) command
+
+```js
+cy.get('.todo-list li') // command
+  .debug()
+  .should('have.length', 4)
+```
+
++++
+
+![`cy.debug`](/slides/15-debugging/img/debug-command.png)
+
++++
+
+**note:** `debugger` and `cy.debug` only work in `cypress open` when DevTools is open.
