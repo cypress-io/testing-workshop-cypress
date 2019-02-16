@@ -16,6 +16,7 @@ beforeEach(function visitSite () {
 })
 
 it('adds items', function () {
+  cy.pause()
   cy.get('.new-todo')
     .type('todo A{enter}')
     .type('todo B{enter}')
