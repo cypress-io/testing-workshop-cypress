@@ -161,7 +161,7 @@ Open test file `ts-example.ts`
 
 **Tip:** [TypeScript with Browserify](https://github.com/cypress-io/cypress-example-recipes/tree/master/examples/preprocessors__typescript-browserify) example recipe
 
-**Tip:** pay attention to error in the terminal
+**Tip:** pay attention to any error messages in the terminal
 
 +++
 ## Install
