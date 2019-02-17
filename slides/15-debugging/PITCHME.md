@@ -44,6 +44,8 @@ You should see a LOT of messages before the error is shown
 
 Cypress uses [debug](https://github.com/visionmedia/debug#readme) module to control debug CLI messages.
 
+Read [Good Logging](https://glebbahmutov.com/blog/good-logging/)
+
 ## Todo
 
 ```sh
