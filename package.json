@@ -64,7 +64,8 @@
   },
   "standard": {
     "ignore": [
-      "cypress/integration/13-app-actions/todo-page-object.js"
+      "cypress/integration/13-app-actions/todo-page-object.js",
+      "cypress/integration/16-preprocessors/spec.js"
     ],
     "globals": [
       "Cypress",
