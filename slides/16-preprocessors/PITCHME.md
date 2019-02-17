@@ -216,6 +216,13 @@ You can use [bahmutov/add-typescript-to-cypress](https://github.com/bahmutov/add
 - transpile `plugins/index` itself
 
 +++
+## 📖 TypeScript Deep Dive
+
+Free to read ebook at [basarat.gitbooks.io/typescript](https://basarat.gitbooks.io/typescript/)
+
+Has a great Cypress section [/testing/cypress.html](https://basarat.gitbooks.io/typescript/docs/testing/cypress.html)
+
++++
 ## 🏁 You can control how spec files are transpiled
 
 - modify default browserify options
