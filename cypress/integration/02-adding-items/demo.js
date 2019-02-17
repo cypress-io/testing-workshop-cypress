@@ -12,13 +12,6 @@ if (isLocalHost()) {
 
 beforeEach(function visitSite () {
   cy.log('Visiting', Cypress.config('baseUrl'))
-  cy.on('uncaught:exception', (e, runnable) => {
-    console.log('error', e)
-    console.log('runnable', runnable)
-    cy.now('log', 'caught error', e)
-    // return true if you WANT test to fail
-    return false
-  })
   cy.visit('/')
 })
 
