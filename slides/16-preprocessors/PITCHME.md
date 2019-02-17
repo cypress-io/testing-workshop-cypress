@@ -2,12 +2,16 @@
 
 A preprocessor is the plugin responsible for preparing a support file or a test file for the browser.
 
++++
 ### 📚 You will learn
 
 - how to change options when bundling specs
 - how to use TypeScript specs
 
-Also: [on.cypress.io/preprocessors-api](https://on.cypress.io/preprocessors-api)
++++
+## Not covered
+
+Writing your own preprocessor, see [on.cypress.io/preprocessors-api](https://on.cypress.io/preprocessors-api) for how
 
 +++
 
