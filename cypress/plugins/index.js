@@ -16,7 +16,6 @@
 const fs = require('fs')
 const path = require('path')
 const debug = require('debug')('testing-workshop-cypress')
-const browserify = require('@cypress/browserify-preprocessor')
 
 const findRecord = title => {
   const dbFilename = path.join(__dirname, '..', '..', 'todomvc', 'data.json')
@@ -42,10 +41,6 @@ const hasRecordAsync = (title, ms) => {
 }
 
 module.exports = (on, config) => {
-  const options = browserify.defaultOptions
-  debug('browserify options %O', options)
-  on('file:preprocessor', browserify(options))
-
   // `on` is used to hook into various events Cypress emits
   // "cy.task" can be used from specs to "jump" into Node environment
   // and doing anything you might want. For example, checking "data.json" file!
