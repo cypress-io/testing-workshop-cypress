@@ -292,6 +292,43 @@ cy.on('uncaught:exception', (e, runnable) => {
 ```
 
 +++
+
+If you want to print the caught error:
+
+```js
+beforeEach(function visitSite () {
+  cy.log('Visiting', Cypress.config('baseUrl'))
+  cy.on('uncaught:exception', (e, runnable) => {
+    console.log('error', e)
+    console.log('runnable', runnable)
+    // this is NOT going to work
+    cy.log('caught error', e)
+    // return true if you WANT test to fail
+    return false
+  })
+  cy.visit('/')
+})
+```
+
++++
+![cy.log does not work](/slides/15-debugging/img/cy-log-from-fail.png)
+
+`cy.log` changes _current_ command chain.
++++
+
+You might try to use `Cypress.log` instead, but there is a problem [#3513](https://github.com/cypress-io/cypress/issues/3513). So use this secret method to log
+
+```js
+cy.on('uncaught:exception', (e, runnable) => {
+  console.log('error', e)
+  console.log('runnable', runnable)
+  cy.now('log', 'caught error', e)
+  // return true if you WANT test to fail
+  return false
+})
+```
+
++++
 ## Todo: set up global error handler
 
 in "cypress/support/index.js"
