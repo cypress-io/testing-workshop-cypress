@@ -258,6 +258,14 @@ cy.get('.todo-list li') // command
 **note:** `debugger` and `cy.debug` only work in `cypress open` when DevTools is open.
 
 +++
+## Debug messages inside `cy.task`
+
+To show debug messages from the backend code in `cypress/plugins`
+
+- use `console.log`
+- use `DEBUG=...` and [debug module](https://github.com/visionmedia/debug#readme)
+
++++
 ## If you app throws an error
 
 ⌨️ Add in "todomvc/app.js"

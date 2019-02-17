@@ -15,6 +15,7 @@
 /* global Promise */
 const fs = require('fs')
 const path = require('path')
+const debug = require('debug')('testing-workshop-cypress')
 
 const findRecord = title => {
   const dbFilename = path.join(__dirname, '..', '..', 'todomvc', 'data.json')
@@ -45,6 +46,7 @@ module.exports = (on, config) => {
   // and doing anything you might want. For example, checking "data.json" file!
   on('task', {
     hasSavedRecord (title, ms = 3000) {
+      debug('inside task')
       console.log(
         'looking for title "%s" in the database (time limit %dms)',
         title,
