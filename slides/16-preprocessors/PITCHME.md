@@ -204,3 +204,19 @@ on('file:preprocessor', browserify(options))
 ## TypeScript with Webpack
 
 See [Preprocessors TypeScript with Webpack](https://github.com/cypress-io/cypress-example-recipes/tree/master/examples/preprocessors__typescript-webpack) example recipe
+
+You can use [bahmutov/add-typescript-to-cypress](https://github.com/bahmutov/add-typescript-to-cypress) to set it up.
+
++++
+## Common TypeScript problems
+
+- clashing 3rd party `@types` fixing in [#3371](https://github.com/cypress-io/cypress/issues/3371)
+- Jest vs Chai `expect` global
+- incorrect type definitions
+- transpile `plugins/index` itself
+
++++
+## 🏁 You can control how spec files are transpiled
+
+- modify default browserify options
+- overwrite or use Webpack bundler
