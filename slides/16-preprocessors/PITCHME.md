@@ -130,8 +130,77 @@ Plugins list is concatenated from default and `.babelrc` list.
 +++
 ## Todo: add your own plugin
 
-Find a plugin in [https://babeljs.io/docs/en/next/plugins](https://babeljs.io/docs/en/next/plugins) and add it to the Babel plugins and write test that uses new notation. Good candidates
+Find a plugin in [https://babeljs.io/docs/en/next/plugins](https://babeljs.io/docs/en/next/plugins) and add it to the Babel plugins and write test that uses the new notation. Good candidates
 
 - function bind
 - pipeline operator
 - optional chaining
+
++++
+## Browserify TypeScript specs
+
+Based on [TypeScript with Browserify](https://github.com/cypress-io/cypress-example-recipes/tree/master/examples/preprocessors__typescript-browserify) example recipe.
+
+Open test file `ts-example.ts`
+
++++
+
+![TypeScript error](/slides/16-preprocessors/img/ts-error.png)
+
++++
+
+**Todo:** use Browserify plugin `tsify` in `plugins/index.js` to transpile TypeScript specs
+
+- need to install TypeScript and plugin
+- need to set up preprocessor
+- need to have `tsconfig.json`
+
+**Tip:** [TypeScript with Browserify](https://github.com/cypress-io/cypress-example-recipes/tree/master/examples/preprocessors__typescript-browserify) example recipe
+
+**Tip:** pay attention to error in the terminal
+
++++
+## Install
+
+```sh
+npm i -D typescript tsify
+```
+
++++
+
+## Preprocessor
+
+```js
+// plugins/index.js
+const browserify = require('@cypress/browserify-preprocessor')
+const options = {
+  browserifyOptions: {
+    extensions: ['.js', '.ts'],
+    plugin: [['tsify']]
+  }
+}
+on('file:preprocessor', browserify(options))
+```
+
++++
+## `tsconfig.json`
+
+```json
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "skipLibCheck": true, // do not check types in node_modules folder
+    "strict": true
+  },
+  "include": [
+    "node_modules/cypress",
+    "cypress/**/*.ts"
+  ]
+}
+```
+
++++
+## TypeScript with Webpack
+
+See [Preprocessors TypeScript with Webpack](https://github.com/cypress-io/cypress-example-recipes/tree/master/examples/preprocessors__typescript-webpack) example recipe
