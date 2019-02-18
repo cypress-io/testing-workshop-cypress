@@ -40,3 +40,62 @@ describe('HelloWorld component', () => {
 
 ![Hello World component test](/slides/17-component-testing/img/hello-world.png)
 
++++
+## First component test
+
+- **stop** TodoMVC application
+- open `cypress/integration/17-component-testing/footer-spec.js`
+
++++
+
+```js
+/// <reference types="cypress" />
+import React from 'react'
+import Footer from './Footer'
+// adds custom command "cy.mount"
+import 'cypress-react-unit-test'
+import { filters } from './filters'
+```
+Note how we are loading React components and application code directly from the spec file
+
++++
+
+## Todo: first component test
+
+⌨️ test "shows Footer"
+
+- mount component
+- link "all" should have selected class
+
++++
+
+![Footer component test](/slides/17-component-testing/img/footer-component-test.png)
+
++++
+
+## Todo: test on click
+
+⌨️ test "clears completed on click"
+
+- mount component
+- pass stub to "onClearCompleted" prop
+- check if "clear completed" button is visible and click
+
++++
+![on click test](/slides/17-component-testing/img/on-click.png)
+
++++
+## 🏁 Component testing
+
+@ul
+Instead of visiting a page, you mount a component.
+Then you test it the same way as a full E2E test.
+@ulend
+
++++
+## 🏁 Component testing: more info
+
+- [cypress-react-unit-test](https://github.com/bahmutov/cypress-react-unit-test)
+- [on.cypress.io/plugins#component-testing](https://on.cypress.io/plugins#component-testing)
+- [github.com/bahmutov/calculator](https://github.com/bahmutov/calculator)
+
