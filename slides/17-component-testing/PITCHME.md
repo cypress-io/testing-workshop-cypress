@@ -85,6 +85,36 @@ Note how we are loading React components and application code directly from the 
 ![on click test](/slides/17-component-testing/img/on-click.png)
 
 +++
+## Component testing vs E2E
+
+- components are like micro web applications
+
++++
+## Unit tests vs E2E
+
+### Unit tests
+
+- focus on code
+- short
+- black box
+
++++
+## Unit tests vs E2E
+
+### end-to-end tests
+
+- focus on a feature
+- long
+- external effects
+
++++
+## Unit tests AND E2E
+
+- focus on one thing
+- gives you confidence
+- runs locally and on CI
+
++++
 ## 🏁 Component testing
 
 @ul
