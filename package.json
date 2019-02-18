@@ -36,6 +36,7 @@
   },
   "homepage": "https://github.com/cypress-io/testing-workshop-cypress#readme",
   "devDependencies": {
+    "classnames": "2.2.6",
     "@babel/plugin-proposal-do-expressions": "7.2.0",
     "@cypress/browserify-preprocessor": "2.0.0",
     "cypress": "3.1.5",
@@ -43,6 +44,7 @@
     "cypress-failed-log": "2.4.1",
     "cypress-pipe": "1.3.3",
     "cypress-plugin-snapshots": "1.2.5",
+    "cypress-react-unit-test": "2.3.2",
     "cypress-xpath": "1.3.0",
     "debug": "4.1.1",
     "http-server": "0.11.1",
@@ -54,6 +56,7 @@
     "mochawesome": "3.1.1",
     "mochawesome-merge": "1.0.4",
     "mochawesome-report-generator": "3.1.5",
+    "pluralize": "7.0.0",
     "prettier": "1.16.4",
     "prettier-standard": "9.1.1",
     "standard": "12.0.1",
