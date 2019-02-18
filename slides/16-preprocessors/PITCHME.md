@@ -227,6 +227,27 @@ Free to read ebook at [basarat.gitbooks.io/typescript](https://basarat.gitbooks.
 Has a great Cypress section [/testing/cypress.html](https://basarat.gitbooks.io/typescript/docs/testing/cypress.html)
 
 +++
+## Use Webpack preprocessor
+
+If your project already uses `webpack.config.js`
+
+```sh
+npm i -D @cypress/webpack-preprocessor
+```
+```js
+const webpack = require('@cypress/webpack-preprocessor')
+module.exports = (on) => {
+  const options = {
+    // send in the options from your webpack.config.js, so it works the same
+    // as your app's code
+    webpackOptions: require('../../webpack.config'),
+    watchOptions: {},
+  }
+  on('file:preprocessor', webpack(options))
+}
+```
+
++++
 ## 🏁 You can control how spec files are transpiled
 
 - modify default browserify options
