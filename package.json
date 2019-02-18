@@ -37,6 +37,8 @@
   "homepage": "https://github.com/cypress-io/testing-workshop-cypress#readme",
   "devDependencies": {
     "classnames": "2.2.6",
+    "@babel/plugin-proposal-do-expressions": "7.2.0",
+    "@cypress/browserify-preprocessor": "2.0.0",
     "cypress": "3.1.5",
     "cypress-dark": "1.7.0",
     "cypress-failed-log": "2.4.1",
@@ -58,14 +60,17 @@
     "prettier": "1.16.4",
     "prettier-standard": "9.1.1",
     "standard": "12.0.1",
-    "start-server-and-test": "1.7.11"
+    "start-server-and-test": "1.7.11",
+    "tsify": "4.0.1",
+    "typescript": "3.3.3"
   },
   "engines": {
     "node": ">=6"
   },
   "standard": {
     "ignore": [
-      "cypress/integration/13-app-actions/todo-page-object.js"
+      "cypress/integration/13-app-actions/todo-page-object.js",
+      "cypress/integration/16-preprocessors/spec.js"
     ],
     "globals": [
       "Cypress",
