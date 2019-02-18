@@ -418,6 +418,11 @@ expected result is on the next slide
 
 `debugger` and `cy.debug()`
 
+Pauses _both tests and application_
+
+Note:
+It is nice to show how `debugger` pause stops all application's timers.
+
 +++
 ## 🏁 Isolate the problem
 
