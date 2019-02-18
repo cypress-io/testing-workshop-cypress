@@ -98,4 +98,4 @@ Then you test it the same way as a full E2E test.
 - [cypress-react-unit-test](https://github.com/bahmutov/cypress-react-unit-test)
 - [on.cypress.io/plugins#component-testing](https://on.cypress.io/plugins#component-testing)
 - [github.com/bahmutov/calculator](https://github.com/bahmutov/calculator)
-
+- blog post [Sliding Down the Testing Pyramid](https://www.cypress.io/blog/2018/04/02/sliding-down-the-testing-pyramid/)
