@@ -116,7 +116,7 @@ on('file:preprocessor', browserify(options))
 ```
 
 +++
-## Alternative: add .babelrc file
+## 👍 Alternative: add .babelrc file
 
 Create `.babelrc` file
 ```json
@@ -227,7 +227,7 @@ Free to read ebook at [basarat.gitbooks.io/typescript](https://basarat.gitbooks.
 Has a great Cypress section [/testing/cypress.html](https://basarat.gitbooks.io/typescript/docs/testing/cypress.html)
 
 +++
-## Use Webpack preprocessor
+## 👍 Use Webpack preprocessor
 
 If your project already uses `webpack.config.js`
 

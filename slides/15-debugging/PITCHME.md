@@ -420,6 +420,8 @@ expected result is on the next slide
 
 Pauses _both tests and application_
 
+### Todo: demonstrate this
+
 Note:
 It is nice to show how `debugger` pause stops all application's timers.
 
