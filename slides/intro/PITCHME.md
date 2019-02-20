@@ -6,7 +6,7 @@
 
 +++
 
-## What we are going to cover 1/2
+## What we are going to cover 1/3
 
 As long as ⏳ permits
 
@@ -19,7 +19,7 @@ As long as ⏳ permits
 
 +++
 
-## What we are going to cover 2/2
+## What we are going to cover 2/3
 
 As long as ⏳ permits
 
@@ -27,6 +27,19 @@ As long as ⏳ permits
 - test reporters
 - configuration and environment variables
 - retry-ability
+
++++
+## What we are going to cover 3/3
+
+As long as ⏳ permits
+
+
+- configuration
+- page objects vs app actions
+- fixtures and backend
+- debugging
+- preprocessors
+- component testing
 
 +++
 
