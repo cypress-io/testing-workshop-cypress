@@ -10,18 +10,8 @@ Slides: [https://gitpitch.com/cypress-io/testing-workshop-cypress](https://gitpi
 
 ---?include=slides/01-basic/PITCHME.md
 
----?include=slides/02-adding-items/PITCHME.md
+---
 
----?include=slides/03-selector-playground/PITCHME.md
+## Next
 
----?include=slides/04-reset-state/PITCHME.md
-
----?include=slides/05-xhr/PITCHME.md
-
----?include=slides/06-app-data-store/PITCHME.md
-
----?include=slides/07-ci/PITCHME.md
-
----?include=slides/08-dashboard/PITCHME.md
-
----?include=slides/end/PITCHME.md
+Select the next section to work through from [Content](https://github.com/cypress-io/testing-workshop-cypress#content-)
