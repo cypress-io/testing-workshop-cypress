@@ -1,4 +1,18 @@
 {
   "editor.formatOnSave": true,
-  "standard.autoFixOnSave": true
+  "standard.autoFixOnSave": true,
+  "peacock.affectActivityBar": true,
+  "peacock.affectTitleBar": true,
+  "peacock.affectStatusBar": true,
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#66abe1",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#294359",
+    "titleBar.activeBackground": "#3b94d9",
+    "titleBar.inactiveBackground": "#1e4a6d",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveForeground": "#1f3d57",
+    "statusBar.background": "#3b94d9",
+    "statusBar.foreground": "#15202b"
+  }
 }
