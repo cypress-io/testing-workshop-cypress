@@ -12,6 +12,14 @@
 
 +++
 
+## ⚠️ Todo items
+
+**Note:** the tests we are about to write are NOT resetting the previously added Todo items. Delete the Todo items before each test manually.
+
+We will reset the previously saved Todo items in section "4 Reset State".
+
++++
+
 ```js
 it.only('starts with zero items', () => {
   // check if the list is empty initially:
