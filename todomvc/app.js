@@ -17,7 +17,8 @@
     },
     getters: {
       newTodo: state => state.newTodo,
-      todos: state => state.todos
+      todos: state => state.todos,
+      loading: state => state.loading
     },
     mutations: {
       SET_LOADING (state, flag) {
@@ -125,6 +126,9 @@
     // computed properties
     // https://vuejs.org/guide/computed.html
     computed: {
+      loading () {
+        return this.$store.getters.loading
+      },
       newTodo () {
         return this.$store.getters.newTodo
       },

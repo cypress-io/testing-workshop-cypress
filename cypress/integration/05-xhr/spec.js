@@ -90,3 +90,11 @@ it('handles 404 when loading todos', () => {
   // cy.get('@console-error')
   //   .should(...)
 })
+
+it('shows loading element', () => {
+  // delay XHR to "/todos" by a few seconds
+  // and respond with an empty list
+  // shows Loading element
+  // wait for the network call to complete
+  // now the Loading element should go away
+})

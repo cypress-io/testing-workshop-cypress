@@ -173,3 +173,23 @@ see instructions in the `05-xhr/spec.js` for the test
 ## Bonus
 
 Network requests guide at [https://on.cypress.io/network-requests](https://on.cypress.io/network-requests). Question: which requests do you spy on, which do you stub?
+
++++
+
+## Testing Loading state
+
+In the application we are showing (very quickly) "Loading" state
+
+```html
+<div class="loading" v-show="loading">Loading data ...</div>
+```
+
++++
+
+## Todo
+
+- delay the loading XHR request
+- assert the UI is showing "Loading" element
+- assert the "Loading" element goes away after XHR completes
+
+⌨️ test "shows loading element"

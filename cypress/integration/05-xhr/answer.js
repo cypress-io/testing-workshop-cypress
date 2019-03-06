@@ -120,3 +120,24 @@ it('handles 404 when loading todos', () => {
     'test does not allow it'
   )
 })
+
+it('shows loading element', () => {
+  // delay XHR to "/todos" by a few seconds
+  // and respond with an empty list
+  cy.server()
+  cy.route({
+    url: '/todos',
+    delay: 2000,
+    response: []
+  }).as('loading')
+  cy.visit('/')
+
+  // shows Loading element
+  cy.get('.loading').should('be.visible')
+
+  // wait for the network call to complete
+  cy.wait('@loading')
+
+  // now the Loading element should go away
+  cy.get('.loading').should('not.be.visible')
+})

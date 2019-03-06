@@ -80,6 +80,11 @@ input[type='checkbox'] {
   text-rendering: optimizeLegibility;
 }
 
+/* our class for loading message */
+.loading {
+  padding: 2em;
+}
+
 .new-todo,
 .edit {
   position: relative;

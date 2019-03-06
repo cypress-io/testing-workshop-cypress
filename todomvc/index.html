@@ -26,8 +26,8 @@
   <section class="todoapp">
     <header class="header">
       <h1 data-cy="app-title">todos</h1>
-      <input class="new-todo" autofocus autocomplete="off" placeholder="What needs to be done?" :value="newTodo" @input="setNewTodo"
-        @keyup.enter="addTodo">
+      <input class="new-todo" autofocus autocomplete="off" placeholder="What needs to be done?" :value="newTodo"
+        @input="setNewTodo" @keyup.enter="addTodo">
     </header>
     <section class="main" v-show="todos.length" v-cloak>
       <ul class="todo-list">
@@ -40,6 +40,7 @@
         </li>
       </ul>
     </section>
+    <div class="loading" v-show="loading">Loading data ...</div>
   </section>
   <footer class="info">
     <p>Written by
