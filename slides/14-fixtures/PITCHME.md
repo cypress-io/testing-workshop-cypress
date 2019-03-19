@@ -89,6 +89,12 @@ Each test wipes away the previous context object. Thus "this.list" becomes undef
 
 +++
 
+## Fixtures recipe
+
+Check out the "Fixtures" recipe in [github.com/cypress-io/cypress-example-recipes](https://github.com/cypress-io/cypress-example-recipes) repository.
+
++++
+
 ## Log in once
 
 ```js
