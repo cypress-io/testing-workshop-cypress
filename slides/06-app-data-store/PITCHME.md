@@ -118,3 +118,37 @@ Write a test that:
 
 - dispatches actions to the store to add items
 - confirms new items are added to the DOM
+
++++
+
+### ⚠️ Watch out for stale data
+
+Note that the web application might NOT have updated the data right away. For example:
+
+```js
+getStore().then(store => {
+  store.dispatch('setNewTodo', 'a new todo')
+  store.dispatch('addTodo')
+  store.dispatch('clearNewTodo')
+})
+// not necessarily has the new item right away
+getStore().its('state')
+```
+
+Note:
+In a flaky test https://github.com/cypress-io/cypress-example-recipes/issues/246 the above code was calling `getStore().its('state').snapshot()` sometimes before and sometimes after updating the list of todos.
+
++++
+
+### ⚠️ Watch out for stale data
+
+**Solution:** confirm the data is ready before using it.
+
+```js
+// add new todo using dispatch
+// retry until new item is in the list
+getStore()
+  .its('state.todos')
+  .should('have.length', 1)
+// do other checks
+```
