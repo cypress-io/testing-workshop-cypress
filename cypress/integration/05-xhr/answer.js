@@ -18,6 +18,9 @@ it('starts with zero items', () => {
     .its('response.body')
     .should('have.length', 0)
   // then check the DOM
+  // note that we don't have to use "cy.wait(...).then(...)"
+  // because all Cypress commands are flattened into a single chain
+  // automatically. Thus just write "cy.wait(); cy.get();" naturally
   cy.get('li.todo').should('have.length', 0)
 })
 

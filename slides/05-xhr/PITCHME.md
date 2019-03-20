@@ -83,6 +83,21 @@ In `05-xhr/spec.js` test "starts with zero items"
 
 +++
 
+💡 No need to `cy.wait(...).then(...)`. All Cypress commands will be chained automatically.
+
+```js
+cy.server()
+cy.route('GET', '/todos').as('todos')
+cy.visit('/')
+cy.wait('@todos')
+// cy.get() will run AFTER cy.wait() finishes
+cy.get('li.todo').should('have.length', 0)
+```
+
+Read [Introduction to Cypress](https://on.cypress.io/introduction-to-cypress) "Commands Run Serially"
+
++++
+
 ## Todo
 
 add to test "starts with zero items":
