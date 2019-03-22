@@ -13,6 +13,7 @@ In order to get the code and install dependencies
 ```bash
 git clone git@github.com:cypress-io/testing-workshop-cypress.git
 cd testing-workshop-cypress
+git checkout ordina
 npm install
 ```
 
