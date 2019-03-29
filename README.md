@@ -74,7 +74,9 @@ $ npm run cy:open
 
 ## Content 🗂
 
-| topics                                 | folder                                                                                   | contents                                                       | slides |
+### Beginner
+
+| topic                                  | folder                                                                                   | contents                                                       | slides |
 | -------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------ |
 | Introduction, TodoMVC application      | [todomvc](todomvc)                                                                       | [intro.md](slides/intro/PITCHME.md)                                   | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/intro)
 | Loading page                           | [00-start](00-start)                                                                     | [00-start](slides/00-start/PITCHME.md)                             | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/00-start)
@@ -84,12 +86,20 @@ $ npm run cy:open
 | Reset database using `cy.request`      | [04-reset-state](cypress/integration/04-reset-state)                 | [04-reset-state](slides/04-reset-state/PITCHME.md)                 | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/04-reset-state)
 | Spy and stub XHR requests, fixtures    | [05-xhr](cypress/integration/05-xhr)                                 | [05-xhr](slides/05-xhr/PITCHME.md)                                 | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/05-xhr)
 | Access application code and data       | [06-app-data-store](cypress/integration/06-app-data-store)           | [06-app-data-store](slides/06-app-data-store/PITCHME.md)           | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/06-app-data-store)
+
+### Intermediate
+| topic                                  | folder                                                                                   | contents                                                       | slides |
+| -------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------ |
 | Setting up E2E tests on CI             | [07-ci](cypress/integration/07-ci)                                   | [07-ci](slides/07-ci/PITCHME.md)                                   | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/07-ci)
 | Setting up Cypress Dashboard           | [07-ci](cypress/integration/07-ci)                                   | [08-dashboard](slides/08-dashboard/PITCHME.md)                     | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/08-dashboard)
 | Test reporters             | - | [09-reporters](slides/09-reporters/PITCHME.md)                     | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/09-reporters)
 | Configuration | - | [10-configuration](slides/10-configuration/PITCHME.md) | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/10-configuration)
 | Retry-ability | [11-retry-ability](cypress/integration/11-retry-ability) | [11-retry-ability](slides/11-retry-ability/PITCHME.md) | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/11-retry-ability)
 | Custom commands | [12-custom-commands](cypress/integration/12-custom-commands) | [12-custom-commands](slides/12-custom-commands/PITCHME.md)| [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/12-custom-commands)
+
+### Advanced
+| topic                                  | folder                                                                                   | contents                                                       | slides |
+| -------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------ |
 | Page Objects vs App Actions | [13-app-actions](cypress/integration/13-app-actions) | [13-app-actions](slides/13-app-actions/PITCHME.md) | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/13-app-actions)
 | Fixtures | [14-fixtures](cypress/integration/14-fixtures) | [14-fixtures](slides/14-fixtures/PITCHME.md) | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/14-fixtures)
 | Debugging | [02-adding-items/demo.js](cypress/integration/02-adding-items/demo.js) | [15-debugging](slides/15-debugging/PITCHME.md) | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/15-debugging)
