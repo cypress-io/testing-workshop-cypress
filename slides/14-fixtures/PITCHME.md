@@ -279,3 +279,9 @@ Fixtures are data object for testing and network stubs
 +++
 ## 🏁 Fixtures
 When loading fixtures remember JavaScript + Mocha lifecycle and `this` context
+
++++
+## 🏁 Fixtures
+
+- [`cy.fixture`](https://on.cypress.io/fixture)
+- "Fixtures" recipe in [github.com/cypress-io/cypress-example-recipes](https://github.com/cypress-io/cypress-example-recipes)
