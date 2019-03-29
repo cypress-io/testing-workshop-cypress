@@ -91,10 +91,11 @@ $ npm run cy:open
 | Retry-ability | [11-retry-ability](cypress/integration/11-retry-ability) | [11-retry-ability](slides/11-retry-ability/PITCHME.md) | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/11-retry-ability)
 | Custom commands | [12-custom-commands](cypress/integration/12-custom-commands) | [12-custom-commands](slides/12-custom-commands/PITCHME.md)| [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/12-custom-commands)
 | Page Objects vs App Actions | [13-app-actions](cypress/integration/13-app-actions) | [13-app-actions](slides/13-app-actions/PITCHME.md) | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/13-app-actions)
-| Fixtures and backend | [14-fixtures](cypress/integration/14-fixtures) | [14-fixtures](slides/14-fixtures/PITCHME.md) | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/14-fixtures)
+| Fixtures | [14-fixtures](cypress/integration/14-fixtures) | [14-fixtures](slides/14-fixtures/PITCHME.md) | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/14-fixtures)
 | Debugging | [02-adding-items/demo.js](cypress/integration/02-adding-items/demo.js) | [15-debugging](slides/15-debugging/PITCHME.md) | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/15-debugging)
 | Preprocessors | [16-preprocessors](cypress/integration/16-preprocessors) | [16-preprocessors](slides/16-preprocessors/PITCHME.md) | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/16-preprocessors)
 | Component testing | [17-component-testing](cypress/integration/17-component-testing) | [17-component-testing](slides/17-component-testing/PITCHME.md) | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/17-component-testing)
+| Backend code | [18-backend](cypress/integration/18-backend) | [18-backend](slides/18-backend/PITCHME.md) | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/18-backend)
 | The end                                | -                                                                                        | [end](slides/end/PITCHME.md)                                       | [link](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/end)
 
 ## For speakers 🎙
