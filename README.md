@@ -125,6 +125,8 @@ npm run cy:open
 
 The slides can be shown directly via the [presentation link][presentation] above. The Markdown files in [slides](slides) folder also has a little bit of speaker notes.
 
+Every time a new Todo is saved or deleted, it changes file `todomvc/data.json`. To reset the list back to empty run `npm run reset` command.
+
 ## Additional information 🗃
 
 - https://www.cypress.io/
