@@ -39,8 +39,8 @@ We will be running a different implementation of TodoMVC at the same port. So st
 
 +++
 
-- find Page Object in `13-app-actions/todo-page-object.js`
-- open `13-app-actions/using-po-spec.js`
+- find Page Object in `cypress/integration/13-app-actions/todo-page-object.js`
+- open `cypress/integration/13-app-actions/using-po-spec.js`
 
 +++
 

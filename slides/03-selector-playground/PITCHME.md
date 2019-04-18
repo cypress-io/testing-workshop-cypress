@@ -49,7 +49,7 @@ Read [best-practices.html#Selecting-Elements](https://docs.cypress.io/guides/ref
 ## Todo
 
 - add test data ids to `todomvc/index.html` DOM markup
-- use new selectors to write `03-selector-playground/spec.js`
+- use new selectors to write `cypress/integration/03-selector-playground/spec.js`
 
 Note:
 The updated test should look something like the next image

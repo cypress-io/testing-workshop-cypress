@@ -10,7 +10,7 @@
 +++
 
 - keep `todomvc` app running
-- open `12-custom-commands/spec.js`
+- open `cypress/integration/12-custom-commands/spec.js`
 
 +++
 

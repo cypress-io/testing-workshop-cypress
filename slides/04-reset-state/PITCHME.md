@@ -8,7 +8,7 @@
 +++
 
 - keep `todomvc` app running
-- open `04-reset-state/spec.js`
+- open `cypress/integration/04-reset-state/spec.js`
 - if you reload the test it starts failing 😕
 
 +++

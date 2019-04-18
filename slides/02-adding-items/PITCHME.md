@@ -8,7 +8,8 @@
 +++
 
 - keep `todomvc` app running
-- open `02-adding-items/spec.js` in your text editor and Cypress
+- open `cypress/integration/02-adding-items/spec.js` in your text editor
+- click file `02-adding-items/spec.js` in Cypress
 
 +++
 

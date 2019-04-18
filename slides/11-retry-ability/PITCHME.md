@@ -9,7 +9,7 @@
 +++
 
 - keep `todomvc` app running
-- open `11-retry-ability/spec.js`
+- open `cypress/integration/11-retry-ability/spec.js`
 
 +++
 

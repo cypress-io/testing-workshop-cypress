@@ -16,7 +16,7 @@ Writing your own preprocessor, see [on.cypress.io/preprocessors-api](https://on.
 +++
 
 - start TodoMVC application using `npm start`
-- open `16-preprocessors/spec.js`
+- open `cypress/integration/16-preprocessors/spec.js`
 
 +++
 ## Specs
