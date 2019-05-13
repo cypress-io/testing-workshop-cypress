@@ -57,7 +57,7 @@
     "mochawesome-merge": "1.0.4",
     "mochawesome-report-generator": "3.1.5",
     "pluralize": "7.0.0",
-    "prettier": "1.16.4",
+    "prettier": "1.17.1",
     "prettier-standard": "9.1.1",
     "standard": "12.0.1",
     "start-server-and-test": "1.7.12",
