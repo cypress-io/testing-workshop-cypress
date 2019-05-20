@@ -38,7 +38,7 @@
   "devDependencies": {
     "classnames": "2.2.6",
     "@babel/plugin-proposal-do-expressions": "7.2.0",
-    "@cypress/browserify-preprocessor": "2.0.0",
+    "@cypress/browserify-preprocessor": "2.1.0",
     "cypress": "3.3.0",
     "cypress-dark": "1.7.0",
     "cypress-failed-log": "2.5.0",
