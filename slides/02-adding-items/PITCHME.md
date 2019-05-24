@@ -144,3 +144,34 @@ Revisit the discussion about what kind of tests one should write. E2E tests can 
 ### Bonus
 
 - Core concepts [https://on.cypress.io/writing-and-organizing-tests](https://on.cypress.io/writing-and-organizing-tests)
+
++++
+
+Organize tests using folder structure and spec files
+
+```text
+cypress/integration/
+  featureA/
+    first-spec.js
+    second-spec.js
+  featureB/
+    another-spec.js
+```
+
++++
+
+Organize tests inside a spec using Mocha functions
+
+```js
+describe('Feature A', () => {
+  beforeEach(() => {})
+
+  it('works', () => {})
+
+  it('handles error', () => {})
+  // context is alias of describe
+  context('in special case', () => {
+    it('works', () => {})
+  })
+})
+```
