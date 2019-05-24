@@ -58,6 +58,8 @@ module.exports = (on, config) => {
 
   // code coverage tasks
   on('task', require('cypress-istanbul/task'))
+  // use .babelrc file if want to instrument unit tests
+  on('file:preprocessor', require('cypress-istanbul/use-babelrc'))
 
   // `config` is the resolved Cypress config
   // see https://on.cypress.io/configuration-api
