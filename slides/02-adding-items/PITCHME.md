@@ -156,6 +156,7 @@ cypress/integration/
     second-spec.js
   featureB/
     another-spec.js
+    errors-spec.js
 ```
 
 +++
@@ -169,8 +170,11 @@ describe('Feature A', () => {
   it('works', () => {})
 
   it('handles error', () => {})
+
   // context is alias of describe
   context('in special case', () => {
+    it('starts correctly', () => {})
+
     it('works', () => {})
   })
 })
