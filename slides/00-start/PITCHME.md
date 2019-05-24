@@ -29,6 +29,21 @@ $(npm bin)/cypress open
 
 +++
 
+In `package.json` I usually have
+
+```json
+{
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
+  }
+}
+```
+
+And I use `npm run cy:open`
+
++++
+
 ![First time you open Cypress](/slides/00-start/img/cypress-scaffold.png)
 
 +++

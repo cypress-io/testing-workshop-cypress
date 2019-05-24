@@ -15,3 +15,7 @@ Slides: [https://gitpitch.com/cypress-io/testing-workshop-cypress](https://gitpi
 ## Next
 
 Select the next section to work through from [Content](https://github.com/cypress-io/testing-workshop-cypress#content-)
+
+- [Adding items](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/02-adding-items)
+- [Selector playground](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/03-selector-playground)
+- [Reset database](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/04-reset-state)

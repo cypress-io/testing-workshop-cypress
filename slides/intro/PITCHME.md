@@ -27,19 +27,20 @@ As long as ⏳ permits
 - test reporters
 - configuration and environment variables
 - retry-ability
+- debugging
+- visual testing
 
 +++
 ## What we are going to cover 3/3
 
 As long as ⏳ permits
 
-
-- configuration
 - page objects vs app actions
 - fixtures and backend
-- debugging
 - preprocessors
 - component testing
+- plugins
+- code coverage
 
 +++
 

@@ -3,7 +3,6 @@
     "config:base"
   ],
   "automerge": true,
-  "commitMessage": "{{semanticPrefix}}Update {{depName}} to {{newVersion}} 🌟",
   "major": {
     "automerge": false
   },
