@@ -28,4 +28,4 @@ import './commands'
 // require('cypress-failed-log')
 
 // load commands for code coverage
-require('cypress-istanbul/support')
+// require('cypress-istanbul/support')
