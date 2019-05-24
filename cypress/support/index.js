@@ -26,3 +26,6 @@ import './commands'
 // require('cypress-pipe')
 // require('cypress-plugin-snapshots/commands')
 // require('cypress-failed-log')
+
+// load commands for code coverage
+// require('cypress-istanbul/support')
