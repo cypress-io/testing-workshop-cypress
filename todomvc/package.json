@@ -10,6 +10,6 @@
   },
   "dependencies": {
     "json-server": "0.14.0",
-    "json-server-reset": "1.0.0"
+    "json-server-reset": "1.1.0"
   }
 }
