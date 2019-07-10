@@ -63,7 +63,7 @@
     "prettier": "1.17.1",
     "prettier-standard": "9.1.1",
     "standard": "12.0.1",
-    "start-server-and-test": "1.9.0",
+    "start-server-and-test": "1.9.1",
     "tsify": "4.0.1",
     "typescript": "3.5.2"
   },
