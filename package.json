@@ -62,7 +62,7 @@
     "pluralize": "8.0.0",
     "prettier": "1.18.2",
     "prettier-standard": "9.1.1",
-    "standard": "12.0.1",
+    "standard": "13.0.2",
     "start-server-and-test": "1.9.1",
     "tsify": "4.0.1",
     "typescript": "3.5.2"
