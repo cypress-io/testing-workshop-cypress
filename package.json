@@ -44,7 +44,7 @@
     "cypress-failed-log": "2.5.1",
     "cypress-istanbul": "1.3.0",
     "cypress-pipe": "1.5.0",
-    "cypress-plugin-snapshots": "1.2.6",
+    "cypress-plugin-snapshots": "1.2.8",
     "cypress-react-unit-test": "2.4.3",
     "cypress-xpath": "1.4.0",
     "debug": "4.1.1",
