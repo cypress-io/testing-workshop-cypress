@@ -1,18 +1,15 @@
-exports[`creates todos #0`] = 
+exports[`creates todos #0`] =
 [
   {
     "completed": false,
-    "id": "3797889185",
     "title": "todo 0"
   },
   {
     "completed": false,
-    "id": "9586836192",
     "title": "todo 1"
   },
   {
     "completed": false,
-    "id": "2921246518",
     "title": "todo 2"
   }
 ];

@@ -11,7 +11,9 @@
     "**/17-component-testing/*.jsx"
   ],
   "baseUrl": "http://localhost:3000",
-  "env": {},
+  "env": {
+    "excludeFields": ["id"]
+  },
   "$schema": "https://on.cypress.io/cypress.schema.json",
   "projectId": "ja3zcp",
   "reporter": "mochawesome",
