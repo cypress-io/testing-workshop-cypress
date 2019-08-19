@@ -1,61 +1,75 @@
-<!doctype html>
+<!DOCTYPE html>
 <html data-framework="vue">
+  <head>
+    <meta charset="utf-8" />
+    <title>Vue.js • TodoMVC</title>
+    <link rel="stylesheet" href="vendor/index.css" />
+    <!-- <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="vendor/dark.css"> -->
+    <script>
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        const link = document.createElement("link");
+        link.type = "text/css";
+        link.rel = "stylesheet";
+        link.href = "vendor/dark.css";
+        document.head.appendChild(link);
+      }
+    </script>
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+    </style>
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <title>Vue.js • TodoMVC</title>
-  <link rel="stylesheet" href="vendor/index.css">
-  <!-- <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="vendor/dark.css"> -->
-  <script>
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      const link = document.createElement("link")
-      link.type = "text/css";
-      link.rel = "stylesheet";
-      link.href = 'vendor/dark.css';
-      document.head.appendChild(link)
-    }
-  </script>
-  <style>
-    [v-cloak] {
-      display: none;
-    }
-  </style>
-</head>
-
-<body>
-  <section class="todoapp">
-    <header class="header">
-      <h1 data-cy="app-title">todos</h1>
-      <input class="new-todo" autofocus autocomplete="off" placeholder="What needs to be done?" :value="newTodo"
-        @input="setNewTodo" @keyup.enter="addTodo">
-    </header>
-    <section class="main" v-show="todos.length" v-cloak>
-      <ul class="todo-list">
-        <li v-for="todo in todos" class="todo" :key="todo.id" :class="{ completed: todo.completed }">
-          <div class="view">
-            <input class="toggle" type="checkbox" v-model="todo.completed">
-            <label>{{ todo.title }}</label>
-            <button class="destroy" @click="removeTodo(todo)"></button>
-          </div>
-        </li>
-      </ul>
+  <body>
+    <section class="todoapp">
+      <header class="header">
+        <h1 data-cy="app-title">todos</h1>
+        <input
+          class="new-todo"
+          data-cy="input"
+          autofocus
+          autocomplete="off"
+          placeholder="What needs to be done?"
+          :value="newTodo"
+          @input="setNewTodo"
+          @keyup.enter="addTodo"
+        />
+      </header>
+      <section class="main" v-show="todos.length" v-cloak>
+        <ul class="todo-list">
+          <li
+            v-for="todo in todos"
+            data-cy="item"
+            class="todo"
+            :key="todo.id"
+            :class="{ completed: todo.completed }"
+          >
+            <div class="view">
+              <input class="toggle" type="checkbox" v-model="todo.completed" />
+              <label>{{ todo.title }}</label>
+              <button class="destroy" @click="removeTodo(todo)"></button>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <div class="loading" v-show="loading">Loading data ...</div>
     </section>
-    <div class="loading" v-show="loading">Loading data ...</div>
-  </section>
-  <footer class="info">
-    <p>Written by
-      <a href="http://evanyou.me">Evan You</a>
-    </p>
-    <p>Part of
-      <a href="http://todomvc.com">TodoMVC</a>
-    </p>
-  </footer>
+    <footer class="info">
+      <p>
+        Written by
+        <a href="http://evanyou.me">Evan You</a>
+      </p>
+      <p>
+        Part of
+        <a href="http://todomvc.com">TodoMVC</a>
+      </p>
+    </footer>
 
-  <script src="vendor/polyfill.min.js"></script>
-  <script src="vendor/vue.js"></script>
-  <script src="vendor/vuex.js"></script>
-  <script src="vendor/axios.min.js"></script>
-  <script src="app.js"></script>
-</body>
-
+    <script src="vendor/polyfill.min.js"></script>
+    <script src="vendor/vue.js"></script>
+    <script src="vendor/vuex.js"></script>
+    <script src="vendor/axios.min.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
