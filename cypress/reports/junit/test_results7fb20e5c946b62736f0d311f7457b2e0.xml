@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="9.296" tests="9" failures="0">
+  <testsuite name="Root Suite" timestamp="2019-08-19T15:51:43" tests="1" failures="0" time="0.769">
+    <testcase name=" loads the app" time="0.769" classname="loads the app">
+    </testcase>
+  </testsuite>
+  <testsuite name="UI" timestamp="2019-08-19T15:51:44" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="basic features" timestamp="2019-08-19T15:51:44" tests="5" failures="0" time="6.036999999999999">
+    <testcase name="UI basic features loads application" time="0.979" classname="loads application">
+    </testcase>
+    <testcase name="UI basic features starts with zero items" time="1.293" classname="starts with zero items">
+    </testcase>
+    <testcase name="UI basic features adds two items" time="1.4" classname="adds two items">
+    </testcase>
+    <testcase name="UI basic features enters text in the input" time="1.007" classname="enters text in the input">
+    </testcase>
+    <testcase name="UI basic features can add many items" time="1.358" classname="can add many items">
+    </testcase>
+  </testsuite>
+  <testsuite name="advanced" timestamp="2019-08-19T15:51:50" tests="1" failures="0" time="1.014">
+    <testcase name="UI advanced adds two and deletes first" time="1.014" classname="adds two and deletes first">
+    </testcase>
+  </testsuite>
+  <testsuite name="cy.tasks" timestamp="2019-08-19T15:51:51" tests="2" failures="0" time="1.476">
+    <testcase name="UI cy.tasks can observe records saved in the database" time="0.811" classname="can observe records saved in the database">
+    </testcase>
+    <testcase name="UI cy.tasks returns resolved value" time="0.665" classname="returns resolved value">
+    </testcase>
+  </testsuite>
+</testsuites>

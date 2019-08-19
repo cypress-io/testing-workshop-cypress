@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="1.8040000000000003" tests="10" failures="0">
+  <testsuite name="Root Suite" timestamp="2019-08-19T15:51:08" tests="1" failures="0" time="0.36">
+    <testcase name=" initial todos" time="0.36" classname="initial todos">
+    </testcase>
+  </testsuite>
+  <testsuite name="via API" timestamp="2019-08-19T15:51:08" tests="3" failures="0" time="0.22">
+    <testcase name="via API adds todo" time="0.075" classname="adds todo">
+    </testcase>
+    <testcase name="via API adds todo deep" time="0.078" classname="adds todo deep">
+    </testcase>
+    <testcase name="via API adds and deletes a todo" time="0.067" classname="adds and deletes a todo">
+    </testcase>
+  </testsuite>
+  <testsuite name="API" timestamp="2019-08-19T15:51:08" tests="6" failures="0" time="1.2240000000000002">
+    <testcase name="API receives empty list of items" time="0.178" classname="receives empty list of items">
+    </testcase>
+    <testcase name="API adds two items" time="0.112" classname="adds two items">
+    </testcase>
+    <testcase name="API adds two items and deletes one" time="0.134" classname="adds two items and deletes one">
+    </testcase>
+    <testcase name="API does not delete non-existent item" time="0.089" classname="does not delete non-existent item">
+    </testcase>
+    <testcase name="API is adding todo item" time="0.331" classname="is adding todo item">
+    </testcase>
+    <testcase name="API is deleting a todo item" time="0.38" classname="is deleting a todo item">
+    </testcase>
+  </testsuite>
+</testsuites>

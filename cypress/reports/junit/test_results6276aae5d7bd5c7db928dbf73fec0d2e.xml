@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="24.672" tests="20" failures="0">
+  <testsuite name="Root Suite" timestamp="2019-08-19T15:51:12" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="UI to Vuex store" timestamp="2019-08-19T15:51:12" tests="5" failures="0" time="2.346">
+    <testcase name="UI to Vuex store has loading, newTodo and todos properties" time="0.239" classname="has loading, newTodo and todos properties">
+    </testcase>
+    <testcase name="UI to Vuex store starts empty" time="0.218" classname="starts empty">
+    </testcase>
+    <testcase name="UI to Vuex store can enter new todo text" time="0.614" classname="can enter new todo text">
+    </testcase>
+    <testcase name="UI to Vuex store stores todos in the store" time="0.665" classname="stores todos in the store">
+    </testcase>
+    <testcase name="UI to Vuex store stores todos in the store (with ids)" time="0.61" classname="stores todos in the store (with ids)">
+    </testcase>
+  </testsuite>
+  <testsuite name="Vuex store" timestamp="2019-08-19T15:51:15" tests="10" failures="0" time="13.155000000000001">
+    <testcase name="Vuex store starts empty" time="0.169" classname="starts empty">
+    </testcase>
+    <testcase name="Vuex store can enter new todo text" time="0.663" classname="can enter new todo text">
+    </testcase>
+    <testcase name="Vuex store can compare the entire store" time="0.181" classname="can compare the entire store">
+    </testcase>
+    <testcase name="Vuex store starts typing after delayed server response" time="7.534" classname="starts typing after delayed server response">
+    </testcase>
+    <testcase name="Vuex store can add a todo, type and compare entire store" time="0.827" classname="can add a todo, type and compare entire store">
+    </testcase>
+    <testcase name="Vuex store can add a todo" time="0.458" classname="can add a todo">
+    </testcase>
+    <testcase name="Vuex store can add a particular todo" time="0.362" classname="can add a particular todo">
+    </testcase>
+    <testcase name="Vuex store can add two todos and delete one" time="0.609" classname="can add two todos and delete one">
+    </testcase>
+    <testcase name="Vuex store can wait on promise-returning store actions" time="2.146" classname="can wait on promise-returning store actions">
+    </testcase>
+    <testcase name="Vuex store can be driven by dispatching actions" time="0.206" classname="can be driven by dispatching actions">
+    </testcase>
+  </testsuite>
+  <testsuite name="Store actions" timestamp="2019-08-19T15:51:28" tests="5" failures="0" time="9.171">
+    <testcase name="Store actions changes the state" time="0.142" classname="changes the state">
+    </testcase>
+    <testcase name="Store actions changes the state after delay" time="3.293" classname="changes the state after delay">
+    </testcase>
+    <testcase name="Store actions changes the ui" time="0.139" classname="changes the ui">
+    </testcase>
+    <testcase name="Store actions calls server" time="0.73" classname="calls server">
+    </testcase>
+    <testcase name="Store actions calls server with delay" time="4.867" classname="calls server with delay">
+    </testcase>
+  </testsuite>
+</testsuites>
