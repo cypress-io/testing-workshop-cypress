@@ -12,5 +12,6 @@
   ],
   "baseUrl": "http://localhost:3000",
   "env": {},
-  "$schema": "https://on.cypress.io/cypress.schema.json"
+  "$schema": "https://on.cypress.io/cypress.schema.json",
+  "projectId": "ja3zcp"
 }
