@@ -21,7 +21,7 @@ import "./commands";
 
 // optionally, load Cypress Halloween color theme
 // https://www.cypress.io/blog/2018/10/11/halloween-theme/
-// require('cypress-dark/src/halloween')
+// require("cypress-dark/src/halloween");
 
 require("cypress-pipe");
 require("cypress-plugin-snapshots/commands");

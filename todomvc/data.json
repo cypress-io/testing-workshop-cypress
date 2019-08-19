@@ -1,19 +1,14 @@
 {
   "todos": [
     {
-      "title": "todo 0",
+      "title": "first item from fixture",
       "completed": false,
-      "id": "2354363141"
+      "id": 1
     },
     {
-      "title": "todo 1",
-      "completed": false,
-      "id": "2219190083"
-    },
-    {
-      "title": "todo 2",
-      "completed": false,
-      "id": "8874390011"
+      "title": "second item from fixture",
+      "completed": true,
+      "id": 2
     }
   ]
 }
