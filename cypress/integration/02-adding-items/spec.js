@@ -45,7 +45,7 @@ it("can add many items", () => {
   cy.get("li.todo").should("have.length", 7);
 });
 
-it.only("can mark items as completed", () => {
+it("can mark items as completed", () => {
   // add a few items
   // mark items as completed
   // select completed items and confirm their number
