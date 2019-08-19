@@ -16,6 +16,8 @@
 const fs = require("fs");
 const path = require("path");
 const debug = require("debug")("testing-workshop-cypress");
+const browserify = require("@cypress/browserify-preprocessor");
+const snapshotsPlugin = require("cypress-plugin-snapshots/plugin");
 
 const findRecord = title => {
   const dbFilename = path.join(__dirname, "..", "..", "todomvc", "data.json");
@@ -59,18 +61,14 @@ module.exports = (on, config) => {
   // code coverage tasks
   // on('task', require('cypress-istanbul/task'))
   // use .babelrc file if want to instrument unit tests
-  // on('file:preprocessor', require('cypress-istanbul/use-babelrc'))
+  // on("file:preprocessor", require("cypress-istanbul/use-babelrc"));
 
   // `config` is the resolved Cypress config
   // see https://on.cypress.io/configuration-api
   config.fixturesFolder = "cypress/fixtures";
   config.modifyObstructiveCode = false;
-  return Promise.resolve(config);
-};
-
-// init for cypress-plugin-snapshots
-const snapshotsPlugin = require("cypress-plugin-snapshots/plugin");
-module.exports = (on, config) => {
   snapshotsPlugin.initPlugin(on, config);
-  return config;
+  const browserifyOptions = browserify.defaultOptions;
+  on("file:preprocessor", browserify(browserifyOptions));
+  return Promise.resolve(config);
 };

@@ -1,5 +1,3 @@
 {
-  "plugins": [
-    "istanbul"
-  ]
+  "plugins": ["istanbul", "@babel/plugin-proposal-do-expressions"]
 }
