@@ -61,7 +61,7 @@
     "nyc": "14.1.1",
     "pluralize": "8.0.0",
     "prettier": "1.18.2",
-    "prettier-standard": "9.1.1",
+    "prettier-standard": "13.0.6",
     "standard": "13.1.0",
     "start-server-and-test": "1.10.0",
     "tsify": "4.0.1",
