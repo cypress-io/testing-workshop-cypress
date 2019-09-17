@@ -57,7 +57,7 @@
     "mocha-multi-reporters": "1.1.7",
     "mochawesome": "3.1.1",
     "mochawesome-merge": "1.0.4",
-    "mochawesome-report-generator": "3.1.5",
+    "mochawesome-report-generator": "4.0.1",
     "nyc": "14.1.1",
     "pluralize": "8.0.0",
     "prettier": "1.18.2",
