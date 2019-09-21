@@ -1,6 +1,10 @@
 /*
-TodoMVC css from https://github.com/cypress-io/todomvc-app-css/commit/c182b8efbbe1bb01f772fa09f0b95ed21db5a642
-with improved contrast
+TodoMVC css from https://github.com/cypress-io/todomvc-app-css fork
+with improved contrast. You can install it using
+
+npm i -S cypress-io/todomvc-app-css#a9d4ea1
+
+but to keep this app simple, vendor files are checked in
 */
 html,
 body {
@@ -237,10 +241,11 @@ body {
 	color: #cc9a9a;
 	margin-bottom: 11px;
 	transition: color 0.2s ease-out;
+	font-weight: 600;
 }
 
 .todo-list li .destroy:hover {
-	color: #af5b5e;
+	color: #ff0101;
 }
 
 .todo-list li .destroy:after {
@@ -264,6 +269,7 @@ body {
 	height: 20px;
 	text-align: center;
 	border-top: 1px solid #111111;
+	font-weight: 400;
 }
 
 .footer:before {
@@ -287,7 +293,7 @@ body {
 }
 
 .todo-count strong {
-	font-weight: 300;
+	font-weight: 800;
 }
 
 .filters {
