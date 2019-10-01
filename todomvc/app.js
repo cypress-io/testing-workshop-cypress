@@ -85,6 +85,16 @@
           commit('ADD_TODO', todo)
         })
       },
+      addEntireTodo ({ commit }, todoFields) {
+        debugger
+        const todo = {
+          ...todoFields,
+          id: randomId()
+        }
+        axios.post('/todos', todo).then(() => {
+          commit('ADD_TODO', todo)
+        })
+      },
       removeTodo ({ commit }, todo) {
         axios.delete(`/todos/${todo.id}`).then(() => {
           console.log('removed todo', todo.id, 'from the server')
@@ -152,6 +162,11 @@
 
       removeTodo (todo) {
         this.$store.dispatch('removeTodo', todo)
+      },
+
+      // utility method for create a todo with title and completed state
+      addEntireTodo (title, completed = false) {
+        this.$store.dispatch('addEntireTodo', { title, completed })
       }
     }
   })

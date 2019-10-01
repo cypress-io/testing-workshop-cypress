@@ -105,3 +105,27 @@ context('reading todos.json', () => {
     })
   })
 })
+
+context('app actions with fixtures', () => {
+  beforeEach(() => {
+    cy.fixture('two-items').as('two')
+    // make sure loading has finished
+    cy.server()
+    cy.route('/todos').as('initial')
+    cy.visit('/')
+    cy.wait('@initial')
+  })
+
+  it('invokes app action to set data from fixture', function () {
+    cy.window()
+      .its('app.$store')
+      .then($store => {
+        this.two.forEach(item =>
+          $store.dispatch('addEntireTodo', {
+            title: item.title,
+            completed: item.completed
+          })
+        )
+      })
+  })
+})
