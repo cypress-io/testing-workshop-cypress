@@ -45,6 +45,10 @@ jobs:
 
       - install-dependencies
 
+      # show all installed Cypress versions
+      - run: npx cypress cache path
+      - run: npx cypress cache list
+
       - run:
           name: Start TodoMVC server
           command: npm start
