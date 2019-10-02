@@ -62,6 +62,10 @@ jobs:
       - run:
           name: Run Cypress tests
           command: npm test
+      - store_artifacts:
+          path: cypress/screenshots
+      - store_artifacts:
+          path: cypress/videos
 
   # alternative:
   #   starts the app and runs tests using a single start-server-and-test command
