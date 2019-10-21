@@ -1,9 +1,9 @@
-## ☀️ Part 2: Testy na pridávanie položiek v TodoMVC
+## ☀️ Part 2: Pridávanie položiek v TodoMVC
 
 ### 📚 Naučíš sa
 
 - základné commandy pre prácu s elementami
-- zorganizovanie testov pomoco Mocha hookov
+- zorganizovanie testov pomocou Mocha hookov
 
 +++
 
@@ -15,11 +15,11 @@
 
 ## ⚠️ Todo položky
 
-**Note:** Testy, ktoré budeme spolu písať nie sú urobené tak, aby zresetovali stav aplikácie. Prosím pred spustením testu poodstraňuj todo položky
+**Note:** Testy, ktoré budeme spolu písať nie sú urobené tak, aby zresetovali stav aplikácie. Prosím pred spustením testu poodstraňuj todo položky ručne
 
 O tom, ako zresetovať stav aplikácie sa pobavíme neskôr 😉.
 
-Na spúšťanie jednotlivých testov použi `it.only`
+Keď chceš pustiť jeden test, použi `it.only`
 +++
 
 ```js
@@ -31,7 +31,7 @@ it.only('starts with zero items', () => {
 })
 ```
 
-**tip** použi `cy.get`, `should('have.length', ...)`
+**tip:** použi `cy.get`, `should('have.length', ...)`
 
 [https://on.cypress.io/get](https://on.cypress.io/get)
 
@@ -47,12 +47,15 @@ it('adds two items', () => {
 })
 ```
 
-**tip** použi `cy.get`, `cy.type`, `cy.contains`, `cy.click`
+**tip:** použi `cy.get`, `cy.type`, `cy.contains`, `cy.click`
 
-Note:
-Draw distinction between commands and assertions, show how commands can be chained,
-each continues to work with the subject of the previous command. Assertions do
-not change the subject.
++++
+### Rozdiel medzi commands a assertions
+
+commmandy možno reťaziť, každý command pracuje so subjektom predošlého
+assertions nemenia subject
+
+(nemožno urobiť niečo ako „označ ten element, ktorý je videľný)
 
 +++
 
@@ -69,7 +72,7 @@ Avoid duplicate `cy.visit('localhost:3000')` command at the start of each test.
 
 - presuň url do `cypress.json`
 
-**tip** look at [https://on.cypress.io/configuration](https://on.cypress.io/configuration)
+**tip:** pozri dokumentáciu [https://on.cypress.io/configuration](https://on.cypress.io/configuration)
 
 +++
 
@@ -77,14 +80,14 @@ Avoid duplicate `cy.visit('localhost:3000')` command at the start of each test.
 
 - vytvor si pomocnú funkciu 
 
-**tip** všetko je len javascript
+**tip:** všetko je to len javascript
 
 Note:
 Move `addItem` function into a separate file and import from the spec file. It is just JavaScript, and Cypress bundles each spec file, so utilities can have `cy...` commands too!
 
 +++
 
-## 💡 Pro tips
+## 💡 Pro tip
 
 - zmeň viewport cez `cypress.json`
 
@@ -127,7 +130,7 @@ it('can mark items as completed', () => {
 })
 ```
 
-- **tip** check out `cy.pause` command
+- **tip:** pozri si `cy.pause` command
 
 Note:
 Revisit the discussion about what kind of tests one should write. E2E tests can cover a lot of features in a single test, and that is a recommended practice. If a test fails, it is easy to debug it, and see how the application looks during each step.
