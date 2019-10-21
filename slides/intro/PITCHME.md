@@ -76,9 +76,7 @@ npm install
   - jednotlivé cvičenia sú v subfoldroch:
     - `01-basic`
     - `02-adding-items`
-    - `03-selector-playground`
-    - `04-reset-state`
-    - etc
+    - atď.
 - aplikáciu `todomvc` maj prosím počas celého workshopu zapnutú
 
 +++
@@ -91,17 +89,13 @@ Pozrime sa na aplikáciu
 - `npm start`
 - `open localhost:3000`
 
-**dôležité** Majte aplikáciu zapnutú počas celého trvania workshopu
+**dôležité** majte aplikáciu zapnutú počas celého trvania workshopu
 
 +++
-
-It is a regular TodoMVC application.
 
 ![TodoMVC](/slides/intro/img/todomvc.png)
 
 +++
-
-Look at XHR when using the app
 
 ![Network](/slides/intro/img/network.png)
 

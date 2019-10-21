@@ -9,15 +9,18 @@
 
 +++
 
-## Todo: vytvort nový Cypress projekt
+## Todo: vytvor nový Cypress projekt
 
 
 - `cd 00-start`
-- `npm install cypress -D` (tento krok prosím vynechaj)
+- `npm install cypress -D`
+(tento krok prosím vynechaj)
 - `npm run cy:open`
 
 
 +++
+
+## Otvorenie Cypress GUI
 
 ```
 npx cypress open
@@ -55,44 +58,20 @@ This section shows how Cypress scaffolds its files and folders. Then the student
 
 +++
 
-Look at the scaffolded example test files (specs).
+Pozri sa na vytvorené súbory
 
-Run specs for topics that look interesting
+Spusti si tie, ktoré Ťa zaujali
 
-Hint: you can find latest examples in [https://github.com/cypress-io/cypress-example-kitchensink](https://github.com/cypress-io/cypress-example-kitchensink)
++++
+## Prvý test
+
+Vytvor si nový súbor
+
+- `cypress/integration/test.js`
 
 +++
 
-## 💡 Pro tip
-
-```
-npx @bahmutov/cly init
-# quickly scaffolds Cypress folders
-```
-
-Repo [@bahmutov/cly](https://github.com/bahmutov/cly)
-
-+++
-
-## Cypress example kitchen sink
-
-- repo [github.com/cypress-io/cypress-example-kitchensink](https://github.com/cypress-io/cypress-example-kitchensink)
-- site [example.cypress.io](http://example.cypress.io)
-
-### Todo
-
-Look at any particular group of commands, like [Querying](https://example.cypress.io/commands/querying) or [Assertions](https://example.cypress.io/commands/assertions)
-
-+++
-## First spec
-
-Create a new file
-
-- `cypress/integration/spec.js`
-
-+++
-
-Type into the `spec.js`
+Do súboru vpíš tento kód
 
 ```javascript
 it('loads', () => {
@@ -102,8 +81,8 @@ it('loads', () => {
 
 +++
 
-- make sure you have started TodoMVC in another terminal with `npm start`
-- click on "spec.js" in Cypress GUI
+- uisti sa, že TodoMVC aplikácia beží. ak nie, otvor si nový terminál a napíš `npm start`
+- klikni na "test.js" v Cypress GUI
 
 +++
 
