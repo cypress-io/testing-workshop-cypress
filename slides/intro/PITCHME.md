@@ -1,8 +1,8 @@
-# Gleb Bahmutov, PhD
+# Filip Hric
 
-- VP of Engineering, Cypress
-- gleb (at) cypress.io
-- [@bahmutov](https://twitter.com/bahmutov)
+- QA Lead & Slido test automation maker, Cypress ambassador
+- filip (at) slido.com
+- [@filip_hric](https://twitter.com/filip_hric)
 
 +++
 
@@ -63,8 +63,8 @@ You will need:
 - Node v6+ to install dependencies
 
 ```text
-git clone <repo url>
-cd testing-workshop-cypress
+git clone https://github.com/filiphric/cypress-workshop.git
+cd cypress-workshop
 npm install
 ```
 
