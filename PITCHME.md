@@ -1,6 +1,6 @@
-# End-to-end testing with [Cypress.io](https://cypress.io)
+# Test automation in Cypress: From zero to hero (SK)
 
-Repo: [cypress-io/testing-workshop-cypress](https://github.com/cypress-io/testing-workshop-cypress)
+Repo: [filiphric/cypress-workshop](https://github.com/filiphric/cypress-workshop)
 
 Slides: [https://gitpitch.com/filiphric/cypress-workshop](https://gitpitch.com/filiphric/cypress-workshop)
 

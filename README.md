@@ -11,8 +11,8 @@
 In order to get the code and install dependencies
 
 ```bash
-git clone git@github.com:cypress-io/testing-workshop-cypress.git
-cd testing-workshop-cypress
+git clone git@github.com:filiphric/cypress-workshop.git
+cd cypress-workshop
 npm install
 ```
 
@@ -60,14 +60,6 @@ $ npm run cy:open
 
 > testing-workshop-cypress@1.0.0 cy:open /git/testing-workshop-cypress
 > cypress open
-```
-
-### Tip
-
-You can use the installed [start-server-and-test](https://github.com/bahmutov/start-server-and-test) utility to start the app, open Cypress and then shutdown the app when you exit Cypress.
-
-```bash
-$ npm run dev
 ```
 
 ## Application 💾

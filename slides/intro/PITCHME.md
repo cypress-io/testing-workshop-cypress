@@ -8,8 +8,6 @@
 
 ## What we are going to cover 1/3
 
-As long as ⏳ permits
-
 - example TodoMVC
   * web app, data store, REST calls
 - basic page load test
@@ -20,8 +18,6 @@ As long as ⏳ permits
 +++
 
 ## What we are going to cover 2/3
-
-As long as ⏳ permits
 
 - CI and Cypress dashboard
 - test reporters
@@ -41,13 +37,6 @@ As long as ⏳ permits
 - component testing
 - plugins
 - code coverage
-
-+++
-
-## Time 🕰
-
-- total workshop duration 3 - 9 hours, depending on the included sections
-- short breaks, lunch
 
 +++
 
@@ -105,27 +94,9 @@ It is a regular TodoMVC application.
 
 +++
 
-If you have Vue DevTools plugin
-
-![With Vue DevTools](/slides/intro/img/vue-devtools.png)
-
-+++
-
 Look at XHR when using the app
 
 ![Network](/slides/intro/img/network.png)
-
-+++
-
-Look at `todomvc/index.html`
-
-![DOM](/slides/intro/img/DOM.png)
-
-+++
-
-Look at `todomvc/app.js`
-
-![Application](/slides/intro/img/app.png)
 
 +++
 
@@ -138,10 +109,3 @@ Look at `todomvc/app.js`
 
 Note:
 The students should open DevTools and look at XHR requests that go between the web application and the server. Also the students should find `todomvc/data.json` file with saved items.
-
-+++
-
-![App organization](/slides/intro/img/vue-vuex-rest.png)
-
-Note:
-This app has been coded and described in this blog post [https://www.cypress.io/blog/2017/11/28/testing-vue-web-application-with-vuex-data-store-and-rest-backend/](https://www.cypress.io/blog/2017/11/28/testing-vue-web-application-with-vuex-data-store-and-rest-backend/)
