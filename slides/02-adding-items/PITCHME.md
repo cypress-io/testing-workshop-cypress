@@ -52,10 +52,10 @@ it('adds two items', () => {
 +++
 ### Rozdiel medzi commands a assertions
 
-commmandy možno reťaziť, každý command pracuje so subjektom predošlého
-assertions nemenia subject
+- commmandy možno reťaziť, každý command pracuje so subjektom predošlého
+- assertions nemenia subject
 
-(nemožno urobiť niečo ako „označ ten element, ktorý je videľný)
+(nemožno urobiť niečo ako „označ ten element, ktorý je videľný“)
 
 +++
 
