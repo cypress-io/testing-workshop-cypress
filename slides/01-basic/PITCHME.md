@@ -1,16 +1,17 @@
-## ☀️ Part 1: Basic tests
+## ☀️ Part 1: Základné príkazy
 
-### 📚 You will learn
+### 📚 Naučíš sa
 
-- `cy.contains` and command retries
-- two ways to run Cypress
-- screenshots and video recording
+- `cy.contains` a retry logiku
+- dva spôsoby ako spúšťať Cypress
+- screenshoty a video nahrávanie
 
 +++
 
-- keep `todomvc` app running
-- open Cypress from the root folder with `npm run cy:open`
-- click on `01-basic/spec.js`
+- maj `todomvc` aplikáciu stále zapnutú
+- otvor Cypress z root foldera pomocou príkazu `npm run cy:open`
+- (zavri terminál, alebo zadaj `cd ..`)
+- klikni na `01-basic/spec.js`
 
 ```js
 /// <reference types="cypress" />
@@ -22,41 +23,41 @@ it('loads', () => {
 
 +++
 
-`cy.contains('h1', 'Todos App')` is not working 😟
+`cy.contains('h1', 'Todos App')` nefunguje 😟
 
 Note:
 This is a good moment to show how Cypress stores DOM snapshots and shows them for each step.
 
 +++
 
-## Questions 1/3
+## Otázky
 
-- where are the docs for `cy.contains` command?
-- why is the command failing?
-  - **hint**: use DevTools
-- can you fix this?
-
-+++
-
-## Questions 2/3
-
-- do you see the command retrying (blue spinner)?
-- use `timeout` option to force the command to try for longer
+- kde nájdeš dokumentáciu pre `cy.contains` command?
+- prečo command padol?
+  - **hint**: použi DevTools
+- vedel/a by si to opraviť?
 
 +++
 
-## Cypress has 2 commands
+## Otázky
+
+- prečo padne test až po štyroch sekundách? (modrý spinner)?
+- vyskúšaj si `timeout`
+
++++
+
+## Cypress má 2 príkazy
 
 - `cypress open`
 - `cypress run`
 
 +++
 
-## How to?
+## Ako na to?
 
-- run just this spec `cypress/integration/01-basic/spec.js` in headless mode?
+- spusti iba tento test `cypress/integration/01-basic/spec.js` v headless móde
 
-Hint: `npx cypress run --help`
+tip: `npx cypress run --help`
 
 +++
 
@@ -67,20 +68,20 @@ Hint: `npx cypress run --help`
 
 +++
 
-## Fix the test
+## Skús opraviť test
 
-- can you fix the test?
-- how would you select an element:
-  - by text
-  - by id
-  - by class
-  - by attributes
+- vieš opraviť test?
+- ako by si označil element:
+  - cez text
+  - cez id
+  - cez classu
+  - cez atribút
 
 +++
 
-## What kind of tests?
+## Aké testy písať? (otázka v Slido)
 
-- discussion: what would you test in the TodoMVC app?
+eventkód: *#zero2hero*
 
 Note:
 Longer tests, adding items then deleting one for example. Adding items via GUI and observing communication with the server. Adding items then reloading the page.
