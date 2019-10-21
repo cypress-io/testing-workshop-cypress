@@ -1,23 +1,21 @@
-## ☀️ Starting new projects
+## ☀️ Vytvorenie projektu v Cypress
 
-### 📚 You will learn
+### 📚 Naučíš sa
 
-- Cypress folder structure
-- Writing first test
-- Setting up intelligent code completion
-- Cypress documentation
+- Štruktúra Cypress projektu
+- Napísanie prvého testu
+- Nastavenie intelligent code completion
+- Cypress dokumentácia
 
 +++
 
-## Todo: make a new project and add Cypress
+## Todo: vytvort nový Cypress projekt
 
-Create a new folder
 
-- `cd /tmp`
-- `mkdir example`
-- `cd example`
-- `npm init --yes`
-- `npm install -D cypress`
+- `cd 00-start`
+- `npm install cypress -D` (tento krok prosím vynechaj)
+- `npm run cy:open`
+
 
 +++
 
@@ -29,7 +27,7 @@ $(npm bin)/cypress open
 
 +++
 
-In `package.json` I usually have
+Nastavenie skriptov v `package.json`
 
 ```json
 {
@@ -40,19 +38,17 @@ In `package.json` I usually have
 }
 ```
 
-And I use `npm run cy:open`
-
 +++
 
 ![First time you open Cypress](/slides/00-start/img/cypress-scaffold.png)
 
 +++
 
-- "cypress.json" - all Cypress settings
-- "cypress/integration" - test files (specs)
-- "cypress/fixtures" - mock data
-- "cypress/plugins" - extending Cypress
-- "cypress/support" - shared commands, utilities
+- "cypress.json" - Cypress settings
+- "cypress/integration" - test súbory
+- "cypress/fixtures" - mock dáta
+- "cypress/plugins" - Cypress pluginy
+- "cypress/support" - commandy, utility, defaultné akcie
 
 Note:
 This section shows how Cypress scaffolds its files and folders. Then the students can ignore this folder. This is only done once to show the scaffolding.

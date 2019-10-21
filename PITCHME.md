@@ -1,4 +1,4 @@
-# Test automation in Cypress: From zero to hero (SK)
+# From zero to hero in Cypress
 
 Repo: [filiphric/cypress-workshop](https://github.com/filiphric/cypress-workshop)
 

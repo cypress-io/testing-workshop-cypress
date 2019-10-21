@@ -6,6 +6,16 @@
 
 +++
 
+# Skôr než začneme
+
+- choďte prosím na slido.com
+- zadajte kód #zero2hero
+- pýtajte sa!
+
+Note: [https://wall.sli.do/event/qihp8bzn](https://wall.sli.do/event/qihp8bzn)
+
++++
+
 ## What we are going to cover 1/3
 
 - example TodoMVC
@@ -40,16 +50,16 @@ As long as ⏳ permits
 
 +++
 
-Please: if you have experience with Cypress.io, help others during the workshop 🙏
+Ak máte so Cypressom predošlé skúsenosti, pomáhajte ostatným počas workshopu 🙏
 
 +++
 
-## Requirements
+## Technické požiadavky
 
-You will need:
+Čo budete potrebovať:
 
-- `git` to clone this repo
-- Node v6+ to install dependencies
+- `git` pre naklonovanie repozitára
+- Node verziu 6 alebo vyššie pre nainštalovanie dependencii
 
 ```text
 git clone https://github.com/filiphric/cypress-workshop.git
@@ -59,32 +69,29 @@ npm install
 
 +++
 
-## Repo organization
+## Ako je usporiadaný repozitár
 
-- `/todomvc` is a web application we are going to test
-- all tests are in `cypress/integration` folder
-  - there are subfolders for exercises
+- `/todomvc` je webová aplikácia, ktorú budeme testovať
+- všetky testy sú v `cypress/integration` folderi
+  - jednotlivé cvičenia sú v subfoldroch:
     - `01-basic`
     - `02-adding-items`
     - `03-selector-playground`
     - `04-reset-state`
     - etc
-- keep application `todomvc` running!
-
-Note:
-We are going to keep the app running, while switching from spec to spec for each part.
+- aplikáciu `todomvc` maj prosím počas celého workshopu zapnutú
 
 +++
 
 ## `todomvc`
 
-Let us look at the application.
+Pozrime sa na aplikáciu
 
 - `cd todomvc`
 - `npm start`
 - `open localhost:3000`
 
-**important** keep application running through the entire workshop!
+**dôležité** Majte aplikáciu zapnutú počas celého trvania workshopu
 
 +++
 
@@ -100,12 +107,9 @@ Look at XHR when using the app
 
 +++
 
-## Questions
+## Otázky v Slido!
 
-- what happens when you add a new Todo item?
-- how does it get to the server?
-- where does the server save it?
-- what happens on start up?
+eventkód: *#zero2hero*
 
 Note:
 The students should open DevTools and look at XHR requests that go between the web application and the server. Also the students should find `todomvc/data.json` file with saved items.

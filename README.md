@@ -133,8 +133,3 @@ Every time a new Todo is saved or deleted, it changes file `todomvc/data.json`. 
 - https://www.cypress.io/
 - https://docs.cypress.io/
 - https://docs.cypress.io/api/api/table-of-contents.html
-
-[ci-badge]: https://circleci.com/gh/cypress-io/testing-workshop-cypress.svg?style=svg
-[ci-url]: https://circleci.com/gh/cypress-io/testing-workshop-cypress
-[renovate-badge]: https://img.shields.io/badge/renovate-app-blue.svg
-[renovate-app]: https://renovateapp.com/
