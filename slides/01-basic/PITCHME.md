@@ -10,7 +10,7 @@
 
 - maj `todomvc` aplikáciu stále zapnutú
 - otvor Cypress z root foldera pomocou príkazu `npm run cy:open`
-- (zavri terminál, alebo zadaj `cd ..`)
+- (zavri/otvor terminál, alebo zadaj `cd ..`)
 - klikni na `01-basic/spec.js`
 
 ```js

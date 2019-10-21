@@ -1,24 +1,25 @@
-## ☀️ Part 2: Adding items tests
+## ☀️ Part 2: Testy na pridávanie položiek v TodoMVC
 
-### 📚 You will learn
+### 📚 Naučíš sa
 
-- common commands for working with elements
-- organizing test code using Mocha hooks
-
-+++
-
-- keep `todomvc` app running
-- open `cypress/integration/02-adding-items/spec.js` in your text editor
-- click file `02-adding-items/spec.js` in Cypress
+- základné commandy pre prácu s elementami
+- zorganizovanie testov pomoco Mocha hookov
 
 +++
 
-## ⚠️ Todo items
+- maj `todomvc` aplikáciu zapnutú
+- otvor si `cypress/integration/02-adding-items/spec.js` vo svojom editore
+- klikni na file `02-adding-items/spec.js` in Cypress
 
-**Note:** the tests we are about to write are NOT resetting the previously added Todo items. Delete the Todo items before each test manually.
++++
 
-We will reset the previously saved Todo items in section "4 Reset State".
+## ⚠️ Todo položky
 
+**Note:** Testy, ktoré budeme spolu písať nie sú urobené tak, aby zresetovali stav aplikácie. Prosím pred spustením testu poodstraňuj todo položky
+
+O tom, ako zresetovať stav aplikácie sa pobavíme neskôr 😉.
+
+Na spúšťanie jednotlivých testov použi `it.only`
 +++
 
 ```js
@@ -30,7 +31,7 @@ it.only('starts with zero items', () => {
 })
 ```
 
-**tip** use `cy.get`, `should('have.length', ...)`
+**tip** použi `cy.get`, `should('have.length', ...)`
 
 [https://on.cypress.io/get](https://on.cypress.io/get)
 
@@ -46,7 +47,7 @@ it('adds two items', () => {
 })
 ```
 
-**tip** use `cy.get`, `cy.type`, `cy.contains`, `cy.click`
+**tip** použi `cy.get`, `cy.type`, `cy.contains`, `cy.click`
 
 Note:
 Draw distinction between commands and assertions, show how commands can be chained,
@@ -55,28 +56,28 @@ not change the subject.
 
 +++
 
-## Refactor code 1/3
+## Refaktoring 1/3
 
-- visit the page before each test
+- otvor stránku nanovo pred každým testom
 
 Note:
 Avoid duplicate `cy.visit('localhost:3000')` command at the start of each test.
 
 +++
 
-## Refactor code 2/3
+## Refaktoring 2/3
 
-- move the url into `cypress.json`
+- presuň url do `cypress.json`
 
 **tip** look at [https://on.cypress.io/configuration](https://on.cypress.io/configuration)
 
 +++
 
-## Refactor code 3/3
+## Refaktoring 3/3
 
-- make a helper function to add todo item
+- vytvor si pomocnú funkciu 
 
-**tip** it is just JavaScript
+**tip** všetko je len javascript
 
 Note:
 Move `addItem` function into a separate file and import from the spec file. It is just JavaScript, and Cypress bundles each spec file, so utilities can have `cy...` commands too!
@@ -85,16 +86,15 @@ Move `addItem` function into a separate file and import from the spec file. It i
 
 ## 💡 Pro tips
 
-- resize the viewport in `cypress.json`
-- set up IntelliSense in `cypress.json` using [https://on.cypress.io/intelligent-code-completion](https://on.cypress.io/intelligent-code-completion)
+- zmeň viewport cez `cypress.json`
 
 +++
 
 ## Bonus
 
-Unit tests vs end-to-end tests
+Unit testy vs. end-to-end testy
 
-### Unit tests
+### Unit testy
 
 ```javascript
 import add from './add'
@@ -107,7 +107,7 @@ test('add', () => {
 
 +++
 
-### End-to-end tests
+### End-to-end testy
 
 ```javascript
 const addItem = text => {
@@ -136,18 +136,12 @@ Revisit the discussion about what kind of tests one should write. E2E tests can 
 
 ### Unit vs E2E
 
-- if you are describing how code works: unit test
-- if you are describing how code is used by the user: end-to-end test
+- ak popisuješ ako funguje kód: unit test
+- ak popisuješ ako kód používa user: end-to-end test
 
 +++
 
-### Bonus
-
-- Core concepts [https://on.cypress.io/writing-and-organizing-tests](https://on.cypress.io/writing-and-organizing-tests)
-
-+++
-
-Organize tests using folder structure and spec files
+Štruktúra foldrov a test filov
 
 ```text
 cypress/integration/
@@ -161,7 +155,7 @@ cypress/integration/
 
 +++
 
-Organize tests inside a spec using Mocha functions
+Štruktúra vo vnútri test filov pomocou Mocha funkcii
 
 ```js
 describe('Feature A', () => {
