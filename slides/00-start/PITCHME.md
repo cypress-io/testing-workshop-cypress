@@ -185,3 +185,9 @@ Students should know where to find information later on. Main resources is the a
 @snap[east]
 Bonus: extension [vscode-icons](https://github.com/vscode-icons/vscode-icons)
 @snapend
+
++++ 
+
+## Otázky v Slido!
+
+eventkód: *#zero2hero*
