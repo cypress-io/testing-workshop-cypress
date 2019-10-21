@@ -58,6 +58,8 @@ This section shows how Cypress scaffolds its files and folders. Then the student
 
 +++
 
+## TO DO
+
 Pozri sa na vytvorené súbory
 
 Spusti si tie, ktoré Ťa zaujali
@@ -86,16 +88,7 @@ it('loads', () => {
 
 +++
 
-## Questions
-
-- what does Cypress do?
-- what happens when the server is down?
-  - stop the application server running in folder `todomvc`
-  - reload the tests
-
-+++
-
-## Switch browser
+## Prepínanie browsera
 
 ![Switch browser](/slides/00-start/img/switch-browser.png)
 
@@ -108,7 +101,7 @@ it('loads', () => {
 })
 ```
 
-- why do we need `reference types ...` line?
+- načo je dobrý riadok `reference types ...`?
 
 Note:
 By having "reference" line we tell editors that support it (VSCode, WebStorm) to use TypeScript definitions included in Cypress to provide intelligent code completion. Hovering over any `cy` command brings helpful tooltips.
@@ -121,13 +114,13 @@ By having "reference" line we tell editors that support it (VSCode, WebStorm) to
 
 +++
 
-Every Cypress command and every assertion
+Každý command a každá assertion
 
 ![Should IntelliSense](/slides/00-start/img/should-intellisense.jpeg)
 
 +++
 
-Using `ts-check`
+Použitie `ts-check`
 
 ```javascript
 /// <reference types="cypress" />
@@ -137,7 +130,7 @@ it('loads', () => {
 })
 ```
 
-- what happens if you add `ts-check` line and misspell `cy.visit`?
+- Čo sa stane ak použiješ `ts-check` a urobíme preklep v `cy.visit`?
 
 Note:
 The check works really well in VSCode editor. I am not sure how well other editors support Cypress type checks right out of the box.
@@ -146,18 +139,17 @@ The check works really well in VSCode editor. I am not sure how well other edito
 
 ## Docs
 
-Your best friend is [https://docs.cypress.io/](https://docs.cypress.io/)
+Najlepšia dokumentácia 🚀 [https://docs.cypress.io/](https://docs.cypress.io/)
 
 ![Doc search](/todomvc/img/docs-search.png)
 
 +++
 
-## Find at docs.cypress.io
+## Čo je v dokumentácii docs.cypress.io
 
-- Cypress main features and how it works docs
-- core concepts
-- command API
-  - how many commands are there?
+- Hlavné features cypressu a priklady ako fungujú
+- kľúčové koncepty
+- API commandov
 
 +++
 
@@ -167,19 +159,19 @@ Your best friend is [https://docs.cypress.io/](https://docs.cypress.io/)
 https://on.cypress.io/<command>
 ```
 
-goes right to the documentation for that command.
+otvorí dokumentáciu k danému commandu 👍
 
 +++
 
-## Find at docs.cypress.io
+## Na docs.cypress.io nájdeš aj
 
-- examples
+- príklady
   - recipes
-  - tutorial videos
-  - example applications
-  - blogs
+  - tutoriály
+  - testovacie aplikácie
+  - blogy
   - FAQ
-- Cypress changelog and roadmap
+- Cypress changelog a roadmapu
 
 Note:
 Students should know where to find information later on. Main resources is the api page [https://on.cypress.io/api](https://on.cypress.io/api)
