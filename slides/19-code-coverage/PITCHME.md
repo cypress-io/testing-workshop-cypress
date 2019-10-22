@@ -87,6 +87,12 @@ open coverage/lcov-report/index.html
 **Note:** this application does not have data persistance or server API calls
 
 +++
+
+## Advanced
+
+Can you cover every line via end-to-end tests? How about edge cases?
+
++++
 ## 🏁 Code coverage
 
 [@cypress/code-coverage][plugin] plugin manages coverage information from e2e and unit tests and generates HTML report
