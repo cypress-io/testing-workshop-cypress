@@ -24,6 +24,6 @@
     "react-redux": "7.1.0",
     "redux": "4.0.4",
     "reselect": "4.0.0",
-    "todomvc-app-css": "github:cypress-io/todomvc-app-css#a9d4ea1"
+    "todomvc-app-css": "2.3.0"
   }
 }
