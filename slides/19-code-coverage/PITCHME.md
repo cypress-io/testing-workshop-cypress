@@ -59,7 +59,7 @@ Drill down into individual files, for example todos reducer
 
 +++
 
-## Todo
+## Todo 1/3
 
 - see code coverage summary from the terminal with
 
@@ -70,7 +70,17 @@ npx nyc report --reporter=text-summary
 
 +++
 
-## Todo
+## Todo 2/3
+
+- see code coverage HTML report
+
+```shell
+open coverage/lcov-report/index.html
+```
+
++++
+
+## Todo 3/3
 
 - add tests to cover more source lines
 
