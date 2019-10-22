@@ -22,6 +22,18 @@ O tom, ako zresetovať stav aplikácie sa pobavíme neskôr 😉.
 Keď chceš pustiť jeden test, použi `it.only`
 +++
 
+## 💡 Bonus tip
+
+@snap[west]
+![VSCode icons](/slides/02-adding-items/img/add-only.png)
+@snapend
+
+@snap[east]
+Nainštaluj si addon „Add Only“ do vs code
+@snapend
+
++++
+
 ```js
 it.only('starts with zero items', () => {
   // check if the list is empty initially:
@@ -78,7 +90,7 @@ Avoid duplicate `cy.visit('localhost:3000')` command at the start of each test.
 
 ## Refaktoring 3/3
 
-- vytvor si pomocnú funkciu 
+- vytvor si pomocnú funkciu na pridanie novej položky do todo
 
 **tip:** všetko je to len javascript
 
