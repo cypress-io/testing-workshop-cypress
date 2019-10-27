@@ -3,6 +3,16 @@
 version: 2.1
 
 commands:
+  restore-cached-dependencies:
+    description: restores the NPM cache and the cached Cypress binary
+    steps:
+      # Download and cache dependencies for the app and for tests
+      - restore_cache:
+          keys:
+          - dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - dependencies-
+
   install-dependencies:
     # Install NPM dependencies quickly using "npm ci"
     # https://on.cypress.io/continuous-integration
@@ -21,6 +31,40 @@ commands:
           name: Install TodoMVC Redux dependencies
           command: npm ci
           working_directory: todomvc-redux
+      # show all installed Cypress versions
+      - run: npx cypress cache path
+      - run: npx cypress cache list
+      - run:
+          name: Verify cypress
+          command: npx cypress verify
+
+  cache-dependencies:
+    description: Save NPM cache and Cypress binary
+    steps:
+      - save_cache:
+          paths:
+            # all NPM modules
+            - ~/.npm
+            # Cypress binary (or yarn dependencies)
+            - ~/.cache
+          key: dependencies-{{ checksum "package.json" }}
+
+  test-answers:
+    description: Runs the answers spec file in the given folder
+    parameters:
+      folder:
+        description: Name of the folder, like "01-basic"
+        type: string
+    steps:
+      - run: npx cypress run --spec 'cypress/integration/<< parameters.folder >>/answer.js' --config ignoreTestFiles=""
+
+  store-test-artifacts:
+    description: Saves Cypress screenshots and videos
+    steps:
+      - store_artifacts:
+          path: cypress/screenshots
+      - store_artifacts:
+          path: cypress/videos
 
 jobs:
   # example test job with 2 commands
@@ -29,25 +73,15 @@ jobs:
   two-commands:
     docker:
       # find Docker image at https://github.com/cypress-io/cypress-docker-images
-      - image: cypress/base:10
+      - image: cypress/base:12.12.0
 
     working_directory: ~/repo
 
     steps:
       - checkout
-
-      # Download and cache dependencies for the app and for tests
-      - restore_cache:
-          keys:
-          - dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - dependencies-
-
+      - restore-cached-dependencies
       - install-dependencies
-
-      # show all installed Cypress versions
-      - run: npx cypress cache path
-      - run: npx cypress cache list
+      - cache-dependencies
 
       - run:
           name: Start TodoMVC server
@@ -55,50 +89,26 @@ jobs:
           working_directory: todomvc
           background: true
 
-      - save_cache:
-          paths:
-            # all NPM modules
-            - ~/.npm
-            # Cypress binary (or yarn dependencies)
-            - ~/.cache
-          key: dependencies-{{ checksum "package.json" }}
-
       - run:
           name: Run Cypress tests
           command: npm test
-      - store_artifacts:
-          path: cypress/screenshots
-      - store_artifacts:
-          path: cypress/videos
+
+      - store-test-artifacts
 
   # alternative:
   #   starts the app and runs tests using a single start-server-and-test command
   single-command:
     docker:
       # find Docker image at https://github.com/cypress-io/cypress-docker-images
-      - image: cypress/base:10
+      - image: cypress/base:12.12.0
 
     working_directory: ~/repo
 
     steps:
       - checkout
-
-      # Download and cache dependencies for the app and for tests
-      - restore_cache:
-          keys:
-          - dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - dependencies-
-
+      - restore-cached-dependencies
       - install-dependencies
-
-      - save_cache:
-          paths:
-            # all NPM modules
-            - ~/.npm
-            # Cypress binary (or yarn dependencies)
-            - ~/.cache
-          key: dependencies-{{ checksum "package.json" }}
+      - cache-dependencies
 
       - run:
           name: Lint code
@@ -108,9 +118,43 @@ jobs:
           name: Start and test
           command: npm run ci
 
+      - store-test-artifacts
+
+  # a job that runs through most of the answers to make sure they are correct
+  # not all answers can run though without changing plugins or commands files yet
+  answers:
+    docker:
+      # find Docker image at https://github.com/cypress-io/cypress-docker-images
+      - image: cypress/base:12.12.0
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore-cached-dependencies
+      - install-dependencies
+      - cache-dependencies
+
+      - run:
+          name: Start TodoMVC server
+          command: npm start
+          working_directory: todomvc
+          background: true
+
+      # Run specific folders one by one
+      - test-answers:
+          folder: "01-basic"
+      - test-answers:
+          folder: "04-reset-state"
+      - test-answers:
+          folder: "06-app-data-store"
+      - test-answers:
+          folder: "11-retry-ability"
+
+      - store-test-artifacts
+
 workflows:
   version: 2
   tests:
     jobs:
       - two-commands
       - single-command
+      - answers
