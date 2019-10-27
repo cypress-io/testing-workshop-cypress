@@ -152,6 +152,8 @@ jobs:
           folder: "06-app-data-store"
       - test-answers:
           folder: "11-retry-ability"
+      - test-answers:
+          folder: "14-fixtures"
 
       - store-test-artifacts
 
