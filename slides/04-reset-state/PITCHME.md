@@ -32,7 +32,7 @@ beforeEach(() => {
 const addItem = text => {
   cy.get('.new-todo').type(`${text}{enter}`)
 }
-it.only('adds two items', () => {
+it('adds two items', () => {
   addItem('first item')
   addItem('second item')
   cy.get('li.todo').should('have.length', 2)

@@ -4,9 +4,6 @@ beforeEach(() => {
   // and the "localhost:3000" is set as "baseUrl" in "cypress.json"
   cy.visit('/')
 })
-it('loads', () => {
-  cy.contains('h1', 'todos')
-})
 /**
  * Adds a todo item
  * @param {string} text
