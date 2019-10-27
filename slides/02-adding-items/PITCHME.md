@@ -7,6 +7,15 @@
 
 +++
 
+## What kind of tests?
+
+- discussion: what would you test in the TodoMVC app?
+
+Note:
+Longer tests, adding items then deleting one for example. Adding items via GUI and observing communication with the server. Adding items then reloading the page.
+
++++
+
 - keep `todomvc` app running
 - open `cypress/integration/02-adding-items/spec.js` in your text editor
 - click file `02-adding-items/spec.js` in Cypress
@@ -22,22 +31,7 @@ We will reset the previously saved Todo items in section "4 Reset State".
 +++
 
 ```js
-it.only('starts with zero items', () => {
-  // check if the list is empty initially:
-  //   find the selector for the individual TODO items
-  //   in the list
-  //   use cy.get(...) and it should have length of 0
-})
-```
-
-**tip** use `cy.get`, `should('have.length', ...)`
-
-[https://on.cypress.io/get](https://on.cypress.io/get)
-
-+++
-
-```js
-it('adds two items', () => {
+it.only('adds two items', () => {
   // repeat twice
   //    get the input field
   //    type text and "enter"
@@ -46,12 +40,39 @@ it('adds two items', () => {
 })
 ```
 
-**tip** use `cy.get`, `cy.type`, `cy.contains`, `cy.click`
+**tip** use `cy.get`, `cy.type`, `cy.contains`, `cy.click`, remember `https://on.cypress.io/<command>`
 
 Note:
 Draw distinction between commands and assertions, show how commands can be chained,
 each continues to work with the subject of the previous command. Assertions do
 not change the subject.
+
++++
+
+## Todo: mark first item completed
+
+```js
+it('can mark an item as completed', () => {
+  // adds a few items
+  // marks the first item as completed
+  // confirms the first item has the expected completed class
+  // confirms the other items are still incomplete
+})
+```
+
++++
+
+## Todo: delete an item
+
+```js
+it('can delete an item', () => {
+  // adds a few items
+  // deletes the first item
+  // use force: true because we don't want to hover
+  // confirm the deleted item is gone from the dom
+  // confirm the other item still exists
+})
+```
 
 +++
 

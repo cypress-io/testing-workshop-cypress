@@ -81,12 +81,3 @@ Hint: `npx cypress run --help`
   - by attributes
 
 **Tip:** https://on.cypress.io/best-practices#Selecting-Elements
-
-+++
-
-## What kind of tests?
-
-- discussion: what would you test in the TodoMVC app?
-
-Note:
-Longer tests, adding items then deleting one for example. Adding items via GUI and observing communication with the server. Adding items then reloading the page.
