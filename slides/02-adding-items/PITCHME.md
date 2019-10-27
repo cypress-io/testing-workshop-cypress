@@ -59,21 +59,6 @@ it('can mark an item as completed', () => {
   // confirms the other items are still incomplete
 })
 ```
-
-+++
-
-## Todo: delete an item
-
-```js
-it('can delete an item', () => {
-  // adds a few items
-  // deletes the first item
-  // use force: true because we don't want to hover
-  // confirm the deleted item is gone from the dom
-  // confirm the other item still exists
-})
-```
-
 +++
 
 ## Refactor code 1/3
@@ -101,6 +86,32 @@ Avoid duplicate `cy.visit('localhost:3000')` command at the start of each test.
 
 Note:
 Move `addItem` function into a separate file and import from the spec file. It is just JavaScript, and Cypress bundles each spec file, so utilities can have `cy...` commands too!
+
++++
+
+## Todo: delete an item
+
+```js
+it('can delete an item', () => {
+  // adds a few items
+  // deletes the first item
+  // use force: true because we don't want to hover
+  // confirm the deleted item is gone from the dom
+  // confirm the other item still exists
+})
+```
++++
+
+## Todo
+
+```js
+it('adds item with random text', () => {
+  // use a helper function with Math.random()
+  // or Cypress._.random() to generate unique text label
+  // add such item
+  // and make sure it is visible and does not have class "completed"
+})
+```
 
 +++
 

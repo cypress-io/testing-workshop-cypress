@@ -2,8 +2,8 @@
   "viewportWidth": 600,
   "viewportHeight": 800,
   "ignoreTestFiles": [
-    "**/answerz/*",
-    "*answerz.js",
+    "**/answer/*",
+    "*answer.js",
     "*.d.ts",
     "**/__snapshots__/*",
     "**/__image_snapshots__/*",

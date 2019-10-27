@@ -56,7 +56,7 @@ commands:
         description: Name of the folder, like "01-basic"
         type: string
     steps:
-      - run: npx cypress run --spec 'cypress/integration/<< parameters.folder >>/answer.js' --config ignoreTestFiles=""
+      - run: npx cypress run --spec 'cypress/integration/<< parameters.folder >>/answer.js' --config ignoreTestFiles="",supportFile=cypress/support/reset.js
 
   store-test-artifacts:
     description: Saves Cypress screenshots and videos
@@ -143,7 +143,11 @@ jobs:
       - test-answers:
           folder: "01-basic"
       - test-answers:
+          folder: "02-adding-items"
+      - test-answers:
           folder: "04-reset-state"
+      - test-answers:
+          folder: "05-xhr"
       - test-answers:
           folder: "06-app-data-store"
       - test-answers:

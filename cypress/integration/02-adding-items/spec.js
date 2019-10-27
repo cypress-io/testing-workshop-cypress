@@ -40,6 +40,13 @@ it('can add many items', () => {
   // check number of items
 })
 
+it('adds item with random text', () => {
+  // use a helper function with Math.random()
+  // or Cypress._.random() to generate unique text label
+  // add such item
+  // and make sure it is visible and does not have class "completed"
+})
+
 it('starts with zero items', () => {
   // check if the list is empty initially
   //   find the selector for the individual TODO items

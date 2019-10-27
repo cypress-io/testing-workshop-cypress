@@ -67,6 +67,17 @@ it('can add many items', () => {
   cy.get('li.todo').should('have.length', 5)
 })
 
+it('adds item with random text', () => {
+  const randomLabel = `Item ${Math.random()
+    .toString()
+    .slice(2, 14)}`
+
+  addItem(randomLabel)
+  cy.contains('li.todo', randomLabel)
+    .should('be.visible')
+    .and('not.have.class', 'completed')
+})
+
 it('starts with zero items', () => {
   cy.get('li.todo').should('have.length', 0)
 })
