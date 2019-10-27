@@ -141,9 +141,6 @@ Look at `todomvc/app.js`
 Note:
 The students should open DevTools and look at XHR requests that go between the web application and the server. Also the students should find `todomvc/data.json` file with saved items.
 
-+++
-
-
 ---?image=/slides/intro/img/vue-vuex-rest.png&size=contain
 
 Note:
