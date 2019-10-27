@@ -55,6 +55,14 @@ Please: if you have experience with Cypress.io, help others during the workshop 
 
 +++
 
+## How learning works
+
+1. I explain and show
+2. We do together
+3. You do and I help
+
++++
+
 ## Requirements
 
 You will need:
