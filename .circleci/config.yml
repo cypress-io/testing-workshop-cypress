@@ -32,8 +32,8 @@ commands:
           command: npm ci
           working_directory: todomvc-redux
       # show all installed Cypress versions
-      - run: npx cypress cache path
-      - run: npx cypress cache list
+      - run: DEBUG=cypress:cli npx cypress cache path
+      - run: DEBUG=cypress:cli npx cypress cache list
       - run:
           name: Verify cypress
           command: npx cypress verify
@@ -146,20 +146,20 @@ jobs:
           command: npx wait-on http://localhost:3000
 
       # Run specific folders one by one
-      # - test-answers:
-      #     folder: "01-basic"
-      # - test-answers:
-      #     folder: "02-adding-items"
-      # - test-answers:
-      #     folder: "04-reset-state"
-      # - test-answers:
-      #     folder: "05-xhr"
-      # - test-answers:
-      #     folder: "06-app-data-store"
-      # - test-answers:
-      #     folder: "11-retry-ability"
-      # - test-answers:
-      #     folder: "14-fixtures"
+      - test-answers:
+          folder: "01-basic"
+      - test-answers:
+          folder: "02-adding-items"
+      - test-answers:
+          folder: "04-reset-state"
+      - test-answers:
+          folder: "05-xhr"
+      - test-answers:
+          folder: "06-app-data-store"
+      - test-answers:
+          folder: "11-retry-ability"
+      - test-answers:
+          folder: "14-fixtures"
 
       # For section "13-app-actions" we need to start React application
       - run: ps -a
@@ -182,6 +182,6 @@ workflows:
   version: 2
   tests:
     jobs:
-      # - two-commands
-      # - single-command
+      - two-commands
+      - single-command
       - answers
