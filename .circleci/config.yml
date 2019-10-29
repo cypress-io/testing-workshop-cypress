@@ -141,6 +141,9 @@ jobs:
           command: npm start
           working_directory: todomvc
           background: true
+      - run:
+          name: Check the server has started
+          command: npx wait-on http://localhost:3000
 
       # Run specific folders one by one
       # - test-answers:
@@ -159,17 +162,19 @@ jobs:
       #     folder: "14-fixtures"
 
       # For section "13-app-actions" we need to start React application
-      - run: sleep 2
       - run: ps -a
       - run: pkill npm
       - run:
           name: Start TodoMVC React app
           # and use custom port to avoid clashing with the currently running app
-          command: npx http-server --silent -p 4000 -c-1 todomvc-react
+          command: npm run start:react
           background: true
       - run:
           name: Run page object spec
           command: npx cypress run --spec cypress/integration/13-app-actions/po-full-spec.js
+      - run:
+          name: Run app actions spec
+          command: npx cypress run --spec cypress/integration/13-app-actions/app-actions-full-spec.js
 
       - store-test-artifacts
 
