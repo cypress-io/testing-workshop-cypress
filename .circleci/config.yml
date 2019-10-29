@@ -159,6 +159,8 @@ jobs:
       #     folder: "14-fixtures"
 
       # For section "13-app-actions" we need to start React application
+      - run: sleep 2
+      - run: ps -a
       - run: pkill npm
       - run:
           name: Start TodoMVC React app
