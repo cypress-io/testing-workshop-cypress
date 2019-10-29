@@ -143,20 +143,31 @@ jobs:
           background: true
 
       # Run specific folders one by one
-      - test-answers:
-          folder: "01-basic"
-      - test-answers:
-          folder: "02-adding-items"
-      - test-answers:
-          folder: "04-reset-state"
-      - test-answers:
-          folder: "05-xhr"
-      - test-answers:
-          folder: "06-app-data-store"
-      - test-answers:
-          folder: "11-retry-ability"
-      - test-answers:
-          folder: "14-fixtures"
+      # - test-answers:
+      #     folder: "01-basic"
+      # - test-answers:
+      #     folder: "02-adding-items"
+      # - test-answers:
+      #     folder: "04-reset-state"
+      # - test-answers:
+      #     folder: "05-xhr"
+      # - test-answers:
+      #     folder: "06-app-data-store"
+      # - test-answers:
+      #     folder: "11-retry-ability"
+      # - test-answers:
+      #     folder: "14-fixtures"
+
+      # For section "13-app-actions" we need to start React application
+      - run: pkill npm
+      - run:
+          name: Start TodoMVC React app
+          # and use custom port to avoid clashing with the currently running app
+          command: npx http-server --silent -p 4000 -c-1 todomvc-react
+          background: true
+      - run:
+          name: Run page object spec
+          command: npx cypress run --spec cypress/integration/13-app-actions/po-full-spec.js
 
       - store-test-artifacts
 
@@ -164,6 +175,6 @@ workflows:
   version: 2
   tests:
     jobs:
-      - two-commands
-      - single-command
+      # - two-commands
+      # - single-command
       - answers
