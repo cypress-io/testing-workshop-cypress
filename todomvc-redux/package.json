@@ -19,8 +19,8 @@
   "dependencies": {
     "classnames": "2.2.6",
     "prop-types": "15.7.2",
-    "react": "16.9.0",
-    "react-dom": "16.9.0",
+    "react": "16.11.0",
+    "react-dom": "16.11.0",
     "react-redux": "7.1.0",
     "redux": "4.0.4",
     "reselect": "4.0.0",
