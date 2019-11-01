@@ -85,7 +85,7 @@ it('works if we change the order', function () {
 context('reading todos.json', () => {
   it('loads empty list', () => {
     cy.request('POST', '/reset', { todos: [] })
-    cy.readFile('todomvc/data.json').should('deep.equal', { todos: [] })
+    cy.readFile('todomvc/data.json', 'utf8').should('deep.equal', { todos: [] })
   })
 
   it('reads items loaded from fixture', () => {
@@ -103,5 +103,29 @@ context('reading todos.json', () => {
       expect(data.todos).to.have.length(1)
       expect(data.todos[0].title).to.equal('for test')
     })
+  })
+})
+
+context('app actions with fixtures', () => {
+  beforeEach(() => {
+    cy.fixture('two-items').as('two')
+    // make sure loading has finished
+    cy.server()
+    cy.route('/todos').as('initial')
+    cy.visit('/')
+    cy.wait('@initial')
+  })
+
+  it('invokes app action to set data from fixture', function () {
+    cy.window()
+      .its('app.$store')
+      .then($store => {
+        this.two.forEach(item =>
+          $store.dispatch('addEntireTodo', {
+            title: item.title,
+            completed: item.completed
+          })
+        )
+      })
   })
 })

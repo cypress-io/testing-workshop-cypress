@@ -135,11 +135,17 @@ You can implement Page Objects using classes, custom commands or simple function
 
 ```
       Tests
+
 -----------------       tight
+
   Page Objects
+
 ~ ~ ~ ~ ~ ~ ~ ~ ~     very loose
+
     HTML UI
+
 -----------------       tight
+
 Application code
 ```
 

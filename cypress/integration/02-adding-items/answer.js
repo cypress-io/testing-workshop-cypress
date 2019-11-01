@@ -7,15 +7,45 @@ it('loads', () => {
   cy.contains('h1', 'todos')
 })
 
-it('starts with zero items', () => {
-  cy.get('li.todo').should('have.length', 0)
-})
-
 it('adds two items', () => {
   cy.get('.new-todo').type('first item{enter}')
   cy.contains('li.todo', 'first item').should('be.visible')
   cy.get('.new-todo').type('second item{enter}')
   cy.contains('li.todo', 'second item').should('be.visible')
+})
+
+it('can mark an item as completed', () => {
+  // adds a few items
+  addItem('simple')
+  addItem('hard')
+
+  // marks the first item as completed
+  cy.contains('li.todo', 'simple')
+    .should('exist')
+    .find('.toggle')
+    .check()
+
+  // confirms the first item has the expected completed class
+  cy.contains('li.todo', 'simple').should('have.class', 'completed')
+  // confirms the other items are still incomplete
+  cy.contains('li.todo', 'hard').should('not.have.class', 'completed')
+})
+
+it('can delete an item', () => {
+  // adds a few items
+  addItem('simple')
+  addItem('hard')
+  // deletes the first item
+  cy.contains('li.todo', 'simple')
+    .should('exist')
+    .find('.destroy')
+    // use force: true because we don't wsnt to hover
+    .click({ force: true })
+
+  // confirm the deleted item is gone from the dom
+  cy.contains('li.todo', 'simple').should('not.exist')
+  // confirm the other item still exists
+  cy.contains('li.todo', 'hard').should('exist')
 })
 
 /**
@@ -37,16 +67,19 @@ it('can add many items', () => {
   cy.get('li.todo').should('have.length', 5)
 })
 
-it('can mark items as completed', () => {
-  addItem('simple')
-  cy
-    .contains('li.todo', 'simple')
-    .should('exist')
-    .find('input[type="checkbox"]')
-    .check()
-  // have to force click because the button does not appear unless we hover
-  cy.contains('li.todo', 'simple').find('.destroy').click({ force: true })
-  cy.contains('li.todo', 'simple').should('not.exist')
+it('adds item with random text', () => {
+  const randomLabel = `Item ${Math.random()
+    .toString()
+    .slice(2, 14)}`
+
+  addItem(randomLabel)
+  cy.contains('li.todo', randomLabel)
+    .should('be.visible')
+    .and('not.have.class', 'completed')
+})
+
+it('starts with zero items', () => {
+  cy.get('li.todo').should('have.length', 0)
 })
 
 // what a challenge?

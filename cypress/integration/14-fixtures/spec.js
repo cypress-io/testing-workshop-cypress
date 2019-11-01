@@ -98,3 +98,18 @@ it('saves todo', () => {
   // write should(cb) assertion
   // and add a delay to the application
 })
+
+context('app actions with fixtures', () => {
+  beforeEach(() => {
+    // load fixture two-items
+    // visit the page, make sure it has been loaded
+  })
+
+  it('invokes app action to set data from fixture', function () {
+    // grab window app.$store
+    // and for each item from the fixture
+    // dispatch action "addEntireTodo"
+    cy.window().its('app.$store')
+    // create items by dispatching actions
+  })
+})

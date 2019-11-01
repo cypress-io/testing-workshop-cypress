@@ -50,6 +50,10 @@ Open `cypress.json` and check which options are set in this project.
 
 +++
 
+**Tip:** if you have a lot of options to overwrite, use `--config-file <...>` argument to replace `cypress.json`.
+
++++
+
 ## `cypress.json` IntelliSense
 
 ![`cypress.json` IntelliSense in VSCode](/slides/10-configuration/img/cypress.json-intellisense.png)
@@ -410,6 +414,8 @@ Answer at https://on.cypress.io/configuration-api
 +++
 
 ## Summary
+
++ `--config-file <json filepath>`
 
 | `config` | `env` |
 | -------- | ----- |

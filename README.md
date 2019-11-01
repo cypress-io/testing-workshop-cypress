@@ -5,7 +5,7 @@
 ## Requirements ⚙️
 
 - Any computer: Mac, Windows, Linux
-- [Node 6+](https://nodejs.org/)
+- [Node 8+](https://nodejs.org/)
 - [git](https://git-scm.com)
 
 In order to get the code and install dependencies
@@ -60,6 +60,14 @@ $ npm run cy:open
 
 > testing-workshop-cypress@1.0.0 cy:open /git/testing-workshop-cypress
 > cypress open
+```
+
+### Tip
+
+You can use the installed [start-server-and-test](https://github.com/bahmutov/start-server-and-test) utility to start the app, open Cypress and then shutdown the app when you exit Cypress.
+
+```bash
+$ npm run dev
 ```
 
 ## Application 💾
