@@ -13,17 +13,17 @@
     "@babel/preset-react": "7.0.0",
     "babel-plugin-istanbul": "5.2.0",
     "babel-plugin-transform-class-properties": "6.24.1",
-    "parcel-bundler": "1.12.3",
+    "parcel-bundler": "1.12.4",
     "start-server-and-test": "1.10.5"
   },
   "dependencies": {
     "classnames": "2.2.6",
     "prop-types": "15.7.2",
-    "react": "16.9.0",
-    "react-dom": "16.9.0",
+    "react": "16.11.0",
+    "react-dom": "16.11.0",
     "react-redux": "7.1.0",
     "redux": "4.0.4",
     "reselect": "4.0.0",
-    "todomvc-app-css": "github:cypress-io/todomvc-app-css#a9d4ea1"
+    "todomvc-app-css": "2.3.0"
   }
 }

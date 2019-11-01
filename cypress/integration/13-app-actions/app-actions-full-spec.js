@@ -159,7 +159,9 @@ describe('TodoMVC', function () {
       // complete all todos
       // we use 'check' instead of 'click'
       // because that indicates our intention much clearer
-      cy.get(TOGGLE_ALL).check()
+      cy.get(TOGGLE_ALL).check({
+        force: true
+      })
 
       // get each todo li and ensure its class is 'completed'
       allItems()
@@ -176,8 +178,12 @@ describe('TodoMVC', function () {
     it('should allow me to clear the complete state of all items', function () {
       // check and then immediately uncheck
       cy.get(TOGGLE_ALL)
-        .check()
-        .uncheck()
+        .check({
+          force: true
+        })
+        .uncheck({
+          force: true
+        })
 
       allItems()
         .eq(0)
@@ -194,7 +200,9 @@ describe('TodoMVC', function () {
       // alias the .toggle-all for reuse later
       cy.get(TOGGLE_ALL)
         .as('toggleAll')
-        .check()
+        .check({
+          force: true
+        })
         // this assertion is silly here IMO but
         // it is what TodoMVC does
         .should('be.checked')

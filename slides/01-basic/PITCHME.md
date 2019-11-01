@@ -31,17 +31,21 @@ This is a good moment to show how Cypress stores DOM snapshots and shows them fo
 
 ## Questions 1/3
 
+@ul
 - where are the docs for `cy.contains` command?
 - why is the command failing?
   - **hint**: use DevTools
 - can you fix this?
+@ulend
 
 +++
 
 ## Questions 2/3
 
+@ul
 - do you see the command retrying (blue spinner)?
 - use `timeout` option to force the command to try for longer
+@ulend
 
 +++
 
@@ -76,11 +80,4 @@ Hint: `npx cypress run --help`
   - by class
   - by attributes
 
-+++
-
-## What kind of tests?
-
-- discussion: what would you test in the TodoMVC app?
-
-Note:
-Longer tests, adding items then deleting one for example. Adding items via GUI and observing communication with the server. Adding items then reloading the page.
+**Tip:** https://on.cypress.io/best-practices#Selecting-Elements

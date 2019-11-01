@@ -150,8 +150,13 @@ describe('TodoMVC - React', function () {
     it('should allow me to mark all items as completed', function () {
       // complete all todos
       // we use 'check' instead of 'click'
-      // because that indicates our intention much clearer
-      cy.get('.toggle-all').check()
+      // because that indicates our intention much clearer.
+      // we need to pass force: true because the application
+      // does not show a checkbox - instead ir shows a styled
+      // label, while the checkbox is hidden
+      // If you want to click on the label instead use
+      //  cy.get('label[for=toggle-all]').click()
+      cy.get('.toggle-all').check({ force: true })
 
       // get each todo li and ensure its class is 'completed'
       cy.get('@todos')
@@ -168,8 +173,10 @@ describe('TodoMVC - React', function () {
     it('should allow me to clear the complete state of all items', function () {
       // check and then immediately uncheck
       cy.get('.toggle-all')
-        .check()
-        .uncheck()
+        .check({ force: true })
+        .uncheck({
+          force: true
+        })
 
       cy.get('@todos')
         .eq(0)
@@ -186,7 +193,9 @@ describe('TodoMVC - React', function () {
       // alias the .toggle-all for reuse later
       cy.get('.toggle-all')
         .as('toggleAll')
-        .check()
+        .check({
+          force: true
+        })
         // this assertion is silly here IMO but
         // it is what TodoMVC does
         .should('be.checked')

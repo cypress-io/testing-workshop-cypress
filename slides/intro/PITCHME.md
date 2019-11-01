@@ -55,12 +55,20 @@ Please: if you have experience with Cypress.io, help others during the workshop 
 
 +++
 
+## How learning works
+
+1. I explain and show
+2. We do together
+3. You do and I help
+
++++
+
 ## Requirements
 
 You will need:
 
 - `git` to clone this repo
-- Node v6+ to install dependencies
+- Node v8+ to install dependencies
 
 ```text
 git clone <repo url>
@@ -117,7 +125,7 @@ Look at XHR when using the app
 
 +++
 
-Look at `todomvc/index.html`
+Look at `todomvc/index.html` - main app DOM structure
 
 ![DOM](/slides/intro/img/DOM.png)
 
@@ -131,17 +139,17 @@ Look at `todomvc/app.js`
 
 ## Questions
 
+@ul
 - what happens when you add a new Todo item?
 - how does it get to the server?
 - where does the server save it?
 - what happens on start up?
+@ulend
 
 Note:
 The students should open DevTools and look at XHR requests that go between the web application and the server. Also the students should find `todomvc/data.json` file with saved items.
 
-+++
-
-![App organization](/slides/intro/img/vue-vuex-rest.png)
+---?image=/slides/intro/img/vue-vuex-rest.png&size=contain
 
 Note:
 This app has been coded and described in this blog post [https://www.cypress.io/blog/2017/11/28/testing-vue-web-application-with-vuex-data-store-and-rest-backend/](https://www.cypress.io/blog/2017/11/28/testing-vue-web-application-with-vuex-data-store-and-rest-backend/)

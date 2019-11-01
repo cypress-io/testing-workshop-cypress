@@ -7,9 +7,6 @@ beforeEach(() => {
 beforeEach(() => {
   cy.visit('/')
 })
-it('loads', () => {
-  cy.contains('h1', 'todos')
-})
 /**
  * Adds a todo item
  * @param {string} text

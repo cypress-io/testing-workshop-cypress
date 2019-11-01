@@ -85,7 +85,7 @@ it('works if we change the order', function () {
 context('reading todos.json', () => {
   it('loads empty list', () => {
     cy.request('POST', '/reset', { todos: [] })
-    cy.readFile('todomvc/data.json').should('deep.equal', { todos: [] })
+    cy.readFile('todomvc/data.json', 'utf8').should('deep.equal', { todos: [] })
   })
 
   it('reads items loaded from fixture', () => {
