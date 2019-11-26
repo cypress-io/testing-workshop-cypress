@@ -6,6 +6,7 @@
   "peacock.affectStatusBar": true,
   "workbench.colorCustomizations": {
     "activityBar.background": "#66abe1",
+    "activityBar.activeBorder": "#fae4f0",
     "activityBar.foreground": "#15202b",
     "activityBar.inactiveForeground": "#15202b99",
     "activityBarBadge.background": "#fae4f0",
