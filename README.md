@@ -53,7 +53,7 @@ and you should see in the terminal
 
 Note for Windows users: if `npm start` throws an error, it is probably due to `cd todomvc; ...` first command in the `npm start `script. In this case change the working folder to "todomvc" and run `npm start` from there.
 
-From the second terminal window you should be able to open Cypress with
+From the second terminal window you should be able to open Cypress in the root of the project with
 
 ```bash
 $ npm run cy:open
