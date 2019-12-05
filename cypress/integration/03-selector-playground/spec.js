@@ -1,3 +1,5 @@
+import {dataCy} from '../../support/utils'
+
 /// <reference types="cypress" />
 beforeEach(() => {
   // application should be running at port 3000
@@ -13,13 +15,15 @@ it('loads', () => {
  * Adds a todo item
  * @param {string} text
  */
-const addItem = text => {
-  // write Cy commands here to add the new item
+const addTodo = (content) => {
+  cy.get(dataCy('new-todo'))
+    .type(`${content}{enter}`)
 }
+
 it('adds two items', () => {
-  addItem('first item')
-  addItem('second item')
+  addTodo('first item')
+  addTodo('second item')
   // fill the selector
   // maybe use "tid" function
-  cy.get('...').should('have.length', 2)
+  cy.get(dataCy('todo')).should('have.length', 2)
 })

@@ -1,6 +1,4 @@
-const dataCy = (cy) => {
-  return `[data-cy="${cy}"]`
-}
+import {dataCy} from '../../support/utils'
 
 const addTodo = (content) => {
   cy.get(dataCy('new-todo'))

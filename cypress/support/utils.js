@@ -92,3 +92,7 @@ export const enterTodo = (text = 'example todo') => {
   const lastItem = '.todoapp .todo-list li:last'
   cy.get(lastItem).should('contain', text)
 }
+
+export const dataCy = (cy) => {
+  return `[data-cy="${cy}"]`
+}
