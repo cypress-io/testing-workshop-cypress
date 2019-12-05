@@ -4,20 +4,31 @@ const dataCy = (cy) => {
 
 const addTodo = (content) => {
   cy.get(dataCy('new-todo'))
-  .type(`${content}{enter}`)
+    .type(`${content}{enter}`)
 }
 
 const toggleTodo = (index) => {
   cy.get(dataCy('toggle'))
-  .eq(index)
-  .click()
+    .eq(index)
+    .click()
 }
 
 const deleteTodo = (index) => {
   cy.get(dataCy('destroy'))
-  .eq(index)
-  .invoke('show')
-  .click()
+    .eq(index)
+    .invoke('show')
+    .click()
+}
+
+const isLocalHost = () => Cypress.config('baseUrl').includes('localhost')
+
+if (isLocalHost()) {
+  // we can reset data only when running locally
+  beforeEach(() => {
+    cy.request('POST', '/reset', {
+      todos: []
+    })
+  })
 }
 
 /// <reference types="cypress" />
