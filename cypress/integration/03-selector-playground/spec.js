@@ -1,4 +1,4 @@
-import {dataCy} from '../../support/utils'
+import { dataCy } from '../../support/utils'
 
 /// <reference types="cypress" />
 beforeEach(() => {

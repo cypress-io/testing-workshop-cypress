@@ -1,4 +1,4 @@
-import {dataCy} from '../../support/utils'
+import { dataCy } from '../../support/utils'
 
 const addTodo = (content) => {
   cy.get(dataCy('new-todo'))
@@ -90,7 +90,7 @@ it('can add many items', () => {
     addTodo(`Todo: ${k + 1}`)
   }
   // check number of items
-  cy.get(dataCy('todo')).should('have.length', N);
+  cy.get(dataCy('todo')).should('have.length', N)
 })
 
 it('adds item with random text', () => {
