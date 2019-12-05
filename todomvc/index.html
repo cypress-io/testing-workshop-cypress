@@ -26,16 +26,16 @@
   <section class="todoapp">
     <header class="header">
       <h1 data-cy="app-title">todos</h1>
-      <input class="new-todo" autofocus autocomplete="off" placeholder="What needs to be done?" :value="newTodo"
+      <input data-cy="new-todo" class="new-todo" autofocus autocomplete="off" placeholder="What needs to be done?" :value="newTodo"
         @input="setNewTodo" @keyup.enter="addTodo">
     </header>
     <section class="main" v-show="todos.length" v-cloak>
       <ul class="todo-list">
-        <li v-for="todo in todos" class="todo" :key="todo.id" :class="{ completed: todo.completed }">
+        <li v-for="todo in todos" data-cy='todo' class="todo" :key="todo.id" :class="{ completed: todo.completed }">
           <div class="view">
-            <input class="toggle" type="checkbox" v-model="todo.completed">
+            <input data-cy='toggle' class="toggle" type="checkbox" v-model="todo.completed">
             <label>{{ todo.title }}</label>
-            <button class="destroy" @click="removeTodo(todo)"></button>
+            <button data-cy='destroy' class="destroy" @click="removeTodo(todo)"></button>
           </div>
         </li>
       </ul>
