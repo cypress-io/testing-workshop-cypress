@@ -45,6 +45,8 @@ it('every item starts with todo', function () {
   cy.get('.todo label').should($labels => {
     // confirm that there are 4 labels
     // and that each one starts with "todo-"
+    expect($labels).to.have.length(4)
+    $labels.each((_, label) => expect(label.textContent).to.match(/^todo /))
   })
 })
 
