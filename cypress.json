@@ -3,7 +3,7 @@
   "viewportHeight": 800,
   "ignoreTestFiles": [
     "**/answer/*",
-    "*answers.js",
+    "*answer.js",
     "*.d.ts",
     "**/__snapshots__/*",
     "**/__image_snapshots__/*",

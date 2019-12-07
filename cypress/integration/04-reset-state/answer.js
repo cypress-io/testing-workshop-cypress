@@ -1,5 +1,14 @@
 /// <reference types="cypress" />
+/**
+ * Adds a todo item
+ * @param {string} text
+ */
+const addItem = text => {
+  cy.get('.new-todo').type(`${text}{enter}`)
+}
+
 describe('reset data using XHR call', () => {
+  // you can use separate "beforeEach" hooks or a single one
   beforeEach(() => {
     cy.request('POST', '/reset', {
       todos: []
@@ -8,13 +17,7 @@ describe('reset data using XHR call', () => {
   beforeEach(() => {
     cy.visit('/')
   })
-  /**
-   * Adds a todo item
-   * @param {string} text
-   */
-  const addItem = text => {
-    cy.get('.new-todo').type(`${text}{enter}`)
-  }
+
   it('adds two items', () => {
     addItem('first item')
     addItem('second item')
@@ -25,23 +28,17 @@ describe('reset data using XHR call', () => {
 describe('reset data using a task', () => {
   beforeEach(() => {
     cy.task('resetData')
-  })
-  beforeEach(() => {
     cy.visit('/')
   })
-  /**
-   * Adds a todo item
-   * @param {string} text
-   */
-  const addItem = text => {
-    cy.get('.new-todo').type(`${text}{enter}`)
-  }
+
   it('adds two items', () => {
     addItem('first item')
     addItem('second item')
     cy.get('li.todo').should('have.length', 2)
   })
+})
 
+describe('set initial data', () => {
   it('sets data to complex object right away', () => {
     cy.task('resetData', {
       todos: [{
@@ -52,6 +49,7 @@ describe('reset data using a task', () => {
     })
 
     cy.visit('/')
+    // check what is rendered
   })
 
   it('sets data using fixture', () => {
@@ -60,5 +58,6 @@ describe('reset data using a task', () => {
     })
 
     cy.visit('/')
+    // check what is rendered
   })
 })
