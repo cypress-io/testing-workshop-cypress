@@ -5,7 +5,12 @@
   <meta charset="utf-8">
   <title>Vue.js • TodoMVC</title>
   <link rel="stylesheet" href="vendor/index.css">
-  <!-- <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="vendor/dark.css"> -->
+  <!-- usually we can just let the browser load additional styles if the user's OS
+    has preference for dark theme
+  <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="vendor/dark.css">
+  -->
+  <!-- but to be able to control the dark theme load programmatically and from E2E tests
+    we need to use JavaScript and check preference using "window.matchMedia" call -->
   <script>
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       const link = document.createElement("link")

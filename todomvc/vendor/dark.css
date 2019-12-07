@@ -1,12 +1,46 @@
-/* a simple todo app dark theme */
+/* a simple todo app dark theme that overwrites standard colors */
 body,
 .todoapp {
   color: #ddd;
   background-color: #222;
 }
 .todoapp h1 {
-  color: #ddd;
+  color: #b83f45;
 }
 .info {
   text-shadow: none;
+}
+
+.new-todo,
+.edit {
+	/* border: 1px solid #999; */
+	box-shadow: inset 0 -1px 5px 0 rgba(255, 255, 255, 0.2);
+}
+
+.main {
+  border-top: none;
+}
+
+.todoapp input::-webkit-input-placeholder {
+	color: #bdbdbd;
+}
+
+.todoapp input::-moz-placeholder {
+	color: #bdbdbd;
+}
+
+.todoapp input::input-placeholder {
+	color: #bdbdbd;
+}
+
+.todo-list li {
+  border-bottom: 1px solid #8e8e8e;
+}
+
+.todo-list li.completed label {
+	color: #888888;
+}
+
+.info {
+  color: #ddd;
 }
