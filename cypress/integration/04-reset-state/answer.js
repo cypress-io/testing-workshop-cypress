@@ -41,11 +41,13 @@ describe('reset data using a task', () => {
 describe('set initial data', () => {
   it('sets data to complex object right away', () => {
     cy.task('resetData', {
-      todos: [{
-        id: '123456abc',
-        completed: true,
-        title: 'reset data before test'
-      }]
+      todos: [
+        {
+          id: '123456abc',
+          completed: true,
+          title: 'reset data before test'
+        }
+      ]
     })
 
     cy.visit('/')

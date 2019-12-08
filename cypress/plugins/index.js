@@ -57,7 +57,7 @@ module.exports = (on, config) => {
   on('task', {
     // saves given or default empty data object into todomvc/data.json file
     // if the server is watching this file, next reload should show the updated values
-    resetData(dataToSet = DEFAULT_DATA) {
+    resetData (dataToSet = DEFAULT_DATA) {
       // if we just call cy.task("resetData") right now it passes "null" as argument dataToSet
       // which prevents setting the default value. This is a bug in
       // https://github.com/cypress-io/cypress/issues/5913
@@ -76,7 +76,7 @@ module.exports = (on, config) => {
       return null
     },
 
-    hasSavedRecord(title, ms = 3000) {
+    hasSavedRecord (title, ms = 3000) {
       debug('inside task')
       console.log(
         'looking for title "%s" in the database (time limit %dms)',
