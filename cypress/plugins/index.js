@@ -68,7 +68,7 @@ module.exports = (on, config) => {
       debug('reset data file %s with %o', dbFilename, dataToSet)
       if (!dataToSet) {
         console.error('Cannot save empty object in %s', dbFilename)
-        throw new Error(`Cannot save empty object in resetData`)
+        throw new Error('Cannot save empty object in resetData')
       }
       const str = JSON.stringify(dataToSet, null, 2) + '\n'
       fs.writeFileSync(dbFilename, str, 'utf8')
