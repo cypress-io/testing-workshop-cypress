@@ -65,6 +65,38 @@ Note:
 Students should modify `cypress/integration/04-reset-state/spec.js` and make the request to reset the database before each test using `cy.request`.
 
 +++
+## Using cy.writeFile
+
+```
+"start": "json-server --static . --watch data.json"
+```
+
+If we overwrite `todomvc/data.json` and reload the web app we should see new data
+
++++
+## TODO: use cy.writeFile to reset todos
+
+```js
+describe('reset data using cy.writeFile', () => {
+  beforeEach(() => {
+    // TODO write file "todomvc/data.json" with stringified todos object
+    cy.visit('/')
+  })
+  ...
+})
+```
+
+See [`cy.writeFile`](https://on.cypress.io/writefile)
+
++++
+Make sure you are writing the right file.
+
+![See the file path written](/slides/04-reset-state/img/wrong-file-path.png)
+
+Note:
+Most common mistake is using file path relative to the spec file, should be relative to the project's root folder.
+
++++
 ## Using cy.task
 
 You can execute Node code during browser tests by calling [`cy.task`](https://on.cypress.io/task)
@@ -82,6 +114,7 @@ module.exports = (on, config) => {
 // cypress/integration/spec.js
 cy.task('hello', 'World')
 ```
+
 +++
 ## TODO reset data using cy.task
 

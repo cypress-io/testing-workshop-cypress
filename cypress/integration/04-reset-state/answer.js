@@ -25,6 +25,25 @@ describe('reset data using XHR call', () => {
   })
 })
 
+describe('reset data using cy.writeFile', () => {
+  beforeEach(() => {
+    const emptyTodos = {
+      todos: []
+    }
+    const str = JSON.stringify(emptyTodos, null, 2) + '\n'
+    // file path is relative to the project's root folder
+    // where cypress.json is located
+    cy.writeFile('todomvc/data.json', str, 'utf8')
+    cy.visit('/')
+  })
+
+  it('adds two items', () => {
+    addItem('first item')
+    addItem('second item')
+    cy.get('li.todo').should('have.length', 2)
+  })
+})
+
 describe('reset data using a task', () => {
   beforeEach(() => {
     cy.task('resetData')
