@@ -38,11 +38,13 @@ it('creates an item with id 1', () => {
 
   addItem('something')
   // confirm the item sent to the server has the right values
-  cy.wait('@new-item').its('request.body').should('deep.equal', {
-    id: '1',
-    title: 'something',
-    completed: false
-  })
+  cy.wait('@new-item')
+    .its('request.body')
+    .should('deep.equal', {
+      id: '1',
+      title: 'something',
+      completed: false
+    })
 })
 
 // stub function Math.random using cy.stub

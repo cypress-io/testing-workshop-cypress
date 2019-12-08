@@ -17,8 +17,11 @@ const fs = require('fs')
 const path = require('path')
 const debug = require('debug')('testing-workshop-cypress')
 
+const getDbFilename = () =>
+  path.join(__dirname, '..', '..', 'todomvc', 'data.json')
+
 const findRecord = title => {
-  const dbFilename = path.join(__dirname, '..', '..', 'todomvc', 'data.json')
+  const dbFilename = getDbFilename()
   const contents = JSON.parse(fs.readFileSync(dbFilename))
   const todos = contents.todos
   return todos.find(record => record.title === title)
@@ -40,11 +43,39 @@ const hasRecordAsync = (title, ms) => {
   })
 }
 
+/**
+ * Default object representing our "database" file in "todomvc/data.json"
+ */
+const DEFAULT_DATA = {
+  todos: []
+}
+
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // "cy.task" can be used from specs to "jump" into Node environment
   // and doing anything you might want. For example, checking "data.json" file!
   on('task', {
+    // saves given or default empty data object into todomvc/data.json file
+    // if the server is watching this file, next reload should show the updated values
+    resetData (dataToSet = DEFAULT_DATA) {
+      // if we just call cy.task("resetData") right now it passes "null" as argument dataToSet
+      // which prevents setting the default value. This is a bug in
+      // https://github.com/cypress-io/cypress/issues/5913
+      if (!dataToSet) {
+        dataToSet = DEFAULT_DATA
+      }
+      const dbFilename = getDbFilename()
+      debug('reset data file %s with %o', dbFilename, dataToSet)
+      if (!dataToSet) {
+        console.error('Cannot save empty object in %s', dbFilename)
+        throw new Error('Cannot save empty object in resetData')
+      }
+      const str = JSON.stringify(dataToSet, null, 2) + '\n'
+      fs.writeFileSync(dbFilename, str, 'utf8')
+
+      return null
+    },
+
     hasSavedRecord (title, ms = 3000) {
       debug('inside task')
       console.log(

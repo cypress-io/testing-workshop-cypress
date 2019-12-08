@@ -65,6 +65,98 @@ Note:
 Students should modify `cypress/integration/04-reset-state/spec.js` and make the request to reset the database before each test using `cy.request`.
 
 +++
+## Using cy.writeFile
+
+```
+"start": "json-server --static . --watch data.json"
+```
+
+If we overwrite `todomvc/data.json` and reload the web app we should see new data
+
++++
+## TODO: use cy.writeFile to reset todos
+
+```js
+describe('reset data using cy.writeFile', () => {
+  beforeEach(() => {
+    // TODO write file "todomvc/data.json" with stringified todos object
+    cy.visit('/')
+  })
+  ...
+})
+```
+
+See [`cy.writeFile`](https://on.cypress.io/writefile)
+
++++
+Make sure you are writing the right file.
+
+![See the file path written](/slides/04-reset-state/img/wrong-file-path.png)
+
+Note:
+Most common mistake is using file path relative to the spec file, should be relative to the project's root folder.
+
++++
+## Using cy.task
+
+You can execute Node code during browser tests by calling [`cy.task`](https://on.cypress.io/task)
+
+```js
+// cypress/plugins/index.js
+module.exports = (on, config) => {
+  on('task', {
+    hello(name) {
+      console.log('Hello', name)
+      return null // or Promise
+    }
+  })
+}
+// cypress/integration/spec.js
+cy.task('hello', 'World')
+```
+
++++
+## TODO reset data using cy.task
+
+Find "resetData" task in cypress/plugins/index.js
+
+```js
+describe('reset data using a task', () => {
+  beforeEach(() => {
+    // call the task "resetData"
+    cy.visit('/')
+  })
+})
+```
+
++++
+## TODO set data using cy.task
+
+Pass an object when calling `cy.task('resetData')`
+
+```js
+it('sets data to complex object right away', () => {
+  cy.task('resetData', /* object*/)
+  cy.visit('/')
+  // check what is rendered
+})
+```
+
++++
+## TODO set data from fixture
+
+Pass an object when calling `cy.task('resetData')`
+
+```js
+it('sets data using fixture', () => {
+  // load todos from "cypress/fixtures/two-items.json"
+  // and the call the task to set todos
+  cy.visit('/')
+  // check what is rendered
+})
+```
+
++++
 
 ## Best practices
 
