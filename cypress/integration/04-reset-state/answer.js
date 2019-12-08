@@ -56,6 +56,7 @@ describe('set initial data', () => {
 
   it('sets data using fixture', () => {
     cy.fixture('two-items').then(todos => {
+      // "todos" is an array
       cy.task('resetData', { todos })
     })
 

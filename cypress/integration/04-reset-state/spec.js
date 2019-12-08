@@ -37,14 +37,14 @@ describe('reset data using a task', () => {
 
 describe('set initial data', () => {
   it('sets data to complex object right away', () => {
-    // call task and pass an object with todos
+    // TODO call task and pass an object with todos
     cy.visit('/')
     // check what is rendered
   })
 
   it('sets data using fixture', () => {
-    // load todos from "cypress/fixtures/two-items.json"
-    // and the call the task to set todos
+    // TODO load todos from "cypress/fixtures/two-items.json"
+    // and then call the task to set todos
     cy.visit('/')
     // check what is rendered
   })
