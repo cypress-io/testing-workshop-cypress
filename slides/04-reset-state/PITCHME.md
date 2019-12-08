@@ -64,7 +64,7 @@ I am using httpie to easily send the empty list to reset the database.
 Note:
 Students should modify `cypress/integration/04-reset-state/spec.js` and make the request to reset the database before each test using `cy.request`.
 
-The answer to this and other TODO assignments are in [cypress/integration/04-reset-state/answer.js](cypress/integration/04-reset-state/answer.js) file.
+The answer to this and other TODO assignments are in [cypress/integration/04-reset-state/answer.js](/cypress/integration/04-reset-state/answer.js) file.
 
 +++
 ## Using cy.writeFile
