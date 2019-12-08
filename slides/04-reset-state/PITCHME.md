@@ -91,7 +91,7 @@ See [`cy.writeFile`](https://on.cypress.io/writefile)
 +++
 Make sure you are writing the right file.
 
-![See the file path written](/slides/04-reset-state/img/wrong-file-path.png)
+![See the file path written](/slides/04-reset-state/img/write-file-path.png)
 
 Note:
 Most common mistake is using file path relative to the spec file, should be relative to the project's root folder.
