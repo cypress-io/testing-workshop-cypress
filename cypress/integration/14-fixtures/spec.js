@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/* eslint-disable no-unused-vars */
 it('sets list of todos on the server', () => {
   // load fixture "two-items.json" from the fixtures folder
   cy.fixture('two-items')
@@ -32,18 +33,18 @@ context('this.list', () => {
   // it is important to use "function () {}"
   // as a callback to "beforeEach", so we have
   // "this" pointing at the test context
-  beforeEach(function () {
+  beforeEach(function() {
     cy.fixture('two-items')
     // then assign value to "this.list"
   })
 
   // again, it is important to use "function () {}" callback
   // to make sure "this" points at the test context
-  it('sets list from context', function () {
+  it('sets list from context', function() {
     // POST the items to the server using "/reset"
   })
 
-  it('has valid list with 2 items', function () {
+  it('has valid list with 2 items', function() {
     // check that "this.list" has 2 items
   })
 })
@@ -51,7 +52,7 @@ context('this.list', () => {
 context('@list', () => {
   // again, it is important to use "function () {}"
   // as a callback to "beforeEach" to set the right "this"
-  beforeEach(function () {
+  beforeEach(function() {
     // use shortcut "as('list')" will save the value into "this.list"
     // cy.fixture(<filename>).as(<alias name>)
     cy.fixture('two-items')
@@ -59,18 +60,18 @@ context('@list', () => {
 
   // again, it is important to use "function () {}" callback
   // to make sure "this" points at the test context
-  it('sets list from context', function () {
+  it('sets list from context', function() {
     // use "this.list" like before to send the list to the server
   })
 })
 
 // show that immediately using "this.list" does not work
-it('does not work', function () {
+it('does not work', function() {
   // load fixture and set it as "list"
   // then try checking "this.list" immediately
 })
 
-it('works if we change the order', function () {
+it('works if we change the order', function() {
   cy.fixture('two-items')
     .as('list')
     .then(() => {
@@ -105,7 +106,7 @@ context('app actions with fixtures', () => {
     // visit the page, make sure it has been loaded
   })
 
-  it('invokes app action to set data from fixture', function () {
+  it('invokes app action to set data from fixture', function() {
     // grab window app.$store
     // and for each item from the fixture
     // dispatch action "addEntireTodo"

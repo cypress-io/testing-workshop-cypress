@@ -6,7 +6,7 @@ it('runs hello world', () => {
 })
 
 it.skip('makes task and runs it', () => {
-  function hello (name) {
+  function hello(name) {
     return 'hello, ' + name
   }
   cy.task('eval', hello.toString())

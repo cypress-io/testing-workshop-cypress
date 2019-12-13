@@ -1,15 +1,15 @@
 /// <reference types="cypress" />
 /// <reference path="./custom-commands.d.ts" />
-beforeEach(function resetData () {
+beforeEach(function resetData() {
   cy.request('POST', '/reset', {
     todos: []
   })
 })
-beforeEach(function visitSite () {
+beforeEach(function visitSite() {
   cy.visit('/')
 })
 
-it('enters 10 todos', function () {
+it('enters 10 todos', function() {
   cy.get('.new-todo')
     .type('todo 0{enter}')
     .type('todo 1{enter}')

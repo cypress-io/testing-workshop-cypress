@@ -2,11 +2,13 @@
     "env": {
         "browser": true,
         "es6": true,
-        "node": true
+        "node": true,
+        "cypress/globals": true
     },
     "extends": [
         "eslint:recommended",
-        "prettier"
+        "plugin:prettier/recommended",
+        "plugin:cypress/recommended"
     ],
     "plugins": [
         "cypress"

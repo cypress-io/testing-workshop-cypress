@@ -4,6 +4,8 @@
 // (for example add them manually using the browser localhost:3000)
 // then these tests fail!
 
+/* eslint-disable no-unused-vars */
+
 it('starts with zero items (waits)', () => {
   cy.visit('/')
   // wait 1 second

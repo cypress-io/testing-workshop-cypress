@@ -5,7 +5,7 @@ import { resetData, visitSite } from '../../support/hooks'
 beforeEach(resetData)
 beforeEach(visitSite)
 
-it('enters 10 todos', function () {
+it('enters 10 todos', function() {
   cy.get('.new-todo')
     .type('todo 0{enter}')
     .type('todo 1{enter}')
@@ -36,7 +36,7 @@ Cypress.Commands.add('createTodo', todo => {
   const cmd = Cypress.log({
     name: 'create todo',
     message: todo,
-    consoleProps () {
+    consoleProps() {
       return {
         'Create Todo': todo
       }
@@ -63,7 +63,7 @@ it('passes when object gets new property', () => {
     o.foo = 'bar'
   }, 1000)
   const get = name =>
-    function getProp (from) {
+    function getProp(from) {
       console.log('getting', from)
       return from[name]
     }

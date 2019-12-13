@@ -14,8 +14,8 @@
     "dev": "start-test 3000 cy:open",
     "postinstall": "cd todomvc && npm install",
     "reset": "cd todomvc && npm run reset",
-    "format": "prettier-standard 'cypress/**/*.js'",
-    "lint": "standard 'cypress/**/*.js'"
+    "format": "eslint --fix 'cypress/**/*.js'",
+    "lint": "eslint 'cypress/**/*.js'"
   },
   "private": true,
   "repository": {
@@ -52,6 +52,7 @@
     "eslint": "6.7.2",
     "eslint-config-prettier": "6.7.0",
     "eslint-plugin-cypress": "2.7.0",
+    "eslint-plugin-prettier": "3.1.1",
     "http-server": "0.11.1",
     "istanbul-lib-coverage": "2.0.5",
     "json-server": "0.15.1",
@@ -65,29 +66,11 @@
     "nyc": "14.1.1",
     "pluralize": "8.0.0",
     "prettier": "1.18.2",
-    "prettier-standard": "15.0.1",
-    "standard": "14.3.1",
     "start-server-and-test": "1.10.5",
     "tsify": "4.0.1",
     "typescript": "3.6.4"
   },
   "engines": {
     "node": ">=8"
-  },
-  "standard": {
-    "ignore": [
-      "cypress/integration/13-app-actions/todo-page-object.js",
-      "cypress/integration/16-preprocessors/spec.js"
-    ],
-    "globals": [
-      "Cypress",
-      "cy",
-      "it",
-      "describe",
-      "context",
-      "beforeEach",
-      "assert",
-      "expect"
-    ]
   }
 }

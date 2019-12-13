@@ -7,7 +7,7 @@ beforeEach(() => {
 beforeEach(() => {
   cy.visit('/')
 })
-beforeEach(function stubRandomId () {
+beforeEach(function stubRandomId() {
   let count = 1
   cy.window()
     .its('Math')

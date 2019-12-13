@@ -1,4 +1,3 @@
-/* global cy */
 export const resetDatabase = () => {
   console.log('resetDatabase')
   cy.request({

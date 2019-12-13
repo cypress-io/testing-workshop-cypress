@@ -1,0 +1,8 @@
+; cannot parse static properties in JavaScript class
+; Parsing error: Unexpected token =
+cypress/integration/13-app-actions/todo-page-object.js
+cypress/integration/16-preprocessors/spec.js
+
+; cannot parse JSX
+; Parsing error: Unexpected token <
+cypress/integration/17-component-testing/answer.js

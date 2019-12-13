@@ -19,21 +19,21 @@ import { TodoPage, todoPage } from './todo-page-object'
 // https://github.com/tastejs/todomvc/blob/master/tests/test.js
 // ***********************************************
 
-describe('TodoMVC - React', function () {
-  beforeEach(function () {
+describe('TodoMVC - React', function() {
+  beforeEach(function() {
     todoPage.visit()
   })
 
   // a very simple example helpful during presentations
-  it('adds 2 todos', function () {
+  it('adds 2 todos', function() {
     cy.get('.new-todo')
       .type('learn testing{enter}')
       .type('be cool{enter}')
     cy.get('.todo-list li').should('have.length', 2)
   })
 
-  context('When page is initially opened', function () {
-    it('should focus on the todo input field', function () {
+  context('When page is initially opened', function() {
+    it('should focus on the todo input field', function() {
       // get the currently focused element and assert
       // that it has class='new-todo'
       //
@@ -42,8 +42,8 @@ describe('TodoMVC - React', function () {
     })
   })
 
-  context('No Todos', function () {
-    it('should hide #main and #footer', function () {
+  context('No Todos', function() {
+    it('should hide #main and #footer', function() {
       // Unlike the TodoMVC tests, we don't need to create
       // a gazillion helper functions which are difficult to
       // parse through. Instead we'll opt to use real selectors
@@ -56,8 +56,8 @@ describe('TodoMVC - React', function () {
     })
   })
 
-  context('New Todo', function () {
-    it('should allow me to add todo items', function () {
+  context('New Todo', function() {
+    it('should allow me to add todo items', function() {
       // create 1st todo
       cy.get('.new-todo')
         .type(TodoPage.TODO_ITEM_ONE)
@@ -81,7 +81,7 @@ describe('TodoMVC - React', function () {
         .should('contain', TodoPage.TODO_ITEM_TWO)
     })
 
-    it('adds items', function () {
+    it('adds items', function() {
       // create several todos then check the number of items in the list
       cy.get('.new-todo')
         .type('todo A{enter}')
@@ -91,14 +91,14 @@ describe('TodoMVC - React', function () {
       cy.get('.todo-list li').should('have.length', 4)
     })
 
-    it('should clear text input field when an item is added', function () {
+    it('should clear text input field when an item is added', function() {
       cy.get('.new-todo')
         .type(TodoPage.TODO_ITEM_ONE)
         .type('{enter}')
       cy.get('.new-todo').should('have.text', '')
     })
 
-    it('should append new items to the bottom of the list', function () {
+    it('should append new items to the bottom of the list', function() {
       todoPage.createTodos()
 
       // even though the text content is split across
@@ -120,7 +120,7 @@ describe('TodoMVC - React', function () {
         .should('contain', TodoPage.TODO_ITEM_THREE)
     })
 
-    it('should trim text input', function () {
+    it('should trim text input', function() {
       todoPage.createTodo(` ${TodoPage.TODO_ITEM_ONE} `)
 
       // we use as explicit assertion here about the text instead of
@@ -131,23 +131,23 @@ describe('TodoMVC - React', function () {
         .should('have.text', TodoPage.TODO_ITEM_ONE)
     })
 
-    it('should show #main and #footer when items added', function () {
+    it('should show #main and #footer when items added', function() {
       todoPage.createTodo(TodoPage.TODO_ITEM_ONE)
       cy.get('.main').should('be.visible')
       cy.get('.footer').should('be.visible')
     })
   })
 
-  context('Mark all as completed', function () {
+  context('Mark all as completed', function() {
     // New commands used here:
     // - cy.check    https://on.cypress.io/api/check
     // - cy.uncheck  https://on.cypress.io/api/uncheck
 
-    beforeEach(function () {
+    beforeEach(function() {
       todoPage.createTodos()
     })
 
-    it('should allow me to mark all items as completed', function () {
+    it('should allow me to mark all items as completed', function() {
       // complete all todos
       // we use 'check' instead of 'click'
       // because that indicates our intention much clearer.
@@ -170,7 +170,7 @@ describe('TodoMVC - React', function () {
         .should('have.class', 'completed')
     })
 
-    it('should allow me to clear the complete state of all items', function () {
+    it('should allow me to clear the complete state of all items', function() {
       // check and then immediately uncheck
       cy.get('.toggle-all')
         .check({ force: true })
@@ -189,7 +189,7 @@ describe('TodoMVC - React', function () {
         .should('not.have.class', 'completed')
     })
 
-    it('complete all checkbox should update state when items are completed / cleared', function () {
+    it('complete all checkbox should update state when items are completed / cleared', function() {
       // alias the .toggle-all for reuse later
       cy.get('.toggle-all')
         .as('toggleAll')
@@ -221,11 +221,11 @@ describe('TodoMVC - React', function () {
     })
   })
 
-  context('Item', function () {
+  context('Item', function() {
     // New commands used here:
     // - cy.clear    https://on.cypress.io/api/clear
 
-    it('should allow me to mark items as complete', function () {
+    it('should allow me to mark items as complete', function() {
       // we are aliasing the return value of
       // our custom command 'createTodo'
       //
@@ -243,7 +243,7 @@ describe('TodoMVC - React', function () {
       cy.get('@secondTodo').should('have.class', 'completed')
     })
 
-    it('should allow me to un-mark items as complete', function () {
+    it('should allow me to un-mark items as complete', function() {
       todoPage.createTodo(TodoPage.TODO_ITEM_ONE).as('firstTodo')
       todoPage.createTodo(TodoPage.TODO_ITEM_TWO).as('secondTodo')
 
@@ -260,7 +260,7 @@ describe('TodoMVC - React', function () {
       cy.get('@secondTodo').should('not.have.class', 'completed')
     })
 
-    it('should allow me to edit an item', function () {
+    it('should allow me to edit an item', function() {
       todoPage.createTodos()
 
       cy.get('@todos')
@@ -290,15 +290,15 @@ describe('TodoMVC - React', function () {
     })
   })
 
-  context('Editing', function () {
+  context('Editing', function() {
     // New commands used here:
     // - cy.blur    https://on.cypress.io/api/blur
 
-    beforeEach(function () {
+    beforeEach(function() {
       todoPage.createTodos()
     })
 
-    it('should hide other controls when editing', function () {
+    it('should hide other controls when editing', function() {
       cy.get('@todos')
         .eq(1)
         .as('secondTodo')
@@ -313,7 +313,7 @@ describe('TodoMVC - React', function () {
         .should('not.be.visible')
     })
 
-    it('should save edits on blur', function () {
+    it('should save edits on blur', function() {
       cy.get('@todos')
         .eq(1)
         .as('secondTodo')
@@ -339,7 +339,7 @@ describe('TodoMVC - React', function () {
         .should('contain', TodoPage.TODO_ITEM_THREE)
     })
 
-    it('should trim entered text', function () {
+    it('should trim entered text', function() {
       cy.get('@todos')
         .eq(1)
         .as('secondTodo')
@@ -361,7 +361,7 @@ describe('TodoMVC - React', function () {
         .should('contain', TodoPage.TODO_ITEM_THREE)
     })
 
-    it('should remove the item if an empty text string was entered', function () {
+    it('should remove the item if an empty text string was entered', function() {
       cy.get('@todos')
         .eq(1)
         .as('secondTodo')
@@ -376,7 +376,7 @@ describe('TodoMVC - React', function () {
       cy.get('@todos').should('have.length', 2)
     })
 
-    it('should cancel edits on escape', function () {
+    it('should cancel edits on escape', function() {
       cy.get('@todos')
         .eq(1)
         .as('secondTodo')
@@ -400,8 +400,8 @@ describe('TodoMVC - React', function () {
     })
   })
 
-  context('Counter', function () {
-    it('should display the current number of todo items', function () {
+  context('Counter', function() {
+    it('should display the current number of todo items', function() {
       todoPage.createTodo(TodoPage.TODO_ITEM_ONE)
       cy.get('.todo-count').contains('1 item left')
       todoPage.createTodo(TodoPage.TODO_ITEM_TWO)
@@ -409,17 +409,17 @@ describe('TodoMVC - React', function () {
     })
   })
 
-  context('Clear completed button', function () {
-    beforeEach(function () {
+  context('Clear completed button', function() {
+    beforeEach(function() {
       todoPage.createTodos()
     })
 
-    it('should display the correct text', function () {
+    it('should display the correct text', function() {
       todoPage.toggle(0)
       cy.get('.clear-completed').contains('Clear completed')
     })
 
-    it('should remove completed items when clicked', function () {
+    it('should remove completed items when clicked', function() {
       todoPage.toggle(1)
       todoPage.clearCompleted()
       todoPage.todos().should('have.length', 2)
@@ -427,7 +427,7 @@ describe('TodoMVC - React', function () {
       todoPage.todos(1).should('contain', TodoPage.TODO_ITEM_THREE)
     })
 
-    it('should be hidden when there are no items that are completed', function () {
+    it('should be hidden when there are no items that are completed', function() {
       todoPage.toggle(1)
       cy.get('.clear-completed')
         .should('be.visible')
@@ -436,11 +436,11 @@ describe('TodoMVC - React', function () {
     })
   })
 
-  context('Persistence', function () {
-    it('should persist its data', function () {
+  context('Persistence', function() {
+    it('should persist its data', function() {
       // mimicking TodoMVC tests
       // by writing out this function
-      function testState () {
+      function testState() {
         cy.get('@firstTodo')
           .should('contain', TodoPage.TODO_ITEM_ONE)
           .and('have.class', 'completed')
@@ -461,12 +461,12 @@ describe('TodoMVC - React', function () {
     })
   })
 
-  context('Routing', function () {
-    beforeEach(function () {
+  context('Routing', function() {
+    beforeEach(function() {
       todoPage.createTodos()
     })
 
-    it('should allow me to display active items', function () {
+    it('should allow me to display active items', function() {
       // instead letting Cypress manipulate the DOM
       // cy.get('@todos')
       //   .eq(1)
@@ -479,7 +479,7 @@ describe('TodoMVC - React', function () {
       todoPage.todos(1).should('contain', TodoPage.TODO_ITEM_THREE)
     })
 
-    it('should respect the back button', function () {
+    it('should respect the back button', function() {
       todoPage.toggle(1)
       todoPage.filter('Active')
       todoPage.filter('Completed')
@@ -490,13 +490,13 @@ describe('TodoMVC - React', function () {
       todoPage.todos().should('have.length', 3)
     })
 
-    it('should allow me to display completed items', function () {
+    it('should allow me to display completed items', function() {
       todoPage.toggle(1)
       todoPage.filter('Completed')
       todoPage.todos().should('have.length', 1)
     })
 
-    it('should allow me to display all items', function () {
+    it('should allow me to display all items', function() {
       todoPage.toggle(1)
       todoPage.filter('Active')
       todoPage.filter('Completed')
@@ -504,10 +504,10 @@ describe('TodoMVC - React', function () {
       todoPage.todos().should('have.length', 3)
     })
 
-    it('should highlight the currently applied filter', function () {
+    it('should highlight the currently applied filter', function() {
       // using a within here which will automatically scope
       // nested 'cy' queries to our parent element <ul.filters>
-      cy.get('.filters').within(function () {
+      cy.get('.filters').within(function() {
         cy.contains('All').should('have.class', 'selected')
         cy.contains('Active')
           .click()

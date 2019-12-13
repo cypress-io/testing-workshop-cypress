@@ -1,5 +1,3 @@
-/* eslint-env mocha */
-/* global cy */
 import {
   enterTodo,
   getTodoItems,

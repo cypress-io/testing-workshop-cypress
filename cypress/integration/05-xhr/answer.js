@@ -2,6 +2,7 @@
 // note, we are not resetting the server before each test
 it('starts with zero items (waits)', () => {
   cy.visit('/')
+  /* eslint-disable-next-line cypress/no-unnecessary-waiting */
   cy.wait(1000)
   cy.get('li.todo').should('have.length', 0)
 })

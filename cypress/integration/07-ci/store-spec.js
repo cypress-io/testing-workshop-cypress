@@ -1,6 +1,4 @@
 /// <reference types="cypress" />
-/* eslint-env mocha */
-/* global cy, Cypress */
 import {
   enterTodo,
   getNewTodoInput,
@@ -126,11 +124,11 @@ describe('Vuex store', () => {
   const toJSON = x => JSON.parse(JSON.stringify(x))
 
   // returns the entire Vuex store state
-  const getStore = () => cy.then(_ => cy.wrap(toJSON(store.state)))
+  const getStore = () => cy.then(() => cy.wrap(toJSON(store.state)))
 
   // returns given getter value from the store
   const getFromStore = property =>
-    cy.then(_ => cy.wrap(store.getters[property]))
+    cy.then(() => cy.wrap(store.getters[property]))
 
   // and a helper methods because we are going to pull "todos" often
   const getStoreTodos = getFromStore.bind(null, 'todos')

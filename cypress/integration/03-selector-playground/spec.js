@@ -1,4 +1,6 @@
 /// <reference types="cypress" />
+/* eslint-disable no-unused-vars */
+
 beforeEach(() => {
   // application should be running at port 3000
   // and the "localhost:3000" is set as "baseUrl" in "cypress.json"

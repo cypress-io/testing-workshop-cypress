@@ -13,13 +13,13 @@ import {
   toggle
 } from './utils'
 
-describe('TodoMVC', function () {
-  beforeEach(function () {
+describe('TodoMVC', function() {
+  beforeEach(function() {
     cy.visit('/')
   })
 
-  context('When page is initially opened', function () {
-    it('should focus on the todo input field', function () {
+  context('When page is initially opened', function() {
+    it('should focus on the todo input field', function() {
       // get the currently focused element and assert
       // that it has class='new-todo'
       //
@@ -28,8 +28,8 @@ describe('TodoMVC', function () {
     })
   })
 
-  context('No Todos', function () {
-    it('should hide #main and #footer', function () {
+  context('No Todos', function() {
+    it('should hide #main and #footer', function() {
       // Unlike the TodoMVC tests, we don't need to create
       // a gazillion helper functions which are difficult to
       // parse through. Instead we'll opt to use real selectors
@@ -42,14 +42,14 @@ describe('TodoMVC', function () {
     })
   })
 
-  context('New Todo', function () {
+  context('New Todo', function() {
     // These tests confirm that add new Todo items works.
     // All tests go through the DOM and events just like a real user would.
 
     // Input element selector for typing new todo title
     const NEW_TODO = '.new-todo'
 
-    it('should allow me to add todo items', function () {
+    it('should allow me to add todo items', function() {
       cy.get(NEW_TODO)
         .type(TODO_ITEM_ONE)
         .type('{enter}')
@@ -66,7 +66,7 @@ describe('TodoMVC', function () {
         .should('contain', TODO_ITEM_TWO)
     })
 
-    it('adds items', function () {
+    it('adds items', function() {
       // create several todos then check the number of items in the list
       cy.get(NEW_TODO)
         .type('todo A{enter}')
@@ -76,14 +76,14 @@ describe('TodoMVC', function () {
       allItems().should('have.length', 4)
     })
 
-    it('should clear text input field when an item is added', function () {
+    it('should clear text input field when an item is added', function() {
       cy.get(NEW_TODO)
         .type(TODO_ITEM_ONE)
         .type('{enter}')
       cy.get(NEW_TODO).should('have.text', '')
     })
 
-    it('should append new items to the bottom of the list', function () {
+    it('should append new items to the bottom of the list', function() {
       // this is an example of a custom command
       // which is stored in tests/_support/spec_helper.js
       // you should open up the spec_helper and look at
@@ -109,7 +109,7 @@ describe('TodoMVC', function () {
         .should('contain', TODO_ITEM_THREE)
     })
 
-    it('should trim text input', function () {
+    it('should trim text input', function() {
       // this is an example of another custom command
       // since we repeat the todo creation over and over
       // again. It's up to you to decide when to abstract
@@ -125,7 +125,7 @@ describe('TodoMVC', function () {
         .should('have.text', TODO_ITEM_ONE)
     })
 
-    it('should show #main and #footer when items added', function () {
+    it('should show #main and #footer when items added', function() {
       addTodos(TODO_ITEM_ONE)
       cy.get('.main').should('be.visible')
       cy.get('.footer').should('be.visible')
@@ -144,7 +144,7 @@ describe('TodoMVC', function () {
     })
   })
 
-  context('Mark all as completed', function () {
+  context('Mark all as completed', function() {
     // These tests confirm that we can click one toggle button, and the app
     // marks all items as completed or incomplete again.
 
@@ -155,7 +155,7 @@ describe('TodoMVC', function () {
     // Instead they use app action "addDefaultTodos" before each test
     beforeEach(addDefaultTodos)
 
-    it('should allow me to mark all items as completed', function () {
+    it('should allow me to mark all items as completed', function() {
       // complete all todos
       // we use 'check' instead of 'click'
       // because that indicates our intention much clearer
@@ -175,7 +175,7 @@ describe('TodoMVC', function () {
         .should('have.class', 'completed')
     })
 
-    it('should allow me to clear the complete state of all items', function () {
+    it('should allow me to clear the complete state of all items', function() {
       // check and then immediately uncheck
       cy.get(TOGGLE_ALL)
         .check({
@@ -196,7 +196,7 @@ describe('TodoMVC', function () {
         .should('not.have.class', 'completed')
     })
 
-    it('complete all checkbox should update state when items are completed / cleared', function () {
+    it('complete all checkbox should update state when items are completed / cleared', function() {
       // alias the .toggle-all for reuse later
       cy.get(TOGGLE_ALL)
         .as('toggleAll')
@@ -220,8 +220,8 @@ describe('TodoMVC', function () {
     })
   })
 
-  context('Item', function () {
-    it('should allow me to mark items as complete', function () {
+  context('Item', function() {
+    it('should allow me to mark items as complete', function() {
       addTodos(TODO_ITEM_ONE, TODO_ITEM_TWO)
 
       allItems()
@@ -245,7 +245,7 @@ describe('TodoMVC', function () {
       cy.get('@secondTodo').should('have.class', 'completed')
     })
 
-    it('should allow me to un-mark items as complete', function () {
+    it('should allow me to un-mark items as complete', function() {
       addTodos(TODO_ITEM_ONE, TODO_ITEM_TWO)
 
       allItems()
@@ -268,7 +268,7 @@ describe('TodoMVC', function () {
       cy.get('@secondTodo').should('not.have.class', 'completed')
     })
 
-    it('should allow me to edit an item', function () {
+    it('should allow me to edit an item', function() {
       addDefaultTodos()
 
       allItems()
@@ -298,10 +298,10 @@ describe('TodoMVC', function () {
     })
   })
 
-  context('Editing', function () {
+  context('Editing', function() {
     beforeEach(addDefaultTodos)
 
-    it('should hide other controls when editing', function () {
+    it('should hide other controls when editing', function() {
       allItems()
         .eq(1)
         .as('secondTodo')
@@ -316,7 +316,7 @@ describe('TodoMVC', function () {
         .should('not.be.visible')
     })
 
-    it('should save edits on blur', function () {
+    it('should save edits on blur', function() {
       allItems()
         .eq(1)
         .as('secondTodo')
@@ -342,7 +342,7 @@ describe('TodoMVC', function () {
         .should('contain', TODO_ITEM_THREE)
     })
 
-    it('should trim entered text', function () {
+    it('should trim entered text', function() {
       allItems()
         .eq(1)
         .as('secondTodo')
@@ -364,7 +364,7 @@ describe('TodoMVC', function () {
         .should('contain', TODO_ITEM_THREE)
     })
 
-    it('should remove the item if an empty text string was entered', function () {
+    it('should remove the item if an empty text string was entered', function() {
       allItems()
         .eq(1)
         .as('secondTodo')
@@ -379,7 +379,7 @@ describe('TodoMVC', function () {
       allItems().should('have.length', 2)
     })
 
-    it('should cancel edits on escape', function () {
+    it('should cancel edits on escape', function() {
       allItems()
         .eq(1)
         .as('secondTodo')
@@ -403,10 +403,10 @@ describe('TodoMVC', function () {
     })
   })
 
-  context('Counter', function () {
+  context('Counter', function() {
     const COUNTER = '.todo-count'
 
-    it('should display the current number of todo items', function () {
+    it('should display the current number of todo items', function() {
       addTodos(TODO_ITEM_ONE)
       cy.get(COUNTER).contains('1 item left')
       addTodos(TODO_ITEM_TWO)
@@ -414,17 +414,17 @@ describe('TodoMVC', function () {
     })
   })
 
-  context('Clear completed button', function () {
+  context('Clear completed button', function() {
     const CLEAR_COMPLETED = '.clear-completed'
 
     beforeEach(addDefaultTodos)
 
-    it('should display the correct text', function () {
+    it('should display the correct text', function() {
       toggle(0)
       cy.get(CLEAR_COMPLETED).contains('Clear completed')
     })
 
-    it('should remove completed items when clicked', function () {
+    it('should remove completed items when clicked', function() {
       toggle(1)
       cy.get(CLEAR_COMPLETED).click()
       allItems().should('have.length', 2)
@@ -436,7 +436,7 @@ describe('TodoMVC', function () {
         .should('contain', TODO_ITEM_THREE)
     })
 
-    it('should be hidden when there are no items that are completed', function () {
+    it('should be hidden when there are no items that are completed', function() {
       toggle(1)
       cy.get(CLEAR_COMPLETED)
         .should('be.visible')
@@ -445,10 +445,10 @@ describe('TodoMVC', function () {
     })
   })
 
-  context('Persistence', function () {
+  context('Persistence', function() {
     // mimicking TodoMVC tests
     // by writing out this function
-    function testState () {
+    function testState() {
       allItems()
         .eq(0)
         .should('contain', TODO_ITEM_ONE)
@@ -459,7 +459,7 @@ describe('TodoMVC', function () {
         .and('not.have.class', 'completed')
     }
 
-    it('should persist its data', function () {
+    it('should persist its data', function() {
       addTodos(TODO_ITEM_ONE, TODO_ITEM_TWO)
       toggle(0)
         .then(testState)
@@ -468,7 +468,7 @@ describe('TodoMVC', function () {
     })
   })
 
-  context('Routing', function () {
+  context('Routing', function() {
     /**
      * Little utility function to click on a given filter on the page.
      * We are testing routing links, so these tests go through the DOM.
@@ -483,7 +483,7 @@ describe('TodoMVC', function () {
     // use app actions.
     beforeEach(addDefaultTodos)
 
-    it('should allow me to display active items', function () {
+    it('should allow me to display active items', function() {
       toggle(1)
       // the UI feature we are actually testing - the "Active" link
       clickFilter('Active')
@@ -495,7 +495,7 @@ describe('TodoMVC', function () {
         .should('contain', TODO_ITEM_THREE)
     })
 
-    it('should respect the back button', function () {
+    it('should respect the back button', function() {
       toggle(1)
       clickFilter('Active')
       clickFilter('Completed')
@@ -506,13 +506,13 @@ describe('TodoMVC', function () {
       allItems().should('have.length', 3)
     })
 
-    it('should allow me to display completed items', function () {
+    it('should allow me to display completed items', function() {
       toggle(1)
       clickFilter('Completed')
       allItems().should('have.length', 1)
     })
 
-    it('should allow me to display all items', function () {
+    it('should allow me to display all items', function() {
       toggle(1)
       clickFilter('Active')
       clickFilter('Completed')
@@ -520,10 +520,10 @@ describe('TodoMVC', function () {
       allItems().should('have.length', 3)
     })
 
-    it('should highlight the currently applied filter', function () {
+    it('should highlight the currently applied filter', function() {
       // using a within here which will automatically scope
       // nested 'cy' queries to our parent element <ul.filters>
-      cy.get('.filters').within(function () {
+      cy.get('.filters').within(function() {
         cy.contains('All').should('have.class', 'selected')
         cy.contains('Active')
           .click()
