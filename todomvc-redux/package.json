@@ -22,7 +22,7 @@
     "react": "16.11.0",
     "react-dom": "16.11.0",
     "react-redux": "7.1.1",
-    "redux": "4.0.4",
+    "redux": "4.0.5",
     "reselect": "4.0.0",
     "todomvc-app-css": "2.3.0"
   }
