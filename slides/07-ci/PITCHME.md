@@ -209,7 +209,21 @@ Never struggle with CI config 👍
 
 +++
 
+```yaml
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: cypress-io/github-action@v1
+        with:
+          start: npm start
+          wait-on: 'http://localhost:3000'
+          spec: 'cypress/integration/07-ci/*'
+```
 
+@[5](Checkout GitHub repo)
+@[6-10](Run Cypress tests)
 
 +++
 
