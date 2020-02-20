@@ -12,7 +12,7 @@
     "start:react": "http-server --silent -p 3000 -c-1 todomvc-react",
     "ci": "start-test 3000",
     "dev": "start-test 3000 cy:open",
-    "postinstall": "cd todomvc; npm install",
+    "postinstall": "cd todomvc && npm install",
     "reset": "npm run reset --prefix todomvc",
     "format": "eslint --fix 'cypress/**/*.js'",
     "lint": "eslint 'cypress/**/*.js'"
