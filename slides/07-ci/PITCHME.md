@@ -150,6 +150,12 @@ workflows:
 
 +++
 
+## Todo
+
+Look how tests are run on Firefox in [.circleci/config.yml](.circleci/config.yml) using [cypress-io/circleci-orb](https://github.com/cypress-io/circleci-orb).
+
++++
+
 ## Record on Dashboard
 
 ```yaml
@@ -192,6 +198,18 @@ Never struggle with CI config 👍
 - [github.com/cypress-io/circleci-orb](https://github.com/cypress-io/circleci-orb)
 - [circleci.com/orbs/registry/orb/cypress-io/cypress](https://circleci.com/orbs/registry/orb/cypress-io/cypress)
 - 📺 [CircleCI + Cypress webinar](https://youtu.be/J-xbNtKgXfY)
+
++++
+
+## GitHub Actions
+
+- cross-platform CI built on top of Azure CI + MacStadium
+- Linux, Windows, and Mac
+- We wrote [cypress-io/github-action](https://github.com/cypress-io/github-action)
+
++++
+
+
 
 +++
 
