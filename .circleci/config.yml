@@ -2,6 +2,12 @@
 # for config.yml syntax see https://circleci.com/docs/2.0/configuration-reference/
 version: 2.1
 
+orbs:
+  # import Cypress orb by specifying an exact version x.y.z
+  # or the latest version 1.x.x using "@1" syntax
+  # https://github.com/cypress-io/circleci-orb
+  cypress: cypress-io/cypress@1
+
 commands:
   restore-cached-dependencies:
     description: restores the NPM cache and the cached Cypress binary
@@ -76,7 +82,7 @@ jobs:
   two-commands:
     docker:
       # find Docker image at https://github.com/cypress-io/cypress-docker-images
-      - image: cypress/base:12.13.0
+      - image: cypress/base:12.14.0
 
     working_directory: ~/repo
 
@@ -103,7 +109,7 @@ jobs:
   single-command:
     docker:
       # find Docker image at https://github.com/cypress-io/cypress-docker-images
-      - image: cypress/base:12.13.0
+      - image: cypress/base:12.14.0
 
     working_directory: ~/repo
 
@@ -128,7 +134,7 @@ jobs:
   answers:
     docker:
       # find Docker image at https://github.com/cypress-io/cypress-docker-images
-      - image: cypress/base:12.13.0
+      - image: cypress/base:12.14.0
     working_directory: ~/repo
     steps:
       - checkout
@@ -185,3 +191,14 @@ workflows:
       - two-commands
       - single-command
       - answers
+
+      # run tests on Firefox browser using Cypress CircleCI Orb
+      # see https://github.com/cypress-io/circleci-orb
+      - cypress/run:
+          name: using Firefox
+          executor: cypress/browsers-chrome78-ff70
+          browser: firefox
+          start: npm start
+          wait-on: 'http://localhost:3000'
+          spec: 'cypress/integration/07-ci/*'
+          no-workspace: true # since we don't need the workspace after this job
