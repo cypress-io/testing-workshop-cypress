@@ -201,3 +201,4 @@ workflows:
           start: npm start
           wait-on: 'http://localhost:3000'
           spec: 'cypress/integration/07-ci/*'
+          no-workspace: true # since we don't need the workspace after this job
