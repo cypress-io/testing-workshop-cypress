@@ -6,6 +6,7 @@
 - Installing and caching Cypress itself
 - How to start server and run Cypress tests
 - CircleCI Orb example
+- GitHub Actions example
 
 +++
 
@@ -40,6 +41,7 @@
 ## Continuous integration documentation
 
 - [https://on.cypress.io/continuous-integration](https://on.cypress.io/continuous-integration)
+- [https://on.cypress.io/ci](https://on.cypress.io/ci) (alias)
 
 +++
 
@@ -49,7 +51,7 @@ Read file `.circleci/circle.yml`
 
 - uses CircleCI V2 [https://circleci.com/docs/2.0/sample-config/](https://circleci.com/docs/2.0/sample-config/)
 - Docker file from [https://github.com/cypress-io/cypress-docker-images](https://github.com/cypress-io/cypress-docker-images)
-  - `cypress/base:8` or `cypress/base:10` are good choices
+  - `cypress/base:8`, `cypress/base:10`, `cypress/base:12.x.y` are good choices
 
 +++
 
