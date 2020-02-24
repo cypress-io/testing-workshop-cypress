@@ -219,3 +219,9 @@ describe('Feature A', () => {
   })
 })
 ```
+
++++
+## 🏁 Write your tests like a user
+
+- go through UI
+- validate the application after actions
