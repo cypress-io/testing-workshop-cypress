@@ -1,5 +1,6 @@
 /* global Vue, Vuex, axios */
 /* eslint-disable no-console */
+/* eslint-disable-next-line */
 ; (function () {
   Vue.use(Vuex)
 
@@ -156,7 +157,7 @@
       addTodo(e) {
         // do not allow adding empty todos
         if (!e.target.value.trim()) {
-          return
+          throw new Error('Cannot add a blank todo')
         }
         e.target.value = ''
         this.$store.dispatch('addTodo')

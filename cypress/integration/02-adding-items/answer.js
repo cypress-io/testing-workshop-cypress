@@ -1,4 +1,8 @@
 /// <reference types="cypress" />
+// IMPORTANT ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+// remember to manually delete all items before running the test
+// IMPORTANT ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+
 beforeEach(() => {
   cy.visit('localhost:3000')
 })
@@ -80,6 +84,19 @@ it('adds item with random text', () => {
 
 it('starts with zero items', () => {
   cy.get('li.todo').should('have.length', 0)
+})
+
+it('does not allow adding blank todos', () => {
+  cy.on('uncaught:exception', e => {
+    // what will happen if this assertion fails?
+    // will the test fail?
+    // expect(e.message).to.include('Cannot add a blank todo')
+    // return false
+
+    // a better shortcut
+    return !e.message.includes('Cannot add a blank todo')
+  })
+  addItem(' ')
 })
 
 // what a challenge?
