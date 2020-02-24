@@ -121,7 +121,15 @@ it('adds item with random text', () => {
 - set up IntelliSense in `cypress.json` using [https://on.cypress.io/intelligent-code-completion](https://on.cypress.io/intelligent-code-completion)
 
 +++
+## Adding blank item
 
+The application does not allow adding items with blank titles. What happens when the user does it? Hint: open DevTools console.
+
+### Todo
+
+Fill the test `does not allow adding blank todos`.
+
++++
 ## Bonus
 
 Unit tests vs end-to-end tests
