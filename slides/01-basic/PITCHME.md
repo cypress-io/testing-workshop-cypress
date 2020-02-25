@@ -66,6 +66,8 @@ Hint: `npx cypress run --help`
 
 ## Bonus
 
+**Todo:** use `cypress run` with a failing test.
+
 - video recording [https://on.cypress.io/configuration#Videos](https://on.cypress.io/configuration#Videos)
 - `cy.screenshot` command
 
@@ -81,3 +83,12 @@ Hint: `npx cypress run --help`
   - by attributes
 
 **Tip:** https://on.cypress.io/best-practices#Selecting-Elements
+
++++
+## 🏁 Conclusions
+
+- most commands retry
+- run Cypress in headless mode on CI with `cypress run`
+- screenshots and videos
+
+➡️ Pick the [next section](https://github.com/cypress-io/testing-workshop-cypress#content-)
