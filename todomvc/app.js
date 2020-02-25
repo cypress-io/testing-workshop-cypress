@@ -82,9 +82,16 @@
           completed: false,
           id: randomId()
         }
-        axios.post('/todos', todo).then(() => {
-          commit('ADD_TODO', todo)
-        })
+        // artificial delay in the application
+        // for test "flaky test - can pass or not depending on the app's speed"
+        // in cypress/integration/11-retry-ability/answer.js
+        // increase the timeout delay to make the test fail
+        // 50ms should be good
+        setTimeout(() => {
+          axios.post('/todos', todo).then(() => {
+            commit('ADD_TODO', todo)
+          })
+        }, 0)
       },
       addEntireTodo({ commit }, todoFields) {
         const todo = {

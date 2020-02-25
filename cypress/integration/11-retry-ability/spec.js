@@ -10,7 +10,7 @@ beforeEach(function visitSite() {
   cy.visit('/')
 })
 
-it('shows UL', function() {
+it('shows UL', function () {
   cy.get('.new-todo')
     .type('todo A{enter}')
     .type('todo B{enter}')
@@ -23,7 +23,7 @@ it('shows UL', function() {
   //  3. css property "list-style-type" is equal "none"
 })
 
-it('shows UL - TDD', function() {
+it('shows UL - TDD', function () {
   cy.get('.new-todo')
     .type('todo A{enter}')
     .type('todo B{enter}')
@@ -37,7 +37,7 @@ it('shows UL - TDD', function() {
   })
 })
 
-it('every item starts with todo', function() {
+it('every item starts with todo', function () {
   cy.get('.new-todo')
     .type('todo A{enter}')
     .type('todo B{enter}')
@@ -54,12 +54,18 @@ it('has the right label', () => {
   // ?
 })
 
+// flaky test - can pass or not depending on the app's speed
+// to make the test flaky add the timeout
+// in todomvc/app.js "addTodo({ commit, state })" method
 it('has two labels', () => {
   cy.get('.new-todo').type('todo A{enter}')
-  // ?
+  cy.get('.todo-list li') // command
+    .find('label') // command
+    .should('contain', 'todo A') // assertion
 
   cy.get('.new-todo').type('todo B{enter}')
-  // ?
+  // ? copy the same check as above
+  // then make the test flaky ...
 })
 
 it('solution 1: merges queries', () => {
