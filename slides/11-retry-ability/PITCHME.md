@@ -63,9 +63,9 @@ expect($el).to.have.prop('disabled', false)
 
 If you must, there are TDD assertions like
 
-```
-assert.equal(3, 3, 'vals equal')
-assert.isTrue(true, 'this val is true')
+```js
+assert.equal(3, 3, 'values are equal')
+assert.isTrue(true, 'this value is true')
 ```
 
 [on/assertions#TDD-Assertions](https://on.cypress.io/assertions#TDD-Assertions)
@@ -331,11 +331,11 @@ it('has two labels', () => {
 // todomvc/app.js
 addTodo ({ commit, state }) {
   // ...
-  axios.post('/todos', todo).then(() => {
-    setTimeout(() => { // add delay
+  setTimeout(() => {
+    axios.post('/todos', todo).then(() => {
       commit('ADD_TODO', todo)
-    }, 100)           // of 100ms
-  })
+    })
+  }, 0)
 },
 ```
 

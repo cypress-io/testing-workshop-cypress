@@ -85,9 +85,7 @@ Repo [@bahmutov/cly](https://github.com/bahmutov/cly)
 - repo [github.com/cypress-io/cypress-example-kitchensink](https://github.com/cypress-io/cypress-example-kitchensink)
 - site [example.cypress.io](http://example.cypress.io)
 
-### Todo
-
-Look at any particular group of commands, like [Querying](https://example.cypress.io/commands/querying) or [Assertions](https://example.cypress.io/commands/assertions)
+**Todo:** look at any particular group of commands, like [Querying](https://example.cypress.io/commands/querying) or [Assertions](https://example.cypress.io/commands/assertions)
 
 +++
 ## First spec
@@ -224,3 +222,12 @@ Students should know where to find information later on. Main resources is the a
 @snap[east]
 Bonus: extension [vscode-icons](https://github.com/vscode-icons/vscode-icons)
 @snapend
+
++++
+
+## 🏁 Conclusions
+
+- use IntelliSense
+- use Docs are [https://docs.cypress.io/](https://docs.cypress.io/)
+
+➡️ Pick the [next section](https://github.com/cypress-io/testing-workshop-cypress#content-)

@@ -54,12 +54,18 @@ it('has the right label', () => {
   // ?
 })
 
+// flaky test - can pass or not depending on the app's speed
+// to make the test flaky add the timeout
+// in todomvc/app.js "addTodo({ commit, state })" method
 it('has two labels', () => {
   cy.get('.new-todo').type('todo A{enter}')
-  // ?
+  cy.get('.todo-list li') // command
+    .find('label') // command
+    .should('contain', 'todo A') // assertion
 
   cy.get('.new-todo').type('todo B{enter}')
-  // ?
+  // ? copy the same check as above
+  // then make the test flaky ...
 })
 
 it('solution 1: merges queries', () => {

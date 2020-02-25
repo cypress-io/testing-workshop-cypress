@@ -16,8 +16,10 @@ commands:
       - restore_cache:
           keys:
           - dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - dependencies-
+          # do not fall back to the previous cache
+          # otherwise we will be "rolling over" previous Cypress binaries
+          # adding newer versions until the cache is huge
+          # we need "cypress cache prune" command
 
   install-dependencies:
     # Install NPM dependencies quickly using "npm ci"

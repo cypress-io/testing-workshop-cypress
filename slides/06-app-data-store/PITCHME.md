@@ -119,6 +119,36 @@ Write a test that:
 - dispatches actions to the store to add items
 - confirms new items are added to the DOM
 
+(see next slide)
++++
+
+```js
+it('adds todos via app', () => {
+  // bypass the UI and call app's actions directly from the test
+  // app.$store.dispatch('setNewTodo', <desired text>)
+  // app.$store.dispatch('addTodo')
+  // using https://on.cypress.io/invoke
+  // bypass the UI and call app's actions directly from the test
+  // app.$store.dispatch('setNewTodo', <desired text>)
+  // app.$store.dispatch('addTodo')
+  // and then check the UI
+})
+```
+
++++
+## Todo: test edge data case
+
+```js
+it('handles todos with blank title', () => {
+  // add todo that the user cannot add via UI
+  cy.window()
+    .its('app.$store')
+    .invoke('dispatch', 'setNewTodo', '  ')
+  // app.$store.dispatch('addTodo')
+  // confirm the UI
+})
+```
+
 +++
 
 ### ⚠️ Watch out for stale data
@@ -152,3 +182,10 @@ getStore()
   .should('have.length', 1)
 // do other checks
 ```
+
++++
+## 🏁 App Access
+
+- when needed, you can access the application directly from the test
+
+Read also: https://www.cypress.io/blog/2018/11/14/testing-redux-store/
