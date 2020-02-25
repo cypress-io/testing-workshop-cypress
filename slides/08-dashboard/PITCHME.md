@@ -22,8 +22,9 @@
 
 - store test results and videos
 - insight into each failure
-- parallel test execution (coming soon)
-- integrations (coming)
+- parallel test execution
+- GitHub integration
+- analytics (WIP)
 
 +++
 
