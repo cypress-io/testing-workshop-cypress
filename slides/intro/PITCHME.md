@@ -158,4 +158,4 @@ This app has been coded and described in this blog post [https://www.cypress.io/
 
 This app has been coded and described in this blog post [https://www.cypress.io/blog/2017/11/28/testing-vue-web-application-with-vuex-data-store-and-rest-backend/](https://www.cypress.io/blog/2017/11/28/testing-vue-web-application-with-vuex-data-store-and-rest-backend/)
 
-➡️ Go to the next section
+➡️ Pick the [next section](https://github.com/cypress-io/testing-workshop-cypress#content-)
