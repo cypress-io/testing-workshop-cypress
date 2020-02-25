@@ -208,3 +208,16 @@ In the application we are showing (very quickly) "Loading" state
 - assert the "Loading" element goes away after XHR completes
 
 ⌨️ test "shows loading element"
+
++++
+## Let's test edge data cases
+
+User cannot enter blank titles. What if our database has old data records with blank titles?
+
+**Todo** write the test `handles todos with blank title`
+
++++
+## 🏁 Spy and stub the network from your tests
+
+- confirm the REST calls
+- stub random data

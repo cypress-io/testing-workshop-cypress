@@ -5,7 +5,9 @@ it('loads', () => {
   cy.contains('h1', 'todos')
 })
 
+// IMPORTANT ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 // remember to manually delete all items before running the test
+// IMPORTANT ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 
 it('adds two items', () => {
   // repeat twice
@@ -53,6 +55,16 @@ it('starts with zero items', () => {
   //   in the list
   //   use cy.get(...) and it should have length of 0
   //   https://on.cypress.io/get
+})
+
+it('does not allow adding blank todos', () => {
+  // https://on.cypress.io/catalog-of-events#App-Events
+  cy.on('uncaught:exception', () => {
+    // check e.message to match expected error text
+    // return false if you want to ignore the error
+  })
+
+  // try adding an item with just spaces
 })
 
 // what a challenge?

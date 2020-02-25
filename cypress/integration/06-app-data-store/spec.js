@@ -62,3 +62,12 @@ it('puts the todo items into the data store', () => {
   // get the data store
   // check its contents
 })
+
+it('handles todos with blank title', () => {
+  // bypass the UI and call app's actions directly from the test
+  // app.$store.dispatch('setNewTodo', <desired text>)
+  // app.$store.dispatch('addTodo')
+  // using https://on.cypress.io/invoke
+  // and then
+  // confirm the application is not breaking
+})

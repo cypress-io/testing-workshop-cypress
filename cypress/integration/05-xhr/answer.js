@@ -145,3 +145,22 @@ it('shows loading element', () => {
   // now the Loading element should go away
   cy.get('.loading').should('not.be.visible')
 })
+
+it('handles todos with blank title', () => {
+  cy.server()
+  cy.route('/todos', [
+    {
+      id: '123',
+      title: '  ',
+      completed: false
+    }
+  ])
+
+  cy.visit('/')
+  cy.get('li.todo')
+    .should('have.length', 1)
+    .first()
+    .should('not.have.class', 'completed')
+    .find('label')
+    .should('have.text', '  ')
+})

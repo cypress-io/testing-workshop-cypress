@@ -1,9 +1,10 @@
-/* global Vue, Vuex, axios, FileReader, window, Promise */
+/* global Vue, Vuex, axios */
 /* eslint-disable no-console */
-;(function () {
+/* eslint-disable-next-line */
+; (function () {
   Vue.use(Vuex)
 
-  function randomId () {
+  function randomId() {
     return Math.random()
       .toString()
       .substr(2, 10)
@@ -21,30 +22,30 @@
       loading: state => state.loading
     },
     mutations: {
-      SET_LOADING (state, flag) {
+      SET_LOADING(state, flag) {
         state.loading = flag
       },
-      SET_TODOS (state, todos) {
+      SET_TODOS(state, todos) {
         state.todos = todos
       },
-      SET_NEW_TODO (state, todo) {
+      SET_NEW_TODO(state, todo) {
         state.newTodo = todo
       },
-      ADD_TODO (state, todoObject) {
+      ADD_TODO(state, todoObject) {
         console.log('add todo', todoObject)
         state.todos.push(todoObject)
       },
-      REMOVE_TODO (state, todo) {
+      REMOVE_TODO(state, todo) {
         let todos = state.todos
         todos.splice(todos.indexOf(todo), 1)
       },
-      CLEAR_NEW_TODO (state) {
+      CLEAR_NEW_TODO(state) {
         state.newTodo = ''
         console.log('clearing new todo')
       }
     },
     actions: {
-      loadTodos ({ commit }) {
+      loadTodos({ commit }) {
         commit('SET_LOADING', true)
 
         axios
@@ -68,10 +69,10 @@
        * @param {any} { commit }
        * @param {string} todo Message
        */
-      setNewTodo ({ commit }, todo) {
+      setNewTodo({ commit }, todo) {
         commit('SET_NEW_TODO', todo)
       },
-      addTodo ({ commit, state }) {
+      addTodo({ commit, state }) {
         if (!state.newTodo) {
           // do not add empty todos
           return
@@ -85,8 +86,7 @@
           commit('ADD_TODO', todo)
         })
       },
-      addEntireTodo ({ commit }, todoFields) {
-        debugger
+      addEntireTodo({ commit }, todoFields) {
         const todo = {
           ...todoFields,
           id: randomId()
@@ -95,17 +95,17 @@
           commit('ADD_TODO', todo)
         })
       },
-      removeTodo ({ commit }, todo) {
+      removeTodo({ commit }, todo) {
         axios.delete(`/todos/${todo.id}`).then(() => {
           console.log('removed todo', todo.id, 'from the server')
           commit('REMOVE_TODO', todo)
         })
       },
-      clearNewTodo ({ commit }) {
+      clearNewTodo({ commit }) {
         commit('CLEAR_NEW_TODO')
       },
       // example promise-returning action
-      addTodoAfterDelay ({ commit }, { milliseconds, title }) {
+      addTodoAfterDelay({ commit }, { milliseconds, title }) {
         return new Promise(resolve => {
           setTimeout(() => {
             const todo = {
@@ -129,20 +129,20 @@
     },
     el: '.todoapp',
 
-    created () {
+    created() {
       this.$store.dispatch('loadTodos')
     },
 
     // computed properties
     // https://vuejs.org/guide/computed.html
     computed: {
-      loading () {
+      loading() {
         return this.$store.getters.loading
       },
-      newTodo () {
+      newTodo() {
         return this.$store.getters.newTodo
       },
-      todos () {
+      todos() {
         return this.$store.getters.todos
       }
     },
@@ -150,22 +150,26 @@
     // methods that implement data logic.
     // note there's no DOM manipulation here at all.
     methods: {
-      setNewTodo (e) {
+      setNewTodo(e) {
         this.$store.dispatch('setNewTodo', e.target.value)
       },
 
-      addTodo (e) {
+      addTodo(e) {
+        // do not allow adding empty todos
+        if (!e.target.value.trim()) {
+          throw new Error('Cannot add a blank todo')
+        }
         e.target.value = ''
         this.$store.dispatch('addTodo')
         this.$store.dispatch('clearNewTodo')
       },
 
-      removeTodo (todo) {
+      removeTodo(todo) {
         this.$store.dispatch('removeTodo', todo)
       },
 
       // utility method for create a todo with title and completed state
-      addEntireTodo (title, completed = false) {
+      addEntireTodo(title, completed = false) {
         this.$store.dispatch('addEntireTodo', { title, completed })
       }
     }

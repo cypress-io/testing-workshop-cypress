@@ -62,3 +62,43 @@ it('puts todos in the store', () => {
       { title: 'else', completed: false, id: '2' }
     ])
 })
+
+it('adds todos via app', () => {
+  // bypass the UI and call app's actions directly from the test
+  // app.$store.dispatch('setNewTodo', <desired text>)
+  // app.$store.dispatch('addTodo')
+  // using https://on.cypress.io/invoke
+  // bypass the UI and call app's actions directly from the test
+  // app.$store.dispatch('setNewTodo', <desired text>)
+  // app.$store.dispatch('addTodo')
+  cy.window()
+    .its('app.$store')
+    .invoke('dispatch', 'setNewTodo', 'new todo')
+
+  cy.window()
+    .its('app.$store')
+    .invoke('dispatch', 'addTodo')
+  // and then check the UI
+  cy.contains('li.todo', 'new todo')
+})
+
+it('handles todos with blank title', () => {
+  // bypass the UI and call app's actions directly from the test
+  // app.$store.dispatch('setNewTodo', <desired text>)
+  // app.$store.dispatch('addTodo')
+  cy.window()
+    .its('app.$store')
+    .invoke('dispatch', 'setNewTodo', '  ')
+
+  cy.window()
+    .its('app.$store')
+    .invoke('dispatch', 'addTodo')
+
+  // confirm the application is not breaking
+  cy.get('li.todo')
+    .should('have.length', 1)
+    .first()
+    .should('not.have.class', 'completed')
+    .find('label')
+    .should('have.text', '  ')
+})

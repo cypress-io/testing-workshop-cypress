@@ -100,3 +100,9 @@ it('shows loading element', () => {
   // wait for the network call to complete
   // now the Loading element should go away
 })
+
+it('handles todos with blank title', () => {
+  // return a list of todos with one todo object
+  // having blank spaces or null
+  // confirm the todo item is shown correctly
+})
