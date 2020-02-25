@@ -222,3 +222,12 @@ Students should know where to find information later on. Main resources is the a
 @snap[east]
 Bonus: extension [vscode-icons](https://github.com/vscode-icons/vscode-icons)
 @snapend
+
++++
+
+## 🏁 Conclusions
+
+- use IntelliSense
+- use Docs are [https://docs.cypress.io/](https://docs.cypress.io/)
+
+➡️ Pick the [next section](https://github.com/cypress-io/testing-workshop-cypress#content-)
