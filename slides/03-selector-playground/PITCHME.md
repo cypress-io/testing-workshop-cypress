@@ -72,3 +72,12 @@ it('finds element', () => {
   cy.get(tid('item')).should('have.length', 1)
 })
 ```
+
++++
+## 🏁 Selecting Elements
+
+- Use Selector Playground
+- follow [https://on.cypress.io/best-practices#Selecting-Elements](https://on.cypress.io/best-practices#Selecting-Elements)
+- **bonus:** try [@testing-library/cypress](https://testing-library.com/docs/cypress-testing-library/intro)
+
+➡️ Pick the [next section](https://github.com/cypress-io/testing-workshop-cypress#content-)
