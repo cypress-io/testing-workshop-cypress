@@ -10,7 +10,7 @@ beforeEach(function visitSite() {
   cy.visit('/')
 })
 
-it('shows UL', function () {
+it('shows UL', function() {
   cy.get('.new-todo')
     .type('todo A{enter}')
     .type('todo B{enter}')
@@ -23,7 +23,7 @@ it('shows UL', function () {
   //  3. css property "list-style-type" is equal "none"
 })
 
-it('shows UL - TDD', function () {
+it('shows UL - TDD', function() {
   cy.get('.new-todo')
     .type('todo A{enter}')
     .type('todo B{enter}')
@@ -37,7 +37,7 @@ it('shows UL - TDD', function () {
   })
 })
 
-it('every item starts with todo', function () {
+it('every item starts with todo', function() {
   cy.get('.new-todo')
     .type('todo A{enter}')
     .type('todo B{enter}')
