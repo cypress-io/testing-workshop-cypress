@@ -85,9 +85,7 @@ Repo [@bahmutov/cly](https://github.com/bahmutov/cly)
 - repo [github.com/cypress-io/cypress-example-kitchensink](https://github.com/cypress-io/cypress-example-kitchensink)
 - site [example.cypress.io](http://example.cypress.io)
 
-### Todo
-
-Look at any particular group of commands, like [Querying](https://example.cypress.io/commands/querying) or [Assertions](https://example.cypress.io/commands/assertions)
+**Todo:** look at any particular group of commands, like [Querying](https://example.cypress.io/commands/querying) or [Assertions](https://example.cypress.io/commands/assertions)
 
 +++
 ## First spec
