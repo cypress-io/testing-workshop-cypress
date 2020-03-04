@@ -5,7 +5,7 @@
 ## Requirements ⚙️
 
 - Any computer: Mac, Windows, Linux
-- [Node 8+](https://nodejs.org/)
+- [Node 8+ (LTS)](https://nodejs.org/), check [GH workflow file](.github/workflows/min-node-version.yml)
 - [git](https://git-scm.com)
 
 In order to get the code and install dependencies
