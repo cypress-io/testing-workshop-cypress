@@ -17,6 +17,11 @@ beforeEach(function stubRandomId() {
       }).as('random') // save reference to the spy
     })
 })
+afterEach(() => {
+  // makes debugging failing tests much simpler
+  cy.screenshot('runner')
+})
+
 /**
  * Adds a todo item
  * @param {string} text
