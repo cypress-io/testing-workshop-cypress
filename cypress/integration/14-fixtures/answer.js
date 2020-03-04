@@ -95,7 +95,10 @@ context('reading todos.json', () => {
     })
   })
 
-  it('saves todo', () => {
+  // NOT RECOMMENDED
+  // because json-server can restart itself on file change
+  // and not bind to its port :( and never start again
+  it.skip('saves todo', () => {
     cy.request('POST', '/reset', { todos: [] })
     cy.visit('/')
     cy.get('.new-todo').type('for test{enter}')
