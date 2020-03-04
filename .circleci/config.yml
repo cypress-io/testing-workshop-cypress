@@ -125,6 +125,8 @@ jobs:
           name: Lint code
           command: npm run lint
 
+      - run: npx cypress info
+
       - run:
           name: Start and test
           command: npm run ci
