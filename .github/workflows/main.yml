@@ -11,6 +11,8 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v1
         with:
+          # let's find what the environment provides
+          build: npx cypress info
           start: npm start
           wait-on: 'http://localhost:3000'
           spec: 'cypress/integration/07-ci/*'
