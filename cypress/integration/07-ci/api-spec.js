@@ -18,17 +18,30 @@ describe('via API', () => {
   })
 
   const addTodo = title =>
-    cy.request('POST', '/todos', {
-      title,
-      completed: false,
-      id: String(counter++)
-    })
+    // the way to print newly created id in the command log
+    cy
+      .request('POST', '/todos', {
+        title,
+        completed: false,
+        id: String(counter++)
+      })
+      .its('body.id').then(cy.log)
 
-  const fetchTodos = () => cy.request('/todos').its('body')
+  /**
+   * Fetches TODO items, returns just the body of the XHR request.
+   */
+  const fetchTodos = () =>
+    cy
+      .request('/todos')
+      .its('body')
+      .then(list => {
+        cy.log(JSON.stringify(list, null, 2))
+        cy.wrap(list, { log: false })
+      })
 
   const deleteTodo = id => cy.request('DELETE', `/todos/${id}`)
 
-  it('adds todo', () => {
+  it('adds 2 todos', () => {
     addTodo('first todo')
     addTodo('second todo')
     fetchTodos().should('have.length', 2)
@@ -65,27 +78,29 @@ describe('via API', () => {
   })
 })
 
-it('initial todos', () => {
-  cy.server()
-  cy.route('/todos', [
-    {
-      title: 'mock first',
-      completed: false,
-      id: '1'
-    },
-    {
-      title: 'mock second',
-      completed: true,
-      id: '2'
-    }
-  ])
+describe('stub network', () => {
+  it('initial todos', () => {
+    cy.server()
+    cy.route('/todos', [
+      {
+        title: 'mock first',
+        completed: false,
+        id: '1'
+      },
+      {
+        title: 'mock second',
+        completed: true,
+        id: '2'
+      }
+    ])
 
-  visit(true)
-  getTodoItems()
-    .should('have.length', 2)
-    .contains('li', 'mock second')
-    .find('.toggle')
-    .should('be.checked')
+    visit(true)
+    getTodoItems()
+      .should('have.length', 2)
+      .contains('li', 'mock second')
+      .find('.toggle')
+      .should('be.checked')
+  })
 })
 
 describe('API', () => {
