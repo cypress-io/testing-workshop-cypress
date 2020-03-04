@@ -25,7 +25,8 @@ describe('via API', () => {
         completed: false,
         id: String(counter++)
       })
-      .its('body.id').then(cy.log)
+      .its('body.id')
+      .then(cy.log)
 
   /**
    * Fetches TODO items, returns just the body of the XHR request.
