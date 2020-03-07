@@ -40,7 +40,7 @@
     "@babel/plugin-proposal-do-expressions": "7.5.0",
     "@cypress/browserify-preprocessor": "2.1.4",
     "@cypress/code-coverage": "1.10.4",
-    "babel-plugin-istanbul": "5.2.0",
+    "babel-plugin-istanbul": "6.0.0",
     "cypress": "4.1.0",
     "cypress-dark": "1.7.14",
     "cypress-failed-log": "2.5.1",
