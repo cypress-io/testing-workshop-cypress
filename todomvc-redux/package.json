@@ -9,8 +9,8 @@
     "report:coverage:text": "nyc report --reporter=text"
   },
   "devDependencies": {
-    "@babel/core": "7.5.5",
-    "@babel/preset-react": "7.0.0",
+    "@babel/core": "7.9.6",
+    "@babel/preset-react": "7.9.4",
     "babel-plugin-istanbul": "5.2.0",
     "babel-plugin-transform-class-properties": "6.24.1",
     "parcel-bundler": "1.12.4",

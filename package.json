@@ -37,7 +37,7 @@
   },
   "homepage": "https://github.com/cypress-io/testing-workshop-cypress#readme",
   "devDependencies": {
-    "@babel/plugin-proposal-do-expressions": "7.5.0",
+    "@babel/plugin-proposal-do-expressions": "7.8.3",
     "@cypress/browserify-preprocessor": "2.1.4",
     "@cypress/code-coverage": "1.10.4",
     "babel-plugin-istanbul": "5.2.0",
