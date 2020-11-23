@@ -87,7 +87,7 @@ it('adds todos via app', () => {
   cy.contains('li.todo', 'new todo')
 })
 
-it('handles todos with blank title', () => {
+it('handles todos with blank title', { retries: 4 }, () => {
   // bypass the UI and call app's actions directly from the test
   // app.$store.dispatch('setNewTodo', <desired text>)
   // app.$store.dispatch('addTodo')
