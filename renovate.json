@@ -27,7 +27,6 @@
         "@cypress/browserify-preprocessor",
         "cypress-react-unit-test",
         "cypress-xpath",
-        "prettier",
         "start-server-and-test",
         "typescript"
       ],
