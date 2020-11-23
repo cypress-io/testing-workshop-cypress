@@ -7,7 +7,10 @@ const addItem = text => {
   cy.get('.new-todo').type(`${text}{enter}`)
 }
 
-describe('App Data Store', () => {
+// allow re-running each test up to 2 more attempts
+// on failure. This avoids flaky tests on CI
+// https://on.cypress.io/test-retries
+describe('App Data Store', { retries: 2 }, () => {
   beforeEach(() => {
     cy.request('POST', '/reset', {
       todos: []
@@ -89,7 +92,7 @@ describe('App Data Store', () => {
     cy.contains('li.todo', 'new todo')
   })
 
-  it('handles todos with blank title', { retries: 2 }, () => {
+  it('handles todos with blank title', () => {
     // bypass the UI and call app's actions directly from the test
     // app.$store.dispatch('setNewTodo', <desired text>)
     // app.$store.dispatch('addTodo')
