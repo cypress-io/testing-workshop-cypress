@@ -161,6 +161,8 @@ jobs:
       - test-answers:
           folder: "02-adding-items"
       - test-answers:
+          folder: "03-selector-playground"
+      - test-answers:
           folder: "04-reset-state"
       - test-answers:
           folder: "05-xhr"
