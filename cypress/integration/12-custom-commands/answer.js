@@ -1,6 +1,7 @@
 /// <reference types="cypress" />
 /// <reference path="./custom-commands.d.ts" />
-import { resetData, visitSite } from '../../support/hooks'
+require('cypress-pipe')
+import { resetData, visitSite } from '../../support/utils'
 
 beforeEach(resetData)
 beforeEach(visitSite)

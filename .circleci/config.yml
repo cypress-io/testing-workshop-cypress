@@ -171,6 +171,8 @@ jobs:
       - test-answers:
           folder: "11-retry-ability"
       - test-answers:
+          folder: "12-custom-commands"
+      - test-answers:
           folder: "14-fixtures"
 
       # For section "13-app-actions" we need to start React application
