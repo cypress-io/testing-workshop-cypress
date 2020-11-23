@@ -15,5 +15,23 @@
   "schedule": [
     "every weekend"
   ],
-  "masterIssue": true
+  "masterIssue": true,
+  "packageRules": [
+    {
+      "packagePatterns": [
+        "*"
+      ],
+      "excludePackagePatterns": [
+        "cypress",
+        "@cypress/code-coverage",
+        "@cypress/browserify-preprocessor",
+        "cypress-react-unit-test",
+        "cypress-xpath",
+        "prettier",
+        "start-server-and-test",
+        "typescript"
+      ],
+      "enabled": false
+    }
+  ]
 }
