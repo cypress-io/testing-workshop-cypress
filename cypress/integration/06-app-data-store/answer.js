@@ -26,7 +26,8 @@ describe('App Data Store', () => {
         }).as('random') // save reference to the spy
       })
   })
-  afterEach(function () {
+
+  afterEach(function() {
     // makes debugging failing tests much simpler
     cy.screenshot(this.currentTest.fullTitle())
   })
