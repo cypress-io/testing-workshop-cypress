@@ -29,3 +29,6 @@ import './commands'
 
 // load commands for code coverage
 // require('@cypress/code-coverage/support')
+
+// https://github.com/bahmutov/cypress-timings
+require('cypress-timings').commandTimings()

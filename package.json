@@ -47,6 +47,7 @@
     "cypress-pipe": "1.6.0",
     "cypress-plugin-snapshots": "1.2.9",
     "cypress-react-unit-test": "2.4.3",
+    "cypress-timings": "1.0.0",
     "cypress-xpath": "1.4.0",
     "debug": "4.1.1",
     "eslint": "6.8.0",
