@@ -1,7 +1,7 @@
 /* global Vue, Vuex, axios */
 /* eslint-disable no-console */
 /* eslint-disable-next-line */
-; (function () {
+;(function() {
   Vue.use(Vuex)
 
   function randomId() {
