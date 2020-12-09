@@ -8,7 +8,9 @@ import {
 } from '../../support/utils'
 
 // testing TodoMVC server API
-describe('via API', () => {
+// because json-server can fail sometimes, let the tests retry
+// https://on.cypress.io/test-retries
+describe('via API', { retries: 2 }, () => {
   beforeEach(resetDatabase)
 
   // used to create predictable ids
