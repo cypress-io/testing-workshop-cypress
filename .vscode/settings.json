@@ -1,7 +1,6 @@
 {
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "editor.formatOnSave": true,
-  "eslint.enable": true,
   "standard.autoFixOnSave": false,
   "peacock.affectActivityBar": true,
   "peacock.affectTitleBar": true,
