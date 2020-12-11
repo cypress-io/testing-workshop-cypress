@@ -138,4 +138,37 @@ describe('intercept', () => {
       })
     })
   })
+
+  context('common headers', () => {
+    // let's say that every intercept needs the same headers in the response
+    const headers = {
+      'access-control-allow-origin': Cypress.config('baseUrl'),
+      'Access-Control-Allow-Credentials': 'true'
+    }
+
+    const mergeResponse = (options = {}) => {
+      return Object.assign({}, { headers }, options)
+    }
+
+    it('stubs several requests and has the headers', () => {
+      // the initial list of todo items
+      cy.intercept(
+        'GET',
+        '/todos',
+        mergeResponse({ fixture: 'two-items.json' })
+      ).as('todos')
+      cy.visit('/')
+      cy.get('.todo').should('have.length', 2)
+      cy.wait('@todos')
+        .its('response.headers')
+        .should('include', headers) // our headers are present on the response
+
+      // let's stub posting a new item
+      cy.intercept('POST', '/todos', mergeResponse({ body: {} })).as('newTodo')
+      cy.get('.new-todo').type('new item{enter}')
+      cy.wait('@newTodo')
+        .its('response.headers')
+        .should('include', headers) // our headers are present on the response
+    })
+  })
 })
