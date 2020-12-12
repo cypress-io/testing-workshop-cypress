@@ -67,7 +67,7 @@ commands:
       # we are running just a single answers file in a particular subfolder here
       # if you want to run answers in EVERY subfolder at once use command
       # npx cypress run --spec 'cypress/integration/*/answer.js' --config ignoreTestFiles="",supportFile=cypress/support/reset.js
-      - run: npx cypress run --spec 'cypress/integration/<< parameters.folder >>/answer.js' --config ignoreTestFiles="",supportFile=cypress/support/reset.js
+      - run: npx cypress run --spec 'cypress/integration/<< parameters.folder >>/answer*.js' --config ignoreTestFiles="",supportFile=cypress/support/reset.js
 
   store-test-artifacts:
     description: Saves Cypress screenshots and videos
