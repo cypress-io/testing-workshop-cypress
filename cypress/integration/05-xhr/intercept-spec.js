@@ -171,4 +171,68 @@ describe('intercept', () => {
         .should('include', headers) // our headers are present on the response
     })
   })
+
+  context('no overwriting interceptors', () => {
+    describe('overwrite does not work', () => {
+      beforeEach(() => {
+        cy.intercept('GET', '/todos', []) // start with zero todos
+        cy.visit('/')
+      })
+
+      it('adds a todo', () => {
+        cy.get('.new-todo').type('write test{enter}')
+        cy.get('.todo').should('have.length', 1)
+      })
+
+      it('completes todo', () => {
+        cy.get('.new-todo').type('write test{enter}')
+        cy.get('.todo')
+          .should('have.length', 1)
+          .first()
+          .find('.toggle')
+          .click()
+        cy.contains('.todo', 'write test').should('have.class', 'completed')
+      })
+
+      it.skip('shows the initial todos', () => {
+        // hmm overwrite the intercept?
+        cy.intercept('GET', '/todos', { fixture: 'two-items.json' })
+        cy.visit('/')
+        cy.get('.todo').should('have.length', 2)
+      })
+    })
+
+    describe('separate tests and hooks', () => {
+      context('start with zero todos', () => {
+        beforeEach(() => {
+          cy.intercept('GET', '/todos', [])
+          cy.visit('/')
+        })
+
+        it('adds a todo', () => {
+          cy.get('.new-todo').type('write test{enter}')
+          cy.get('.todo').should('have.length', 1)
+        })
+
+        it('completes todo', () => {
+          cy.get('.new-todo').type('write test{enter}')
+          cy.get('.todo')
+            .should('have.length', 1)
+            .first()
+            .find('.toggle')
+            .click()
+          cy.contains('.todo', 'write test').should('have.class', 'completed')
+        })
+      })
+
+      context('start with two items', () => {
+        it('shows the initial todos', () => {
+          // hmm overwrite the intercept?
+          cy.intercept('GET', '/todos', { fixture: 'two-items.json' })
+          cy.visit('/')
+          cy.get('.todo').should('have.length', 2)
+        })
+      })
+    })
+  })
 })
