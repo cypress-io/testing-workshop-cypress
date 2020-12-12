@@ -12,3 +12,4 @@ dist
 coverage
 npm-debug.log
 todomvc-redux/.cache
+posted.json

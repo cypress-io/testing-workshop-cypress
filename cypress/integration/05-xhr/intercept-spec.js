@@ -235,4 +235,38 @@ describe('intercept', () => {
       })
     })
   })
+
+  context('no Cypress commands inside the interceptor', () => {
+    beforeEach(resetDatabase)
+
+    it.skip('tries to use cy.writeFile', () => {
+      cy.visit('/')
+      cy.intercept('POST', '/todos', req => {
+        console.log('POST /todo', req)
+        cy.writeFile('posted.json', JSON.stringify(req.body, null, 2))
+      })
+
+      cy.get('.new-todo').type('an example{enter}')
+    })
+
+    it('saves it later', () => {
+      let body
+
+      cy.visit('/')
+      cy.intercept('POST', '/todos', req => {
+        console.log('POST /todo', req)
+        body = req.body
+      }).as('post')
+
+      cy.get('.new-todo')
+        .type('an example{enter}')
+        .wait('@post')
+        .then(() => {
+          // this callback executes AFTER the "cy.wait" command above
+          // thus by now the "body" variable has been set and we can
+          // write the contents to the file
+          cy.writeFile('posted.json', JSON.stringify(body, null, 2))
+        })
+    })
+  })
 })
