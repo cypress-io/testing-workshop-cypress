@@ -1,6 +1,7 @@
 /// <reference types="cypress" />
 
 import { resetDatabase } from '../../support/utils'
+import twoItems from '../../fixtures/two-items.json'
 
 // this spec shows several "gotchas" our users experience
 // when using cy.intercept method
@@ -267,6 +268,57 @@ describe('intercept', () => {
           // write the contents to the file
           cy.writeFile('posted.json', JSON.stringify(body, null, 2))
         })
+    })
+  })
+
+  context('return different data for 2nd request', () => {
+    it.skip('returns list with more items on page reload (does not work)', () => {
+      // we start with 2 items in the list
+      cy.intercept('GET', '/todos', twoItems)
+      cy.visit('/')
+      cy.get('.todo').should('have.length', 2)
+
+      // now we add the third item
+      const item = {
+        title: 'Third item',
+        completed: false,
+        id: 101
+      }
+      // the server replies with the posted item
+      cy.intercept('POST', '/todos', item).as('post')
+      cy.get('.new-todo').type(item.title + '{enter}')
+      cy.wait('@post')
+
+      // when the page reloads we expect the server to send 3 items
+      const threeItems = Cypress._.cloneDeep(twoItems).concat(item)
+      cy.intercept('GET', '/todos', threeItems)
+      cy.reload()
+      cy.get('.todo').should('have.length', 3)
+    })
+
+    it('returns list with more items on page reload', () => {
+      const item = {
+        title: 'Third item',
+        completed: false,
+        id: 101
+      }
+      // we start with 2 items in the list
+      // when the page reloads we expect the server to send 3 items
+      const threeItems = Cypress._.cloneDeep(twoItems).concat(item)
+      const replies = [twoItems, threeItems]
+
+      // return a different response from the same intercept
+      cy.intercept('GET', '/todos', req => req.reply(replies.shift()))
+      cy.visit('/')
+      cy.get('.todo').should('have.length', 2)
+
+      // the server replies with the posted item
+      cy.intercept('POST', '/todos', item).as('post')
+      cy.get('.new-todo').type(item.title + '{enter}')
+      cy.wait('@post')
+
+      cy.reload()
+      cy.get('.todo').should('have.length', 3)
     })
   })
 })
