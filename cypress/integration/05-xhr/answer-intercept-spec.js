@@ -321,4 +321,66 @@ describe('intercept', () => {
       cy.get('.todo').should('have.length', 3)
     })
   })
+
+  context('overwrite interceptors', () => {
+    beforeEach(function resetIntercepts() {
+      Cypress.config('intercepts', {})
+    })
+
+    Cypress.Commands.add('http', (alias, method, url, response) => {
+      const key = `${alias}-${method}-${url}`
+      cy.log(`HTTP ${key}`)
+      const intercepts = Cypress.config('intercepts')
+
+      if (key in intercepts) {
+        intercepts[key] = response
+      } else {
+        intercepts[key] = response
+        cy.intercept(method, url, req => {
+          return req.reply(intercepts[key])
+        }).as(alias)
+      }
+    })
+
+    beforeEach(() => {
+      cy.http('todos', 'GET', '/todos', [])
+    })
+
+    it('adds a todo', () => {
+      cy.visit('/')
+      cy.get('.new-todo').type('write test{enter}')
+      cy.get('.todo').should('have.length', 1)
+    })
+
+    it('completes todo', () => {
+      cy.visit('/')
+      cy.get('.new-todo').type('write test{enter}')
+      cy.get('.todo')
+        .should('have.length', 1)
+        .first()
+        .find('.toggle')
+        .click()
+      cy.contains('.todo', 'write test').should('have.class', 'completed')
+    })
+
+    it('shows the initial todos', () => {
+      // overwrite the previous response with the new one
+      cy.http('todos', 'GET', '/todos', { fixture: 'two-items.json' })
+      cy.visit('/')
+      cy.get('.todo').should('have.length', 2)
+    })
+
+    it('adds a todo to the initial ones', () => {
+      // the application starts with two items
+      cy.http('todos', 'GET', '/todos', { fixture: 'two-items.json' })
+      cy.visit('/')
+      cy.get('.todo').should('have.length', 2)
+      cy.get('.new-todo').type('third item{enter}')
+
+      // now the server should return 3 items
+      cy.http('todos', 'GET', '/todos', { fixture: 'three-items.json' })
+      cy.reload()
+      cy.get('.todo').should('have.length', 3)
+    })
+  })
 })
