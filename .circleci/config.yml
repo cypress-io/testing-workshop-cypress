@@ -200,8 +200,26 @@ workflows:
       - single-command
       - answers
 
-      # run tests on Firefox browser using Cypress CircleCI Orb
+      # example jobs that use Cypress CircleCI Orb
       # see https://github.com/cypress-io/circleci-orb
+      - cypress/run:
+          name: using orb
+          executor: cypress/base-12-14-0
+          start: npm start
+          wait-on: 'http://localhost:3000'
+          spec: 'cypress/integration/07-ci/*'
+          no-workspace: true # since we don't need the workspace after this job
+
+      - cypress/run:
+          name: using orb and ram disk
+          executor: cypress/base-12-14-0
+          working_directory: /mnt/ramdisk
+          start: npm start
+          wait-on: 'http://localhost:3000'
+          spec: 'cypress/integration/07-ci/*'
+          no-workspace: true # since we don't need the workspace after this job
+
+      # run tests on Firefox browser
       - cypress/run:
           name: using Firefox
           executor: cypress/browsers-chrome78-ff70
