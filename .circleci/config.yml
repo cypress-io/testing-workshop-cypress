@@ -152,9 +152,13 @@ jobs:
           - ram-disk-dependencies-{{ checksum "package.json" }}
       # set NPM to cache its dependencies on RAM disk
       - run: npm config --global set cache /mnt/ramdisk/.npm
-
       - install-dependencies
-      # - cache-dependencies
+      # cache NPM and Cypress dependencies for the future build
+      - save_cache:
+          paths:
+            - /mnt/ramdisk/.npm
+            - /mnt/ramdisk/.cache
+          key: ram-disk-dependencies-{{ checksum "package.json" }}
 
       # - run:
       #     name: Start TodoMVC server
