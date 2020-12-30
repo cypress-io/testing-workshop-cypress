@@ -133,6 +133,32 @@ jobs:
 
       - store-test-artifacts
 
+  # speed up work by using memory instead of disk
+  # https://circleci.com/docs/2.0/executor-types/#ram-disks
+  using-ram-disk:
+    docker:
+      - image: cypress/base:12.14.0
+
+    working_directory: /mnt/ramdisk
+
+    steps:
+      - checkout
+      - restore-cached-dependencies
+      - install-dependencies
+      - cache-dependencies
+
+      - run:
+          name: Start TodoMVC server
+          command: npm start
+          working_directory: todomvc
+          background: true
+
+      - run:
+          name: Run Cypress tests
+          command: npm test
+
+      - store-test-artifacts
+
   # a job that runs through most of the answers to make sure they are correct
   # not all answers can run though without changing plugins or commands files yet
   answers:
@@ -199,21 +225,13 @@ workflows:
       - two-commands
       - single-command
       - answers
+      - using-ram-disk
 
       # example jobs that use Cypress CircleCI Orb
       # see https://github.com/cypress-io/circleci-orb
       - cypress/run:
           name: using orb
           executor: cypress/base-12-14-0
-          start: npm start
-          wait-on: 'http://localhost:3000'
-          spec: 'cypress/integration/07-ci/*'
-          no-workspace: true # since we don't need the workspace after this job
-
-      - cypress/run:
-          name: using orb and ram disk
-          executor: cypress/base-12-14-0
-          working_directory: /mnt/ramdisk
           start: npm start
           wait-on: 'http://localhost:3000'
           spec: 'cypress/integration/07-ci/*'
