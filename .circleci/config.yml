@@ -141,23 +141,32 @@ jobs:
 
     working_directory: /mnt/ramdisk
 
+    environment:
+      # set Cypress to cache its binary on RAM disk
+      CYPRESS_CACHE_FOLDER: /mnt/ramdisk/.cache/Cypress
+
     steps:
       - checkout
-      - restore-cached-dependencies
+      - restore_cache:
+          keys:
+          - ram-disk-dependencies-{{ checksum "package.json" }}
+      # set NPM to cache its dependencies on RAM disk
+      - run: npm config --global set cache /mnt/ramdisk/.npm
+
       - install-dependencies
-      - cache-dependencies
+      # - cache-dependencies
 
-      - run:
-          name: Start TodoMVC server
-          command: npm start
-          working_directory: todomvc
-          background: true
+      # - run:
+      #     name: Start TodoMVC server
+      #     command: npm start
+      #     working_directory: todomvc
+      #     background: true
 
-      - run:
-          name: Run Cypress tests
-          command: npm test
+      # - run:
+      #     name: Run Cypress tests
+      #     command: npm test
 
-      - store-test-artifacts
+      # - store-test-artifacts
 
   # a job that runs through most of the answers to make sure they are correct
   # not all answers can run though without changing plugins or commands files yet
