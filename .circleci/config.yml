@@ -160,17 +160,17 @@ jobs:
             - /mnt/ramdisk/.cache
           key: ram-disk-dependencies-{{ checksum "package.json" }}
 
-      # - run:
-      #     name: Start TodoMVC server
-      #     command: npm start
-      #     working_directory: todomvc
-      #     background: true
+      - run:
+          name: Start TodoMVC server
+          command: npm start
+          working_directory: todomvc
+          background: true
 
-      # - run:
-      #     name: Run Cypress tests
-      #     command: npm test
+      - run:
+          name: Run Cypress tests
+          command: npm test
 
-      # - store-test-artifacts
+      - store-test-artifacts
 
   # a job that runs through most of the answers to make sure they are correct
   # not all answers can run though without changing plugins or commands files yet
