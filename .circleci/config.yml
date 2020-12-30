@@ -135,7 +135,7 @@ jobs:
 
   # speed up work by using memory instead of disk
   # https://circleci.com/docs/2.0/executor-types/#ram-disks
-  using-ram-disk:
+  install-using-ram-disk:
     docker:
       - image: cypress/base:12.14.0
 
@@ -159,6 +159,24 @@ jobs:
             - /mnt/ramdisk/.npm
             - /mnt/ramdisk/.cache
           key: ram-disk-dependencies-{{ checksum "package.json" }}
+      - persist_to_workspace:
+          root: /mnt
+          paths:
+            - ramdisk
+
+  using-ram-disk:
+    docker:
+      - image: cypress/base:12.14.0
+
+    working_directory: /mnt/ramdisk
+
+    environment:
+      # set Cypress to cache its binary on RAM disk
+      CYPRESS_CACHE_FOLDER: /mnt/ramdisk/.cache/Cypress
+
+    steps:
+      - attach_workspace:
+          at: /mnt
 
       - run:
           name: Start TodoMVC server
@@ -238,7 +256,12 @@ workflows:
       - two-commands
       - single-command
       - answers
-      - using-ram-disk
+
+      - install-using-ram-disk
+
+      - using-ram-disk:
+          requires:
+            - install-using-ram-disk
 
       # example jobs that use Cypress CircleCI Orb
       # see https://github.com/cypress-io/circleci-orb
