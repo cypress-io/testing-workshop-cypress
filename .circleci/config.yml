@@ -242,7 +242,15 @@ workflows:
 
       # example jobs that use Cypress CircleCI Orb
       # see https://github.com/cypress-io/circleci-orb
+
+      - cypress/install:
+          name: install using orb
+          executor: cypress/base-12-14-0
+
       - cypress/run:
+          requires:
+            - install using orb
+          install-command: echo 'Already installed'
           name: using orb
           executor: cypress/base-12-14-0
           start: npm start
