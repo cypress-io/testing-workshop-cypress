@@ -67,7 +67,7 @@ commands:
       # we are running just a single answers file in a particular subfolder here
       # if you want to run answers in EVERY subfolder at once use command
       # npx cypress run --spec 'cypress/integration/*/answer.js' --config ignoreTestFiles="",supportFile=cypress/support/reset.js
-      - run: npx cypress run --spec 'cypress/integration/<< parameters.folder >>/answer.js' --config ignoreTestFiles="",supportFile=cypress/support/reset.js
+      - run: npx cypress run --spec 'cypress/integration/<< parameters.folder >>/answer*.js' --config ignoreTestFiles="",supportFile=cypress/support/reset.js
 
   store-test-artifacts:
     description: Saves Cypress screenshots and videos
@@ -130,6 +130,69 @@ jobs:
       - run:
           name: Start and test
           command: npm run ci
+
+      - store-test-artifacts
+
+  # speed up work by using memory instead of disk
+  # https://circleci.com/docs/2.0/executor-types/#ram-disks
+  install-using-ram-disk:
+    docker:
+      - image: cypress/base:12.14.0
+
+    working_directory: /mnt/ramdisk
+
+    environment:
+      # set Cypress to cache its binary on RAM disk
+      CYPRESS_CACHE_FOLDER: /mnt/ramdisk/.cache/Cypress
+
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - ram-disk-dependencies-{{ checksum "package.json" }}
+      # set NPM to cache its dependencies on RAM disk
+      - run: npm config --global set cache /mnt/ramdisk/.npm
+      - install-dependencies
+      # cache NPM and Cypress dependencies for the future build
+      - save_cache:
+          paths:
+            - /mnt/ramdisk/.npm
+            - /mnt/ramdisk/.cache
+          key: ram-disk-dependencies-{{ checksum "package.json" }}
+
+      # when passing files to run the app and the tests
+      # we do NOT need the NPM cache since everything has been installed already
+      - run: rm -rf .npm
+      # report top level folder sizes
+      - run: du -h -d 1 .
+      - persist_to_workspace:
+          root: /mnt
+          paths:
+            - ramdisk
+
+  using-ram-disk:
+    docker:
+      - image: cypress/base:12.14.0
+
+    working_directory: /mnt/ramdisk
+
+    environment:
+      # set Cypress to cache its binary on RAM disk
+      CYPRESS_CACHE_FOLDER: /mnt/ramdisk/.cache/Cypress
+
+    steps:
+      - attach_workspace:
+          at: /mnt
+
+      - run:
+          name: Start TodoMVC server
+          command: npm start
+          working_directory: todomvc
+          background: true
+
+      - run:
+          name: Run Cypress tests
+          command: npm test
 
       - store-test-artifacts
 
@@ -200,8 +263,31 @@ workflows:
       - single-command
       - answers
 
-      # run tests on Firefox browser using Cypress CircleCI Orb
+      - install-using-ram-disk
+
+      - using-ram-disk:
+          requires:
+            - install-using-ram-disk
+
+      # example jobs that use Cypress CircleCI Orb
       # see https://github.com/cypress-io/circleci-orb
+
+      - cypress/install:
+          name: install using orb
+          executor: cypress/base-12-14-0
+
+      - cypress/run:
+          requires:
+            - install using orb
+          install-command: echo 'Already installed'
+          name: using orb
+          executor: cypress/base-12-14-0
+          start: npm start
+          wait-on: 'http://localhost:3000'
+          spec: 'cypress/integration/07-ci/*'
+          no-workspace: true # since we don't need the workspace after this job
+
+      # run tests on Firefox browser
       - cypress/run:
           name: using Firefox
           executor: cypress/browsers-chrome78-ff70

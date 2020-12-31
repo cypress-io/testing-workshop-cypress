@@ -1,7 +1,7 @@
 /* global Vue, Vuex, axios */
 /* eslint-disable no-console */
 /* eslint-disable-next-line */
-; (function () {
+;(function() {
   Vue.use(Vuex)
 
   function randomId() {
@@ -32,7 +32,6 @@
         state.newTodo = todo
       },
       ADD_TODO(state, todoObject) {
-        console.log('add todo', todoObject)
         state.todos.push(todoObject)
       },
       REMOVE_TODO(state, todo) {
@@ -41,7 +40,6 @@
       },
       CLEAR_NEW_TODO(state) {
         state.newTodo = ''
-        console.log('clearing new todo')
       }
     },
     actions: {
@@ -52,7 +50,6 @@
           .get('/todos')
           .then(r => r.data)
           .then(todos => {
-            console.log('got %d todos', todos.length)
             commit('SET_TODOS', todos)
             commit('SET_LOADING', false)
           })
