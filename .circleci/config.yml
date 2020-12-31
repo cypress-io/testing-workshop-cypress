@@ -159,6 +159,12 @@ jobs:
             - /mnt/ramdisk/.npm
             - /mnt/ramdisk/.cache
           key: ram-disk-dependencies-{{ checksum "package.json" }}
+
+      # when passing files to run the app and the tests
+      # we do NOT need the NPM cache since everything has been installed already
+      - run: rm -rf .npm
+      # report top level folder sizes
+      - run: du -h -d 1 .
       - persist_to_workspace:
           root: /mnt
           paths:
