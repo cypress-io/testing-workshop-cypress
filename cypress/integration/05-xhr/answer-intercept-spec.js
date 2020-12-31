@@ -8,16 +8,9 @@ import twoItems from '../../fixtures/two-items.json'
 // read https://glebbahmutov.com/blog/cypress-intercept-problems/
 
 describe('intercept', () => {
-  // TODO: figure out how to overwrite the `cy.intercept` command
-  // to print the log message when intercepting
-  // https://github.com/cypress-io/cypress/issues/9580
-  // Cypress.Commands.overwrite('intercept', function(intercept, ...args) {
-  //   return cy.log('intercept!').then(function() {
-  //     return intercept.apply(null, args)
-  //   })
-  // })
-
   context('late registration', () => {
+    // this test is skipped on purpose.
+    // It registers the intercept AFTER the ajax call is already in progress
     it.skip('is registered too late', () => {
       cy.visit('/')
       cy.intercept('/todos').as('todos')
@@ -32,14 +25,20 @@ describe('intercept', () => {
   })
 
   context('wait followed by get', () => {
-    it.skip('is taken by the wait', () => {
+    it('is taken by the wait (fixed in Cypress v6.2.0)', () => {
       cy.intercept('/todos').as('todos')
       cy.visit('/')
       cy.wait('@todos')
-      cy.get('@todos').should('not.be.null')
+      // verify the loaded todos
+      cy.get('@todos')
+        .should('not.be.null')
+        .and('include', {
+          responseWaited: true
+          // can verify other known properties
+        })
     })
 
-    it('is taken by the wait (unlike cy.route)', () => {
+    it('using deprecated cy.route', () => {
       cy.server()
       cy.route('/todos').as('todos')
       cy.visit('/')
