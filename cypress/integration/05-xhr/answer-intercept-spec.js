@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { resetDatabase } from '../../support/utils'
+import { resetDatabase, resetDatabaseTo } from '../../support/utils'
 import twoItems from '../../fixtures/two-items.json'
 
 // this spec shows several "gotchas" our users experience
@@ -380,6 +380,81 @@ describe('intercept', () => {
       cy.http('todos', 'GET', '/todos', { fixture: 'three-items.json' })
       cy.reload()
       cy.get('.todo').should('have.length', 3)
+    })
+  })
+
+  context('single use intercept', () => {
+    beforeEach(() => {
+      // let's reset the server to always have 2 todos
+      resetDatabaseTo('two-items.json')
+    })
+
+    it('stubs the first load (does not work)', () => {
+      // this test wants to have no todos at first
+      cy.intercept('GET', '/todos', []).as('todos')
+      cy.visit('/')
+      cy.wait('@todos')
+      cy.get('.todo-list li').should('have.length', 0)
+
+      cy.log('adding an item')
+      cy.get('.new-todo').type('new todo{enter}')
+      cy.contains('li.todo', 'new todo').should('be.visible')
+
+      // reload and expect to see the new todo again
+      cy.reload()
+      cy.contains('li.todo', 'new todo').should('be.visible')
+    })
+
+    /**
+     * Intercept the first matching request and send the response object.
+     * Do nothing on the second and other requests.
+     * @param {string} method HTTP method to intercept
+     * @param {string} url URL to intercept
+     * @param {any} response Response to send back on the first request
+     */
+    const interceptOnce = (method, url, response) => {
+      // I am using "count" to show how easy you can implement
+      // different responses for different interceptors
+      let count = 0
+      return cy.intercept(method, url, req => {
+        count += 1
+        if (count < 2) {
+          req.reply(response)
+        } else {
+          // do nothing
+        }
+      })
+    }
+
+    it('stubs the first load and does nothing after that', () => {
+      // this test wants to have no todos at first
+      interceptOnce('GET', '/todos', []).as('todos')
+      cy.visit('/')
+      cy.wait('@todos')
+      cy.get('.todo-list li').should('have.length', 0)
+
+      cy.log('adding an item')
+      cy.get('.new-todo').type('new todo{enter}')
+      cy.contains('li.todo', 'new todo').should('be.visible')
+
+      // reload and expect to see the new todo again
+      cy.reload()
+      cy.contains('li.todo', 'new todo').should('be.visible')
+      // since we reset the database with 2 todos, plus entered a new todo
+      // thus the total number of items should be 3
+      cy.get('.todo-list li').should('have.length', 3)
+
+      // Tip: you can still spy on "todos" intercept
+      // for example let's validate the server response has the new item
+      // at index 2 and it has the title and completed properties
+      cy.get('@todos')
+        .its('response.body')
+        .should('have.length', 3)
+        .its('2')
+        .should('include', {
+          title: 'new todo',
+          completed: false
+        })
     })
   })
 })

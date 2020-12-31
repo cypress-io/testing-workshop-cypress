@@ -1,3 +1,6 @@
+/**
+ * Sets the database to the empty list of todos
+ */
 export const resetDatabase = () => {
   console.log('resetDatabase')
   cy.request({
@@ -6,6 +9,23 @@ export const resetDatabase = () => {
     body: {
       todos: []
     }
+  })
+}
+
+/**
+ *
+ * @param {string} fixtureName The fixture with todos to load and send to the server
+ */
+export const resetDatabaseTo = fixtureName => {
+  cy.log(`**resetDatabaseTo** ${fixtureName}`)
+  cy.fixture(fixtureName).then(todos => {
+    cy.request({
+      method: 'POST',
+      url: '/reset',
+      body: {
+        todos
+      }
+    })
   })
 }
 
