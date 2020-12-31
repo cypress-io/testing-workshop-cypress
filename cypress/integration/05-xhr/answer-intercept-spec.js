@@ -389,7 +389,7 @@ describe('intercept', () => {
       resetDatabaseTo('two-items.json')
     })
 
-    it('stubs the first load (does not work)', () => {
+    it.skip('stubs the first load (does not work)', () => {
       // this test wants to have no todos at first
       cy.intercept('GET', '/todos', []).as('todos')
       cy.visit('/')
