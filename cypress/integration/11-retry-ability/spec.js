@@ -83,3 +83,12 @@ it('solution 2: alternate commands and assertions', () => {
   cy.get('.new-todo').type('todo B{enter}')
   // ?
 })
+
+it('retries reading the JSON file', () => {
+  // add N items via UI
+  // then read the file ./todomvc/data.json
+  // and assert it has the N items and the first item
+  // is the one entered first
+  // note cy.readFile retries reading the file until the should(cb) passes
+  // https://on.cypress.io/readilfe
+})

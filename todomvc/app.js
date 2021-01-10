@@ -88,7 +88,7 @@
           axios.post('/todos', todo).then(() => {
             commit('ADD_TODO', todo)
           })
-        }, 0)
+        }, 0) // TODO: read the delay from the page search parameter like ?delay=2000
       },
       addEntireTodo({ commit }, todoFields) {
         const todo = {
