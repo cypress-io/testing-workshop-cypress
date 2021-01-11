@@ -117,7 +117,7 @@ describe('retry-ability', () => {
 
   it('retries reading the JSON file', () => {
     // note cy.readFile retries reading the file until the should(cb) passes
-    // https://on.cypress.io/readilfe
+    // https://on.cypress.io/readfile
     cy.get('.new-todo')
       .type('todo A{enter}')
       .type('todo B{enter}')
