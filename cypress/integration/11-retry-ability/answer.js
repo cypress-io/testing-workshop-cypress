@@ -133,3 +133,61 @@ describe('retry-ability', () => {
     })
   })
 })
+
+describe('Careful with negative assertions', { retries: 2 }, () => {
+  beforeEach(function resetData() {
+    // cy.intercept('/todos', { body: [], delayMs: 5000 })
+  })
+
+  it('uses negative assertion and passes for the wrong reason', () => {
+    cy.visit('/?delay=3000')
+    cy.get('.loading').should('not.be.visible')
+  })
+
+  it('use positive then negative assertion (flakey)', () => {
+    cy.visit('/?delay=3000')
+    // first, make sure the loading indicator shows up (positive assertion)
+    cy.get('.loading').should('be.visible')
+    // then assert it goes away (negative assertion)
+    cy.get('.loading').should('not.be.visible')
+  })
+
+  // NOTE: https://github.com/cypress-io/cypress/issues/14511
+  it.skip('slows down the network response (does not work)', () => {
+    cy.intercept('/todos', {
+      body: [],
+      delayMs: 2000
+    })
+    cy.visit('/?delay=3000')
+    // first, make sure the loading indicator shows up (positive assertion)
+    cy.get('.loading').should('be.visible')
+    // then assert it goes away (negative assertion)
+    cy.get('.loading').should('not.be.visible')
+  })
+
+  it('slows down the network response (works)', () => {
+    cy.intercept('/todos', {
+      body: [],
+      delayMs: 5000
+    })
+    cy.visit('/?delay=3000')
+    // first, make sure the loading indicator shows up (positive assertion)
+    cy.get('.loading').should('be.visible')
+    // then assert it goes away (negative assertion)
+    cy.get('.loading').should('not.be.visible')
+  })
+
+  it('slows down the network response (programmatic)', () => {
+    cy.intercept('/todos', req => {
+      req.reply({
+        body: [],
+        delayMs: 2000
+      })
+    })
+    cy.visit('/?delay=3000')
+    // first, make sure the loading indicator shows up (positive assertion)
+    cy.get('.loading').should('be.visible')
+    // then assert it goes away (negative assertion)
+    cy.get('.loading').should('not.be.visible')
+  })
+})

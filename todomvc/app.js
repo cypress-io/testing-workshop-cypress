@@ -54,7 +54,6 @@
       loadTodos({ commit, state }) {
         console.log('loadTodos start, delay is %d', state.delay)
         setTimeout(() => {
-          console.log('commit SET_LOADING')
           commit('SET_LOADING', true)
 
           axios
