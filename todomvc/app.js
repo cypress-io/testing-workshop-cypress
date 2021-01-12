@@ -12,9 +12,10 @@
 
   const store = new Vuex.Store({
     state: {
-      loading: true,
+      loading: false,
       todos: [],
-      newTodo: ''
+      newTodo: '',
+      delay: 0
     },
     getters: {
       newTodo: state => state.newTodo,
@@ -22,6 +23,9 @@
       loading: state => state.loading
     },
     mutations: {
+      SET_DELAY(state, delay) {
+        state.delay = delay
+      },
       SET_LOADING(state, flag) {
         state.loading = flag
       },
@@ -43,21 +47,28 @@
       }
     },
     actions: {
-      loadTodos({ commit }) {
-        commit('SET_LOADING', true)
+      setDelay({ commit }, delay) {
+        commit('SET_DELAY', delay)
+      },
 
-        axios
-          .get('/todos')
-          .then(r => r.data)
-          .then(todos => {
-            commit('SET_TODOS', todos)
-            commit('SET_LOADING', false)
-          })
-          .catch(e => {
-            console.error('could not load todos')
-            console.error(e.message)
-            console.error(e.response.data)
-          })
+      loadTodos({ commit, state }) {
+        console.log('loadTodos start, delay is %d', state.delay)
+        setTimeout(() => {
+          commit('SET_LOADING', true)
+
+          axios
+            .get('/todos')
+            .then(r => r.data)
+            .then(todos => {
+              commit('SET_TODOS', todos)
+              commit('SET_LOADING', false)
+            })
+            .catch(e => {
+              console.error('could not load todos')
+              console.error(e.message)
+              console.error(e.response.data)
+            })
+        }, state.delay)
       },
 
       /**
@@ -134,7 +145,13 @@
     el: '.todoapp',
 
     created() {
-      this.$store.dispatch('loadTodos')
+      const uri = window.location.search.substring(1)
+      const params = new URLSearchParams(uri)
+      const delay = parseFloat(params.get('delay') || '0')
+
+      this.$store.dispatch('setDelay', delay).then(() => {
+        this.$store.dispatch('loadTodos')
+      })
     },
 
     // computed properties
