@@ -8,3 +8,7 @@
 - `npm run reset:db` resets [data.json](data.json) to have empty list of todos
 
 Once NPM dependencies are installed, the application should work locally without WiFi.
+
+## Delay
+
+You can delay the initial loading by adding to the URL `/?delay=<ms>`. This is useful to simulate application bootstrapping.
