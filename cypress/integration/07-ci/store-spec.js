@@ -20,11 +20,15 @@ describe('UI to Vuex store', { retries: 2 }, () => {
   it('has loading, newTodo and todos properties', () => {
     getStore()
       .its('state')
-      .should('have.keys', ['loading', 'newTodo', 'todos'])
+      // best practice: only check if certain keys are included
+      // using "include.keys", rather than the strict "have.keys"
+      // But for the smaller app it is acceptable to be strict
+      .should('have.keys', ['loading', 'newTodo', 'todos', 'delay'])
   })
 
   it('starts empty', () => {
-    const omitLoading = state => Cypress._.omit(state, 'loading')
+    // let's remove properties that are unimportant to the app's data
+    const omitLoading = state => Cypress._.omit(state, 'loading', 'delay')
 
     getStore()
       .its('state')
@@ -151,7 +155,8 @@ describe('Vuex store', () => {
     getStore().should('deep.equal', {
       loading: false,
       todos: [],
-      newTodo: ''
+      newTodo: '',
+      delay: 0
     })
   })
 
@@ -187,6 +192,7 @@ describe('Vuex store', () => {
       .trigger('change')
 
     getStore().should('deep.equal', {
+      delay: 0,
       loading: false,
       todos: [
         {
@@ -275,6 +281,7 @@ describe('Vuex store', () => {
 
     // assert store
     getStore().should('deep.equal', {
+      delay: 0,
       loading: false,
       todos: [
         {
@@ -305,6 +312,7 @@ describe('Store actions', () => {
     getStore()
       .its('state')
       .should('deep.equal', {
+        delay: 0,
         loading: false,
         todos: [
           {
@@ -337,6 +345,7 @@ describe('Store actions', () => {
     getStore()
       .its('state')
       .should('deep.equal', {
+        delay: 0,
         loading: false,
         todos: [
           {
