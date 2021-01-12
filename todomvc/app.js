@@ -14,7 +14,8 @@
     state: {
       loading: true,
       todos: [],
-      newTodo: ''
+      newTodo: '',
+      delay: 0
     },
     getters: {
       newTodo: state => state.newTodo,
