@@ -152,6 +152,21 @@ describe('Careful with negative assertions', { retries: 2 }, () => {
     cy.get('.loading').should('not.be.visible')
   })
 
+  it('uses cy.route to slow down network response', () => {
+    cy.server()
+    cy.route({
+      method: 'GET',
+      url: '/todos',
+      response: [],
+      delay: 2000
+    })
+    cy.visit('/?delay=3000')
+    // first, make sure the loading indicator shows up (positive assertion)
+    cy.get('.loading').should('be.visible')
+    // then assert it goes away (negative assertion)
+    cy.get('.loading').should('not.be.visible')
+  })
+
   // NOTE: https://github.com/cypress-io/cypress/issues/14511
   it.skip('slows down the network response (does not work)', () => {
     cy.intercept('/todos', {
