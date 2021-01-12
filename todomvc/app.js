@@ -12,7 +12,7 @@
 
   const store = new Vuex.Store({
     state: {
-      loading: true,
+      loading: false,
       todos: [],
       newTodo: '',
       delay: 0
@@ -52,7 +52,9 @@
       },
 
       loadTodos({ commit, state }) {
+        console.log('loadTodos start, delay is %d', state.delay)
         setTimeout(() => {
+          console.log('commit SET_LOADING')
           commit('SET_LOADING', true)
 
           axios
@@ -147,8 +149,10 @@
       const uri = window.location.search.substring(1)
       const params = new URLSearchParams(uri)
       const delay = parseFloat(params.get('delay') || '0')
-      this.$store.dispatch('setDelay', delay)
-      this.$store.dispatch('loadTodos')
+
+      this.$store.dispatch('setDelay', delay).then(() => {
+        this.$store.dispatch('loadTodos')
+      })
     },
 
     // computed properties
