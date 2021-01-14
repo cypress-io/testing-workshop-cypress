@@ -106,7 +106,7 @@ describe('stub network', () => {
   })
 })
 
-describe('API', () => {
+describe('API', { retries: 2 }, () => {
   beforeEach(resetDatabase)
   beforeEach(() => visit(true))
   beforeEach(stubMathRandom)
