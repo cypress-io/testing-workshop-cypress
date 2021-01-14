@@ -1,66 +1,90 @@
-<!doctype html>
+<!DOCTYPE html>
 <html data-framework="vue">
-
-<head>
-  <meta charset="utf-8">
-  <title>Vue.js • TodoMVC</title>
-  <link rel="stylesheet" href="vendor/index.css">
-  <!-- usually we can just let the browser load additional styles if the user's OS
+  <head>
+    <meta charset="utf-8" />
+    <title>Vue.js • TodoMVC</title>
+    <link rel="stylesheet" href="vendor/index.css" />
+    <!-- usually we can just let the browser load additional styles if the user's OS
     has preference for dark theme
   <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="vendor/dark.css">
   -->
-  <!-- but to be able to control the dark theme load programmatically and from E2E tests
+    <!-- but to be able to control the dark theme load programmatically and from E2E tests
     we need to use JavaScript and check preference using "window.matchMedia" call -->
-  <script>
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      const link = document.createElement("link")
-      link.type = "text/css";
-      link.rel = "stylesheet";
-      link.href = 'vendor/dark.css';
-      document.head.appendChild(link)
-    }
-  </script>
-  <style>
-    [v-cloak] {
-      display: none;
-    }
-  </style>
-</head>
+    <script>
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        const link = document.createElement('link')
+        link.type = 'text/css'
+        link.rel = 'stylesheet'
+        link.href = 'vendor/dark.css'
+        document.head.appendChild(link)
+      }
+    </script>
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+      .loading-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .loading {
+        padding: 1em;
+        font-size: larger;
+        font-weight: bolder;
+      }
+    </style>
+  </head>
 
-<body>
-  <section class="todoapp">
-    <header class="header">
-      <h1 data-cy="app-title">todos</h1>
-      <input class="new-todo" autofocus autocomplete="off" placeholder="What needs to be done?" :value="newTodo"
-        @input="setNewTodo" @keyup.enter="addTodo">
-    </header>
-    <section class="main" v-show="todos.length" v-cloak>
-      <ul class="todo-list">
-        <li v-for="todo in todos" class="todo" :key="todo.id" :class="{ completed: todo.completed }">
-          <div class="view">
-            <input class="toggle" type="checkbox" v-model="todo.completed">
-            <label>{{ todo.title }}</label>
-            <button class="destroy" @click="removeTodo(todo)"></button>
-          </div>
-        </li>
-      </ul>
+  <body>
+    <section class="todoapp">
+      <header class="header">
+        <h1 data-cy="app-title">todos</h1>
+        <input
+          class="new-todo"
+          autofocus
+          autocomplete="off"
+          placeholder="What needs to be done?"
+          :value="newTodo"
+          @input="setNewTodo"
+          @keyup.enter="addTodo"
+        />
+      </header>
+      <section class="main" v-show="todos.length" v-cloak>
+        <ul class="todo-list">
+          <li
+            v-for="todo in todos"
+            class="todo"
+            :key="todo.id"
+            :class="{ completed: todo.completed }"
+          >
+            <div class="view">
+              <input class="toggle" type="checkbox" v-model="todo.completed" />
+              <label>{{ todo.title }}</label>
+              <button class="destroy" @click="removeTodo(todo)"></button>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <div class="loading-container">
+        <div class="loading" v-show="loading">Loading data ...</div>
+      </div>
     </section>
-    <div class="loading" v-show="loading">Loading data ...</div>
-  </section>
-  <footer class="info">
-    <p>Written by
-      <a href="http://evanyou.me">Evan You</a>
-    </p>
-    <p>Part of
-      <a href="http://todomvc.com">TodoMVC</a>
-    </p>
-  </footer>
+    <footer class="info">
+      <p>
+        Written by
+        <a href="http://evanyou.me">Evan You</a>
+      </p>
+      <p>
+        Part of
+        <a href="http://todomvc.com">TodoMVC</a>
+      </p>
+    </footer>
 
-  <script src="vendor/polyfill.min.js"></script>
-  <script src="vendor/vue.js"></script>
-  <script src="vendor/vuex.js"></script>
-  <script src="vendor/axios.min.js"></script>
-  <script src="app.js"></script>
-</body>
-
+    <script src="vendor/polyfill.min.js"></script>
+    <script src="vendor/vue.js"></script>
+    <script src="vendor/vuex.js"></script>
+    <script src="vendor/axios.min.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
