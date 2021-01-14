@@ -139,12 +139,21 @@ describe('Careful with negative assertions', { retries: 2 }, () => {
     // cy.intercept('/todos', { body: [], delayMs: 5000 })
   })
 
+  // this assertion can pass - but for the wrong reason
+  // the indicator initially is NOT shown, thus this assertion
+  // pass immediately, and probably not when the app finishes loading
+  it('hides the loading element', () => {
+    cy.visit('/')
+    cy.get('.loading').should('not.be.visible')
+  })
+
   it('uses negative assertion and passes for the wrong reason', () => {
     cy.visit('/?delay=3000')
     cy.get('.loading').should('not.be.visible')
   })
 
-  it('use positive then negative assertion (flakey)', () => {
+  // NOTE: skipping because it is flakey and slowing down the request is better
+  it.skip('use positive then negative assertion (flakey)', () => {
     cy.visit('/?delay=3000')
     // first, make sure the loading indicator shows up (positive assertion)
     cy.get('.loading').should('be.visible')
