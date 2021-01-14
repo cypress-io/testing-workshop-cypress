@@ -152,7 +152,8 @@ describe('Careful with negative assertions', { retries: 2 }, () => {
     cy.get('.loading').should('not.be.visible')
   })
 
-  it('use positive then negative assertion (flakey)', () => {
+  // NOTE: skipping because it is flakey and slowing down the request is better
+  it.skip('use positive then negative assertion (flakey)', () => {
     cy.visit('/?delay=3000')
     // first, make sure the loading indicator shows up (positive assertion)
     cy.get('.loading').should('be.visible')
