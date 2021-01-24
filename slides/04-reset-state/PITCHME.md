@@ -165,3 +165,4 @@ it('sets data using fixture', () => {
 - reset state before each test
   - in our [Best practices guide](https://on.cypress.io/best-practices)
 - use [`cy.request`](https://on.cypress.io/request), [`cy.exec`](https://on.cypress.io/exec), [`cy.task`](https://on.cypress.io/task)
+- watch presentation "Cypress: beyond the Hello World test" [https://slides.com/bahmutov/cypress-beyond-the-hello-world](https://slides.com/bahmutov/cypress-beyond-the-hello-world)

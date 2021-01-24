@@ -48,6 +48,7 @@ describe('reset data using a task', () => {
   beforeEach(() => {
     cy.task('resetData')
     cy.visit('/')
+    cy.get('li.todo').should('have.length', 0)
   })
 
   it('adds two items', () => {
@@ -71,6 +72,7 @@ describe('set initial data', () => {
 
     cy.visit('/')
     // check what is rendered
+    cy.get('li.todo').should('have.length', 1)
   })
 
   it('sets data using fixture', () => {
@@ -81,5 +83,6 @@ describe('set initial data', () => {
 
     cy.visit('/')
     // check what is rendered
+    cy.get('li.todo').should('have.length', 2)
   })
 })

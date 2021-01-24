@@ -58,12 +58,6 @@ module.exports = (on, config) => {
     // saves given or default empty data object into todomvc/data.json file
     // if the server is watching this file, next reload should show the updated values
     resetData(dataToSet = DEFAULT_DATA) {
-      // if we just call cy.task("resetData") right now it passes "null" as argument dataToSet
-      // which prevents setting the default value. This is a bug in
-      // https://github.com/cypress-io/cypress/issues/5913
-      if (!dataToSet) {
-        dataToSet = DEFAULT_DATA
-      }
       const dbFilename = getDbFilename()
       debug('reset data file %s with %o', dbFilename, dataToSet)
       if (!dataToSet) {
