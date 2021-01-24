@@ -74,10 +74,33 @@ it('finds element', () => {
 ```
 
 +++
+## Cypress Studio
+
+Record tests by clicking on the page
+
+```json
+{
+  "experimentalStudio": true
+}
+```
+
++++
+## Start recording
+
+![open Cypress Studio](/slides/03-selector-playground/img/start-studio.png)
+
++++
 ## 🏁 Selecting Elements
 
 - Use Selector Playground
 - follow [https://on.cypress.io/best-practices#Selecting-Elements](https://on.cypress.io/best-practices#Selecting-Elements)
 - **bonus:** try [@testing-library/cypress](https://testing-library.com/docs/cypress-testing-library/intro)
+
++++
+
+## 🏁 Quickly write tests
+
+- pick elements using Selector Playground
+- record tests using Cypress Studio
 
 ➡️ Pick the [next section](https://github.com/cypress-io/testing-workshop-cypress#content-)
