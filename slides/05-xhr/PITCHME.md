@@ -85,8 +85,7 @@ In `05-xhr/spec.js` test "starts with zero items"
 💡 No need to `cy.wait(...).then(...)`. All Cypress commands will be chained automatically.
 
 ```js
-cy.server()
-cy.route('GET', '/todos').as('todos')
+cy.intercept('GET', '/todos').as('todos')
 cy.visit('/')
 cy.wait('@todos')
 // cy.get() will run AFTER cy.wait() finishes
@@ -117,14 +116,13 @@ Update test "starts with zero items (stubbed response)"
 ```javascript
 // returns an empty list
 // when `GET /todos` is requested
-cy.route('GET', '/todos', [])
+cy.intercept('GET', '/todos', [])
 ```
 
 +++
 
 ```javascript
 it('starts with zero items (fixture)', () => {
-  // start Cypress network server
   // stub `GET /todos` with fixture "empty-list"
 
   // visit the page
@@ -140,7 +138,6 @@ it('starts with zero items (fixture)', () => {
 
 ```javascript
 it('loads several items from a fixture', () => {
-  // start Cypress network server
   // stub route `GET /todos` with data from a fixture file "two-items.json"
   // THEN visit the page
   cy.visit('/')
