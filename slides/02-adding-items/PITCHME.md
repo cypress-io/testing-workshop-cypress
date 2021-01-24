@@ -91,7 +91,7 @@ Move `addItem` function into a separate file and import from the spec file. It i
 
 ## Todo: delete an item
 
-```js
+```javascript
 it('can delete an item', () => {
   // adds a few items
   // deletes the first item
@@ -104,7 +104,7 @@ it('can delete an item', () => {
 
 ## Todo
 
-```js
+```javascript
 it('adds item with random text', () => {
   // use a helper function with Math.random()
   // or Cypress._.random() to generate unique text label

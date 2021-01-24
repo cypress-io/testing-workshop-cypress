@@ -1,8 +1,10 @@
 # Gleb Bahmutov, PhD
 
-- VP of Engineering, Cypress
+- Distinguished Engineer at Cypress
 - gleb (at) cypress.io
 - [@bahmutov](https://twitter.com/bahmutov)
+- [https://glebbahmutov.com/blog/tags/cypress/](https://glebbahmutov.com/blog/tags/cypress/)
+- [https://www.youtube.com/glebbahmutov](https://www.youtube.com/glebbahmutov)
 
 +++
 
@@ -68,7 +70,8 @@ Please: if you have experience with Cypress.io, help others during the workshop 
 You will need:
 
 - `git` to clone this repo
-- Node v8+ to install dependencies
+- Node v10+ to install dependencies
+- Node v12 recommended
 
 ```text
 git clone <repo url>

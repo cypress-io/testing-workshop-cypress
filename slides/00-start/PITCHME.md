@@ -76,16 +76,15 @@ npx @bahmutov/cly init
 # quickly scaffolds Cypress folders
 ```
 
-Repo [@bahmutov/cly](https://github.com/bahmutov/cly)
+Repo [github.com/bahmutov/cly](https://github.com/bahmutov/cly)
 
 +++
 
 ## Cypress example kitchen sink
 
 - repo [github.com/cypress-io/cypress-example-kitchensink](https://github.com/cypress-io/cypress-example-kitchensink)
-- site [example.cypress.io](http://example.cypress.io)
-
-**Todo:** look at any particular group of commands, like [Querying](https://example.cypress.io/commands/querying) or [Assertions](https://example.cypress.io/commands/assertions)
+- site [example.cypress.io](https://example.cypress.io)
+- **Tip:** also use [glebbahmutov.com/cypress-examples](https://glebbahmutov.com/cypress-examples)
 
 +++
 ## First spec
