@@ -1,8 +1,11 @@
 /// <reference types="cypress" />
+//
 // note, we are not resetting the server before each test
 // and we want to confirm that IF the application has items already
 // (for example add them manually using the browser localhost:3000)
 // then these tests fail!
+//
+// see https://on.cypress.io/intercept
 
 /* eslint-disable no-unused-vars */
 
@@ -16,7 +19,7 @@ it('starts with zero items (waits)', () => {
 it('starts with zero items', () => {
   // start Cypress network proxy with cy.server()
   // spy on route `GET /todos`
-  //  with cy.route(...).as(<alias name>)
+  //  with cy.intercept(...).as(<alias name>)
   // THEN visit the page
   cy.visit('/')
   // wait for `GET /todos` route
@@ -50,7 +53,6 @@ it('starts with zero items (fixture)', () => {
 })
 
 it('loads several items from a fixture', () => {
-  // start Cypress network server
   // stub route `GET /todos` with data from a fixture file "two-items.json"
   // THEN visit the page
   cy.visit('/')
@@ -59,7 +61,6 @@ it('loads several items from a fixture', () => {
 })
 
 it('posts new item to the server', () => {
-  // start Cypress network server
   // spy on "POST /todos", save as alias
   cy.visit('/')
   cy.get('.new-todo').type('test api{enter}')
@@ -74,13 +75,6 @@ it('handles 404 when loading todos', () => {
   // when the app tries to load items
   // set it up to fail with 404 to GET /todos
   // after delay of 2 seconds
-  // cy.server()
-  // cy.route({
-  //   url,
-  //   response,
-  //   status,
-  //   delay
-  // })
   cy.visit('/', {
     // spy on console.error because we expect app would
     // print the error message there

@@ -10,7 +10,7 @@
 
 - keep `todomvc` app running
 - open `cypress/integration/05-xhr/spec.js`
-- **note** stubbing `window.fetch` is NOT implemented yet, but will be [issue #687](https://github.com/cypress-io/cypress/issues/687)
+- `cy.route` is deprecated, use `cy.intercept`
 
 +++
 
@@ -70,16 +70,15 @@ In `05-xhr/spec.js` test "starts with zero items"
 
 @ul
 
-- start Cypress mock server with `cy.server`
+- spy on specific route with `cy.intercept`
   - should we start mock server _before_ or _after_ `cy.visit`?
-- spy on specific route with `cy.route`
 - save as an alias
 - wait for this XHR alias
   - then check the DOM
 
 @ulend
 
-**tips:** [`cy.server`](https://on.cypress.io/server), [`cy.route`]('https://on.cypress.io/route), [Network requests guide](https://on.cypress.io/network-requests)
+**tips:** [`cy.intercept`]('https://on.cypress.io/intercept), [Network requests guide](https://on.cypress.io/network-requests)
 
 +++
 

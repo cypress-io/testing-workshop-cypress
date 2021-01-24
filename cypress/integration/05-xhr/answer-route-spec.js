@@ -1,10 +1,5 @@
 /// <reference types="cypress" />
-//
 // note, we are not resetting the server before each test
-//
-
-// see https://on.cypress.io/intercept
-
 it('starts with zero items (waits)', () => {
   cy.visit('/')
   /* eslint-disable-next-line cypress/no-unnecessary-waiting */
@@ -16,7 +11,8 @@ it('starts with zero items', () => {
   // start Cypress network server
   // spy on route `GET /todos`
   // THEN visit the page
-  cy.intercept('GET', '/todos').as('todos')
+  cy.server()
+  cy.route('GET', '/todos').as('todos')
   cy.visit('/')
   cy.wait('@todos') // wait for `GET /todos` response
     // inspect the server's response
@@ -33,7 +29,8 @@ it('starts with zero items (stubbed response)', () => {
   // start Cypress network server
   // spy on route `GET /todos`
   // THEN visit the page
-  cy.intercept('GET', '/todos', []).as('todos')
+  cy.server()
+  cy.route('GET', '/todos', []).as('todos')
   cy.visit('/')
   cy.wait('@todos') // wait for `GET /todos` response
     // inspect the server's response
@@ -44,9 +41,11 @@ it('starts with zero items (stubbed response)', () => {
 })
 
 it('starts with zero items (fixture)', () => {
+  // start Cypress network server
   // stub route `GET /todos`, return data from fixture file
   // THEN visit the page
-  cy.intercept('GET', '/todos', { fixture: 'empty-list.json' }).as('todos')
+  cy.server()
+  cy.route('GET', '/todos', 'fixture:empty-list').as('todos')
   cy.visit('/')
   cy.wait('@todos') // wait for `GET /todos` response
     // inspect the server's response
@@ -57,7 +56,8 @@ it('starts with zero items (fixture)', () => {
 })
 
 it('posts new item to the server', () => {
-  cy.intercept('POST', '/todos').as('new-item')
+  cy.server()
+  cy.route('POST', '/todos').as('new-item')
   cy.visit('/')
   cy.get('.new-todo').type('test api{enter}')
   cy.wait('@new-item')
@@ -69,7 +69,8 @@ it('posts new item to the server', () => {
 })
 
 it('posts new item to the server response', () => {
-  cy.intercept('POST', '/todos').as('new-item')
+  cy.server()
+  cy.route('POST', '/todos').as('new-item')
   cy.visit('/')
   cy.get('.new-todo').type('test api{enter}')
   cy.wait('@new-item')
@@ -81,9 +82,11 @@ it('posts new item to the server response', () => {
 })
 
 it('loads several items from a fixture', () => {
+  // start Cypress network server
   // stub route `GET /todos` with data from a fixture file
   // THEN visit the page
-  cy.intercept('GET', '/todos', { fixture: 'two-items' })
+  cy.server()
+  cy.route('GET', '/todos', 'fx:two-items')
   cy.visit('/')
   // then check the DOM: some items should be marked completed
   // we can do this in a variety of ways
@@ -101,17 +104,13 @@ it('loads several items from a fixture', () => {
 it('handles 404 when loading todos', () => {
   // when the app tries to load items
   // set it up to fail
-  cy.intercept(
-    {
-      method: 'GET',
-      pathname: '/todos'
-    },
-    {
-      body: 'test does not allow it',
-      statusCode: 404,
-      delayMs: 2000
-    }
-  )
+  cy.server()
+  cy.route({
+    url: '/todos',
+    response: 'test does not allow it',
+    status: 404,
+    delay: 2000
+  })
   cy.visit('/', {
     // spy on console.error because we expect app would
     // print the error message there
@@ -129,16 +128,12 @@ it('handles 404 when loading todos', () => {
 it('shows loading element', () => {
   // delay XHR to "/todos" by a few seconds
   // and respond with an empty list
-  cy.intercept(
-    {
-      method: 'GET',
-      pathname: '/todos'
-    },
-    {
-      body: [],
-      delayMs: 2000
-    }
-  ).as('loading')
+  cy.server()
+  cy.route({
+    url: '/todos',
+    delay: 2000,
+    response: []
+  }).as('loading')
   cy.visit('/')
 
   // shows Loading element
@@ -152,7 +147,8 @@ it('shows loading element', () => {
 })
 
 it('handles todos with blank title', () => {
-  cy.intercept('GET', '/todos', [
+  cy.server()
+  cy.route('/todos', [
     {
       id: '123',
       title: '  ',
