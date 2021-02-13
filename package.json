@@ -64,7 +64,7 @@
     "nyc": "15.0.0",
     "pluralize": "8.0.0",
     "prettier": "1.19.1",
-    "start-server-and-test": "1.10.5",
+    "start-server-and-test": "1.12.0",
     "tsify": "4.0.1",
     "typescript": "4.1.5"
   },
