@@ -176,25 +176,12 @@ describe('Careful with negative assertions', { retries: 2 }, () => {
     cy.get('.loading').should('not.be.visible')
   })
 
-  // NOTE: https://github.com/cypress-io/cypress/issues/14511
-  it.skip('slows down the network response (does not work)', () => {
+  it('slows down the network response', () => {
     cy.intercept('/todos', {
       body: [],
-      delayMs: 2000
+      delayMs: 1000
     })
-    cy.visit('/?delay=3000')
-    // first, make sure the loading indicator shows up (positive assertion)
-    cy.get('.loading').should('be.visible')
-    // then assert it goes away (negative assertion)
-    cy.get('.loading').should('not.be.visible')
-  })
-
-  it('slows down the network response (works)', () => {
-    cy.intercept('/todos', {
-      body: [],
-      delayMs: 5000
-    })
-    cy.visit('/?delay=3000')
+    cy.visit('/?delay=1000')
     // first, make sure the loading indicator shows up (positive assertion)
     cy.get('.loading').should('be.visible')
     // then assert it goes away (negative assertion)
@@ -205,10 +192,10 @@ describe('Careful with negative assertions', { retries: 2 }, () => {
     cy.intercept('/todos', req => {
       req.reply({
         body: [],
-        delayMs: 2000
+        delayMs: 1000
       })
     })
-    cy.visit('/?delay=3000')
+    cy.visit('/?delay=1000')
     // first, make sure the loading indicator shows up (positive assertion)
     cy.get('.loading').should('be.visible')
     // then assert it goes away (negative assertion)
