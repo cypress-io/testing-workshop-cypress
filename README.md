@@ -135,9 +135,13 @@ npm run cy:open
 
 ...and see the list of created example specs.
 
-The slides can be shown directly via the [presentation link][presentation] above. The Markdown files in [slides](slides) folder also has a little bit of speaker notes.
+The slides are generated using Reveal.js from Markdown sources in the [slides](slides) folder. You can show the slides locally by running
 
-Every time a new Todo is saved or deleted, it changes file `todomvc/data.json`. To reset the list back to empty run `npm run reset` command.
+```shell
+npm run slides:dev
+```
+
+The slides are deployed to Netlify automatically, see [https://testing-workshop-cypress.netlify.app/](https://testing-workshop-cypress.netlify.app/)
 
 ## Additional information 🗃
 
