@@ -96,13 +96,13 @@ Some functions can return `cy` instance, some don't, whatever is convenient. I a
 
 Pro: functions are easy to document with JSDoc
 
-![JSDoc example](/slides/12-custom-commands/img/jsdoc.png)
+![JSDoc example](./img/jsdoc.png)
 
 +++
 
 And then IntelliSense works immediately
 
-![IntelliSense](/slides/12-custom-commands/img/intellisense.jpeg)
+![IntelliSense](./img/intellisense.jpeg)
 
 
 +++
@@ -190,7 +190,7 @@ Load the new definition file in `cypress/integration/12-custom-commands/spec.js`
 
 +++
 
-![Custom command IntelliSense](/slides/12-custom-commands/img/create-todo-intellisense.jpeg)
+![Custom command IntelliSense](./img/create-todo-intellisense.jpeg)
 
 More JSDoc examples: [https://slides.com/bahmutov/ts-without-ts](https://slides.com/bahmutov/ts-without-ts)
 
@@ -238,7 +238,7 @@ Cypress.Commands.add('createTodo', todo => {
 
 +++
 
-![createTodo log](/slides/12-custom-commands/img/create-todo-log.png)
+![createTodo log](./img/create-todo-log.png)
 
 +++
 
@@ -381,7 +381,7 @@ it('creates todos', () => {
 
 +++
 
-![toMatchSnapshot](/slides/12-custom-commands/img/to-match-snapshot.png)
+![toMatchSnapshot](./img/to-match-snapshot.png)
 
 +++
 

@@ -49,9 +49,9 @@ Bonus: direct output to a different file
 
 Are all test results in the saved output file?
 
-![Run numbers](/slides/09-reporters/img/test-run.png)
+![Run numbers](./img/test-run.png)
 
-![Report numbers](/slides/09-reporters/img/junit-output.png)
+![Report numbers](./img/junit-output.png)
 
 +++
 
@@ -135,5 +135,5 @@ Note:
 
 +++
 
-![Mochawesome report](/slides/09-reporters/img/report.png)
+![Mochawesome report](./img/report.png)
 

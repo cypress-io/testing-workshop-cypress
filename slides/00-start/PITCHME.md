@@ -46,7 +46,7 @@ And I use `npm run cy:open`
 
 +++
 
-![First time you open Cypress](/slides/00-start/img/cypress-scaffold.png)
+![First time you open Cypress](./img/cypress-scaffold.png)
 
 +++
 
@@ -121,7 +121,7 @@ it('loads', () => {
 
 ## Switch browser
 
-![Switch browser](/slides/00-start/img/switch-browser.png)
+![Switch browser](./img/switch-browser.png)
 
 +++
 
@@ -141,13 +141,13 @@ By having "reference" line we tell editors that support it (VSCode, WebStorm) to
 
 ## IntelliSense
 
-![IntelliSense in VSCode](/slides/00-start/img/cy-get-intellisense.jpeg)
+![IntelliSense in VSCode](./img/cy-get-intellisense.jpeg)
 
 +++
 
 Every Cypress command and every assertion
 
-![Should IntelliSense](/slides/00-start/img/should-intellisense.jpeg)
+![Should IntelliSense](./img/should-intellisense.jpeg)
 
 +++
 
@@ -215,7 +215,7 @@ Students should know where to find information later on. Main resources is the a
 +++
 
 @snap[west]
-![VSCode icons](/slides/00-start/img/vscode-icons.png)
+![VSCode icons](./img/vscode-icons.png)
 @snapend
 
 @snap[east]

@@ -76,12 +76,12 @@ module.exports = (on, config) => {
 
 +++
 
-![Default options](/slides/16-preprocessors/img/default-options.png)
+![Default options](./img/default-options.png)
 
 +++
 We need to print deeper options. Use `DEBUG_DEPTH=10`
 
-![Default options deep](/slides/16-preprocessors/img/default-options-deep.png)
+![Default options deep](./img/default-options-deep.png)
 
 +++
 
@@ -149,7 +149,7 @@ Open test file `ts-example.ts`
 
 +++
 
-![TypeScript error](/slides/16-preprocessors/img/ts-error.png)
+![TypeScript error](./img/ts-error.png)
 
 +++
 

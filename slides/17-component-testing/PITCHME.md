@@ -38,7 +38,7 @@ describe('HelloWorld component', () => {
 
 +++
 
-![Hello World component test](/slides/17-component-testing/img/hello-world.png)
+![Hello World component test](./img/hello-world.png)
 
 +++
 ## First component test
@@ -69,7 +69,7 @@ Note how we are loading React components and application code directly from the 
 
 +++
 
-![Footer component test](/slides/17-component-testing/img/footer-component-test.png)
+![Footer component test](./img/footer-component-test.png)
 
 +++
 
@@ -82,7 +82,7 @@ Note how we are loading React components and application code directly from the 
 - check if "clear completed" button is visible and click
 
 +++
-![on click test](/slides/17-component-testing/img/on-click.png)
+![on click test](./img/on-click.png)
 
 +++
 ## Component testing vs E2E
