@@ -55,7 +55,7 @@ DEBUG=cypress:cli npx ...
 
 +++
 
-![Debugging CLI](/slides/15-debugging/img/debug-cli.png)
+![Debugging CLI](./img/debug-cli.png)
 
 A few debug messages from CLI module
 
@@ -101,7 +101,7 @@ Reload the browser "Cmd + R"
 
 +++
 
-![Debugging browser](/slides/15-debugging/img/debug-driver.jpg)
+![Debugging browser](./img/debug-driver.jpg)
 
 There is only "cypress:driver" package that runs in the browser
 
@@ -253,7 +253,7 @@ cy.get('.todo-list li') // command
 
 +++
 
-![`cy.debug`](/slides/15-debugging/img/debug-command.png)
+![`cy.debug`](./img/debug-command.png)
 
 +++
 
@@ -283,7 +283,7 @@ loadTodos ({ commit }) {
 ```
 
 +++
-![Random problem](/slides/15-debugging/img/random-problem.png)
+![Random problem](./img/random-problem.png)
 
 Cypress catches exception from the application
 
@@ -321,7 +321,7 @@ beforeEach(function visitSite () {
 ```
 
 +++
-![cy.log does not work](/slides/15-debugging/img/cy-log-from-fail.png)
+![cy.log does not work](./img/cy-log-from-fail.png)
 
 `cy.log` changes _current_ command chain.
 +++
@@ -400,7 +400,7 @@ expected result is on the next slide
 
 +++
 
-![Failed log](/slides/15-debugging/img/failed-log.png)
+![Failed log](./img/failed-log.png)
 
 `cypress-failed-log` output.
 

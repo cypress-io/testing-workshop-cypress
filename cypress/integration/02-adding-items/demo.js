@@ -15,7 +15,7 @@ beforeEach(function visitSite() {
   cy.visit('/')
 })
 
-it('adds items', function() {
+it('adds items', function () {
   cy.get('.new-todo')
     .type('todo A{enter}')
     .type('todo B{enter}')

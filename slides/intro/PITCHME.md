@@ -112,31 +112,31 @@ Let us look at the application.
 
 It is a regular TodoMVC application.
 
-![TodoMVC](/slides/intro/img/todomvc.png)
+![TodoMVC](./img/todomvc.png)
 
 +++
 
 If you have Vue DevTools plugin
 
-![With Vue DevTools](/slides/intro/img/vue-devtools.png)
+![With Vue DevTools](./img/vue-devtools.png)
 
 +++
 
 Look at XHR when using the app
 
-![Network](/slides/intro/img/network.png)
+![Network](./img/network.png)
 
 +++
 
 Look at `todomvc/index.html` - main app DOM structure
 
-![DOM](/slides/intro/img/DOM.png)
+![DOM](./img/DOM.png)
 
 +++
 
 Look at `todomvc/app.js`
 
-![Application](/slides/intro/img/app.png)
+![Application](./img/app.png)
 
 +++
 
@@ -152,7 +152,9 @@ Look at `todomvc/app.js`
 Note:
 The students should open DevTools and look at XHR requests that go between the web application and the server. Also the students should find `todomvc/data.json` file with saved items.
 
----?image=/slides/intro/img/vue-vuex-rest.png&size=contain
+---
+
+![Application architecture](./img/vue-vuex-rest.png)
 
 Note:
 This app has been coded and described in this blog post [https://www.cypress.io/blog/2017/11/28/testing-vue-web-application-with-vuex-data-store-and-rest-backend/](https://www.cypress.io/blog/2017/11/28/testing-vue-web-application-with-vuex-data-store-and-rest-backend/)

@@ -26,7 +26,7 @@ it('starts with zero items', () => {
 })
 ```
 
-![Should have failed](/slides/05-xhr/img/test-passes-but-this-is-wrong.png)
+![Should have failed](./img/test-passes-but-this-is-wrong.png)
 
 +++
 
@@ -56,7 +56,7 @@ it('starts with zero items', () => {
 })
 ```
 
-![Waiting works](/slides/05-xhr/img/waiting.png)
+![Waiting works](./img/waiting.png)
 
 +++
 
@@ -103,7 +103,7 @@ add to test "starts with zero items":
 - wait for the XHR alias like before
 - its response body should be an empty array
 
-![Checking response body](/slides/05-xhr/img/response-body.png)
+![Checking response body](./img/response-body.png)
 
 +++
 
@@ -152,7 +152,7 @@ it('loads several items from a fixture', () => {
 
 When you add an item through the DOM, the app makes `POST` XHR call.
 
-![Post new item](/slides/05-xhr/img/post-item.png)
+![Post new item](./img/post-item.png)
 
 Note:
 It is important to be able to use DevTools network tab to inspect the XHR and its request and response.

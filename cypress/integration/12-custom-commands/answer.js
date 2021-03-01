@@ -6,7 +6,7 @@ import { resetData, visitSite } from '../../support/utils'
 beforeEach(resetData)
 beforeEach(visitSite)
 
-it('enters 10 todos', function() {
+it('enters 10 todos', function () {
   cy.get('.new-todo')
     .type('todo 0{enter}')
     .type('todo 1{enter}')
@@ -22,18 +22,18 @@ it('enters 10 todos', function() {
 })
 
 // simple custom command
-Cypress.Commands.add('createTodo', todo => {
+Cypress.Commands.add('createTodo', (todo) => {
   cy.get('.new-todo').type(`${todo}{enter}`)
 })
 
 // with better command log
-Cypress.Commands.add('createTodo', todo => {
+Cypress.Commands.add('createTodo', (todo) => {
   cy.get('.new-todo', { log: false }).type(`${todo}{enter}`, { log: false })
   cy.log('createTodo', todo)
 })
 
 // with full command log
-Cypress.Commands.add('createTodo', todo => {
+Cypress.Commands.add('createTodo', (todo) => {
   const cmd = Cypress.log({
     name: 'create todo',
     message: todo,
@@ -46,11 +46,8 @@ Cypress.Commands.add('createTodo', todo => {
 
   cy.get('.new-todo', { log: false })
     .type(`${todo}{enter}`, { log: false })
-    .then($el => {
-      cmd
-        .set({ $el })
-        .snapshot()
-        .end()
+    .then(($el) => {
+      cmd.set({ $el }).snapshot().end()
     })
 })
 
@@ -63,14 +60,11 @@ it('passes when object gets new property', () => {
   setTimeout(() => {
     o.foo = 'bar'
   }, 1000)
-  const get = name =>
+  const get = (name) =>
     function getProp(from) {
       console.log('getting', from)
       return from[name]
     }
 
-  cy.wrap(o)
-    .pipe(get('foo'))
-    .should('not.be.undefined')
-    .and('equal', 'bar')
+  cy.wrap(o).pipe(get('foo')).should('not.be.undefined').and('equal', 'bar')
 })

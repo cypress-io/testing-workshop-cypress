@@ -20,11 +20,11 @@ const debug = require('debug')('testing-workshop-cypress')
 const getDbFilename = () =>
   path.join(__dirname, '..', '..', 'todomvc', 'data.json')
 
-const findRecord = title => {
+const findRecord = (title) => {
   const dbFilename = getDbFilename()
   const contents = JSON.parse(fs.readFileSync(dbFilename))
   const todos = contents.todos
-  return todos.find(record => record.title === title)
+  return todos.find((record) => record.title === title)
 }
 
 const hasRecordAsync = (title, ms) => {

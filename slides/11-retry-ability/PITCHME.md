@@ -51,13 +51,13 @@ expect($el).to.have.prop('disabled', false)
 
 ## There is IntelliSense
 
-![BDD IntelliSense](/slides/11-retry-ability/img/assertion-intellisense.png)
+![BDD IntelliSense](./img/assertion-intellisense.png)
 
 +++
 
 ⚠️ straight Chai IntelliSense is not so good
 
-![Chai assertion IntelliSense](/slides/11-retry-ability/img/chai-intellisense.png)
+![Chai assertion IntelliSense](./img/chai-intellisense.png)
 
 +++
 
@@ -98,12 +98,12 @@ Which style do you prefer?
 +++
 
 ## BDD
-![BDD log](/slides/11-retry-ability/img/bdd.png)
+![BDD log](./img/bdd.png)
 
 +++
 
 ## TDD
-![TDD log](/slides/11-retry-ability/img/tdd.png)
+![TDD log](./img/tdd.png)
 
 +++
 
@@ -217,7 +217,7 @@ Only some commands are retried: `cy.get`, `cy.find`, `its`. They don't change th
 
 NOT retried: `cy.click`, `cy.task`, etc.
 
-![Assertions section](/slides/11-retry-ability/img/retry.png)
+![Assertions section](./img/retry.png)
 
 +++
 
@@ -241,7 +241,7 @@ Note:
 
 ## Automatic Waiting
 
-![Waiting](/slides/11-retry-ability/img/waiting.png)
+![Waiting](./img/waiting.png)
 
 Built-in assertion in most commands, even if they do not retry assertions that follow. `cy.click` cannot click a button if there is no button, or if it's disabled!
 
@@ -284,7 +284,7 @@ See [Timeouts](https://on.cypress.io/introduction-to-cypress#Timeouts)
 
 ### Todo: write test that checks the label
 
-![one label](/slides/11-retry-ability/img/one-label.png)
+![one label](./img/one-label.png)
 
 ⌨️ test "has the right label"
 
@@ -303,7 +303,7 @@ it('has the right label', () => {
 
 ### Todo: write test that checks two labels
 
-![two labels](/slides/11-retry-ability/img/two-labels.png)
+![two labels](./img/two-labels.png)
 
 ⌨️ test "has two labels"
 

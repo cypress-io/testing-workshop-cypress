@@ -21,7 +21,7 @@ Open `localhost:3000` and observe instrumented code (the `.js` bundle). The orig
 
 +++
 
-![Instrumented code](/slides/19-code-coverage/img/instrumented.png)
+![Instrumented code](./img/instrumented.png)
 
 +++
 
@@ -49,13 +49,13 @@ We are going to use [@cypress/code-coverage][plugin] plugin to manage and save t
 
 +++
 
-![Coverage report](/slides/19-code-coverage/img/coverage.png)
+![Coverage report](./img/coverage.png)
 
 +++
 
 Drill down into individual files, for example todos reducer
 
-![Reducer coverage report](/slides/19-code-coverage/img/reducer.png)
+![Reducer coverage report](./img/reducer.png)
 
 +++
 

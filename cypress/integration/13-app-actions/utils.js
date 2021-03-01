@@ -56,7 +56,7 @@ export const toggle = (k = 0) =>
   cy
     .window()
     .its('model')
-    .then(model => {
+    .then((model) => {
       expect(k, 'check item index').to.be.lessThan(model.todos.length)
       model.toggle(model.todos[k])
     })

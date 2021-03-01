@@ -13,15 +13,15 @@
 
 +++
 
-![First test run](/slides/04-reset-state/img/passing-test.png)
+![First test run](./img/passing-test.png)
 
 +++
 
-![Second test run](/slides/04-reset-state/img/failing-test.png)
+![Second test run](./img/failing-test.png)
 
 +++
 
-![Inspect first XHR call](/slides/04-reset-state/img/inspect-first-get-todos.png)
+![Inspect first XHR call](./img/inspect-first-get-todos.png)
 
 +++
 
@@ -93,7 +93,7 @@ See [`cy.writeFile`](https://on.cypress.io/writefile)
 +++
 Make sure you are writing the right file.
 
-![See the file path written](/slides/04-reset-state/img/write-file-path.png)
+![See the file path written](./img/write-file-path.png)
 
 Note:
 Most common mistake is using file path relative to the spec file, should be relative to the project's root folder.

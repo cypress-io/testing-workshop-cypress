@@ -30,12 +30,10 @@ describe('intercept', () => {
       cy.visit('/')
       cy.wait('@todos')
       // verify the loaded todos
-      cy.get('@todos')
-        .should('not.be.null')
-        .and('include', {
-          responseWaited: true
-          // can verify other known properties
-        })
+      cy.get('@todos').should('not.be.null').and('include', {
+        responseWaited: true
+        // can verify other known properties
+      })
     })
 
     it('using deprecated cy.route', () => {
@@ -55,7 +53,7 @@ describe('intercept', () => {
     it('verifies the waited interception via .then(cb)', () => {
       cy.intercept('/todos').as('todos')
       cy.visit('/')
-      cy.wait('@todos').then(interception => {
+      cy.wait('@todos').then((interception) => {
         expect(interception).to.be.an('object')
         expect(interception.request.url).to.match(/\/todos$/)
       })
@@ -68,17 +66,15 @@ describe('intercept', () => {
     it.skip('does not have response', () => {
       cy.intercept('/todos').as('todos')
       cy.visit('/')
-      cy.wait('@todos')
-        .its('response')
-        .should('deep.include', {
-          statusCode: 304,
-          statusMessage: 'Not Modified',
-          body: ''
-        })
+      cy.wait('@todos').its('response').should('deep.include', {
+        statusCode: 304,
+        statusMessage: 'Not Modified',
+        body: ''
+      })
     })
 
     it('always gets the new data', () => {
-      cy.intercept('/todos', req => {
+      cy.intercept('/todos', (req) => {
         delete req.headers['if-none-match']
       }).as('todos')
       cy.visit('/')
@@ -89,7 +85,7 @@ describe('intercept', () => {
           statusMessage: 'OK'
         })
         .and('have.property', 'body') // yields the "response.body"
-        .then(body => {
+        .then((body) => {
           // since we do not know the number of items
           // just check if it is an array
           expect(body).to.be.an('array')
@@ -110,12 +106,10 @@ describe('intercept', () => {
       it('enters 1 todo', () => {
         cy.intercept('POST', '/todos').as('post') // spy
         cy.get('.new-todo').type('Write a test{enter}')
-        cy.wait('@post')
-          .its('request.body')
-          .should('deep.include', {
-            title: 'Write a test',
-            completed: false
-          })
+        cy.wait('@post').its('request.body').should('deep.include', {
+          title: 'Write a test',
+          completed: false
+        })
       })
     })
 
@@ -129,12 +123,10 @@ describe('intercept', () => {
       it('enters 1 todo', () => {
         cy.intercept('POST', '/todos').as('post') // spy
         cy.get('.new-todo').type('Write a test{enter}')
-        cy.wait('@post')
-          .its('request.body')
-          .should('deep.include', {
-            title: 'Write a test',
-            completed: false
-          })
+        cy.wait('@post').its('request.body').should('deep.include', {
+          title: 'Write a test',
+          completed: false
+        })
       })
     })
   })
@@ -159,16 +151,12 @@ describe('intercept', () => {
       ).as('todos')
       cy.visit('/')
       cy.get('.todo').should('have.length', 2)
-      cy.wait('@todos')
-        .its('response.headers')
-        .should('include', headers) // our headers are present on the response
+      cy.wait('@todos').its('response.headers').should('include', headers) // our headers are present on the response
 
       // let's stub posting a new item
       cy.intercept('POST', '/todos', mergeResponse({ body: {} })).as('newTodo')
       cy.get('.new-todo').type('new item{enter}')
-      cy.wait('@newTodo')
-        .its('response.headers')
-        .should('include', headers) // our headers are present on the response
+      cy.wait('@newTodo').its('response.headers').should('include', headers) // our headers are present on the response
     })
   })
 
@@ -186,11 +174,7 @@ describe('intercept', () => {
 
       it('completes todo', () => {
         cy.get('.new-todo').type('write test{enter}')
-        cy.get('.todo')
-          .should('have.length', 1)
-          .first()
-          .find('.toggle')
-          .click()
+        cy.get('.todo').should('have.length', 1).first().find('.toggle').click()
         cy.contains('.todo', 'write test').should('have.class', 'completed')
       })
 
@@ -241,7 +225,7 @@ describe('intercept', () => {
 
     it.skip('tries to use cy.writeFile', () => {
       cy.visit('/')
-      cy.intercept('POST', '/todos', req => {
+      cy.intercept('POST', '/todos', (req) => {
         console.log('POST /todo', req)
         cy.writeFile('posted.json', JSON.stringify(req.body, null, 2))
       })
@@ -253,7 +237,7 @@ describe('intercept', () => {
       let body
 
       cy.visit('/')
-      cy.intercept('POST', '/todos', req => {
+      cy.intercept('POST', '/todos', (req) => {
         console.log('POST /todo', req)
         body = req.body
       }).as('post')
@@ -307,7 +291,7 @@ describe('intercept', () => {
       const replies = [twoItems, threeItems]
 
       // return a different response from the same intercept
-      cy.intercept('GET', '/todos', req => req.reply(replies.shift()))
+      cy.intercept('GET', '/todos', (req) => req.reply(replies.shift()))
       cy.visit('/')
       cy.get('.todo').should('have.length', 2)
 
@@ -335,7 +319,7 @@ describe('intercept', () => {
         intercepts[key] = response
       } else {
         intercepts[key] = response
-        cy.intercept(method, url, req => {
+        cy.intercept(method, url, (req) => {
           return req.reply(intercepts[key])
         }).as(alias)
       }
@@ -354,11 +338,7 @@ describe('intercept', () => {
     it('completes todo', () => {
       cy.visit('/')
       cy.get('.new-todo').type('write test{enter}')
-      cy.get('.todo')
-        .should('have.length', 1)
-        .first()
-        .find('.toggle')
-        .click()
+      cy.get('.todo').should('have.length', 1).first().find('.toggle').click()
       cy.contains('.todo', 'write test').should('have.class', 'completed')
     })
 
@@ -416,7 +396,7 @@ describe('intercept', () => {
       // I am using "count" to show how easy you can implement
       // different responses for different interceptors
       let count = 0
-      return cy.intercept(method, url, req => {
+      return cy.intercept(method, url, (req) => {
         count += 1
         if (count < 2) {
           req.reply(response)

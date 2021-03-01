@@ -98,7 +98,7 @@ context('toggles items', () => {
 
 +++
 
-![Toggle test](/slides/13-app-actions/img/toggle.png)
+![Toggle test](./img/toggle.png)
 
 Note:
 Our goal is to use todo page instance to create todos, then toggle one of them (again using the page object), then confirm class names like `todoPage.todos(0).should('not.have.class', 'completed')`.

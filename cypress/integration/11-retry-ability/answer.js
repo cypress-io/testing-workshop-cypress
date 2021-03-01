@@ -10,7 +10,7 @@ describe('retry-ability', () => {
     cy.visit('/')
   })
 
-  it('shows UL', function() {
+  it('shows UL', function () {
     cy.get('.new-todo')
       .type('todo A{enter}')
       .type('todo B{enter}')
@@ -26,13 +26,13 @@ describe('retry-ability', () => {
       .and('have.css', 'list-style-type', 'none')
   })
 
-  it('shows UL - TDD', function() {
+  it('shows UL - TDD', function () {
     cy.get('.new-todo')
       .type('todo A{enter}')
       .type('todo B{enter}')
       .type('todo C{enter}')
       .type('todo D{enter}')
-    cy.contains('ul', 'todo A').should($ul => {
+    cy.contains('ul', 'todo A').should(($ul) => {
       // use TDD assertions
       // $ul is visible
       // $ul has class "todo-list"
@@ -44,13 +44,13 @@ describe('retry-ability', () => {
     })
   })
 
-  it('every item starts with todo', function() {
+  it('every item starts with todo', function () {
     cy.get('.new-todo')
       .type('todo A{enter}')
       .type('todo B{enter}')
       .type('todo C{enter}')
       .type('todo D{enter}')
-    cy.get('.todo label').should($labels => {
+    cy.get('.todo label').should(($labels) => {
       // confirm that there are 4 labels
       // and that each one starts with "todo-"
       expect($labels).to.have.length(4)
@@ -123,7 +123,7 @@ describe('retry-ability', () => {
       .type('todo B{enter}')
       .type('todo C{enter}')
       .type('todo D{enter}')
-    cy.readFile('./todomvc/data.json').should(data => {
+    cy.readFile('./todomvc/data.json').should((data) => {
       expect(data).to.have.property('todos')
       expect(data.todos).to.have.length(4, '4 saved items')
       expect(data.todos[0], 'first item').to.include({
@@ -189,7 +189,7 @@ describe('Careful with negative assertions', { retries: 2 }, () => {
   })
 
   it('slows down the network response (programmatic)', () => {
-    cy.intercept('/todos', req => {
+    cy.intercept('/todos', (req) => {
       req.reply({
         body: [],
         delayMs: 1000

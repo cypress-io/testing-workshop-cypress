@@ -3,7 +3,7 @@
  * Adds a todo item
  * @param {string} text
  */
-const addItem = text => {
+const addItem = (text) => {
   cy.get('.new-todo').type(`${text}{enter}`)
 }
 

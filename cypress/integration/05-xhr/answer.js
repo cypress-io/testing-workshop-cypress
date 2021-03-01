@@ -60,24 +60,20 @@ it('posts new item to the server', () => {
   cy.intercept('POST', '/todos').as('new-item')
   cy.visit('/')
   cy.get('.new-todo').type('test api{enter}')
-  cy.wait('@new-item')
-    .its('request.body')
-    .should('have.contain', {
-      title: 'test api',
-      completed: false
-    })
+  cy.wait('@new-item').its('request.body').should('have.contain', {
+    title: 'test api',
+    completed: false
+  })
 })
 
 it('posts new item to the server response', () => {
   cy.intercept('POST', '/todos').as('new-item')
   cy.visit('/')
   cy.get('.new-todo').type('test api{enter}')
-  cy.wait('@new-item')
-    .its('response.body')
-    .should('have.contain', {
-      title: 'test api',
-      completed: false
-    })
+  cy.wait('@new-item').its('response.body').should('have.contain', {
+    title: 'test api',
+    completed: false
+  })
 })
 
 it('loads several items from a fixture', () => {
@@ -115,7 +111,7 @@ it('handles 404 when loading todos', () => {
   cy.visit('/', {
     // spy on console.error because we expect app would
     // print the error message there
-    onBeforeLoad: win => {
+    onBeforeLoad: (win) => {
       cy.spy(win.console, 'error').as('console-error')
     }
   })

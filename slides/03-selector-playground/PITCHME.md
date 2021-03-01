@@ -18,31 +18,31 @@
 
 +++
 
-![Chrome suggests selector](/slides/03-selector-playground/img/chrome-copy-js-path.png)
+![Chrome suggests selector](./img/chrome-copy-js-path.png)
 
 +++
 
 Open "Selector Playground"
 
-![Selector playground button](/slides/03-selector-playground/img/selector-button.png)
+![Selector playground button](./img/selector-button.png)
 
 +++
 
 Selector playground can suggest much better selectors.
 
-![Selector playground](/slides/03-selector-playground/img/selector-playground.png)
+![Selector playground](./img/selector-playground.png)
 
 +++
 
 ⚠️ It can suggest a weird selector
 
-![Default suggestion](/slides/03-selector-playground/img/default-suggestion.png)
+![Default suggestion](./img/default-suggestion.png)
 
 +++
 
 Read [best-practices.html#Selecting-Elements](https://docs.cypress.io/guides/references/best-practices.html#Selecting-Elements)
 
-![Best practice](/slides/03-selector-playground/img/best-practice.png)
+![Best practice](./img/best-practice.png)
 
 +++
 
@@ -56,7 +56,7 @@ The updated test should look something like the next image
 
 +++
 
-![Selectors](/slides/03-selector-playground/img/selectors.png)
+![Selectors](./img/selectors.png)
 
 +++
 
@@ -87,7 +87,7 @@ Record tests by clicking on the page
 +++
 ## Start recording
 
-![open Cypress Studio](/slides/03-selector-playground/img/start-studio.png)
+![open Cypress Studio](./img/start-studio.png)
 
 +++
 ## 🏁 Selecting Elements

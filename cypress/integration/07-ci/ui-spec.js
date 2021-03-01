@@ -24,9 +24,7 @@ describe('UI', () => {
     })
 
     it('starts with zero items', () => {
-      cy.get('.todo-list')
-        .find('li')
-        .should('have.length', 0)
+      cy.get('.todo-list').find('li').should('have.length', 0)
     })
 
     it('adds two items', () => {

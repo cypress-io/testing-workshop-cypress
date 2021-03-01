@@ -9,7 +9,7 @@ beforeEach(function visitSite() {
   cy.visit('/')
 })
 
-it('enters 10 todos', function() {
+it('enters 10 todos', function () {
   cy.get('.new-todo')
     .type('todo 0{enter}')
     .type('todo 1{enter}')
@@ -43,7 +43,5 @@ it.only('creates todos', () => {
     .type('todo 1{enter}')
     .type('todo 2{enter}')
   cy.get('.todo').should('have.length', 3)
-  cy.window()
-    .its('app.todos')
-    .toMatchSnapshot()
+  cy.window().its('app.todos').toMatchSnapshot()
 })

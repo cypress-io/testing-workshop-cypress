@@ -15,7 +15,9 @@
     "postinstall": "cd todomvc && npm install",
     "reset": "npm run reset --prefix todomvc",
     "format": "eslint --fix 'cypress/**/*.js'",
-    "lint": "eslint 'cypress/**/*.js'"
+    "lint": "eslint 'cypress/**/*.js'",
+    "slides:dev": "vite",
+    "slides:build": "vite build"
   },
   "private": true,
   "repository": {
@@ -63,12 +65,14 @@
     "mochawesome-report-generator": "4.0.1",
     "nyc": "15.0.0",
     "pluralize": "8.0.0",
-    "prettier": "1.19.1",
+    "prettier": "2.2.1",
+    "reveal.js": "4.1.0",
     "start-server-and-test": "1.12.0",
     "tsify": "4.0.1",
-    "typescript": "4.1.5"
+    "typescript": "4.1.5",
+    "vite": "2.0.4"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=12"
   }
 }

@@ -16,7 +16,7 @@
 
 ## Cypress dashboard
 
-![Cypress dashboard](/slides/08-dashboard/img/dashboard-runs.png)
+![Cypress dashboard](./img/dashboard-runs.png)
 
 +++
 
@@ -32,7 +32,7 @@
 - open Cypress test runner in interactive mode
 - click "Runs / Set up project to record"
 
-![Set up project to record](/slides/08-dashboard/img/set-up-project-to-record.png)
+![Set up project to record](./img/set-up-project-to-record.png)
 
 +++
 

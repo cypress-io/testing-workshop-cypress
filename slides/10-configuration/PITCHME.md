@@ -56,7 +56,7 @@ Open `cypress.json` and check which options are set in this project.
 
 ## `cypress.json` IntelliSense
 
-![`cypress.json` IntelliSense in VSCode](/slides/10-configuration/img/cypress.json-intellisense.png)
+![`cypress.json` IntelliSense in VSCode](./img/cypress.json-intellisense.png)
 
 You can have IntelliSense in `cypress.json` in a modern editor, like VSCode.
 
@@ -212,7 +212,7 @@ Use at your own risk, because the order of mutations and the final config in eac
 
 ## Resolved configuration
 
-![resolved configuration](/slides/10-configuration/img/configuration.png)
+![resolved configuration](./img/configuration.png)
 
 +++
 
@@ -314,7 +314,7 @@ npx cypress open --env todoTitle="env todo",life=42
 
 +++
 
-![env variables from CLI](/slides/10-configuration/img/env-from-cli.png)
+![env variables from CLI](./img/env-from-cli.png)
 
 +++
 
@@ -341,7 +341,7 @@ Unknown `CYPRESS_` variables will be added to `env` object.
 
 +++
 
-![env variables from env](/slides/10-configuration/img/env-from-env.png)
+![env variables from env](./img/env-from-env.png)
 
 +++
 
