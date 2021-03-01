@@ -24,10 +24,7 @@ it('can mark an item as completed', () => {
   addItem('hard')
 
   // marks the first item as completed
-  cy.contains('li.todo', 'simple')
-    .should('exist')
-    .find('.toggle')
-    .check()
+  cy.contains('li.todo', 'simple').should('exist').find('.toggle').check()
 
   // confirms the first item has the expected completed class
   cy.contains('li.todo', 'simple').should('have.class', 'completed')
@@ -56,7 +53,7 @@ it('can delete an item', () => {
  * Adds a todo item
  * @param {string} text
  */
-const addItem = text => {
+const addItem = (text) => {
   cy.get('.new-todo').type(`${text}{enter}`)
 }
 
@@ -72,9 +69,7 @@ it('can add many items', () => {
 })
 
 it('adds item with random text', () => {
-  const randomLabel = `Item ${Math.random()
-    .toString()
-    .slice(2, 14)}`
+  const randomLabel = `Item ${Math.random().toString().slice(2, 14)}`
 
   addItem(randomLabel)
   cy.contains('li.todo', randomLabel)
@@ -87,7 +82,7 @@ it('starts with zero items', () => {
 })
 
 it('does not allow adding blank todos', () => {
-  cy.on('uncaught:exception', e => {
+  cy.on('uncaught:exception', (e) => {
     // what will happen if this assertion fails?
     // will the test fail?
     // expect(e.message).to.include('Cannot add a blank todo')

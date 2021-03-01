@@ -78,7 +78,7 @@ it('handles 404 when loading todos', () => {
   cy.visit('/', {
     // spy on console.error because we expect app would
     // print the error message there
-    onBeforeLoad: win => {
+    onBeforeLoad: (win) => {
       // spy
     }
   })
