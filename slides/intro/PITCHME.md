@@ -70,8 +70,7 @@ Please: if you have experience with Cypress.io, help others during the workshop 
 You will need:
 
 - `git` to clone this repo
-- Node v10+ to install dependencies
-- Node v12 recommended
+- Node v12+ is recommended
 
 ```text
 git clone <repo url>
