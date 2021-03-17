@@ -77,9 +77,9 @@ $ npm run dev
 
 ## Slides 🖥
 
-See the presentation at [https://gitpitch.com/cypress-io/testing-workshop-cypress][presentation] with the starting file in [PITCHME.md](PITCHME.md) presented using [GitPitch](https://gitpitch.com/). The pitch file includes files from the [slides](slides) folder. Students should open the [presentation slides][presentation] and follow along. You can also show each section separately by clicking on the "slides" link in the table below. The full presentation includes all these presentations.
+See the presentation at [https://testing-workshop-cypress.netlify.app/][presentation]. Every section of the presentation has a subfolder in the [slides](./slides) folder. You can open the presentation by clicking on "link" in the table below.
 
-[presentation]: https://gitpitch.com/cypress-io/testing-workshop-cypress
+[presentation]: https://testing-workshop-cypress.netlify.app/
 
 ## Content 🗂
 
