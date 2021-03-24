@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/* eslint-disable-next-line no-unused-vars */
 import { enterTodo, resetData, removeTodo } from '../../support/utils'
 
 describe('Stubbing window.track', () => {
