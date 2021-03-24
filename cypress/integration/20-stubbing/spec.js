@@ -22,8 +22,16 @@ describe('Stubbing window.track', () => {
     // visit the page
     // stub "window.track"
     // enter and remove new todo
-    // assert the stub "window.track" was called once
-    // with expected argument
+    // assert the stub "window.track" was called
+    // with expected arguments
+  })
+
+  it('adds stub after reload', () => {
+    // create a single stub with
+    // const trackStub = cy.stub().as('track')
+    // stub the window.track after cy.visit
+    // and after reload
+    // and then count the number of calls
   })
 
   it('works on load', () => {

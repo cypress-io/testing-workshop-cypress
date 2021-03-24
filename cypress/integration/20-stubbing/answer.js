@@ -26,6 +26,40 @@ describe('Stubbing window.track', () => {
     cy.get('@track').should('have.been.calledWith', 'todo.remove', 'write code')
   })
 
+  it('stops working if window changes', () => {
+    cy.visit('/').then((win) => {
+      cy.stub(win, 'track').as('track')
+    })
+
+    enterTodo('write code')
+    cy.get('@track').should('be.calledOnce')
+
+    cy.reload()
+    enterTodo('write tests')
+    // note that our stub was still called once
+    // meaning the second todo was never counted
+    cy.get('@track').should('be.calledOnce')
+  })
+
+  it.only('adds stub after reload', () => {
+    const trackStub = cy.stub().as('track')
+
+    cy.visit('/').then((win) => {
+      cy.stub(win, 'track').callsFake(trackStub)
+    })
+
+    enterTodo('write code')
+    cy.get('@track').should('be.calledOnce')
+
+    cy.reload().then((win) => {
+      cy.stub(win, 'track').callsFake(trackStub)
+    })
+    enterTodo('write tests')
+    // our stub is called twice: the second time
+    // from the new window object after cy.reload()
+    cy.get('@track').should('be.calledTwice')
+  })
+
   it('works on load', () => {
     cy.visit('/', {
       onBeforeLoad(win) {
