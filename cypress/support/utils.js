@@ -92,10 +92,7 @@ export const getNewTodoInput = () => getTodoApp().find('.new-todo')
  *  enterTodo('my todo')
  */
 export const enterTodo = (text = 'example todo') => {
-  console.log('entering todo', text)
-
   getNewTodoInput().type(`${text}{enter}`)
-  console.log('typed', text)
 
   // we need to make sure the store and the vue component
   // get updated and the DOM is updated.
@@ -104,6 +101,16 @@ export const enterTodo = (text = 'example todo') => {
   // the element and not use stale reference from previous chain call
   const lastItem = '.todoapp .todo-list li:last'
   cy.get(lastItem).should('contain', text)
+}
+
+/**
+ * Removes the given todo by text
+ * @param {string} text The todo to find and remove
+ */
+export const removeTodo = (text) => {
+  cy.contains('.todoapp .todo-list li', text)
+    .find('.destroy')
+    .click({ force: true })
 }
 
 // a couple of aliases for 12-custom-commands answers

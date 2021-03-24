@@ -1,13 +1,11 @@
-/* global Vue, Vuex, axios */
+/* global Vue, Vuex, axios, track */
 /* eslint-disable no-console */
 /* eslint-disable-next-line */
-;(function() {
+;(function () {
   Vue.use(Vuex)
 
   function randomId() {
-    return Math.random()
-      .toString()
-      .substr(2, 10)
+    return Math.random().toString().substr(2, 10)
   }
 
   const store = new Vuex.Store({
@@ -18,9 +16,9 @@
       delay: 0
     },
     getters: {
-      newTodo: state => state.newTodo,
-      todos: state => state.todos,
-      loading: state => state.loading
+      newTodo: (state) => state.newTodo,
+      todos: (state) => state.todos,
+      loading: (state) => state.loading
     },
     mutations: {
       SET_DELAY(state, delay) {
@@ -58,12 +56,12 @@
 
           axios
             .get('/todos')
-            .then(r => r.data)
-            .then(todos => {
+            .then((r) => r.data)
+            .then((todos) => {
               commit('SET_TODOS', todos)
               commit('SET_LOADING', false)
             })
-            .catch(e => {
+            .catch((e) => {
               console.error('could not load todos')
               console.error(e.message)
               console.error(e.response.data)
@@ -96,6 +94,7 @@
         // increase the timeout delay to make the test fail
         // 50ms should be good
         setTimeout(() => {
+          track('todo.add', todo.title)
           axios.post('/todos', todo).then(() => {
             commit('ADD_TODO', todo)
           })
@@ -111,6 +110,8 @@
         })
       },
       removeTodo({ commit }, todo) {
+        track('todo.remove', todo.title)
+
         axios.delete(`/todos/${todo.id}`).then(() => {
           console.log('removed todo', todo.id, 'from the server')
           commit('REMOVE_TODO', todo)
@@ -121,7 +122,7 @@
       },
       // example promise-returning action
       addTodoAfterDelay({ commit }, { milliseconds, title }) {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
           setTimeout(() => {
             const todo = {
               title,
