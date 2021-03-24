@@ -1,4 +1,4 @@
-/* global Vue, Vuex, axios */
+/* global Vue, Vuex, axios, track */
 /* eslint-disable no-console */
 /* eslint-disable-next-line */
 ;(function () {
@@ -94,6 +94,7 @@
         // increase the timeout delay to make the test fail
         // 50ms should be good
         setTimeout(() => {
+          track('todo.add', todo.title)
           axios.post('/todos', todo).then(() => {
             commit('ADD_TODO', todo)
           })
@@ -109,6 +110,8 @@
         })
       },
       removeTodo({ commit }, todo) {
+        track('todo.remove', todo.title)
+
         axios.delete(`/todos/${todo.id}`).then(() => {
           console.log('removed todo', todo.id, 'from the server')
           commit('REMOVE_TODO', todo)
