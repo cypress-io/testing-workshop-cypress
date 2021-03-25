@@ -144,8 +144,13 @@ it('works via event handler', () => {
 Confirm the number of `window.track('load')` calls with `cy.visit` + `cy.reload`
 
 ---
-## 🏁 Stubbing methods
+## 📚 See also
 
 - Read Cypress "Stubs, Spies, and Clocks" guide at [https://on.cypress.io/stubs-spies-and-clocks](https://on.cypress.io/stubs-spies-and-clocks)
+- "Stubbing and spying" recipes at [https://github.com/cypress-io/cypress-example-recipes](https://github.com/cypress-io/cypress-example-recipes#stubbing-and-spying)
+
+---
+## 🏁 Stubbing methods
+
 - To create a spy or a stub you need an object and the method name
 - Prepare for methods called on load using `onBeforeLoad` or via `cy.on('window:before:load', ...)`
