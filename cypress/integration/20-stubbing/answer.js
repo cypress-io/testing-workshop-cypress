@@ -56,9 +56,11 @@ describe('Stubbing window.track', () => {
     cy.reload()
     enterTodo('write tests')
 
+    /* eslint-disable-next-line cypress/no-unnecessary-waiting */
+    cy.wait(500) // wait just in case the call happens late
+
     // note that our stub was still called once
     // meaning the second todo was never counted
-    cy.wait(500) // wait just in case it happens
     cy.get('@track').should('be.calledOnce')
   })
 
