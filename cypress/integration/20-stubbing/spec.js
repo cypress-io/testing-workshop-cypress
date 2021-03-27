@@ -26,6 +26,15 @@ describe('Stubbing window.track', () => {
     // with expected arguments
   })
 
+  it('resets the count', () => {
+    // add a couple of items
+    // confirm the stub was called N times
+    // reset the stub
+    // by invoking ".reset()" method
+    // trigger more events
+    // confirm the new number
+  })
+
   it('adds stub after reload', () => {
     // create a single stub with
     // const trackStub = cy.stub().as('track')
@@ -44,12 +53,20 @@ describe('Stubbing window.track', () => {
     // after the visit command confirm the stub was called
   })
 
-  it('works via event handler', () => {
+  it('works via cy.on event handler', () => {
     // need to return the same stub when using cy.visit
     // and cy.reload calls that create new "window" objects
     // tip: use the cy.on('window:before:load', ...) event listener
     // which is called during cy.visit and during cy.reload
     // during the test reload the page several times, then check
     // the right number of "window.track" calls was made
+    // https://on.cypress.io/catalog-of-events
+  })
+
+  it('works via Cypress.on event handler', () => {
+    // create a single stub in the test
+    // return it to anyone trying to use window.track
+    // from Cypress.on('window:before:load') callback
+    // https://on.cypress.io/catalog-of-events
   })
 })
