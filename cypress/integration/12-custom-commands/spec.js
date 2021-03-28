@@ -37,7 +37,7 @@ it.skip('passes when object gets new property', () => {
   // add assertions
 })
 
-it.only('creates todos', () => {
+it('creates todos', () => {
   cy.get('.new-todo')
     .type('todo 0{enter}')
     .type('todo 1{enter}')

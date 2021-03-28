@@ -116,7 +116,7 @@ See the presentation at [https://testing-workshop-cypress.netlify.app/][presenta
 | [🔗](#component-testing) | Component testing | [17-component-testing](cypress/integration/17-component-testing) | [17-component-testing](slides/17-component-testing/PITCHME.md) | [link](https://testing-workshop-cypress.netlify.app?p=17-component-testing)
 | [🔗](#backend) | Backend code | [18-backend](cypress/integration/18-backend) | [18-backend](slides/18-backend/PITCHME.md) | [link](https://testing-workshop-cypress.netlify.app?p=18-backend)
 | [🔗](#code-coverage) | Code coverage | [19-code-coverage](cypress/integration/19-code-coverage) | [19-code-coverage](slides/19-code-coverage/PITCHME.md) | [link](https://testing-workshop-cypress.netlify.app?p=19-code-coverage)
-| | Stubbing methods | [20-stubbing](./cypress/integration/20-stubbing) | [20-stubbing](./slides/20-stubbing/PITCHME.md) | [link](https://testing-workshop-cypress.netlify.app?p=20-stubbing)
+| [🔗](#stubbing-methods) | Stubbing methods | [20-stubbing](./cypress/integration/20-stubbing) | [20-stubbing](./slides/20-stubbing/PITCHME.md) | [link](https://testing-workshop-cypress.netlify.app?p=20-stubbing)
 | | The end                                | -                                                                                        | [end](slides/end/PITCHME.md)                                       | [link](https://testing-workshop-cypress.netlify.app?p=end)
 
 ## For speakers 🎙

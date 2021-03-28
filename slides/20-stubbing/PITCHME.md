@@ -74,6 +74,29 @@ it('tracks item delete', () => {
 })
 ```
 
++++
+## TODO: reset the count
+
+```js
+it('resets the count', () => {
+  cy.visit('/').then((win) => {
+    cy.stub(win, 'track').as('track')
+  })
+
+  enterTodo('write code')
+  cy.get('@track').should('be.calledOnce')
+
+  enterTodo('write tests')
+  cy.get('@track')
+    .should('be.calledTwice')
+    // reset the stub?
+
+  cy.get('@track').should('not.be.called')
+  enterTodo('control the state')
+  cy.get('@track').should('be.calledOnce')
+})
+```
+
 ---
 ## What if object changes
 
