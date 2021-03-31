@@ -3,7 +3,7 @@
 
 > A full day testing workshop complete with application, exercise tests and speaker slides for [Cypress.io](https://www.cypress.io/)
 
-## Requirements ⚙️
+## Requirements
 
 - Any computer: Mac, Windows, Linux
 - [Node 12.0.0+ (LTS)](https://nodejs.org/), check [GH workflow file](.github/workflows/min-node-version.yml)
