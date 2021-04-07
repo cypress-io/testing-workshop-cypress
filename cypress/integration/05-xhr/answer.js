@@ -43,7 +43,7 @@ it('starts with zero items (stubbed response)', () => {
   cy.get('li.todo').should('have.length', 0)
 })
 
-it('starts with zero items (fixture)', () => {
+it.only('starts with zero items (fixture)', () => {
   // stub route `GET /todos`, return data from fixture file
   // THEN visit the page
   cy.intercept('GET', '/todos', { fixture: 'empty-list.json' }).as('todos')
