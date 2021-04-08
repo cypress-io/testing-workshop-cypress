@@ -5,6 +5,7 @@
 - deep dive into assertions
 - built-in command waits
 - retry-ability 🔑
+- aliases
 
 +++
 
@@ -471,7 +472,56 @@ cy.get('@some-method')
   .should('have.been.calledOnce)
 ```
 
+---
+## Aliases
+
+Values and DOM elements can be saved under an alias using [.as](https://on.cypress.io/as) command.
+
+Read the guide at [https://on.cypress.io/variables-and-aliases](https://on.cypress.io/variables-and-aliases)
+
 +++
+
+```js
+before(() => {
+  cy.wrap('some value').as('exampleValue')
+})
+
+it('works in the first test', () => {
+  cy.get('@exampleValue').should('equal', 'some value')
+})
+
+// NOTE the second test is failing because the alias is reset
+it('does not exist in the second test', () => {
+  cy.get('@exampleValue').should('equal', 'some value')
+})
+```
+
+**Note** aliases are reset before each test
+
++++
+
+![Failing second test due to an alias defined in before hook](./img/alias-does-not-exist.png)
+
++++
+
+**Solution:** create aliases using `beforeEach` hook
+
+```js
+beforeEach(() => {
+  // we will create a new alias before each test
+  cy.wrap('some value').as('exampleValue')
+})
+
+it('works in the first test', () => {
+  cy.get('@exampleValue').should('equal', 'some value')
+})
+
+it('works in the second test', () => {
+  cy.get('@exampleValue').should('equal', 'some value')
+})
+```
+
+---
 ## 📝 Take away
 
 Most commands have built-in sensible waits:
