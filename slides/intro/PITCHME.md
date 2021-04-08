@@ -2,6 +2,8 @@
 
 - [github.com/cypress-io/testing-workshop-cypress](https://github.com/cypress-io/testing-workshop-cypress)
 
+Jump to: [00-start](?p=00-start), [01-basic](?p=01-basic), [02-adding-items](?p=02-adding-items), [03-selector-playground](?p=03-selector-playground), [04-reset-state](?p=04-reset-state), [05-xhr](?p=05-xhr), [06-app-data-store](?p=06-app-data-store), [07-ci](?p=07-ci), [08-dashboard](?p=08-dashboard), [09-reporters](?p=09-reporters), [10-configuration](?p=10-configuration), [11-retry-ability](?p=11-retry-ability)
+
 +++
 ## Gleb Bahmutov, PhD
 

@@ -202,3 +202,37 @@ describe('Careful with negative assertions', { retries: 2 }, () => {
     cy.get('.loading').should('not.be.visible')
   })
 })
+
+describe('aliases', () => {
+  context('are reset before each test', () => {
+    before(() => {
+      cy.wrap('some value').as('exampleValue')
+    })
+
+    it('works in the first test', () => {
+      cy.get('@exampleValue').should('equal', 'some value')
+    })
+
+    // NOTE the second test is failing because the alias is reset
+    it.skip('does not exist in the second test', () => {
+      // there is not alias because it is created once before
+      // the first test, and is reset before the second test
+      cy.get('@exampleValue').should('equal', 'some value')
+    })
+  })
+
+  context('should be created before each test', () => {
+    beforeEach(() => {
+      // we will create a new alias before each test
+      cy.wrap('some value').as('exampleValue')
+    })
+
+    it('works in the first test', () => {
+      cy.get('@exampleValue').should('equal', 'some value')
+    })
+
+    it('works in the second test', () => {
+      cy.get('@exampleValue').should('equal', 'some value')
+    })
+  })
+})
