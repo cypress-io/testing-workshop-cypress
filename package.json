@@ -43,7 +43,7 @@
     "@cypress/browserify-preprocessor": "3.0.1",
     "@cypress/code-coverage": "1.14.0",
     "babel-plugin-istanbul": "5.2.0",
-    "cypress": "6.8.0",
+    "cypress": "6.9.1",
     "cypress-dark": "1.7.14",
     "cypress-failed-log": "2.9.1",
     "cypress-pipe": "1.7.0",
