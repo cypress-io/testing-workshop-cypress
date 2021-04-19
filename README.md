@@ -1,5 +1,5 @@
 # testing-workshop-cypress
-![cypress version](https://img.shields.io/badge/cypress-6.5.0-brightgreen) [![CircleCI][ci-badge]][ci-url] [![Build status](https://ci.appveyor.com/api/projects/status/lflec2iwjc8gbhki/branch/master?svg=true)](https://ci.appveyor.com/project/cypress-io/testing-workshop-cypress/branch/master) [![GH Actions](https://github.com/cypress-io/testing-workshop-cypress/workflows/tests/badge.svg?branch=master)](https://github.com/cypress-io/testing-workshop-cypress/actions) [![renovate-app badge][renovate-badge]][renovate-app]
+![cypress version](https://img.shields.io/badge/cypress-6.5.0-brightgreen) [![CircleCI][ci-badge]][ci-url] [![Build status](https://ci.appveyor.com/api/projects/status/lflec2iwjc8gbhki/branch/master?svg=true)](https://ci.appveyor.com/project/cypress-io/testing-workshop-cypress/branch/master) [![renovate-app badge][renovate-badge]][renovate-app]
 
 > A full day testing workshop complete with application, exercise tests and speaker slides for [Cypress.io](https://www.cypress.io/)
 
