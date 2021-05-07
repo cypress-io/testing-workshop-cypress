@@ -60,7 +60,7 @@ describe('intercept', () => {
     })
   })
 
-  context.only('dynamic alias', () => {
+  context('dynamic alias', () => {
     it('sets the alias after inspecting the request', () => {
       cy.intercept('*', (req) => {
         if (req.method === 'GET' && req.url.endsWith('/todos')) {
@@ -72,7 +72,7 @@ describe('intercept', () => {
       cy.wait('@todos')
     })
 
-    it.only('creates random alias', () => {
+    it('creates random alias', () => {
       let alias = ''
       cy.intercept('GET', '/todos', (req) => {
         alias = 'get-todos-' + Cypress._.random(1e6)
