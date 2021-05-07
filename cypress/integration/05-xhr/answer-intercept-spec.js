@@ -60,6 +60,38 @@ describe('intercept', () => {
     })
   })
 
+  context.only('dynamic alias', () => {
+    it('sets the alias after inspecting the request', () => {
+      cy.intercept('*', (req) => {
+        if (req.method === 'GET' && req.url.endsWith('/todos')) {
+          req.alias = 'todos'
+        }
+      })
+
+      cy.visit('/')
+      cy.wait('@todos')
+    })
+
+    it.only('creates random alias', () => {
+      let alias = ''
+      cy.intercept('GET', '/todos', (req) => {
+        alias = 'get-todos-' + Cypress._.random(1e6)
+        req.alias = alias
+      })
+
+      cy.visit('/?delay=2400')
+
+      // first, wait for the alias string to become define
+      cy.wrap('the alias string')
+        .should(() => {
+          expect(alias, 'alias string').to.not.be.empty
+        })
+        .then(() => {
+          cy.wait(`@${alias}`)
+        })
+    })
+  })
+
   context('cached data', () => {
     // this test might pass or not when the DevTools is open
     // depending on the Network "Disable cache" setting
