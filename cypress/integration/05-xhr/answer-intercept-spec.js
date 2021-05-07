@@ -469,4 +469,33 @@ describe('intercept', () => {
         })
     })
   })
+
+  context('network idle', () => {
+    beforeEach(() => {
+      // let's reset the server to always have 2 todos
+      resetDatabaseTo('two-items.json')
+    })
+
+    it('waits for network to be idle for 1 second', () => {
+      let lastNetworkAt
+      cy.intercept('*', () => {
+        lastNetworkAt = +new Date()
+      })
+      // load the page, but delay loading of the data
+      cy.visit('/?delay=800')
+
+      // wait for network to be idle for 1 second
+      const started = +new Date()
+      cy.wrap('network idle for 1 sec').should(() => {
+        const t = lastNetworkAt || started
+        const elapsed = +new Date() - t
+        if (elapsed < 1000) {
+          throw new Error('Network is busy')
+        }
+      })
+      // by now everything should have been loaded
+      // we can check by using very short timeout
+      cy.get('.todo-list li', { timeout: 10 }).should('have.length', 2)
+    })
+  })
 })

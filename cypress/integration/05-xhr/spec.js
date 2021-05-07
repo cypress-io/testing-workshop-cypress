@@ -100,3 +100,10 @@ it('handles todos with blank title', () => {
   // having blank spaces or null
   // confirm the todo item is shown correctly
 })
+
+it('waits for network to be idle for 1 second', () => {
+  // intercept all requests
+  // on every intercept set the timestamp
+  // retry using should(cb) checking the time
+  // that has passed since the network timestamp
+})
