@@ -11,5 +11,5 @@ dist
 .nyc_output
 coverage
 npm-debug.log
-todomvc-redux/.cache
 posted.json
+*-answer.js

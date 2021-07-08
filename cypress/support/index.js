@@ -29,3 +29,8 @@ import './commands'
 
 // load commands for code coverage
 // require('@cypress/code-coverage/support')
+beforeEach(() => {
+  cy.request('POST', '/reset', {
+    todos: []
+  })
+})

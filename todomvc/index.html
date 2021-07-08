@@ -39,7 +39,7 @@
   <body>
     <section class="todoapp">
       <header class="header">
-        <h1 data-cy="app-title">todos</h1>
+        <h1 data-test-id="APP_TITLE">todos</h1>
         <input
           class="new-todo"
           autofocus
@@ -48,20 +48,22 @@
           :value="newTodo"
           @input="setNewTodo"
           @keyup.enter="addTodo"
+          data-test-id="NEW_TODO"
         />
       </header>
       <section class="main" v-show="todos.length" v-cloak>
-        <ul class="todo-list">
+        <ul class="todo-list" data-test-id="TODO_LIST">
           <li
             v-for="todo in todos"
             class="todo"
             :key="todo.id"
             :class="{ completed: todo.completed }"
+            data-test-id="TODO_LIST_ITEM"
           >
             <div class="view">
-              <input class="toggle" type="checkbox" v-model="todo.completed" />
-              <label>{{ todo.title }}</label>
-              <button class="destroy" @click="removeTodo(todo)"></button>
+              <input class="toggle" type="checkbox" v-model="todo.completed" data-test-id="TOGGLE_COMPLETION" />
+              <label data-test-id="TODO_LIST_ITEM_LABEL">{{ todo.title }}</label>
+              <button class="destroy" @click="removeTodo(todo)" data-test-id="DELETE"></button>
             </div>
           </li>
         </ul>

@@ -2,15 +2,9 @@
   "viewportWidth": 600,
   "viewportHeight": 800,
   "ignoreTestFiles": [
-    "**/answer/*",
-    "*answer.js",
     "*.d.ts",
     "**/__snapshots__/*",
-    "**/__image_snapshots__/*",
-    "**/13-app-actions/todo-page-object.js",
-    "**/13-app-actions/utils.js",
-    "**/17-component-testing/filters.js",
-    "**/17-component-testing/*.jsx"
+    "**/__image_snapshots__/*"
   ],
   "baseUrl": "http://localhost:3000",
   "env": {},
