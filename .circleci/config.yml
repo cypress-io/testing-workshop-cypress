@@ -84,7 +84,7 @@ jobs:
   two-commands:
     docker:
       # find Docker image at https://github.com/cypress-io/cypress-docker-images
-      - image: cypress/base:12.14.0
+      - image: cypress/base:12.19.0
 
     working_directory: ~/repo
 
@@ -111,7 +111,7 @@ jobs:
   single-command:
     docker:
       # find Docker image at https://github.com/cypress-io/cypress-docker-images
-      - image: cypress/base:12.14.0
+      - image: cypress/base:12.19.0
 
     working_directory: ~/repo
 
@@ -137,7 +137,7 @@ jobs:
   # https://circleci.com/docs/2.0/executor-types/#ram-disks
   install-using-ram-disk:
     docker:
-      - image: cypress/base:12.14.0
+      - image: cypress/base:12.19.0
 
     working_directory: /mnt/ramdisk
 
@@ -172,7 +172,7 @@ jobs:
 
   using-ram-disk:
     docker:
-      - image: cypress/base:12.14.0
+      - image: cypress/base:12.19.0
 
     working_directory: /mnt/ramdisk
 
@@ -201,7 +201,7 @@ jobs:
   answers:
     docker:
       # find Docker image at https://github.com/cypress-io/cypress-docker-images
-      - image: cypress/base:12.14.0
+      - image: cypress/base:12.19.0
     working_directory: ~/repo
     steps:
       - checkout
