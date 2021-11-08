@@ -1,71 +1,76 @@
 /// <reference types="cypress" />
-it('loads', () => {
-  // application should be running at port 3000
+
+beforeEach(() => {
+  cy.request('POST', '/reset', {
+    todos: []
+  })
   cy.visit('localhost:3000')
+})
+
+it('loads and checks', () => {
   cy.contains('h1', 'todos')
+  const selectors = ['.new-todo', 'footer', 'header']
+  selectors.forEach((selector) => cy.get(selector).should('be.visible'))
 })
 
-// IMPORTANT ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
-// remember to manually delete all items before running the test
-// IMPORTANT ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+/**
+ * Adds a todo item
+ * @param {string} text
+ */
+const addItem = (text) => {
+  cy.get('.new-todo').type(`${text}{enter}`)
+}
 
-it('adds two items', () => {
-  // repeat twice
-  //    get the input field
-  //    type text and "enter"
-  //    assert that the new Todo item
-  //    has been added added to the list
-  // cy.get(...).should('have.length', 2)
-})
-
-it('can mark an item as completed', () => {
+it('can add items and mark an item as completed', () => {
   // adds a few items
+  addItem('simple')
+  addItem('hard')
   // marks the first item as completed
+  cy.contains('li.todo', 'simple').should('exist').find('.toggle').check()
   // confirms the first item has the expected completed class
+  cy.contains('li.todo', 'simple').should('have.class', 'completed')
   // confirms the other items are still incomplete
-})
-
-it('can delete an item', () => {
-  // adds a few items
+  cy.contains('li.todo', 'hard').should('not.have.class', 'completed')
   // deletes the first item
   // use force: true because we don't want to hover
+  cy.contains('li.todo', 'simple').find('.destroy').click({ force: true })
   // confirm the deleted item is gone from the dom
+  cy.contains('li.todo', 'simple').should('not.exist')
   // confirm the other item still exists
-})
-
-it('can add many items', () => {
-  const N = 5
-  for (let k = 0; k < N; k += 1) {
-    // add an item
-    // probably want to have a reusable function to add an item!
-  }
-  // check number of items
+  cy.contains('li.todo', 'hard').should('exist')
+  // resets state
+  cy.contains('li.todo', 'hard').find('.destroy').click({ force: true })
+  cy.contains('li.todo', 'hard').should('not.exist')
 })
 
 it('adds item with random text', () => {
   // use a helper function with Math.random()
   // or Cypress._.random() to generate unique text label
+  // KEY: ._.random is so much nicer than Math.floor(Math.random() * 10) + 1
+  cy.get('li.todo').should('have.length', 0)
+  const randomLabel = `Item ${Cypress._.random(1, 10)}`
+  cy.log(randomLabel)
   // add such item
+  addItem(randomLabel)
   // and make sure it is visible and does not have class "completed"
-})
+  cy.contains('li.todo', randomLabel)
+    .should('be.visible')
+    .and('not.have.class', 'completed')
 
-it('starts with zero items', () => {
-  // check if the list is empty initially
-  //   find the selector for the individual TODO items
-  //   in the list
-  //   use cy.get(...) and it should have length of 0
-  //   https://on.cypress.io/get
+  cy.contains('li.todo', randomLabel).find('.destroy').click({ force: true })
 })
 
 it('does not allow adding blank todos', () => {
+  // KEY uncaught exceptions can just return false, or filter by error message content
   // https://on.cypress.io/catalog-of-events#App-Events
-  cy.on('uncaught:exception', () => {
+  cy.on('uncaught:exception', (e) => {
     // check e.message to match expected error text
     // return false if you want to ignore the error
+    return !e.message.includes('Cannot add a blank todo')
   })
 
+  addItem('')
+  addItem(' ')
+  cy.get('li.todo').should('not.exist')
   // try adding an item with just spaces
 })
-
-// what a challenge?
-// test more UI at http://todomvc.com/examples/vue/

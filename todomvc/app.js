@@ -66,6 +66,11 @@
               console.error(e.message)
               console.error(e.response.data)
             })
+            .finally(() => {
+              // an easy way for the application to signal
+              // that it is done loading
+              document.body.classList.add('loaded')
+            })
         }, state.delay)
       },
 
@@ -199,7 +204,7 @@
 
   // if you want to expose "app" globally only
   // during end-to-end tests you can guard it using "window.Cypress" flag
-  // if (window.Cypress) {
-  window.app = app
-  // }
+  if (window.Cypress) {
+    window.app = app
+  }
 })()

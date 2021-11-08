@@ -1,5 +1,4 @@
 /// <reference types="cypress" />
-/// <reference path="./custom-commands.d.ts" />
 require('cypress-pipe')
 import { resetData, visitSite } from '../../support/utils'
 

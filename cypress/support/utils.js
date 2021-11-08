@@ -39,8 +39,7 @@ export const visit = (skipWaiting) => {
   const waitForInitialLoad = !skipWaiting
   console.log('visit will wait for initial todos', waitForInitialLoad)
   if (waitForInitialLoad) {
-    cy.server()
-    cy.route('/todos').as('initialTodos')
+    cy.intercept('GET', '/todos').as('initialTodos')
   }
   cy.visit('/')
   console.log('cy.visit /')

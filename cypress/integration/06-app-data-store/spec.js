@@ -1,14 +1,39 @@
 /// <reference types="cypress" />
 // application should be running at port 3000
 // and the "localhost:3000" is set as "baseUrl" in "cypress.json"
+
 beforeEach(() => {
   cy.request('POST', '/reset', {
     todos: []
   })
-})
-beforeEach(() => {
   cy.visit('/')
 })
+
+it('has window.app property', () => {
+  // get its "app" property
+  // and confirm it is an object
+  // see https://on.cypress.io/its
+  cy.window().its('app').should('be.an', 'object')
+})
+
+it('has vuex store', () => {
+  // check app's $store property
+  // and confirm it has typical Vuex store methods
+  // see https://on.cypress.io/its
+  cy.window()
+    .its('app.$store')
+    .should('include.keys', ['commit', 'dispatch'])
+    .its('state')
+    .should('be.an', 'object')
+    .its('todos')
+    .should('be.an', 'array')
+})
+
+it('starts with an empty store', () => {
+  // the list of todos in the Vuex store should be empty
+  cy.window().its('app.$store.state.todos').should('be.empty')
+})
+
 /**
  * Adds a todo item
  * @param {string} text
@@ -17,55 +42,56 @@ const addItem = (text) => {
   cy.get('.new-todo').type(`${text}{enter}`)
 }
 
-it('adds items to store', () => {
-  addItem('something')
-  addItem('something else')
-  // get application's window
-  // then get app, $store, state, todos
-  // it should have 2 items
-})
-
-it('creates an item with id 1', () => {
-  cy.server()
-  cy.route('POST', '/todos').as('new-item')
-
-  // TODO change Math.random to be deterministic
-
-  // STEPS
-  // get the application's "window" object using cy.window
-  // then change its Math object and replace it
-  // with your function that always returns "0.1"
-
-  addItem('something')
-  // confirm the item sent to the server has the right values
-  cy.wait('@new-item').its('request.body').should('deep.equal', {
-    id: '1',
-    title: 'something',
-    completed: false
-  })
-})
-
-// stub function Math.random using cy.stub
-it('creates an item with id using a stub', () => {
+it('creates items with deterministic ids 1 and 2 using a stub, and checks store', () => {
   // get the application's "window.Math" object using cy.window
   // replace Math.random with cy.stub and store the stub under an alias
-  // create a todo using addItem("foo")
-  // and then confirm that the stub was called once
+  // otherwise the app is setup to give a random number for the id
+  let count = 1
+  // KEY: cy.stub(object, methodName).callsFake(function)
+  cy.window()
+    .its('Math')
+    .then((Math) => cy.stub(Math, 'random').callsFake(() => `0.${count++}`))
+    .as('random')
+  // create todos using addItem("foo")
+  addItem('something')
+  addItem('else')
+  // and then confirm that the stub was called
+  cy.get('@random').should('be.calledTwice')
+
+  cy.window()
+    .its('app.$store.state.todos')
+    .should('have.length', 2)
+    .and('deep.equal', [
+      { title: 'something', completed: false, id: '1' },
+      { title: 'else', completed: false, id: '2' }
+    ])
 })
 
-it('puts the todo items into the data store', () => {
-  // application uses data store to store its items
-  // you can get the data store using "window.app.$store.state.todos"
-  // add a couple of items
-  // get the data store
-  // check its contents
+// bypass the UI and call app's actions directly from the test
+// app.$store.dispatch('setNewTodo', <desired text>)
+// app.$store.dispatch('addTodo')
+// using https://on.cypress.io/invoke
+const storeDispatch = (args) =>
+  cy
+    .window()
+    .its('app.$store')
+    .invoke('dispatch', ...args)
+const addTodoAction = (todoText) => {
+  storeDispatch(['setNewTodo', todoText])
+  return storeDispatch(['addTodo', todoText])
+}
+
+it('adds todos via app action', () => {
+  addTodoAction('new todo')
+  cy.contains('li.todo', 'new todo')
 })
 
-it('handles todos with blank title', () => {
-  // bypass the UI and call app's actions directly from the test
-  // app.$store.dispatch('setNewTodo', <desired text>)
-  // app.$store.dispatch('addTodo')
-  // using https://on.cypress.io/invoke
-  // and then
-  // confirm the application is not breaking
+it('handles todos with blank title, confirm the application is not breaking', () => {
+  addTodoAction(' ')
+  cy.get('li.todo')
+    .should('have.length', 1)
+    .first()
+    .should('not.have.class', 'completed')
+    .find('label')
+    .should('have.text', ' ')
 })

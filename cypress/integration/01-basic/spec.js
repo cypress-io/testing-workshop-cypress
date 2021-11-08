@@ -11,13 +11,14 @@ it('loads', () => {
   // this assertion fails on purpose
   // can you fix it?
   // https://on.cypress.io/get
-  cy.contains('h1', 'Todos App')
+  cy.contains('h1', 'todos')
 
   // can you write "cy.contains" using regular expression?
-  // cy.contains('h1', /.../)
+  cy.contains('h1', /todos/)
 
   // also good practice is to use data attributes specifically for testing
   // see https://on.cypress.io/best-practices#Selecting-Elements
   // which play well with "Selector Playground" tool
   // how would you do select this element?
+  cy.contains('[data-cy="app-title"]', 'todos')
 })

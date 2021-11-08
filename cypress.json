@@ -13,7 +13,13 @@
     "**/17-component-testing/*.jsx"
   ],
   "baseUrl": "http://localhost:3000",
-  "env": {},
+  "env": {
+    "cypress-plugin-snapshots": {
+      "autoCleanUp": true,
+      "autopassNewSnapshots": false,
+      "diffLines": 3
+    }
+  },
   "$schema": "https://on.cypress.io/cypress.schema.json",
   "experimentalStudio": true
 }

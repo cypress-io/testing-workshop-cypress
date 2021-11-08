@@ -110,7 +110,7 @@ context('app actions with fixtures', () => {
     // grab window app.$store
     // and for each item from the fixture
     // dispatch action "addEntireTodo"
-    cy.window().its('app.$store')
+    // cy.window().its('app.$store')
     // create items by dispatching actions
   })
 })

@@ -32,7 +32,32 @@ describe('App Data Store', { retries: 2 }, () => {
 
   afterEach(function () {
     // makes debugging failing tests much simpler
-    cy.screenshot(this.currentTest.fullTitle())
+    cy.screenshot(this.currentTest.fullTitle(), { capture: 'runner' })
+  })
+
+  it('has window.app property', () => {
+    // get its "app" property
+    // and confirm it is an object
+    // see https://on.cypress.io/its
+    cy.window().its('app').should('be.an', 'object')
+  })
+
+  it('has vuex store', () => {
+    // check app's $store property
+    // and confirm it has typical Vuex store methods
+    // see https://on.cypress.io/its
+    cy.window()
+      .its('app.$store')
+      .should('include.keys', ['commit', 'dispatch'])
+      .its('state')
+      .should('be.an', 'object')
+      .its('todos')
+      .should('be.an', 'array')
+  })
+
+  it('starts with an empty store', () => {
+    // the list of todos in the Vuex store should be empty
+    cy.window().its('app.$store.state.todos').should('have.length', 0)
   })
 
   it('adds items to store', () => {
@@ -74,9 +99,6 @@ describe('App Data Store', { retries: 2 }, () => {
     // app.$store.dispatch('setNewTodo', <desired text>)
     // app.$store.dispatch('addTodo')
     // using https://on.cypress.io/invoke
-    // bypass the UI and call app's actions directly from the test
-    // app.$store.dispatch('setNewTodo', <desired text>)
-    // app.$store.dispatch('addTodo')
     cy.window().its('app.$store').invoke('dispatch', 'setNewTodo', 'new todo')
 
     cy.window().its('app.$store').invoke('dispatch', 'addTodo')
