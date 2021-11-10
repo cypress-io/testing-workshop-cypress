@@ -20,6 +20,10 @@
       "diffLines": 3
     }
   },
+  "component": {
+    "testFiles": "**/*.comp-test.{js,ts,jsx,tsx}",
+    "componentFolder": "**/17-component-testing"
+  },
   "$schema": "https://on.cypress.io/cypress.schema.json",
   "experimentalStudio": true
 }

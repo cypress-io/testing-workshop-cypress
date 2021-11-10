@@ -22,7 +22,7 @@ it('starts with zero items (check body.loaded)', () => {
   // then check the number of items
   cy.intercept('GET', '/todos').as('todos')
   cy.visit('/')
-  
+
   cy.wait('@todos').its('response.body').should('have.length', 0)
   cy.get('li.todo').should('have.length', 0)
 })
@@ -46,10 +46,10 @@ it('starts with multiple items (stubbed response with fixture)', () => {
   // stub `GET /todos` with []
   // save the stub as an alias
 
-  cy.intercept('GET', '/todos', { fixture: 'three-items'}).as('todos')
+  cy.intercept('GET', '/todos', { fixture: 'three-items' }).as('todos')
   // THEN visit the page
   cy.visit('/')
-  
+
   // wait for the route alias
   // grab its response body
   // and make sure the body is an empty list
@@ -70,7 +70,7 @@ it('posts new item to the server', () => {
   // and make sure it contains
   // {title: 'test api', completed: false}
   // hint: use cy.wait(...).its(...).should('have.contain', ...)
-  // KEY: we can check the contents of the data with .should('contain'), { part of an object }) , have.contain also works 
+  // KEY: we can check the contents of the data with .should('contain'), { part of an object }) , have.contain also works
   cy.wait('@new-item').its('request.body').should('contain', {
     title: 'test api',
     completed: false
@@ -152,10 +152,12 @@ it('handles todos with blank title', () => {
 
   // having blank spaces or null
   // confirm the todo item is shown correctly
-  cy.get('li.todo').should('have.length', 1)
-    .first().should('not.have.class', 'completed')
-    .find('label').should('have.text', '  ')
-
+  cy.get('li.todo')
+    .should('have.length', 1)
+    .first()
+    .should('not.have.class', 'completed')
+    .find('label')
+    .should('have.text', '  ')
 })
 
 // a test that confirms a specific network call is NOT made
@@ -174,8 +176,10 @@ it('does not make POST /todos request on load', () => {
   cy.get('.new-todo').type('a new item{enter}')
   // now the network call should have been made
   // confirm the network call was made with the correct data
-  cy.get('@post').should('have.been.calledOnce')
-    .its('args.0.0.body').should('deep.include', {
+  cy.get('@post')
+    .should('have.been.calledOnce')
+    .its('args.0.0.body')
+    .should('deep.include', {
       title: 'a new item',
       completed: false
     })
@@ -193,11 +197,10 @@ it('does not make POST /todos request on load - no stubbing', () => {
   cy.get('.new-todo').type('a new item{enter}')
   // now the network call should have been made
   // confirm the network call was made with the correct data
-  cy.get('@post')
-    .its('request.body').should('deep.include', {
-      title: 'a new item',
-      completed: false
-    })
+  cy.get('@post').its('request.body').should('deep.include', {
+    title: 'a new item',
+    completed: false
+  })
 })
 
 describe('spying on load', () => {
@@ -209,7 +212,7 @@ describe('spying on load', () => {
     // create a random number of todos using cy.request
     // tip: use can use Lodash methods to draw a random number
     // look at the POST /todos calls the application sends
-    Cypress._.times(Cypress._.random(10), k => {
+    Cypress._.times(Cypress._.random(10), (k) => {
       cy.request('POST', '/todos', {
         title: `todo #${k}`,
         completed: false,
@@ -233,7 +236,7 @@ describe('spying on load', () => {
     // and compare to the number of displayed todos
     cy.wait('@getTodos')
       .its('response')
-      .then(response => {
+      .then((response) => {
         expect(response.statusCode).to.eq(200)
         cy.get('.todo').should('have.length', response.body.length)
       })
@@ -260,11 +263,11 @@ describe('waits for network idle', () => {
     // load the page, but delay loading of the data by some random number
     // using /?delay=<number> query param
     const delayMs = Cypress._.random(100, 1500)
-    
+
     cy.visit(`/?delay=${delayMs}`).then(() => {
       cy.log(`**lastNetworkAt** ${lastNetworkAt}`)
       // start waiting after the cy.visit command finishes
-      
+
       // wait for network to be idle for 2 seconds
       // using a .should(cb) assertion that looks at the current timestamp
       // vs the timestamp of the last network call
@@ -273,16 +276,16 @@ describe('waits for network idle', () => {
       // TIP: cy.wrap('message').should(cb) works really well
       const started = Date.now()
       cy.log(`**started** ${started}`)
-      
+
       let finished
-      
+
       cy.wrap('network idle for 2 sec')
-      .should(() => {
+        .should(() => {
           const elapsed = Date.now() - started
-        
+
           console.log(`elapsed: ${elapsed}`)
           // KEY: retry ability works off of errors as well as assertions
-          // Any error thrown inside the `.should(cb)` causes it to retry. You can throw the error yourself or use `expect(...)...` 
+          // Any error thrown inside the `.should(cb)` causes it to retry. You can throw the error yourself or use `expect(...)...`
           // The `expect` statement IF it fails throws an error, just like you, only with a better error message
           if (elapsed < 2000) {
             throw new Error('Network is busy')

@@ -221,7 +221,7 @@ describe('Careful with negative assertions', () => {
 
   it('slows down the network response (programmatic)', () => {
     // when would we prefer to use programmatic response?
-    // in this case does not matter, but imagine the response depends on the request 
+    // in this case does not matter, but imagine the response depends on the request
     // like "respond with the object computed from the request". Then we would use it
     cy.intercept('GET', '/todos', (req) => {
       req.reply({
@@ -275,62 +275,71 @@ describe('aliases', () => {
     })
   })
 
-  context('can refer to the alias with this when using function callbacks', () => {
-    // cannot use before, still have to repeat the alias before each test, or the 2nd test will fail
-    beforeEach(() => { 
-      cy.fixture('two-items').as('twoItems')
-    })
+  context(
+    'can refer to the alias with this when using function callbacks',
+    () => {
+      // cannot use before, still have to repeat the alias before each test, or the 2nd test will fail
+      beforeEach(() => {
+        cy.fixture('two-items').as('twoItems')
+      })
 
-    it('works in the first test', function () {
-      cy.get('@twoItems').should('have.length', 2)
-      expect(this.twoItems).to.have.length(2)
-      cy.wrap(this.twoItems).should('have.length', 2)
-    })
+      it('works in the first test', function () {
+        cy.get('@twoItems').should('have.length', 2)
+        expect(this.twoItems).to.have.length(2)
+        cy.wrap(this.twoItems).should('have.length', 2)
+      })
 
-    it('works in the second test', function () {
-      cy.get('@twoItems').should('have.length', 2)
-      expect(this.twoItems).to.have.length(2)
-      cy.wrap(this.twoItems).should('have.length', 2)
-    })
-  })
+      it('works in the second test', function () {
+        cy.get('@twoItems').should('have.length', 2)
+        expect(this.twoItems).to.have.length(2)
+        cy.wrap(this.twoItems).should('have.length', 2)
+      })
+    }
+  )
 
-  context('If you do not want beforeEach and want to use arrow function expressions', () => {
-    // declare a value in the outer scope
-    let twoItems
+  context(
+    'If you do not want beforeEach and want to use arrow function expressions',
+    () => {
+      // declare a value in the outer scope
+      let twoItems
 
-    before(() => {
-      // set that value in a then callback
-      cy.fixture('two-items').then(items => twoItems = items)
-    })
+      before(() => {
+        // set that value in a then callback
+        cy.fixture('two-items').then((items) => (twoItems = items))
+      })
 
-    it('works in the first test', () => {
-      expect(twoItems).to.have.length(2)
-      cy.wrap(twoItems).should('have.length', 2)
-    })
+      it('works in the first test', () => {
+        expect(twoItems).to.have.length(2)
+        cy.wrap(twoItems).should('have.length', 2)
+      })
 
-    it('works in the second test', () => {
-      expect(twoItems).to.have.length(2)
-      cy.wrap(twoItems).should('have.length', 2)
-    })
-  })
+      it('works in the second test', () => {
+        expect(twoItems).to.have.length(2)
+        cy.wrap(twoItems).should('have.length', 2)
+      })
+    }
+  )
 
-  context('this is similar to what you would do in a unit test, for example with Jest', () => {
-    let exampleValue
+  context(
+    'this is similar to what you would do in a unit test, for example with Jest',
+    () => {
+      let exampleValue
 
-    before(() => {
-      exampleValue = 'some value'
-    })
+      before(() => {
+        exampleValue = 'some value'
+      })
 
-    it('works in the first test', () => {
-      expect(exampleValue).to.equal('some value')
-      cy.wrap(exampleValue).should('eq', 'some value')
-    })
+      it('works in the first test', () => {
+        expect(exampleValue).to.equal('some value')
+        cy.wrap(exampleValue).should('eq', 'some value')
+      })
 
-    it('works in the second test', () => {
-      expect(exampleValue).to.equal('some value')
-      cy.wrap(exampleValue).should('eq', 'some value')
-    })
-  })
+      it('works in the second test', () => {
+        expect(exampleValue).to.equal('some value')
+        cy.wrap(exampleValue).should('eq', 'some value')
+      })
+    }
+  )
 })
 
 describe('timing commands', () => {
@@ -354,14 +363,18 @@ describe('timing commands', () => {
     // check the loading indicator is visible
     // take a timestamp after the loading indicator is visible
     let started
-    cy.get('.loading').should('be.visible').then(() => started = Date.now())
+    cy.get('.loading')
+      .should('be.visible')
+      .then(() => (started = Date.now()))
     // how to check if the loading element goes away in less than 2 seconds?
     // take another timestamp when the indicator goes away.
     // compute the elapsed time
     // assert the elapsed time is less than 2 seconds
-    cy.get('.loading').should('not.be.visible').then(() => {
-      const finished = Date.now() - started
-      expect(finished).to.be.lessThan(2000)
-    })
+    cy.get('.loading')
+      .should('not.be.visible')
+      .then(() => {
+        const finished = Date.now() - started
+        expect(finished).to.be.lessThan(2000)
+      })
   })
 })

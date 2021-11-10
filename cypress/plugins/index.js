@@ -17,6 +17,7 @@ const fs = require('fs')
 const path = require('path')
 const debug = require('debug')('testing-workshop-cypress')
 const snapshotsPlugin = require('cypress-plugin-snapshots/plugin')
+const injectDevServer = require('@cypress/react/plugins/react-scripts')
 
 const getDbFilename = () =>
   path.join(__dirname, '..', '..', 'todomvc', 'data.json')
@@ -97,6 +98,7 @@ module.exports = (on, config) => {
   const allConfigs = Object.assign(
     {},
     config,
+    injectDevServer(on, config), // init for @cypress/react
     snapshotsPlugin.initPlugin(on, config), // init for cypress-plugin-snapshots
     {
       fixturesFolder: 'cypress/fixtures',
