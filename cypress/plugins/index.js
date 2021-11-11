@@ -17,7 +17,13 @@ const fs = require('fs')
 const path = require('path')
 const debug = require('debug')('testing-workshop-cypress')
 const snapshotsPlugin = require('cypress-plugin-snapshots/plugin')
-const injectDevServer = require('@cypress/react/plugins/react-scripts')
+const separateTaskFile = require('./separate-task-file')
+const separateTaskFile2 = require('./separate-task-file-2')
+const separateTaskFile3 = require('./separate-task-file-3')
+// const injectDevServer = require('@cypress/react/plugins/react-scripts')
+
+// you keep things tidy by combining tasks from other files
+const combinedTasks = Object.assign({}, separateTaskFile2, separateTaskFile3)
 
 const getDbFilename = () =>
   path.join(__dirname, '..', '..', 'todomvc', 'data.json')
@@ -56,6 +62,7 @@ module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // "cy.task" can be used from specs to "jump" into Node environment
   // and doing anything you might want. For example, checking "data.json" file!
+
   on('task', {
     // saves given or default empty data object into todomvc/data.json file
     // if the server is watching this file, next reload should show the updated values
@@ -80,8 +87,25 @@ module.exports = (on, config) => {
         ms
       )
       return hasRecordAsync(title, ms)
-    }
+    },
+
+    // KEY: where do we add tasks?
+    // option 1: you can keep adding tasks here, comma separated
+    helloWorld: (name) => `Hello ${name}`,
+    // KEY: if you have multiple arguments, use destructuring
+    helloMultipleArgs: ({ name, lastName }) => `Hello ${name} ${lastName}`
   })
+
+  // option 2: on('task', {..} can be called multiple times, new tasks can go here
+  on('task', {
+    helloSeparateTaskBlock: (name) => `Hello ${name}`
+  })
+
+  // option 3: you can also use "cy.task" to call tasks from other files
+  on('task', separateTaskFile)
+
+  // option 4: (my favorite) you keep things tidy by combining tasks from other files
+  on('task', combinedTasks)
 
   // code coverage tasks
   // @see https://on.cypress.io/code-coverage
@@ -98,7 +122,7 @@ module.exports = (on, config) => {
   const allConfigs = Object.assign(
     {},
     config,
-    injectDevServer(on, config), // init for @cypress/react
+    // injectDevServer(on, config), // init for @cypress/react
     snapshotsPlugin.initPlugin(on, config), // init for cypress-plugin-snapshots
     {
       fixturesFolder: 'cypress/fixtures',
@@ -106,5 +130,5 @@ module.exports = (on, config) => {
     }
   )
 
-  return Promise.resolve(allConfigs)
+  return allConfigs
 }
