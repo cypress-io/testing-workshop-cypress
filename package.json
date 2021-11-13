@@ -61,6 +61,7 @@
     "highlight.js": "11.3.1",
     "html-webpack-plugin": "4.5.2",
     "http-server": "14.0.0",
+    "istanbul-instrumenter-loader": "3.0.1",
     "istanbul-lib-coverage": "3.2.0",
     "mocha": "9.1.3",
     "mocha-junit-reporter": "2.0.2",
