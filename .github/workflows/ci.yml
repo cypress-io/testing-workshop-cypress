@@ -15,3 +15,4 @@ jobs:
           wait-on: 'http://localhost:3000'
           config: 'ignoreTestFiles=spec.js'
           browser: chrome
+          headless: false

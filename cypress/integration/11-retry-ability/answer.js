@@ -287,7 +287,7 @@ describe('timing commands', () => {
         const finished = +new Date()
         const elapsed = finished - started
         expect(elapsed, 'loading takes less than 2 seconds').to.be.lessThan(
-          2000
+          2500 // can flake in CI ~0.1 seconds
         )
       })
   })
