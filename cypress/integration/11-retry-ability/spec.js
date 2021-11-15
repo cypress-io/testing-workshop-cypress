@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 /* eslint-disable no-unused-vars */
 
-describe('retry-ability', () => {
+describe('retry-ability', { defaultCommandTimeout: 10000 }, () => {
   beforeEach(function resetData() {
     cy.request('POST', '/reset', {
       todos: []

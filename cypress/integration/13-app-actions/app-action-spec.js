@@ -53,16 +53,20 @@ describe('TodoMVC', function () {
       allItems().should('have.length', 4)
     })
 
-    it('should append new items to the bottom of the list', function () {
-      // this is an example of a custom command
-      // which is stored in tests/_support/spec_helper.js
-      // you should open up the spec_helper and look at
-      addDefaultTodos()
+    it(
+      'should append new items to the bottom of the list',
+      { defaultCommandTimeout: 10000 },
+      function () {
+        // this is an example of a custom command
+        // which is stored in tests/_support/spec_helper.js
+        // you should open up the spec_helper and look at
+        addDefaultTodos()
 
-      allItems().eq(0).find('label').should('contain', TODO_ITEM_ONE)
-      allItems().eq(1).find('label').should('contain', TODO_ITEM_TWO)
-      allItems().eq(2).find('label').should('contain', TODO_ITEM_THREE)
-    })
+        allItems().eq(0).find('label').should('contain', TODO_ITEM_ONE)
+        allItems().eq(1).find('label').should('contain', TODO_ITEM_TWO)
+        allItems().eq(2).find('label').should('contain', TODO_ITEM_THREE)
+      }
+    )
 
     it('should trim text input', function () {
       // this is an example of another custom command

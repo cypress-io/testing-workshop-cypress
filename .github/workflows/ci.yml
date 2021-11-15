@@ -20,3 +20,4 @@ jobs:
         with:
           # run every answer spec file, ignore the placeholder files
           config: 'ignoreTestFiles=spec.js'
+          browser: chrome

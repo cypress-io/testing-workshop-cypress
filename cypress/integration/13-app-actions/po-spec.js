@@ -73,26 +73,30 @@ describe('TodoMVC', function () {
       cy.get('.new-todo').should('have.text', '')
     })
 
-    it('should append new items to the bottom of the list', function () {
-      todoPage.createTodos()
+    it(
+      'should append new items to the bottom of the list',
+      { defaultCommandTimeout: 10000 },
+      function () {
+        todoPage.createTodos()
 
-      // even though the text content is split across
-      // multiple <span> and <strong> elements
-      // `cy.contains` can verify this correctly
+        // even though the text content is split across
+        // multiple <span> and <strong> elements
+        // `cy.contains` can verify this correctly
 
-      cy.get('@todos')
-        .eq(0)
-        .find('label')
-        .should('contain', TodoPage.TODO_ITEM_ONE)
-      cy.get('@todos')
-        .eq(1)
-        .find('label')
-        .should('contain', TodoPage.TODO_ITEM_TWO)
-      cy.get('@todos')
-        .eq(2)
-        .find('label')
-        .should('contain', TodoPage.TODO_ITEM_THREE)
-    })
+        cy.get('@todos')
+          .eq(0)
+          .find('label')
+          .should('contain', TodoPage.TODO_ITEM_ONE)
+        cy.get('@todos')
+          .eq(1)
+          .find('label')
+          .should('contain', TodoPage.TODO_ITEM_TWO)
+        cy.get('@todos')
+          .eq(2)
+          .find('label')
+          .should('contain', TodoPage.TODO_ITEM_THREE)
+      }
+    )
 
     it('should trim text input', function () {
       todoPage.createTodo(` ${TodoPage.TODO_ITEM_ONE} `)
