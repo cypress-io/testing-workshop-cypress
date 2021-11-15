@@ -23,6 +23,10 @@
     "testFiles": "./cypress/integration/17-component-testing/*.comp-test.{js,ts,jsx,tsx}",
     "componentFolder": "./cypress/integration/17-component-testing"
   },
+  "retries": {
+    "runMode": 3,
+    "openMode": 1
+  },
   "$schema": "https://on.cypress.io/cypress.schema.json",
   "experimentalStudio": true
 }
