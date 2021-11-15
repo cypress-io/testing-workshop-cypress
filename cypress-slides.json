@@ -1,8 +1,0 @@
-{
-  "baseUrl": "http://localhost:3100",
-  "$schema": "https://on.cypress.io/cypress.schema.json",
-  "integrationFolder": "cypress/slides-tests",
-  "supportFile": false,
-  "pluginsFile": false,
-  "fixturesFolder": false
-}
