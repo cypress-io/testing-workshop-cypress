@@ -1,18 +1,14 @@
-exports[`creates todos #0`] = 
+exports[`creates a todo, does advanced logging takes a snapshot #0`] =
 [
   {
     "completed": false,
-    "id": "3797889185",
-    "title": "todo 0"
-  },
-  {
-    "completed": false,
-    "id": "9586836192",
-    "title": "todo 1"
-  },
-  {
-    "completed": false,
-    "id": "2921246518",
-    "title": "todo 2"
+    "title": "my first todo"
   }
 ];
+
+exports[`enters 10 todos #0`] = `
+[ { "_prevClass": "todo" }, { "_prevClass": "todo" }, { "_prevClass": "todo" },
+{ "_prevClass": "todo" }, { "_prevClass": "todo" }, { "_prevClass": "todo" }, {
+"_prevClass": "todo" }, { "_prevClass": "todo" }, { "_prevClass": "todo" }, {
+"_prevClass": "todo" } ]
+`;

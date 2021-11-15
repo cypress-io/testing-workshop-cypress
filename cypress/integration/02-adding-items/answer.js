@@ -32,21 +32,14 @@ it('can mark an item as completed', () => {
   cy.contains('li.todo', 'hard').should('not.have.class', 'completed')
 })
 
-it('can delete an item', () => {
-  // adds a few items
-  addItem('simple')
-  addItem('hard')
-  // deletes the first item
-  cy.contains('li.todo', 'simple')
-    .should('exist')
-    .find('.destroy')
-    // use force: true because we don't wsnt to hover
-    .click({ force: true })
-
-  // confirm the deleted item is gone from the dom
-  cy.contains('li.todo', 'simple').should('not.exist')
-  // confirm the other item still exists
-  cy.contains('li.todo', 'hard').should('exist')
+it('shows the expected elements', () => {
+  // remove duplicate commands that get an element
+  // and check if it is visible
+  // https://youtu.be/DnmnzemS_HA
+  const selectors = ['header', 'footer', '.new-todo']
+  selectors.forEach((selector) => {
+    cy.get(selector).should('be.visible')
+  })
 })
 
 /**
@@ -56,17 +49,6 @@ it('can delete an item', () => {
 const addItem = (text) => {
   cy.get('.new-todo').type(`${text}{enter}`)
 }
-
-it('can add many items', () => {
-  // assumes there are no items at the beginning
-
-  const N = 5
-  for (let k = 0; k < N; k += 1) {
-    addItem(`item ${k}`)
-  }
-  // check number of items
-  cy.get('li.todo').should('have.length', 5)
-})
 
 it('adds item with random text', () => {
   const randomLabel = `Item ${Math.random().toString().slice(2, 14)}`
@@ -78,6 +60,7 @@ it('adds item with random text', () => {
 })
 
 it('starts with zero items', () => {
+  // NOTE: this test passes for the wrong reason
   cy.get('li.todo').should('have.length', 0)
 })
 

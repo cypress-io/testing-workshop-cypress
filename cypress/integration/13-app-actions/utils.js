@@ -1,5 +1,4 @@
 /// <reference types="cypress" />
-/// <reference path='./model.d.ts' />
 // @ts-check
 
 export const TODO_ITEM_ONE = 'buy some cheese'
@@ -18,48 +17,23 @@ export const addDefaultTodos = () => {
   allItems().as('todos')
 }
 
-/**
- * App action to create one or more todos.
- *
- * @example
-  ```
-  import { addTodos } from './utils'
-  it('shows right counter', () => {
-    addTodos(TODO_ITEM_ONE)
-    cy.get('.todo-count').contains('1 item left')
-    addTodos(TODO_ITEM_TWO)
-    cy.get('.todo-count').contains('2 items left')
-  })
-  ```
- */
-export const addTodos = (...todos) => {
-  cy.window()
-    .its('model')
-    .invoke('addTodo', ...todos)
-}
-
-/**
- * App action to toggle the given todo item.
- * Returns chain so you can attach more Cypress commands.
- * @param {number} k index of the todo item to toggle, 0 - first item
- *
- * @example
- ```js
- import { addTodos, toggle } from './utils'
- it('completes an item', () => {
-   addTodos('first')
-   toggle(0)
- })
- ```
- */
-export const toggle = (k = 0) =>
+// bypass the UI and call app's actions directly from the test
+// app.$store.dispatch('setNewTodo', <desired text>)
+// app.$store.dispatch('addTodo')
+// using https://on.cypress.io/invoke
+const storeDispatch = (args) =>
   cy
     .window()
-    .its('model')
-    .then((model) => {
-      expect(k, 'check item index').to.be.lessThan(model.todos.length)
-      model.toggle(model.todos[k])
-    })
+    .its('app.$store')
+    .invoke('dispatch', ...args)
+
+export const addTodos = (...todos) =>
+  todos.map((todo) => {
+    storeDispatch(['setNewTodo', todo])
+    return storeDispatch(['addTodo', todo])
+  })
+
+export const toggle = (todo) => storeDispatch(['clearNewTodo', todo])
 
 const ALL_ITEMS = '.todo-list li'
 

@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 // uncomment these as needed
-// import React from 'react'
+import React from 'react'
 // import Footer from './Footer'
 // adds custom command "cy.mount"
 import 'cypress-react-unit-test'
@@ -9,6 +9,7 @@ import 'cypress-react-unit-test'
 beforeEach(() => {
   cy.viewport(500, 300)
 })
+
 it('shows Footer', () => {
   // mount imported Footer component
   // make sure to pass "count={10}"

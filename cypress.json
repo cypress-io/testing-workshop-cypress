@@ -9,11 +9,20 @@
     "**/__image_snapshots__/*",
     "**/13-app-actions/todo-page-object.js",
     "**/13-app-actions/utils.js",
-    "**/17-component-testing/filters.js",
-    "**/17-component-testing/*.jsx"
+    "**/17-component-testing/*.*"
   ],
   "baseUrl": "http://localhost:3000",
-  "env": {},
+  "env": {
+    "cypress-plugin-snapshots": {
+      "autoCleanUp": true,
+      "autopassNewSnapshots": false,
+      "diffLines": 3
+    }
+  },
+  "component": {
+    "testFiles": "./cypress/integration/17-component-testing/*.comp-test.{js,ts,jsx,tsx}",
+    "componentFolder": "./cypress/integration/17-component-testing"
+  },
   "$schema": "https://on.cypress.io/cypress.schema.json",
   "experimentalStudio": true
 }

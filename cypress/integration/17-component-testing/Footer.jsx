@@ -19,7 +19,7 @@ class Footer extends React.Component {
       )
     }
 
-    // React idiom for shortcutting to `classSet` since it'll be used often
+    // React idiom for short cutting to `classSet` since it'll be used often
     // var cx = React.addons.classSet
     var nowShowing = this.props.nowShowing
     return (

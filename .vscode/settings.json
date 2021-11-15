@@ -21,5 +21,6 @@
     "statusBar.foreground": "#15202b",
     "activityBar.activeBackground": "#66abe1"
   },
-  "peacock.color": "#3b94d9"
+  "peacock.color": "#3b94d9",
+  "deepscan.enable": true
 }

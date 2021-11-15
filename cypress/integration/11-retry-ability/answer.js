@@ -1,3 +1,4 @@
+// @ts-check
 /// <reference types="cypress" />
 describe('retry-ability', () => {
   beforeEach(function resetData() {
@@ -79,7 +80,7 @@ describe('retry-ability', () => {
   // flaky test - can pass or not depending on the app's speed
   // to make the test flaky add the timeout
   // in todomvc/app.js "addTodo({ commit, state })" method
-  it('has two labels', () => {
+  it('has two labels', { retries: 2 }, () => {
     cy.get('.new-todo').type('todo A{enter}')
     cy.get('.todo-list li') // command
       .find('label') // command
@@ -201,6 +202,24 @@ describe('Careful with negative assertions', { retries: 2 }, () => {
     // then assert it goes away (negative assertion)
     cy.get('.loading').should('not.be.visible')
   })
+
+  it('loading element is visible, while todos do not exist', () => {
+    cy.intercept('/todos', {
+      delayMs: 1000,
+      fixture: 'two-items.json'
+    })
+    cy.visit('/?delay=1000')
+    cy.get('.loading').should(($loading) => {
+      // single function with synchronous assertions
+      expect($loading).to.be.visible
+      const doc = $loading[0].ownerDocument
+      const todoList = doc.querySelector('.todo-list')
+      expect(todoList).to.be.empty
+    })
+    // the loading element goes away and the list appears
+    cy.get('.loading').should('not.be.visible')
+    cy.get('.todo-list li').should('have.length', 2)
+  })
 })
 
 describe('aliases', () => {
@@ -234,5 +253,42 @@ describe('aliases', () => {
     it('works in the second test', () => {
       cy.get('@exampleValue').should('equal', 'some value')
     })
+  })
+})
+
+describe('timing commands', () => {
+  beforeEach(function resetData() {
+    cy.request('POST', '/reset', {
+      todos: []
+    })
+  })
+
+  it('takes less than 2 seconds for the app to load', () => {
+    cy.intercept('GET', '/todos', {
+      fixture: 'two-items.json',
+      delay: Cypress._.random(1000, 1999)
+    })
+    cy.visit('/')
+
+    let started
+    cy.get('.loading')
+      .should('be.visible')
+      .then(() => {
+        // take a timestamp after the loading indicator is visible
+        started = +new Date()
+      })
+    // how to check if the loading element goes away in less than 2 seconds?
+    cy.get('.loading')
+      .should('not.be.visible')
+      .then(() => {
+        // take another timestamp when the indicator goes away.
+        // compute the elapsed time
+        // assert the elapsed time is less than 2 seconds
+        const finished = +new Date()
+        const elapsed = finished - started
+        expect(elapsed, 'loading takes less than 2 seconds').to.be.lessThan(
+          2500 // can flake in CI ~0.1 seconds
+        )
+      })
   })
 })
