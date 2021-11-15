@@ -13,11 +13,5 @@ jobs:
         with:
           start: 'npm start'
           wait-on: 'http://localhost:3000'
-
-      # the server is already running, so just test the answers
-      - name: Test answers 🤔
-        uses: cypress-io/github-action@v2
-        with:
-          # run every answer spec file, ignore the placeholder files
           config: 'ignoreTestFiles=spec.js'
           browser: chrome
