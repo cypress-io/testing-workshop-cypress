@@ -61,6 +61,7 @@ describe('TodoMVC', function () {
         // which is stored in tests/_support/spec_helper.js
         // you should open up the spec_helper and look at
         addDefaultTodos()
+        allItems().should('have.length', 3)
 
         allItems().eq(0).find('label').should('contain', TODO_ITEM_ONE)
         allItems().eq(1).find('label').should('contain', TODO_ITEM_TWO)
@@ -103,6 +104,8 @@ describe('TodoMVC', function () {
   context('Item', function () {
     it('should allow me to mark items as complete', function () {
       addTodos(TODO_ITEM_ONE, TODO_ITEM_TWO)
+
+      allItems().should('have.length', 3)
 
       allItems().eq(0).as('firstTodo')
       allItems().eq(1).as('secondTodo')
