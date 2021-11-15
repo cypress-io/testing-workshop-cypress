@@ -78,6 +78,7 @@ describe('TodoMVC', function () {
       { defaultCommandTimeout: 10000 },
       function () {
         todoPage.createTodos()
+        cy.get('li.todo').should('have.length', 3)
 
         // even though the text content is split across
         // multiple <span> and <strong> elements
@@ -126,6 +127,7 @@ describe('TodoMVC', function () {
       // the return value is the <li> in the <ul.todos-list>
       todoPage.createTodo(TodoPage.TODO_ITEM_ONE).as('firstTodo')
       todoPage.createTodo(TodoPage.TODO_ITEM_TWO).as('secondTodo')
+      cy.get('li.todo').should('have.length', 2)
 
       todoPage.toggle(0)
       cy.get('@firstTodo').should('have.class', 'completed')

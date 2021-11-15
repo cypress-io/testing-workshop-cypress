@@ -105,7 +105,8 @@ describe('TodoMVC', function () {
     it('should allow me to mark items as complete', function () {
       addTodos(TODO_ITEM_ONE, TODO_ITEM_TWO)
 
-      allItems().should('have.length', 3)
+      allItems().should('have.length', 2)
+      cy.get('li.todo').should('have.length', 2)
 
       allItems().eq(0).as('firstTodo')
       allItems().eq(1).as('secondTodo')
@@ -122,6 +123,7 @@ describe('TodoMVC', function () {
 
     it('should allow me to un-mark items as complete', function () {
       addTodos(TODO_ITEM_ONE, TODO_ITEM_TWO)
+      cy.get('li.todo').should('have.length', 2)
 
       allItems().eq(0).as('firstTodo')
       allItems().eq(1).as('secondTodo')
