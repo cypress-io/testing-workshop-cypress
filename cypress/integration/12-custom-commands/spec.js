@@ -23,7 +23,7 @@ Cypress.Commands.add('createTodo', (todo) => {
     .type(`${todo}{enter}`, { log: false })
 })
 
-it('enters 10 todos', function () {
+it.skip('enters 10 todos - does not work when running all specs https://github.com/cypress-io/cypress/issues/3090', function () {
   cy.get('.new-todo')
     .type('todo 0{enter}')
     .type('todo 1{enter}')
@@ -39,7 +39,7 @@ it('enters 10 todos', function () {
 })
 
 // KEY: advanced logging, snapshots
-it('creates a todo, does advanced logging takes a snapshot', () => {
+it.skip('creates a todo, does advanced logging takes a snapshot - does not work when running all specs https://github.com/cypress-io/cypress/issues/3090', () => {
   cy.createTodo('my first todo')
   cy.window().its('app.todos').toMatchSnapshot()
 })

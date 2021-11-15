@@ -21,7 +21,9 @@ const codeCoverageTask = require('@cypress/code-coverage/task')
 const separateTaskFile = require('./separate-task-file')
 const separateTaskFile2 = require('./separate-task-file-2')
 const separateTaskFile3 = require('./separate-task-file-3')
-// const injectDevServer = require('@cypress/react/plugins/react-scripts')
+
+// TODO: cannot get component testing to work in this repo
+// const injectDevServer = require('@cypress/react/plugins/which-one?')
 
 // you keep things tidy by combining tasks from other files
 const combinedTasks = Object.assign({}, separateTaskFile2, separateTaskFile3)
@@ -111,7 +113,7 @@ module.exports = (on, config) => {
   // code coverage tasks
   // @see https://on.cypress.io/code-coverage
   // use .babelrc file if want to instrument unit tests
-  on('file:preprocessor', require('@cypress/code-coverage/use-babelrc'))
+  // on('file:preprocessor', require('@cypress/code-coverage/use-babelrc'))
 
   // `config` is the resolved Cypress config
   // see https://on.cypress.io/configuration-api
@@ -122,8 +124,8 @@ module.exports = (on, config) => {
   const allConfigs = Object.assign(
     {},
     config,
-    // injectDevServer(on, config), // init for @cypress/react
     codeCoverageTask(on, config),
+    // injectDevServer(on, config), // TODO: cannot get component testing to work in this repo
     snapshotsPlugin.initPlugin(on, config), // init for cypress-plugin-snapshots
     {
       fixturesFolder: 'cypress/fixtures',
