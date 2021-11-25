@@ -170,6 +170,51 @@ describe('create todos using API', () => {
     cy.visit('/')
     cy.get('.todo').should('have.length', numTodos)
   })
+
+  it('can modify JSON fixture as text and create todo', () => {
+    cy.fixture('two-items')
+      // first option: naive replace, we know where the data is in the fixture file
+      // .then((list) => {
+      //   list[0].title = 'First'
+      //   list[1].title = 'Second'
+      //   return list
+      // })
+
+      // second (better) option: let's say we do not know where in the json file the data is. We can use JSON.stringify and text replace
+      // .then(JSON.stringify)
+      // .then((text) => text.replace('first item from fixture', 'First!'))
+      // .then((text) => text.replace('second item from fixture', 'Second!'))
+      // .then(JSON.parse)
+
+      // third (even fancier) option: use invoke. When an argument is passed to a function and the property of that arg is invoked...
+      .then(JSON.stringify)
+      .invoke('replace', 'first item from fixture', 'First!')
+      .invoke({ log: false }, 'replace', 'second item from fixture', 'Second!') // optional not logging
+      .then(JSON.parse)
+
+      .then((todos) => {
+        cy.task('resetData', { todos })
+        cy.visit('/')
+        cy.get('li.todo').should('have.length', todos.length)
+        todos.map((todo) => cy.contains('li.todo', todo.title))
+      })
+  })
+
+  // https://www.youtube.com/watch?v=vlLLi5N4h78
+  it('Cypress version 9 encoding null (buffer) can modify JSON fixture as text and create todo', () => {
+    cy.fixture('two-items.json', null) // encoding as null, so it gives us a buffer, make sure to specify .json
+      .invoke('toString') // convert the buffer to string
+      .invoke('replace', 'first item from fixture', 'First!')
+      .invoke({ log: false }, 'replace', 'second item from fixture', 'Second!') // optional not logging
+      .then(JSON.parse)
+
+      .then((todos) => {
+        cy.task('resetData', { todos })
+        cy.visit('/')
+        cy.get('li.todo').should('have.length', todos.length)
+        todos.forEach((todo) => cy.contains('li.todo', todo.title))
+      })
+  })
 })
 
 // problem with cy.session + setup + validate combination
