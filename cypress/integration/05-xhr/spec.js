@@ -9,6 +9,8 @@
 
 /* eslint-disable no-unused-vars */
 
+import spok from 'cy-spok'
+
 it('starts with zero items (waits)', () => {
   cy.visit('/')
   // wait 1 second
@@ -17,6 +19,7 @@ it('starts with zero items (waits)', () => {
 })
 
 it('starts with zero items (check body.loaded)', () => {
+  cy.request('POST', '/reset', { todos: [] })
   // the application sets "loaded" class on the body
   // in the test we can check for this class
   // then check the number of items
@@ -302,5 +305,263 @@ describe('waits for network idle', () => {
     // we can check the page and use a very short timeout
     // because the page is ready to be tested
     cy.get('.todo-list li', { timeout: 10 }).should('have.length', 0)
+  })
+})
+
+// read the blog post "Visit Non-HTML Page"
+// https://glebbahmutov.com/blog/visit-non-html-page/
+describe.only(
+  'visit non-html page',
+  { viewportWidth: 400, viewportHeight: 100 },
+  () => {
+    beforeEach(() => {
+      cy.fixture('two-items').as('todos')
+    })
+    beforeEach(function () {
+      // by using "function () {}" callback we can access
+      // the alias created in the previous hook using "this.<name>"
+      cy.task('resetData', { todos: this.todos })
+    })
+
+    /*
+      Skipping because this will cause an error:
+        cy.visit() failed trying to load:
+          http://localhost:3000/todos/1
+        The content-type of the response we received from your web server was:
+          > application/json
+        This was considered a failure because responses must have content-type: 'text/html'
+    */
+    it.skip('tries to visit JSON resource', () => {
+      cy.visit('/todos/1')
+    })
+
+    // how do we "convince" Cypress that the received response should be treated as HTML text?
+    // By intercepting and overwriting the response content type header!
+    it('visits the todo JSON response', function () {
+      cy.intercept('GET', '/todos/*', (req) => {
+        req.continue((res) => {
+          if (res.headers['content-type'].includes('application/json')) {
+            res.headers['content-type'] = 'text/html'
+            const text = `<body><pre>${JSON.stringify(
+              res.body,
+              null,
+              2
+            )}</pre></body>`
+            res.send(text)
+          }
+        })
+      }).as('todo')
+      cy.visit('/todos/1')
+      // make sure you intercept has worked
+      cy.wait('@todo')
+      // check the text shown in the browser
+      cy.contains(this.todos[0].title)
+      // confirm the item ID is in the URL
+      // 1. less than ideal, since we use position arguments
+      cy.location('pathname')
+        .should('include', '/todos/')
+        // we have a string, which we can split by '/'
+        .invoke('split', '/')
+        // and get the 3rd item in the array ["", "todos", "1"]
+        .its(2)
+        // and verify this is the same as the item ID
+        .should('eq', '1')
+      // 2. alternative: use regex exec with a capture group
+      // https://javascript.info/regexp-groups
+
+      cy.location('pathname')
+        .should('match', /\/todos\/\d+/)
+        // use named capture group to get the ID from the string
+        // group name is id, can be any variable, we are looking for anything ending with /1
+        // this way, if the resources move from /todos/1 to /api/todos/1, things still will work
+        .then((s) => /\/todos\/(?<idalalal>\d+)/.exec(s))
+        .its('groups.idalalal')
+        .should('equal', '1')
+      // 3. use regular expression match with a capture group
+      cy.location('pathname')
+        .should('include', 'todos')
+        // use named capture group to get the ID from the string
+        .invoke('match', /\/todos\/(?<id>\d+)/)
+        .its('groups.id')
+        .should('equal', '1')
+    })
+  }
+)
+
+describe('Refactor network code example', () => {
+  beforeEach(() => {
+    cy.intercept('GET', '/todos', []).as('todos')
+    cy.visit('/')
+  })
+
+  it('validates and processes the intercept object', () => {
+    cy.intercept('POST', '/todos').as('postTodo')
+    const title = 'new todo'
+    const completed = false
+    cy.get('.new-todo').type(title + '{enter}')
+    cy.wait('@postTodo')
+      .then((intercept) => {
+        // get the field from the intercept object
+        const { statusCode, body } = intercept.response
+        // confirm the status code is 201
+        expect(statusCode).to.eq(201)
+        // confirm some properties of the response data
+        expect(body.title).to.equal(title)
+        expect(body.completed).to.equal(completed)
+        // return the field from the body object
+        return body.id
+      })
+      .then(cy.log)
+  })
+
+  it('extracts the response property first', () => {
+    cy.intercept('POST', '/todos').as('postTodo')
+    const title = 'new todo'
+    const completed = false
+    cy.get('.new-todo').type(title + '{enter}')
+    cy.wait('@postTodo')
+      .its('response')
+      .then((response) => {
+        const { statusCode, body } = response
+        // confirm the status code is 201
+        expect(statusCode).to.eq(201)
+        // confirm some properties of the response data
+        expect(body.title).to.equal(title)
+        expect(body.completed).to.equal(completed)
+        // return the field from the body object
+        return body.id
+      })
+      .then(cy.log)
+  })
+
+  it('checks the status code', () => {
+    cy.intercept('POST', '/todos').as('postTodo')
+    const title = 'new todo'
+    const completed = false
+    cy.get('.new-todo').type(title + '{enter}')
+    cy.wait('@postTodo')
+      .its('response')
+      .then((response) => {
+        const { body } = response
+        // confirm the status code is 201
+        expect(response).to.have.property('statusCode', 201)
+        // confirm some properties of the response data
+        expect(body.title).to.equal(title)
+        expect(body.completed).to.equal(completed)
+        // return the field from the body object
+        return body.id
+      })
+      .then(cy.log)
+  })
+
+  // KEY: If Cypress .then command returns undefined and has no other Cypress commands,
+  // then its original subject value gets passed to the next command automatically.
+  it('checks the status code in its own then', () => {
+    cy.intercept('POST', '/todos').as('postTodo')
+    const title = 'new todo'
+    const completed = false
+    cy.get('.new-todo').type(title + '{enter}')
+    cy.wait('@postTodo')
+      .its('response')
+      // we can use should as well as then (no need for retry mechanism with should here though)
+      .should((response) => {
+        // confirm the status code is 201
+        expect(response).to.have.property('statusCode', 201)
+        // we cannot use a cy command because then the result would be returned
+        // cy.wrap(response).should('have.property', 'statusCode', 201)
+      })
+      .its('body')
+      .should((body) => {
+        // confirm some properties of the response data
+        expect(body.title).to.equal(title)
+        expect(body.completed).to.equal(completed)
+        // return the field from the body object
+        return body.id
+      })
+      .then(cy.log)
+  })
+
+  it('checks the body object', () => {
+    cy.intercept('POST', '/todos').as('postTodo')
+    const title = 'new todo'
+    const completed = false
+    cy.get('.new-todo').type(title + '{enter}')
+    cy.wait('@postTodo')
+      .its('response')
+      .then((response) => {
+        // confirm the status code is 201
+        expect(response).to.have.property('statusCode', 201)
+      })
+      .its('body')
+      .then((body) => {
+        // confirm some properties of the response data
+        expect(body).to.deep.include({
+          title,
+          completed
+        })
+      })
+      .its('id')
+      .then(cy.log)
+  })
+
+  it('checks the body object using should', () => {
+    cy.intercept('POST', '/todos').as('postTodo')
+    const title = 'new todo'
+    const completed = false
+    cy.get('.new-todo').type(title + '{enter}')
+    cy.wait('@postTodo')
+      .its('response')
+      .then((response) => {
+        // confirm the status code is 201
+        expect(response).to.have.property('statusCode', 201)
+      })
+      .its('body')
+      .should('deep.include', { title, completed })
+      .its('id')
+      .then(cy.log)
+  })
+
+  it('checks the body object using cy-spok', () => {
+    cy.intercept('POST', '/todos').as('postTodo')
+    const title = 'new todo'
+    const completed = false
+    cy.get('.new-todo').type(title + '{enter}')
+    cy.wait('@postTodo')
+      .its('response')
+      .should(
+        spok({
+          statusCode: 201
+        })
+      )
+      .its('body')
+      .should(
+        spok({
+          title,
+          completed
+        })
+      )
+      .its('id')
+      .then(cy.log)
+  })
+
+  it('checks the response using cy-spok', () => {
+    cy.intercept('POST', '/todos').as('postTodo')
+    const title = 'new todo'
+    const completed = false
+    cy.get('.new-todo').type(title + '{enter}')
+    cy.wait('@postTodo')
+      .its('response')
+      .should(
+        spok({
+          statusCode: 201,
+          body: {
+            title,
+            completed,
+            id: spok.string
+          }
+        })
+      )
+      .its('body.id')
+      .then(cy.log)
   })
 })

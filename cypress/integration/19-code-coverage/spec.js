@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 // only enable the test if you are testing the todomvc-redux application : cd into todomvc-redux, npm start
-describe.skip(`
+describe(`
 this test is meant for the todomvc-redux application which is instrumented, 
 unlike the vue app that is used in the course `, () => {
   beforeEach(() => {
