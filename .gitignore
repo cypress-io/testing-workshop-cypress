@@ -13,3 +13,5 @@ coverage
 npm-debug.log
 todomvc-redux/.cache
 posted.json
+cypress/integration/11-retry-ability/answer.js
+cypress/integration/01-basic/answer.js

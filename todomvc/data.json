@@ -1,9 +1,3 @@
 {
-  "todos": [
-    {
-      "title": "simple",
-      "completed": false,
-      "id": "4182835957"
-    }
-  ]
+  "todos": []
 }
