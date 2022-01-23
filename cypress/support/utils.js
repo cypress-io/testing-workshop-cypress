@@ -8,7 +8,9 @@ export const resetDatabase = () => {
     url: '/reset',
     body: {
       todos: []
-    }
+    },
+    retryOnStatusCodeFailure: true,
+    retryOnNetworkError: true
   })
 }
 
@@ -24,7 +26,9 @@ export const resetDatabaseTo = (fixtureName) => {
       url: '/reset',
       body: {
         todos
-      }
+      },
+      retryOnStatusCodeFailure: true,
+      retryOnNetworkError: true
     })
   })
 }

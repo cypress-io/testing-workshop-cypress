@@ -310,7 +310,7 @@ describe('waits for network idle', () => {
 
 // read the blog post "Visit Non-HTML Page"
 // https://glebbahmutov.com/blog/visit-non-html-page/
-describe.only(
+describe(
   'visit non-html page',
   { viewportWidth: 400, viewportHeight: 100 },
   () => {

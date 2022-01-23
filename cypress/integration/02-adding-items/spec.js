@@ -2,7 +2,9 @@
 
 beforeEach(() => {
   cy.request('POST', '/reset', {
-    todos: []
+    todos: [],
+    retryOnStatusCodeFailure: true,
+    retryOnNetworkError: true
   })
   cy.visit('localhost:3000')
 })
