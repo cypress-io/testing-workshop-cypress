@@ -15,7 +15,7 @@ In order to get the code and install dependencies
 git clone git@github.com:cypress-io/testing-workshop-cypress.git
 cd testing-workshop-cypress
 npm install
-# for internal package registry, specify the public npm registry
+# for internal package registry specify the public npm registry
 npm i --registry https://registry.npmjs.org    
 ```
 
