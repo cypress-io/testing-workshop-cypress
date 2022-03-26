@@ -68,7 +68,7 @@
     "pluralize": "8.0.0",
     "prettier": "2.2.1",
     "reveal.js": "4.1.0",
-    "start-server-and-test": "1.12.1",
+    "start-server-and-test": "1.14.0",
     "tsify": "4.0.1",
     "typescript": "4.3.4",
     "vite": "2.0.4"
