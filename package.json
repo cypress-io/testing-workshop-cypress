@@ -44,7 +44,7 @@
     "@cypress/code-coverage": "1.14.0",
     "babel-plugin-istanbul": "5.2.0",
     "cypress": "7.6.0",
-    "cypress-dark": "1.7.14",
+    "cypress-dark": "1.8.3",
     "cypress-failed-log": "2.9.1",
     "cypress-pipe": "1.7.0",
     "cypress-plugin-snapshots": "1.4.4",
