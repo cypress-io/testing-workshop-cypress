@@ -41,7 +41,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-do-expressions": "7.5.0",
     "@cypress/browserify-preprocessor": "3.0.1",
-    "@cypress/code-coverage": "1.14.0",
+    "@cypress/code-coverage": "3.10.0",
     "babel-plugin-istanbul": "5.2.0",
     "cypress": "7.6.0",
     "cypress-dark": "1.7.14",
